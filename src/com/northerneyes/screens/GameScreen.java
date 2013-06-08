@@ -19,10 +19,8 @@ public class GameScreen implements Screen, InputProcessor {
   //  public static float width = height *Gdx.graphics.getWidth()/Gdx.graphics.getHeight();
 	@Override
 	public void show() {
-
 		world = new World();
 		render = new WorldRenderer(world);
-      //  render.setSize(width, height);
 		controller = new WorldController(world);
 		Gdx.input.setInputProcessor(this);
 	}
@@ -50,7 +48,6 @@ public class GameScreen implements Screen, InputProcessor {
 	
 	@Override
 	public void resize(int width, int height) {
-		render.setSize(width, height);
 		this.width = width;
 		this.height = height;
 	}
@@ -82,7 +79,7 @@ public class GameScreen implements Screen, InputProcessor {
 	@Override
 	public void render(float delta) {
 
-		Gdx.gl.glClearColor(1, 0, 0, 0);
+		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
 		controller.update(delta);

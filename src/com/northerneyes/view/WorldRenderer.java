@@ -11,25 +11,16 @@ import com.northerneyes.model.World;
 
 public class WorldRenderer {
 
-	public static  float CAMERA_HEIGHT = 800f;
-    public static float CAMERA_WIDTH = 480f;
+	public static  float CAMERA_HEIGHT = 15f;
+    public static float CAMERA_WIDTH = 25f;
 
 	private World world;
 	public OrthographicCamera cam;
 	ShapeRenderer renderer = new ShapeRenderer();
-	
-	public float width;
-	public float height;
+
 	public float ppuX;
 	public float ppuY;
-	
-	public void setSize (float w, float h) {
-        this.width = w;
-        this.height = h;
-        ppuX = (float)width / CAMERA_WIDTH;
-        ppuY = (float)height / CAMERA_HEIGHT;
-	}
-	
+
 	public void SetCamera(float x, float y){
 		this.cam.position.set(x, y,0);	
 		this.cam.update();
@@ -37,6 +28,9 @@ public class WorldRenderer {
 	
 	public WorldRenderer(World world) {
 		this.world = world;
+        CAMERA_WIDTH =  CAMERA_HEIGHT* Gdx.graphics.getWidth()/Gdx.graphics.getHeight();
+        ppuX =  (float)Gdx.graphics.getWidth()  / CAMERA_WIDTH;
+        ppuY = (float)Gdx.graphics.getHeight() / CAMERA_HEIGHT;
 		this.cam = new OrthographicCamera(CAMERA_WIDTH, CAMERA_HEIGHT);
 		SetCamera(CAMERA_WIDTH / 2f, CAMERA_HEIGHT / 2f);
 	}
@@ -54,7 +48,7 @@ public class WorldRenderer {
 		float x1 = player.getPosition().x; // + rect.x;
 		float y1 = player.getPosition().y;// + rect.y;
 		renderer.setColor(new Color(Color.WHITE));
-        renderer.filledCircle(x1, y1, 30f);
+        renderer.filledCircle(x1, y1, 0.5f, 30);
         renderer.end();
 //        renderer.begin(ShapeType.Rectangle);
 //		renderer.rect(x1, y1, rect.width, rect.height);
