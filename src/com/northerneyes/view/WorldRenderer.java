@@ -1,17 +1,16 @@
 package com.northerneyes.view;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
-import com.badlogic.gdx.math.Rectangle;
-import com.northerneyes.model.Player;
+import com.northerneyes.model.NotesHolder;
 import com.northerneyes.model.World;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +18,8 @@ public class WorldRenderer {
 
 	public static  float CAMERA_HEIGHT = 15f;
     public static float CAMERA_WIDTH = 25f;
+
+
 
 	private World world;
 	public OrthographicCamera cam;
@@ -32,6 +33,7 @@ public class WorldRenderer {
 
     private PlayerRenderer playerRenderer;
     private Texture atlasTexture;
+    private NotesHolderRenderer notesHolderRenderer;
 
     public void SetCamera(float x, float y){
 		this.cam.position.set(x, y,0);	
@@ -45,31 +47,48 @@ public class WorldRenderer {
         ppuY = (float)Gdx.graphics.getHeight() / CAMERA_HEIGHT;
 		this.cam = new OrthographicCamera(CAMERA_WIDTH, CAMERA_HEIGHT);
 		SetCamera(CAMERA_WIDTH / 2f, CAMERA_HEIGHT / 2f);
-
+        world.setSize(CAMERA_WIDTH, CAMERA_HEIGHT);
+        world.createWorld();
         spriteBatch = new SpriteBatch();
         textureRegions = new HashMap<String, TextureRegion>();
         loadTextures();
-        loadRenderer();
+     //   loadRenderer(regions);
 	}
 
-    private void loadRenderer() {
-        playerRenderer = new PlayerRenderer(textureRegions.get("player"), ppuX, ppuY);
+    private void loadRenderer(TextureRegion[][] regions) {
+        playerRenderer = new PlayerRenderer(regions[4][2], ppuX, ppuY);
+
+        ArrayList<TextureRegion> notes = new ArrayList<TextureRegion>();
+        notes.addAll(Arrays.asList(regions[0]).subList(0, NotesHolder.NOTE_TYPE_COUNT));
+
+        notesHolderRenderer = new NotesHolderRenderer(notes, ppuX, ppuY);
     }
 
     private void loadTextures() {
-        atlasTexture  = new Texture(Gdx.files.internal("images/atlas2.png"));
+        atlasTexture  = new Texture(Gdx.files.internal("images/atlas.png"));
 
         TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);
 
-        textureRegions.put("player", regions[4][2]);
+        loadRenderer(regions);
+        //textureRegions.put("player", regions[4][2]);
+      //  textureRegions.put("note-1", regions[])
     }
 
     public void render() {
 		drawPlayer();
+        drawNotes();
 	}
 
-	private void drawPlayer() {
+    private void drawNotes() {
+        renderer.setProjectionMatrix(cam.combined);
+
+        notesHolderRenderer.update(world.getNotesHolder());
+        notesHolderRenderer.render(spriteBatch);
+    }
+
+    private void drawPlayer() {
 		renderer.setProjectionMatrix(cam.combined);
+
         playerRenderer.update(world.getPlayer());
         playerRenderer.render(spriteBatch);
 	}

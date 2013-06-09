@@ -1,6 +1,7 @@
 package com.northerneyes.CatchTheNotes;
 
 
+import android.util.Log;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 
@@ -20,6 +21,7 @@ public class MainActivity extends AndroidApplication {
 		config.useGL20 = true;
 	
 		initialize(new MyGame(), config);
+        Log.v("Game", "Activity On create");
     }
     
 	 
