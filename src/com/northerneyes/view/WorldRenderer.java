@@ -1,6 +1,8 @@
 package com.northerneyes.view;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -35,6 +37,8 @@ public class WorldRenderer {
     private Texture atlasTexture;
     private NotesHolderRenderer notesHolderRenderer;
 
+    private Music theme;
+
     public void SetCamera(float x, float y){
 		this.cam.position.set(x, y,0);	
 		this.cam.update();
@@ -52,8 +56,14 @@ public class WorldRenderer {
         spriteBatch = new SpriteBatch();
         textureRegions = new HashMap<String, TextureRegion>();
         loadTextures();
+        loadSounds();
      //   loadRenderer(regions);
 	}
+
+    private void loadSounds() {
+
+
+    }
 
     private void loadRenderer(TextureRegion[][] regions) {
         playerRenderer = new PlayerRenderer(regions[4][2], ppuX, ppuY);
@@ -74,8 +84,14 @@ public class WorldRenderer {
       //  textureRegions.put("note-1", regions[])
     }
 
+    private boolean music = false;
     public void render() {
-		drawPlayer();
+//        if(!music)
+//        {
+//
+//        music = true;
+//        }
+        drawPlayer();
         drawNotes();
 	}
 
