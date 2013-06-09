@@ -3,11 +3,17 @@ package com.northerneyes.view;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Rectangle;
 import com.northerneyes.model.Player;
 import com.northerneyes.model.World;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class WorldRenderer {
 
@@ -21,7 +27,13 @@ public class WorldRenderer {
 	public float ppuX;
 	public float ppuY;
 
-	public void SetCamera(float x, float y){
+    private SpriteBatch spriteBatch;
+    public Map<String, TextureRegion> textureRegions;
+
+    private PlayerRenderer playerRenderer;
+    private Texture atlasTexture;
+
+    public void SetCamera(float x, float y){
 		this.cam.position.set(x, y,0);	
 		this.cam.update();
 	}
@@ -33,26 +45,33 @@ public class WorldRenderer {
         ppuY = (float)Gdx.graphics.getHeight() / CAMERA_HEIGHT;
 		this.cam = new OrthographicCamera(CAMERA_WIDTH, CAMERA_HEIGHT);
 		SetCamera(CAMERA_WIDTH / 2f, CAMERA_HEIGHT / 2f);
+
+        spriteBatch = new SpriteBatch();
+        textureRegions = new HashMap<String, TextureRegion>();
+        loadTextures();
+        loadRenderer();
 	}
 
-	public void render() {
-		drawPlayer() ;
+    private void loadRenderer() {
+        playerRenderer = new PlayerRenderer(textureRegions.get("player"), ppuX, ppuY);
+    }
+
+    private void loadTextures() {
+        atlasTexture  = new Texture(Gdx.files.internal("images/atlas2.png"));
+
+        TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);
+
+        textureRegions.put("player", regions[4][2]);
+    }
+
+    public void render() {
+		drawPlayer();
 	}
 
 	private void drawPlayer() {
 		renderer.setProjectionMatrix(cam.combined);
-		Player player = world.getPlayer();
-		renderer.begin(ShapeType.FilledCircle);
-		
-		Rectangle rect = player.getBounds();
-		float x1 = player.getPosition().x; // + rect.x;
-		float y1 = player.getPosition().y;// + rect.y;
-		renderer.setColor(new Color(Color.WHITE));
-        renderer.filledCircle(x1, y1, 0.5f, 30);
-        renderer.end();
-//        renderer.begin(ShapeType.Rectangle);
-//		renderer.rect(x1, y1, rect.width, rect.height);
-//		renderer.end();
+        playerRenderer.update(world.getPlayer());
+        playerRenderer.render(spriteBatch);
 	}
 	
 }
