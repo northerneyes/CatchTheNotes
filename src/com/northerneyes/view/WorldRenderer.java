@@ -38,6 +38,7 @@ public class WorldRenderer {
     private NotesHolderRenderer notesHolderRenderer;
 
     private Music theme;
+    private MediaPlayerRenderer mediaRenderer;
 
     public void SetCamera(float x, float y){
 		this.cam.position.set(x, y,0);	
@@ -79,7 +80,12 @@ public class WorldRenderer {
 
         TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);
 
+
         loadRenderer(regions);
+
+        Texture colors = new Texture(Gdx.files.internal("images/colors-borders.png"));
+
+        mediaRenderer = new MediaPlayerRenderer(new TextureRegion(colors), ppuX, ppuY);
         //textureRegions.put("player", regions[4][2]);
       //  textureRegions.put("note-1", regions[])
     }
@@ -93,6 +99,8 @@ public class WorldRenderer {
 //        }
         drawPlayer();
         drawNotes();
+
+        mediaRenderer.render(spriteBatch);
 	}
 
     private void drawNotes() {

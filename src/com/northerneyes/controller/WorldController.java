@@ -20,21 +20,13 @@ import java.util.Random;
 
 public class WorldController {
 
-   // int NB_BARS = 128;
+
   //  private final Music theme;
    // private final AudioDevice device;
     public Player player;
     public NotesHolder notesHolder;
     public Random random=  new Random();
 
-  //  short[] samples = new short[2048];
-   // KissFFT fft;
-   // float[] spectrum = new float[2048];
-   // float[] maxValues = new float[2048];
-   // float[] topValues = new float[2048];
-
- //   boolean playing = false;
-  //  Mpg123Decoder decoder;
 	public WorldController(World world) {
 		this.player = world.getPlayer();
      //   theme =  Gdx.audio.newMusic(Gdx.files.internal("audio/Leaves_in_the_Wind.mp3"));
@@ -43,6 +35,7 @@ public class WorldController {
         this.notesHolder = world.getNotesHolder();
 
         MediaPlayer.play("audio/Leaves_in_the_Wind.mp3");
+        MediaPlayer.setVisualizationEnabled();
 //        FileHandle externalFile = Gdx.files.external("tmp/test.mp3");
 //        Gdx.files.internal("audio/Leaves_in_the_Wind.mp3").copyTo(externalFile);
 //        decoder = new Mpg123Decoder(externalFile);

@@ -8,4 +8,9 @@ package com.northerneyes.audio;
  * To change this template use File | Settings | File Templates.
  */
 public class VisualizationData {
+    public   float[] Frequences;
+
+    public VisualizationData(int length) {
+        Frequences = new float[length];
+    }
 }
