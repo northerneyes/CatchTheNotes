@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
+import com.northerneyes.audio.MediaPlayer;
 import com.northerneyes.controller.WorldController;
 import com.northerneyes.model.World;
 import com.northerneyes.view.WorldRenderer;
@@ -55,19 +56,23 @@ public class GameScreen implements Screen, InputProcessor {
 	@Override
 	public void hide() {
 		Gdx.input.setInputProcessor(null);
+
 	}
 
 	@Override
 	public void pause() {
+        MediaPlayer.pause();
 	}
 
 	@Override
 	public void resume() {
+        MediaPlayer.resume();
 	}
 
 	@Override
 	public void dispose() {		
 		Gdx.input.setInputProcessor(null);
+        MediaPlayer.Stop();
 	}
 
 
