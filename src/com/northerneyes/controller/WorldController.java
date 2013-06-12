@@ -10,6 +10,7 @@ import com.badlogic.gdx.audio.io.Mpg123Decoder;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.math.MathUtils;
 import com.northerneyes.audio.MediaPlayer;
+import com.northerneyes.audio.VisualizationData;
 import com.northerneyes.model.Constants;
 import com.northerneyes.model.NotesHolder;
 import com.northerneyes.model.Player;
@@ -20,8 +21,9 @@ import java.util.Random;
 
 public class WorldController {
 
-
-  //  private final Music theme;
+    public static final int FREQ_LENGTH = 32;
+    private final VisualizationData data;
+    //  private final Music theme;
    // private final AudioDevice device;
     public Player player;
     public NotesHolder notesHolder;
@@ -36,44 +38,31 @@ public class WorldController {
 
         MediaPlayer.play("audio/Leaves_in_the_Wind.mp3");
         MediaPlayer.setVisualizationEnabled();
-//        FileHandle externalFile = Gdx.files.external("tmp/test.mp3");
-//        Gdx.files.internal("audio/Leaves_in_the_Wind.mp3").copyTo(externalFile);
-//        decoder = new Mpg123Decoder(externalFile);
-//
-//        device = Gdx.audio.newAudioDevice(decoder.getRate(),
-//                decoder.getChannels() == 1 ? true : false);
-//
-//        // fast fourier transform
-//        fft = new KissFFT(2048);
-//        // start a thread for playback
-//        Thread playbackThread = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                int readSamples = 0;
-//
-//// read until we reach the end of the file
-//                while (playing
-//                        && (readSamples = decoder.readSamples(samples, 0,
-//                        samples.length)) > 0) {
-//// get audio spectrum
-//                    fft.spectrum(samples, spectrum);
-//// write the samples to the AudioDevice
-//                    device.writeSamples(samples, 0, readSamples);
-//                }
-//            }
-//        });
-//        playbackThread.setDaemon(true);
-//        playbackThread.start();
-//        playing = true;
+        data = new VisualizationData(FREQ_LENGTH);
 	}
 
 
 
-
+    private int filter = 0;
 	public void update(float delta) {
 		player.update(delta);
         notesHolder.update(delta);
 
+      //  if(filter%5 == 0)
+       // {
+            MediaPlayer.GetVisualizationData(data);
+            for (int i = 0; i < data.Frequences.length; i++) {
+                   if (data.Frequences[i] > Constants.BEAT_REACTION  &&
+                           notesHolder.Accumulator.get(i) > Constants.ACCOMULATOR_REACTION
+                            && notesHolder.particles.size() < 50) //равномерно
+                   {
+                         notesHolder.beat(i, data.Frequences[i]);
+                   }
+
+            }
+           // filter = 0;
+       // }
+       // filter++;
       //  for (int a = 0; a < NB_BARS; a++)
       //  {
           //  scale(avg(histoX, nb))

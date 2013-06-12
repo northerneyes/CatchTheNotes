@@ -176,6 +176,8 @@ public class MediaPlayer {
        normalizateSpectrum();
        float coef = getPower();
        NB_BARS =visualizationData.Frequences.length;
+
+        //freq transform
        for (int i = 0; i < NB_BARS; i++) {
             int histoX = 0;
             if (i < NB_BARS / 2) {
@@ -189,7 +191,11 @@ public class MediaPlayer {
 
             visualizationData.Frequences[i] = avg(histoX, nb);
         }
+
+        //amplitude normal
         normalizate(visualizationData.Frequences, visualizationData.Frequences);
+
+        //power normal
         for (int i = 0; i < visualizationData.Frequences.length; i++) {
             visualizationData.Frequences[i] *= coef;
         }

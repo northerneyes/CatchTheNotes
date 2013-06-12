@@ -14,14 +14,18 @@ import java.util.Random;
  */
 public class Note implements IEntity {
 
+    private final int InitialTTL;
+    private final Vector2 initialVelocity;
     public Vector2 Position;
     public Vector2 Velocity;
     public float Angle;
     public float AngularVelocity;
     public Color Color;
     public float Size;
+    public float InitialSize;
+    public static float MAX_SIZE = 4f;
     public int TTL;
-
+    private float a;
     private float RComponent;
     private  float GComponent;
     private float BComponent;
@@ -34,12 +38,17 @@ public class Note implements IEntity {
     {
         Position = position;
         Velocity = velocity;
+        initialVelocity = velocity;
         Angle = angle;
         AngularVelocity = angularVelocity;
         Type = type;
         Size = size;
+        InitialSize = size;
         TTL = ttl;
+        InitialTTL = ttl;
         ViewType = viewType;
+
+        a = 2*velocity.y/(float)(InitialTTL);
         SetType(type);  //Установка цвета под определённый тип
     }
 
@@ -64,9 +73,11 @@ public class Note implements IEntity {
 
         if(Type != -1)
         {
-            Velocity = new Vector2(Velocity.x, Velocity.y - 0.005f);
-            Size = (1 + Velocity.y)*1.33f;
-            if (Size > 2f) Size = 2f;
+            Velocity = new Vector2(Velocity.x, initialVelocity.y - a*(InitialTTL - TTL)); // - 2*initialVelocity.y/InitialTTL
+           // Velocity = new Vector2(Velocity.x, Velocity.y - 0.002f);
+            Size = InitialSize - (InitialSize/InitialTTL)*(InitialTTL - TTL);
+          //  Size = (1 + Velocity.y)*1.33f;
+          //  if (Size > 2f) Size = 2f;
         }
 
         if(Type == 0)

@@ -42,24 +42,25 @@ public class NotesHolder implements IEntity {
         }
     }
 
-    private Note GenerateNewParticle(float Wave)
+    private Note GenerateNewParticle(float wave, float amp)
     {
+        amp = 0.5f;
+        int ttl = 240; // Время жизни в 400 (400 актов рисования живет частица, т.е. 400 / 60 — 6 с лишним секунд.
+        int type = 0; //— изначальный тип 0
         int viewType = random.nextInt(NOTE_TYPE_COUNT);
 
-        Vector2 position = new Vector2(Wave, 0); // Задаем позицию
+        Vector2 position = new Vector2(wave, 0); // Задаем позицию
+
+        float size = amp*Note.MAX_SIZE; // (0.5f + random.nextFloat()*2f); // размер
+
+        ttl = findRealTTL(size, ttl);
 
         //change on type game
-        Vector2 velocity = new Vector2((random.nextFloat() - 0.5f)*0.025f, (random.nextFloat() * 10f)*0.05f); // Случайное ускорение, 0.5f для X и 1f для Y
+        Vector2 velocity = new Vector2((random.nextFloat() - 0.5f)*0.001f, 4*amp*(15/(float)ttl)); // Случайное ускорение, 0.5f для X и 1f для Y  (amp * 10f)*0.04f
 
         float angle = 0; // Угол поворота = 0
 
         float angularVelocity = (float) (0.05f * (random.nextFloat() * 2 - 1)*180/Math.PI); // Случайная скорость вращения
-
-        float size = (0.5f + random.nextFloat()*2f); // Случайный размер
-
-        int ttl = 400; // Время жизни в 400 (400 актов рисования живет частица, т.е. 400 / 60 — 6 с лишним секунд.
-
-        int type = 0; //— изначальный тип 0
 
         // Вероятность появления
         if (random.nextInt(10000) > 9900) // враг
@@ -72,6 +73,17 @@ public class NotesHolder implements IEntity {
             type = 4;
 
         return new Note(position, velocity, angle, angularVelocity, type, size, ttl, viewType); // Создаем частичку и возвращаем её
+    }
+
+    private int findRealTTL(float InitialSize, int initialTTL)
+    {
+        for(int TTL = 0; TTL < initialTTL; TTL++)
+        {
+            float size = InitialSize - (Note.MAX_SIZE/(float)initialTTL)*TTL;
+            if(size < 0)
+                return TTL;
+        }
+        return initialTTL;
     }
 
     public void GenerateYellowExplossion(int x, int y, int radius)
@@ -99,9 +111,9 @@ public class NotesHolder implements IEntity {
     }
 
 
-    public void beat(float wave)
+    public void beat(float wave, float amp)
     {
-        particles.add(GenerateNewParticle(wave));
+        particles.add(GenerateNewParticle(wave, amp));
     }
 
     @Override

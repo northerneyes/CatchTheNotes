@@ -22,13 +22,14 @@ public class NotesHolderRenderer implements IRenderer {
     private float ppuX;
     private float ppuY;
 
+
     private NoteRenderer noteRenderer;
-    public NotesHolderRenderer(ArrayList<TextureRegion> notes, float ppuX, float ppuY) {
+    public NotesHolderRenderer(ArrayList<TextureRegion> notes, float ppuX, float ppuY, float CAMERA_WIDTH, int freqLength) {
         this.notesTexture = notes;
         this.ppuX = ppuX;
         this.ppuY = ppuY;
 
-        noteRenderer = new NoteRenderer(notes.get(0), ppuX, ppuY);
+        noteRenderer = new NoteRenderer(notes.get(0), ppuX, ppuY, CAMERA_WIDTH, freqLength);
     }
 
     @Override
@@ -40,7 +41,7 @@ public class NotesHolderRenderer implements IRenderer {
     public void render(SpriteBatch spriteBatch) {
         for (int index = 0; index < notesHolder.particles.size(); index++)
         {
-           Note particle = notesHolder.particles.get(index);
+            Note particle = notesHolder.particles.get(index);
             noteRenderer.setTexture(notesTexture.get(particle.ViewType));
             noteRenderer.update(particle);
             noteRenderer.render(spriteBatch);

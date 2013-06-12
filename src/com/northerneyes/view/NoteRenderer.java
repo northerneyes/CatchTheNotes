@@ -17,16 +17,19 @@ import com.northerneyes.model.Player;
  */
 public class NoteRenderer implements IRenderer {
 
+    private final float coef;
     private Note note;
 
     TextureRegion texture;
     private float ppuX;
     private float ppuY;
 
-    public NoteRenderer(TextureRegion texture, float ppuX, float ppuY) {
+    public NoteRenderer(TextureRegion texture, float ppuX, float ppuY, float cameraWidth, int freqLength) {
         this.texture = texture;
-        this.ppuX = ppuX;
         this.ppuY = ppuY;
+        this.ppuX = ppuX;
+        this.coef = ppuX*(cameraWidth/freqLength);
+
     }
 
     public void setTexture(TextureRegion texture)
@@ -44,7 +47,7 @@ public class NoteRenderer implements IRenderer {
         spriteBatch.begin();
         spriteBatch.setColor(note.Color);
         Vector2 origin = new Vector2(texture.getRegionWidth()/ 2, texture.getRegionHeight()/ 2);
-        spriteBatch.draw(texture, note.Position.x*ppuX, note.Position.y*ppuY,
+        spriteBatch.draw(texture, note.Position.x*coef, note.Position.y*ppuY,
                 origin.x, origin.y,
                 note.Size*ppuX, note.Size*ppuY, 1f, 1f, note.Angle);
         spriteBatch.end();
