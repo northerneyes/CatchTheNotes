@@ -31,7 +31,7 @@ public class MediaPlayerRenderer implements IRenderer{
         this.ppuX = ppuX;
         this.ppuY = ppuY;
 
-        data = new VisualizationData(128);
+        data = new VisualizationData(16);
 
     }
 

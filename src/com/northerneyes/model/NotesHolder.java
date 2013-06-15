@@ -1,6 +1,7 @@
 package com.northerneyes.model;
 
-import com.badlogic.gdx.graphics.Color;
+import android.util.Log;
+
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 
@@ -42,21 +43,23 @@ public class NotesHolder implements IEntity {
         }
     }
 
-    private Note GenerateNewParticle(float wave, float amp)
+    private Note GenerateNewParticle(float wave, float posY,  float amp)
     {
-        amp = 0.5f;
+       // amp = 1f;
+        if(amp > 1)
+            Log.v("Note", "MAx");
         int ttl = 240; // Время жизни в 400 (400 актов рисования живет частица, т.е. 400 / 60 — 6 с лишним секунд.
         int type = 0; //— изначальный тип 0
         int viewType = random.nextInt(NOTE_TYPE_COUNT);
 
-        Vector2 position = new Vector2(wave, 0); // Задаем позицию
+        Vector2 position = new Vector2(wave, posY); // Задаем позицию
 
-        float size = amp*Note.MAX_SIZE; // (0.5f + random.nextFloat()*2f); // размер
+        float size = 1+ (amp - 0.3f)*(Note.MAX_SIZE-1)/0.7f; // (0.5f + random.nextFloat()*2f); // размер
 
         ttl = findRealTTL(size, ttl);
 
         //change on type game
-        Vector2 velocity = new Vector2((random.nextFloat() - 0.5f)*0.001f, 4*amp*(15/(float)ttl)); // Случайное ускорение, 0.5f для X и 1f для Y  (amp * 10f)*0.04f
+        Vector2 velocity = new Vector2((random.nextFloat() - 0.5f)*0.001f, 3.4f*amp*(15/(float)ttl)); // Случайное ускорение, 0.5f для X и 1f для Y  (amp * 10f)*0.04f
 
         float angle = 0; // Угол поворота = 0
 
@@ -72,7 +75,7 @@ public class NotesHolder implements IEntity {
         else if (random.nextInt(10000) > 9995) // мигающий
             type = 4;
 
-        return new Note(position, velocity, angle, angularVelocity, type, size, ttl, viewType); // Создаем частичку и возвращаем её
+        return new Note(position, velocity, angle, angularVelocity, type, size, ttl, viewType, amp); // Создаем частичку и возвращаем её
     }
 
     private int findRealTTL(float InitialSize, int initialTTL)
@@ -107,13 +110,13 @@ public class NotesHolder implements IEntity {
         int ttl = 400;
 
         int type = 3;
-        particles.add(new Note(position, velocity, 0, angularVelocity, type, size, ttl, viewType));
+        particles.add(new Note(position, velocity, 0, angularVelocity, type, size, ttl, viewType, 0.5f));
     }
 
 
-    public void beat(float wave, float amp)
+    public void beat(float wave, float posY, float amp)
     {
-        particles.add(GenerateNewParticle(wave, amp));
+        particles.add(GenerateNewParticle(wave, posY, amp));
     }
 
     @Override

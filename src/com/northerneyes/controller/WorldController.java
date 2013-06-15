@@ -1,14 +1,5 @@
 package com.northerneyes.controller;
 
-import android.util.Log;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.AudioDevice;
-import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.audio.analysis.KissFFT;
-import com.badlogic.gdx.audio.io.Mpg123Decoder;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.math.MathUtils;
 import com.northerneyes.audio.MediaPlayer;
 import com.northerneyes.audio.VisualizationData;
 import com.northerneyes.model.Constants;
@@ -16,77 +7,85 @@ import com.northerneyes.model.NotesHolder;
 import com.northerneyes.model.Player;
 import com.northerneyes.model.World;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.HashMap;
 
 
 public class WorldController {
 
-    public static final int FREQ_LENGTH = 32;
+    private static final int FREQ_LENGTH = 256;
+    public static final int SOURCE_COUNT = 16;
     private final VisualizationData data;
-    //  private final Music theme;
-   // private final AudioDevice device;
+    private final float coefX;
     public Player player;
     public NotesHolder notesHolder;
-    public Random random=  new Random();
+    private float[] oldVolume = new float[FREQ_LENGTH];
+    private HashMap<Integer, Float> volumePoints = new HashMap<Integer, Float>();
+    private int bandWidth = 16;
+    private int frameCount = 0;
+    private boolean cheatLotsOfShapes = false;
+    private int maxShapesOnBoard = 50;
 
-	public WorldController(World world) {
+    private float halfWidth = SOURCE_COUNT/2f;
+
+    public WorldController(World world) {
 		this.player = world.getPlayer();
-     //   theme =  Gdx.audio.newMusic(Gdx.files.internal("audio/Leaves_in_the_Wind.mp3"));
-      //  theme.setVolume(1f);
-        //theme.play();
         this.notesHolder = world.getNotesHolder();
 
+        coefX = bandWidth*halfWidth/FREQ_LENGTH;
         MediaPlayer.play("audio/Leaves_in_the_Wind.mp3");
+        //MediaPlayer.stop();
         MediaPlayer.setVisualizationEnabled();
         data = new VisualizationData(FREQ_LENGTH);
 	}
 
-
-
-    private int filter = 0;
 	public void update(float delta) {
 		player.update(delta);
         notesHolder.update(delta);
-
-      //  if(filter%5 == 0)
-       // {
-            MediaPlayer.GetVisualizationData(data);
-            for (int i = 0; i < data.Frequences.length; i++) {
-                   if (data.Frequences[i] > Constants.BEAT_REACTION  &&
-                           notesHolder.Accumulator.get(i) > Constants.ACCOMULATOR_REACTION
-                            && notesHolder.particles.size() < 50) //равномерно
-                   {
-                         notesHolder.beat(i, data.Frequences[i]);
-                   }
-
-            }
-           // filter = 0;
-       // }
-       // filter++;
-      //  for (int a = 0; a < NB_BARS; a++)
-      //  {
-          //  scale(avg(histoX, nb))
-            //int histoX = a;
-//            if (a < NB_BARS / 2) {
-//                histoX = NB_BARS / 2 - a;
-//            } else {
-//                histoX = a - NB_BARS / 2;
-//            }
-
-           // int nb = samples.length / NB_BARS;
-
-          // float freq = scale(avg(a, nb));
-          //  Log.v("Game Freq", String.valueOf(avg(x, nb)));
-          //   if (freq > Constants.BEAT_REACTION  && notesHolder.Accumulator.get(a) > Constants.ACCOMULATOR_REACTION)
-         //   {
-           //         notesHolder.beat(a/5.12f);
-         //   }
-       // }
+        frameCount++;
+        processMusic();
+        if(frameCount % 3 == 0)
+        {
+            addRainDrops();
+        }
 
     }
 
-//    private float scale(float x) {
-//        return x / 256 * HEIGHT * 2.0f;
-//    }
+    private void addRainDrops() {
+
+        for (Integer key : volumePoints.keySet() )
+        {
+            float volume = volumePoints.get(key);
+            if (cheatLotsOfShapes || notesHolder.particles.size() < maxShapesOnBoard * 2 || volume > 0.9)
+            {
+                notesHolder.beat((1f + key / (float) FREQ_LENGTH) * halfWidth + (float) (Math.random() * coefX), 0, volume);
+                notesHolder.beat((1f - key / (float)FREQ_LENGTH) * halfWidth + (float)(Math.random() * coefX), 0, volume);
+            }
+        }
+        volumePoints.clear();
+    }
+
+    public void processMusic()
+    {
+        MediaPlayer.GetVisualizationData(data);
+        float volume;
+        int k = 0;
+        for (int i = 0; i < FREQ_LENGTH; i = i+ bandWidth)
+        {
+            volume = data.Frequences[k];
+            if (volume > 0.1)
+            {
+                volume = volume + 0.5f * Math.max(0, 0.5f - volume);
+            }
+            volume = volume + 0.1f;
+            if (volume > 0.3 && (oldVolume[i] == 0 || volume > 3 * oldVolume[i]))
+            {
+                volumePoints.put(i, volume);
+            }
+            oldVolume[i] = volume;
+            k++;
+        }
+    }
 
 }

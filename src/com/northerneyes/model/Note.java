@@ -32,9 +32,10 @@ public class Note implements IEntity {
 
     public int Type;
     public int ViewType; //image
+    private float amp;
     private Random random;
 
-    public Note(Vector2 position, Vector2 velocity, float angle, float angularVelocity, int type, float size, int ttl, int viewType)
+    public Note(Vector2 position, Vector2 velocity, float angle, float angularVelocity, int type, float size, int ttl, int viewType, float amp)
     {
         Position = position;
         Velocity = velocity;
@@ -47,6 +48,7 @@ public class Note implements IEntity {
         TTL = ttl;
         InitialTTL = ttl;
         ViewType = viewType;
+        this.amp = amp;
 
         a = 2*velocity.y/(float)(InitialTTL);
         SetType(type);  //Установка цвета под определённый тип
@@ -105,7 +107,7 @@ public class Note implements IEntity {
 
         switch(type)
         {
-            case 0: startColor = new Color(0f, 1f, 0f, 1); break; // Обычная
+            case 0: startColor = new Color(0f, 0.85f, 0.3f + 0.4f*amp, 1); break; // Обычная
             case 1: startColor = new Color(1f, 0f, 0f, 1); break; // Красная
             case 2: startColor = new Color(1f, 0f, 1f, 1); break; // Пурпурная
             case 3: startColor = new Color(1f, 1f, 0f, 1); break; // Желтая

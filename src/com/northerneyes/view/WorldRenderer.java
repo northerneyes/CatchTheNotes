@@ -73,7 +73,7 @@ public class WorldRenderer {
         ArrayList<TextureRegion> notes = new ArrayList<TextureRegion>();
         notes.addAll(Arrays.asList(regions[0]).subList(0, NotesHolder.NOTE_TYPE_COUNT));
 
-        notesHolderRenderer = new NotesHolderRenderer(notes, ppuX, ppuY, CAMERA_WIDTH, WorldController.FREQ_LENGTH);
+        notesHolderRenderer = new NotesHolderRenderer(notes, ppuX, ppuY, CAMERA_WIDTH, WorldController.SOURCE_COUNT);
     }
 
     private void loadTextures() {
@@ -100,7 +100,7 @@ public class WorldRenderer {
         drawPlayer();
         drawNotes();
 
-        //mediaRenderer.render(spriteBatch);
+      //  mediaRenderer.render(spriteBatch);
 	}
 
     private void drawNotes() {

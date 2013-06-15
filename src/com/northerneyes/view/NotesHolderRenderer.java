@@ -24,12 +24,12 @@ public class NotesHolderRenderer implements IRenderer {
 
 
     private NoteRenderer noteRenderer;
-    public NotesHolderRenderer(ArrayList<TextureRegion> notes, float ppuX, float ppuY, float CAMERA_WIDTH, int freqLength) {
+    public NotesHolderRenderer(ArrayList<TextureRegion> notes, float ppuX, float ppuY, float CAMERA_WIDTH, int sourceCount) {
         this.notesTexture = notes;
         this.ppuX = ppuX;
         this.ppuY = ppuY;
 
-        noteRenderer = new NoteRenderer(notes.get(0), ppuX, ppuY, CAMERA_WIDTH, freqLength);
+        noteRenderer = new NoteRenderer(notes.get(0), ppuX, ppuY, CAMERA_WIDTH, sourceCount);
     }
 
     @Override

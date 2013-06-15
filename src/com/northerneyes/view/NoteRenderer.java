@@ -24,11 +24,11 @@ public class NoteRenderer implements IRenderer {
     private float ppuX;
     private float ppuY;
 
-    public NoteRenderer(TextureRegion texture, float ppuX, float ppuY, float cameraWidth, int freqLength) {
+    public NoteRenderer(TextureRegion texture, float ppuX, float ppuY, float cameraWidth, int sourceCount) {
         this.texture = texture;
         this.ppuY = ppuY;
         this.ppuX = ppuX;
-        this.coef = ppuX*(cameraWidth/freqLength);
+        this.coef = ppuX*(cameraWidth/sourceCount);
 
     }
 

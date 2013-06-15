@@ -5,10 +5,6 @@ import com.badlogic.gdx.audio.AudioDevice;
 import com.badlogic.gdx.audio.analysis.KissFFT;
 import com.badlogic.gdx.audio.io.Mpg123Decoder;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.math.MathUtils;
-
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,6 +16,7 @@ import java.util.Collections;
 public class MediaPlayer {
 
     private static boolean isVisualizationEnabled = false;
+    private static int FREQ_COUNT = 512;
     private static float volume = 1f;
    private static int NB_BARS = 31;
 
@@ -31,12 +28,12 @@ public class MediaPlayer {
     }
     private static AudioDevice device;
 
-    private static short[] samples = new short[2048];
+    private static short[] samples = new short[FREQ_COUNT];
     private static KissFFT fft;
-    private static float[] spectrum = new float[2048];
-    private static float[] normalSpectrum = new float[2048];
-    private static float[] maxValues = new float[2048];
-    private static float[] topValues = new float[2048];
+    private static float[] spectrum = new float[FREQ_COUNT];
+    private static float[] normalSpectrum = new float[FREQ_COUNT];
+   // private static float[] maxValues = new float[512];
+  //  private static float[] topValues = new float[512];
 
     private static MediaPlayerState state = MediaPlayerState.STOPPED;
     private static Mpg123Decoder decoder;
@@ -64,7 +61,7 @@ public class MediaPlayer {
     private static void play()
     {
         if(isVisualizationEnabled)
-            fft = new KissFFT(2048);
+            fft = new KissFFT(FREQ_COUNT);
         // start a thread for playback
         Thread playbackThread = new Thread(new Runnable() {
             @Override
@@ -105,7 +102,7 @@ public class MediaPlayer {
 
 
 
-    public static void Stop()
+    public static void stop()
     {
         if(state == MediaPlayerState.PLAYING || state == MediaPlayerState.PAUSED)
         {
@@ -114,7 +111,7 @@ public class MediaPlayer {
     }
 
     public static void Dispose() {
-      Stop();
+      stop();
       Gdx.files.external("tmp/test.mp3").delete();
     }
 
@@ -132,7 +129,7 @@ public class MediaPlayer {
     public static void setVisualizationEnabled()
     {
         if(state == MediaPlayerState.PLAYING || state == MediaPlayerState.PAUSED)
-            fft = new KissFFT(2048);
+            fft = new KissFFT(FREQ_COUNT);
         isVisualizationEnabled = true;
     }
 
@@ -175,30 +172,48 @@ public class MediaPlayer {
     {
        normalizateSpectrum();
        float coef = getPower();
-       NB_BARS =visualizationData.Frequences.length;
+       NB_BARS = visualizationData.Frequences.length;
 
-        //freq transform
-       for (int i = 0; i < NB_BARS; i++) {
-            int histoX = 0;
-            if (i < NB_BARS / 2) {
-                histoX = NB_BARS / 2 - i;
-            } else {
-                histoX = i - NB_BARS / 2;
+//        //freq transform
+//       for (int i = 0; i < NB_BARS; i++) {
+//            int histoX = 0;
+//            if (i < NB_BARS / 2) {
+//                histoX = NB_BARS / 2 - i;
+//            } else {
+//                histoX = i - NB_BARS / 2;
+//            }
+//
+//            int nb = (samples.length / NB_BARS) / 2;
+//           // scale(avg(histoX, nb))
+//
+//            visualizationData.Frequences[i] = avg(histoX, nb);
+//        }
+//            for(int i = 0; i < NB_BARS; i++)
+//            {
+//                int nb = (samples.length / NB_BARS) / 2;
+//
+//                visualizationData.Frequences[i] =  avg(i, nb);
+//            }
+
+                    for(int i = 0; i < NB_BARS; i++)
+            {
+               // int nb = (samples.length / NB_BARS) / 2;
+
+                visualizationData.Frequences[i] =  normalSpectrum[i];
             }
 
-            int nb = (samples.length / NB_BARS) / 2;
-           // scale(avg(histoX, nb))
-
-            visualizationData.Frequences[i] = avg(histoX, nb);
-        }
-
         //amplitude normal
-        normalizate(visualizationData.Frequences, visualizationData.Frequences);
+      //  normalizate(visualizationData.Frequences, visualizationData.Frequences);
 
+//        for(int i = 0; i < NB_BARS; i++)
+//        {
+//            visualizationData.Frequences[i] *= 2;
+//            visualizationData.Frequences[i] -= 1;
+//        }
         //power normal
-        for (int i = 0; i < visualizationData.Frequences.length; i++) {
-            visualizationData.Frequences[i] *= coef;
-        }
+//        for (int i = 0; i < visualizationData.Frequences.length; i++) {
+//            visualizationData.Frequences[i] *= coef;
+//        }
     }
 
     private static float getPower() {
