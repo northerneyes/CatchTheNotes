@@ -57,7 +57,7 @@ public class WorldController {
         for (Integer key : volumePoints.keySet() )
         {
             float volume = volumePoints.get(key);
-            if (cheatLotsOfShapes || notesHolder.particles.size() < maxShapesOnBoard * 2 || volume > 0.9)
+            if (cheatLotsOfShapes || notesHolder.particles.size() < maxShapesOnBoard  || volume > 0.9)
             {
                 notesHolder.beat((1f + key / (float) FREQ_LENGTH) * halfWidth + (float) (Math.random() * coefX), 0, volume);
                 notesHolder.beat((1f - key / (float)FREQ_LENGTH) * halfWidth + (float)(Math.random() * coefX), 0, volume);

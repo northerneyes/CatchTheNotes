@@ -60,23 +60,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java" line="73" class="com.northerneyes.controller.WorldController" package="com.northerneyes.controller">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -122,10 +106,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WorldController.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="WorldController.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="35" selection-start="2370" selection-end="2370" vertical-scroll-proportion="0.0" vertical-offset="1140" max-vertical-offset="1848">
+            <state line="60" column="13" selection-start="1827" selection-end="1827" vertical-scroll-proportion="0.39297125" vertical-offset="825" max-vertical-offset="1848">
               <folding>
                 <element signature="e#750#766#0" expanded="true" />
               </folding>
@@ -169,10 +153,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MediaPlayer.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MediaPlayer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/audio/MediaPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="62" selection-start="5437" selection-end="5437" vertical-scroll-proportion="0.6118211" vertical-offset="3691" max-vertical-offset="5565">
+            <state line="207" column="0" selection-start="5573" selection-end="5741" vertical-scroll-proportion="0.0" vertical-offset="3817" max-vertical-offset="5565">
               <folding />
             </state>
           </provider>
@@ -202,8 +186,8 @@
         <option value="$PROJECT_DIR$/src/com/northerneyes/view/WorldRenderer.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/model/NotesHolder.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/model/Note.java" />
-        <option value="$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/audio/MediaPlayer.java" />
+        <option value="$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java" />
       </list>
     </option>
   </component>
@@ -659,7 +643,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -678,7 +662,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14407684" sideWeight="0.6943557" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3056443" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3056443" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -856,19 +840,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java">
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/audio/MediaPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="35" selection-start="2370" selection-end="2370" vertical-scroll-proportion="0.0" vertical-offset="1140" max-vertical-offset="1848">
-          <folding>
-            <element signature="e#750#766#0" expanded="true" />
-          </folding>
+        <state line="207" column="0" selection-start="5573" selection-end="5741" vertical-scroll-proportion="0.0" vertical-offset="3817" max-vertical-offset="5565">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/audio/MediaPlayer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="62" selection-start="5437" selection-end="5437" vertical-scroll-proportion="0.6118211" vertical-offset="3691" max-vertical-offset="5565">
-          <folding />
+        <state line="60" column="13" selection-start="1827" selection-end="1827" vertical-scroll-proportion="0.39297125" vertical-offset="825" max-vertical-offset="1848">
+          <folding>
+            <element signature="e#750#766#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
