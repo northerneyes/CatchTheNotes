@@ -31,7 +31,7 @@ public class PlayerRenderer implements IRenderer {
         this.texture = texture;
         this.ppuX = ppuX;
         this.ppuY = ppuY;
-        this.coef = ppuX*(CAMERA_WIDTH/ WorldController.SOURCE_COUNT);
+        this.coef = ppuX*(CAMERA_WIDTH / WorldController.SOURCE_COUNT);
     }
 
     @Override
@@ -39,8 +39,8 @@ public class PlayerRenderer implements IRenderer {
         spriteBatch.begin();
         spriteBatch.setColor(Color.YELLOW);
 
-        spriteBatch.draw(texture, player.Position.x*coef,
-                player.Position.y*ppuY, player.Size*ppuX, player.Size*ppuY);
+        spriteBatch.draw(texture, (player.Position.x - player.Size/2)*coef,
+                (player.Position.y - player.Size/2)*ppuY, player.Size*ppuX, player.Size*ppuY);
         spriteBatch.end();
     }
 }

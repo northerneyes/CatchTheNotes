@@ -60,7 +60,7 @@ public class WorldController {
                     notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1f, 200, 2, 1));
                     notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
                     notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 2, 1));
-                    notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.SUCTION, 1f, 200, 2, 1));
+                    notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 2, 1));
                     notesHolder.particles.add(new Note(new Vector2(12, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, 1f, 200, 2, 1));
                 }
         }
@@ -203,8 +203,8 @@ public class WorldController {
             return Math.abs(playerPos.x - notePos.x) - 0.8f*playerSize <= 0 &&
                     Math.abs(playerPos.y - notePos.y) - 0.8 * playerSize <= 0;
         else if(type != NoteType.COLLECTED)
-            return Math.abs(playerPos.x - notePos.x) - playerSize - noteSize <= 0 &&
-                    Math.abs(playerPos.y - notePos.y) - playerSize - noteSize <= 0;
+            return Math.abs(playerPos.x - notePos.x) - 0.4f*(playerSize + noteSize) <= 0 &&
+                    Math.abs(playerPos.y - notePos.y) - 0.4f*(playerSize + noteSize) <= 0;
         else
             return false;
 

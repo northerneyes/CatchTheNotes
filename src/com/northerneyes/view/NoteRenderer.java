@@ -47,7 +47,7 @@ public class NoteRenderer implements IRenderer {
         spriteBatch.begin();
         spriteBatch.setColor(note.Color);
         Vector2 origin = new Vector2(texture.getRegionWidth()/ 2, texture.getRegionHeight()/ 2);
-        spriteBatch.draw(texture, note.Position.x*coef, note.Position.y*ppuY,
+        spriteBatch.draw(texture, (note.Position.x - note.Size/2)*coef, (note.Position.y- note.Size/2)*ppuY,
                 origin.x, origin.y,
                 note.Size*ppuX, note.Size*ppuY, 1f, 1f, note.Angle);
         spriteBatch.end();

@@ -96,7 +96,7 @@ public class GameScreen implements Screen, InputProcessor {
 	}
 	
 	private void ChangeNavigation(int x, int y){
-        controller.player.Position.set(x/render.ppuX, (height-y)/render.ppuY);
+        controller.player.Position.set(WorldController.SOURCE_COUNT*x/(render.ppuX * WorldRenderer.CAMERA_WIDTH), (height-y)/render.ppuY);
 	}
 	
 	@Override
