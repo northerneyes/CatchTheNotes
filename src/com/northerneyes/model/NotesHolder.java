@@ -49,7 +49,7 @@ public class NotesHolder implements IEntity {
         if(amp > 1)
             Log.v("Note", "MAx");
         int ttl = 240; // Время жизни в 400 (400 актов рисования живет частица, т.е. 400 / 60 — 6 с лишним секунд.
-        int type = 0; //— изначальный тип 0
+        Note.NoteType type = Note.NoteType.NORMAL; //— изначальный тип 0
         int viewType = random.nextInt(NOTE_TYPE_COUNT);
 
         Vector2 position = new Vector2(wave, posY); // Задаем позицию
@@ -66,14 +66,15 @@ public class NotesHolder implements IEntity {
         float angularVelocity = (float) (0.05f * (random.nextFloat() * 2 - 1)*180/Math.PI); // Случайная скорость вращения
 
         // Вероятность появления
-        if (random.nextInt(10000) > 9900) // враг
-            type = 1;
-        else if (random.nextInt(10000) > 9900) // желтый
-            type = 3;
-        else if (random.nextInt(10000) > 9990) // пурпурный
-            type = 2;
-        else if (random.nextInt(10000) > 9995) // мигающий
-            type = 4;
+        int selector = (int) (Math.random() * 1200);
+        if (selector < 20) // враг
+            type = Note.NoteType.POWER_DOWN;
+        else if (selector < 40) // желтый
+            type = Note.NoteType.POWER_UP;
+        else if (selector < 42) // пурпурный
+            type = Note.NoteType.SUCTION;
+        else if (selector == 42) // мигающий
+            type = Note.NoteType.YELLOW_MADDNESS;
 
         return new Note(position, velocity, angle, angularVelocity, type, size, ttl, viewType, amp); // Создаем частичку и возвращаем её
     }
@@ -89,29 +90,29 @@ public class NotesHolder implements IEntity {
         return initialTTL;
     }
 
-    public void GenerateYellowExplossion(int x, int y, int radius)
-    {
-        int viewType = random.nextInt(NOTE_TYPE_COUNT);
-
-        Vector2 direction = Vector2.Zero;
-        float angle = (float)Math.PI * 2.0f * random.nextFloat(); //rad
-      //  float length = radius;
-
-        direction.x = MathUtils.cos(angle);
-        direction.y = -MathUtils.sin(angle);
-
-        Vector2 position = (new Vector2(x, y)).add(direction.mul(radius));
-
-        Vector2 velocity = direction.mul(0.1f);
-
-        float angularVelocity =  (float) (0.05f * (random.nextFloat() * 2 - 1)*180/Math.PI);
-
-        float size = random.nextFloat() * .8f + .2f;
-        int ttl = 400;
-
-        int type = 3;
-        particles.add(new Note(position, velocity, 0, angularVelocity, type, size, ttl, viewType, 0.5f));
-    }
+//    public void GenerateYellowExplossion(int x, int y, int radius)
+//    {
+//        int viewType = random.nextInt(NOTE_TYPE_COUNT);
+//
+//        Vector2 direction = Vector2.Zero;
+//        float angle = (float)Math.PI * 2.0f * random.nextFloat(); //rad
+//      //  float length = radius;
+//
+//        direction.x = MathUtils.cos(angle);
+//        direction.y = -MathUtils.sin(angle);
+//
+//        Vector2 position = (new Vector2(x, y)).add(direction.mul(radius));
+//
+//        Vector2 velocity = direction.mul(0.1f);
+//
+//        float angularVelocity =  (float) (0.05f * (random.nextFloat() * 2 - 1)*180/Math.PI);
+//
+//        float size = random.nextFloat() * .8f + .2f;
+//        int ttl = 400;
+//
+//        int type = 3;
+//        particles.add(new Note(position, velocity, 0, angularVelocity, type, size, ttl, viewType, 0.5f));
+//    }
 
 
     public void beat(float wave, float posY, float amp)
@@ -139,5 +140,9 @@ public class NotesHolder implements IEntity {
         for (int a = 0; a < 128; a++)
             if (Accumulator.get(a) < 1.0f)
                 Accumulator.set(a, Accumulator.get(a) + Constants.ACCUMULATE_SPEED );
+    }
+
+    public void removeNote(Note note) {
+        particles.remove(note);
     }
 }

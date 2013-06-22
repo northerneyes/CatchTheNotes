@@ -168,7 +168,7 @@ public class MediaPlayer {
 
 
     //processing
-    public static void GetVisualizationData(VisualizationData visualizationData)
+    public static void  GetVisualizationData(VisualizationData visualizationData)
     {
        normalizateSpectrum();
        float coef = getPower();

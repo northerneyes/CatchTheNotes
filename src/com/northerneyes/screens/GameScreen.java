@@ -96,7 +96,7 @@ public class GameScreen implements Screen, InputProcessor {
 	}
 	
 	private void ChangeNavigation(int x, int y){
-        controller.player.setPosition(x/render.ppuX, (height-y)/render.ppuY);
+        controller.player.Position.set(x/render.ppuX, (height-y)/render.ppuY);
 	}
 	
 	@Override

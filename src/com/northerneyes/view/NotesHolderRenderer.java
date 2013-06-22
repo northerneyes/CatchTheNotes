@@ -39,12 +39,14 @@ public class NotesHolderRenderer implements IRenderer {
 
     @Override
     public void render(SpriteBatch spriteBatch) {
-        for (int index = 0; index < notesHolder.particles.size(); index++)
-        {
-            Note particle = notesHolder.particles.get(index);
-            noteRenderer.setTexture(notesTexture.get(particle.ViewType));
-            noteRenderer.update(particle);
-            noteRenderer.render(spriteBatch);
-        }
+
+            for (int index = 0; index < notesHolder.particles.size(); index++)
+            {
+                Note particle = notesHolder.particles.get(index);
+                noteRenderer.setTexture(notesTexture.get(particle.ViewType));
+                noteRenderer.update(particle);
+                noteRenderer.render(spriteBatch);
+            }
+
     }
 }

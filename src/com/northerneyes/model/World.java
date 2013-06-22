@@ -27,7 +27,7 @@ public class World {
     }
 
 	public void createWorld() {
-		player = new Player(new Vector2(5, 5));
+		player = new Player(new Vector2(3, 7));
         notesHolder = new NotesHolder();
 	}
 }

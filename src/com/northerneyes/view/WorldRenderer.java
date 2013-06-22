@@ -68,7 +68,7 @@ public class WorldRenderer {
     }
 
     private void loadRenderer(TextureRegion[][] regions) {
-        playerRenderer = new PlayerRenderer(regions[4][2], ppuX, ppuY);
+        playerRenderer = new PlayerRenderer(regions[4][2], ppuX, ppuY, CAMERA_WIDTH);
 
         ArrayList<TextureRegion> notes = new ArrayList<TextureRegion>();
         notes.addAll(Arrays.asList(regions[0]).subList(0, NotesHolder.NOTE_TYPE_COUNT));
@@ -97,8 +97,9 @@ public class WorldRenderer {
 //        {
 //        music = true;
 //        }
-        drawPlayer();
+
         drawNotes();
+        drawPlayer();
 
       //  mediaRenderer.render(spriteBatch);
 	}
