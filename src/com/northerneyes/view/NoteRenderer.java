@@ -44,12 +44,17 @@ public class NoteRenderer implements IRenderer {
 
     @Override
     public void render(SpriteBatch spriteBatch) {
+        float x = note.Position.x*coef;
+        float y = note.Position.y*ppuY;
+        float width = note.Size*ppuX;
+        float height = note.Size*ppuY;
+
         spriteBatch.begin();
         spriteBatch.setColor(note.Color);
         Vector2 origin = new Vector2(texture.getRegionWidth()/ 2, texture.getRegionHeight()/ 2);
-        spriteBatch.draw(texture, (note.Position.x - note.Size/2)*coef, (note.Position.y- note.Size/2)*ppuY,
+        spriteBatch.draw(texture, x - width/2,  y - height/2,
                 origin.x, origin.y,
-                note.Size*ppuX, note.Size*ppuY, 1f, 1f, note.Angle);
+                width, height, 1f, 1f, note.Angle);
         spriteBatch.end();
     }
 }

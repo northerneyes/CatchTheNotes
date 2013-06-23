@@ -72,7 +72,7 @@ public class PlayerRenderer implements IRenderer {
         spriteBatch.begin();
         spriteBatch.setColor(comboColor);
         spriteBatch.draw(texture, x - width/2,
-              y - height/2, width, height);
+                  y - height/2, width, height);
         spriteBatch.end();
 
         //draw combo

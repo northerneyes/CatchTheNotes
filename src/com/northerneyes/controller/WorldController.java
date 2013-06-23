@@ -64,6 +64,7 @@ public class WorldController {
                     notesHolder.particles.clear();
                     notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1f, 200, 2, 1));
                     notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
+                   // notesHolder.particles.add(new Note(new Vector2(16, 0), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
                     notesHolder.particles.add(new Note(new Vector2(8, 10), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 2f, 200, 3, 1));
                     notesHolder.particles.add(new Note(new Vector2(1, 3), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1.5f, 200, 4, 1));
                     notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 5, 1));
@@ -100,7 +101,10 @@ public class WorldController {
                         //explorer
                         break;
                     case YELLOW_MADDNESS:
-                        //all yellow
+                        for(Note not:notesHolder.particles)
+                        {
+                            not.Type = NoteType.POWER_UP;
+                        }
                         break;
 
                 }
