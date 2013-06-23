@@ -9,6 +9,7 @@ import com.northerneyes.model.Note;
 import com.northerneyes.model.Note.NoteType;
 import com.northerneyes.model.NotesHolder;
 import com.northerneyes.model.Player;
+import com.northerneyes.model.Player.PulseType;
 import com.northerneyes.model.World;
 
 import java.util.ArrayList;
@@ -63,9 +64,12 @@ public class WorldController {
                     notesHolder.particles.clear();
                     notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1f, 200, 2, 1));
                     notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
-                    notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 2, 1));
-                    notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 2, 1));
+                    notesHolder.particles.add(new Note(new Vector2(8, 10), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 2f, 200, 3, 1));
+                    notesHolder.particles.add(new Note(new Vector2(1, 3), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1.5f, 200, 4, 1));
+                    notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 5, 1));
+                    notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 1, 1));
                     notesHolder.particles.add(new Note(new Vector2(12, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, 1f, 200, 2, 1));
+                    notesHolder.particles.add(new Note(new Vector2(15, 7), new Vector2(0, 0), 0, 0, NoteType.SUCTION, 1f, 200, 2, 1));
                 }
         }
         else
@@ -135,10 +139,10 @@ public class WorldController {
                     note.Velocity.y = 0;
                 }
             }
-            else //Collected
+            else if(note.Visibility > 0) //Collected
             {
-                note.Position.x = note.Position.x + (player.Position.x - note.Position.x) / 3;
-                note.Position.y = note.Position.y + (player.Position.y - note.Position.y) / 3;
+                note.Position.x = note.Position.x + (player.Position.x - note.Position.x) / 8;
+                note.Position.y = note.Position.y + (player.Position.y - note.Position.y) / 8;
             }
 
         }
@@ -158,14 +162,13 @@ public class WorldController {
             case NORMAL:
                // fadeOutShape(note);
                 note.Type = NoteType.COLLECTED;
-                //TODO: animation
-               // note.TTL = 10;
+                player.Type = PulseType.NORMAL;
                 break;
             case POWER_UP:
                 player.addPowerUpCount();
                 player.addCombo();
                 player.setSize();
-
+                player.Type = PulseType.GOOD;
 //                if (!rd.recycled)
 //                {
 //                    textList = ["Yeah!", "Great!", "Good job!", "Super!", "Woohoo!", "Fabulous!", "Excellent!", "Wow!", "Amazing!", "Superb!", "Terrific!", "Fantastic!", "Splendid!", "Wonderful!", "Yes!", "Unbelievable!", "Outstanding!", "Remarkable!", "Woot!"];
@@ -177,6 +180,7 @@ public class WorldController {
                 player.addPowerDownCount();
                 player.resetCombo();
                 player.setSize();
+                player.Type = PulseType.BAD;
 //                if (!rd.recycled)
 //                {
 //                    textList = ["Oops!", "Uh oh!", "Ouch!", "Oh no!", "Zowee!", "Yikes!", "Bummer!", "Shucks!", "Too bad!", "Zing!", "Kapow!"];
@@ -187,12 +191,14 @@ public class WorldController {
                 break;
             case SUCTION:
                 player.addPurplePowerCount();
+                player.Type = PulseType.SUCTION;
 //                showText("Purple Power!", 2000, 16711935, NaN, 50, NaN, 30);
                 player.setPower(200);
                 break;
             case YELLOW_MADDNESS:
                 //all yellow
                 player.addYellowMadnessCount();
+                player.Type = PulseType.SUCTION;
 //                showText("Yellow Madness!", 2000, 16776960, NaN, 90, NaN, 30);
                 break;
         }

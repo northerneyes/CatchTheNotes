@@ -34,6 +34,10 @@ public class PlayerRenderer implements IRenderer {
     private Color backgroundColor = new Color(1f, 1f, 0.66f, 0.5f);
     private Color comboColor = new Color(1f, 1f, 0.66f, 1f);
 
+    private Color badPulseColor = new Color(102f/255f, 0f, 0f, 0.5f);
+    private Color goodPulseColor = new Color(1f, 1f, 0.66f, 0.3f);
+    private Color normalPulseColor = comboColor;
+    private Color suctionPulseColor = new Color(1f, 0f, 1f, 0.5f);
     public void update(IEntity player)
     {
         this.player = (Player) player;
@@ -57,6 +61,7 @@ public class PlayerRenderer implements IRenderer {
         //draw background
         Gdx.gl.glEnable(GL10.GL_BLEND);
         Gdx.gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+
         shapeRenderer.begin(ShapeRenderer.ShapeType.FilledCircle);
         shapeRenderer.setColor(backgroundColor);
         shapeRenderer.filledCircle(x, y, height / 3, 30);
@@ -72,7 +77,43 @@ public class PlayerRenderer implements IRenderer {
 
         //draw combo
         String combo = String.format("x%d", player.getCombo());
-        textRenderer.setText(combo, comboColor, new Vector2(player.Position.x, player.Position.y), player.Size * 0.2f);
+        textRenderer.setText(combo, comboColor, new Vector2(player.Position.x, player.Position.y), player.Size * 0.15f);
         textRenderer.render(spriteBatch);
+
+        //and draw outline
+        if(player.Type != Player.PulseType.NONE)
+        {
+                shapeRenderer.begin(ShapeRenderer.ShapeType.Circle);
+                shapeRenderer.setColor(getOutlineColor(player.Type));
+                shapeRenderer.circle(x, y, player.getPulseCoef() * height / 3, 30);
+                shapeRenderer.end();
+
+            if(player.Type != Player.PulseType.NORMAL)
+            {
+                Gdx.gl.glEnable(GL10.GL_BLEND);
+                Gdx.gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+                shapeRenderer.begin(ShapeRenderer.ShapeType.FilledCircle);
+                shapeRenderer.setColor(getOutlineColor(player.Type));
+                shapeRenderer.filledCircle(x, y, player.getPulseCoef() * height / 3, 30);
+                shapeRenderer.end();
+                Gdx.gl.glDisable(GL10.GL_BLEND);
+            }
+        }
+
+    }
+
+    private Color getOutlineColor(Player.PulseType type) {
+        switch (type)
+        {
+            case GOOD:
+                return goodPulseColor;
+            case BAD:
+                return badPulseColor;
+            case SUCTION:
+                return suctionPulseColor;
+            case NORMAL:
+                return normalPulseColor;
+        }
+        return normalPulseColor;
     }
 }

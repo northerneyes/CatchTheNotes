@@ -90,10 +90,6 @@ public class WorldRenderer {
 
     public void render() {
         drawNotes();
-//        textRenderer.setText("Hello World", new Color(0.5f, 1f, 1f, 1f), new Vector2(7, 12), 1);
-  //      textRenderer.render(spriteBatch);
-    //    textRenderer.setText("Cool!", new Color(0.5f, 1f, 1f, 1f), new Vector2(7, 7), 0.4f);
-      //  textRenderer.render(spriteBatch);
         drawPlayer();
 
       //  mediaRenderer.render(spriteBatch);

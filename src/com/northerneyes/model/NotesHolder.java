@@ -125,10 +125,10 @@ public class NotesHolder implements IEntity {
 
         for (int particleIndex = 0; particleIndex < particles.size(); particleIndex++)
         {
-            particles.get(particleIndex).update(delta);
-            if (particles.get(particleIndex).Size <= 0 || particles.get(particleIndex).TTL <= 0)
+            Note note =  particles.get(particleIndex);
+            note.update(delta);
+            if (note.Size <= 0 || note.TTL <= 0 || note.Visibility <= 0)
             {
-                // Если частичка дохлая или размер нуль или меньше, удаляем её
                 particles.remove(particleIndex);
                 particleIndex--;
             }

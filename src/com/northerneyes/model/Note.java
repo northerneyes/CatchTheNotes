@@ -1,6 +1,8 @@
 package com.northerneyes.model;
 
 
+import android.opengl.Visibility;
+
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.graphics.Color;
 import com.northerneyes.controller.WorldController;
@@ -50,6 +52,7 @@ public class Note implements IEntity {
     private  float GComponent;
     private float BComponent;
 
+    public float Visibility = 1f;
     public NoteType Type;
     public int ViewType; //image
     private float amp;
@@ -89,8 +92,16 @@ public class Note implements IEntity {
     @Override
     public void update(float delta)
     {
+        if(Type == NoteType.COLLECTED)
+        {
+            Color =  new Color(RComponent, GComponent, BComponent, Visibility);
+            Visibility = Visibility - 0.03f;
+            return;
+        }
+
         if(WorldController.DEBUG)
             return;
+
         TTL--;
         Position.add(Velocity);
         Angle += AngularVelocity;
@@ -98,10 +109,8 @@ public class Note implements IEntity {
         if(Type != NoteType.ERROR)
         {
             Velocity = new Vector2(Velocity.x, initialVelocity.y - a*(InitialTTL - TTL)); // - 2*initialVelocity.y/InitialTTL
-           // Velocity = new Vector2(Velocity.x, Velocity.y - 0.002f);
+
             Size = InitialSize - (InitialSize/InitialTTL)*(InitialTTL - TTL);
-          //  Size = (1 + Velocity.y)*1.33f;
-          //  if (Size > 2f) Size = 2f;
         }
 
         if(Type == NoteType.NORMAL)
@@ -109,7 +118,7 @@ public class Note implements IEntity {
             GComponent -= 0.005f;
             BComponent += 0.005f;
 
-            Color =  new Color(RComponent, GComponent, BComponent, 1);
+            Color =  new Color(RComponent, GComponent, BComponent, Visibility);
         }
         else if (Type == NoteType.YELLOW_MADDNESS)
         {
@@ -129,10 +138,10 @@ public class Note implements IEntity {
 
         switch(type)
         {
-            case NORMAL: startColor = new Color(0f, 0.85f, 0.3f + 0.4f*amp, 1); break; // Обычная
-            case POWER_DOWN: startColor = new Color(1f, 0f, 0f, 1); break; // Красная
-            case SUCTION: startColor = new Color(1f, 0f, 1f, 1); break; // Пурпурная
-            case POWER_UP: startColor = new Color(1f, 1f, 0f, 1); break; // Желтая
+            case NORMAL: startColor = new Color(0f, 0.85f, 0.3f + 0.4f*amp, Visibility); break; // Обычная
+            case POWER_DOWN: startColor = new Color(1f, 0f, 0f, Visibility); break; // Красная
+            case SUCTION: startColor = new Color(1f, 0f, 1f, Visibility); break; // Пурпурная
+            case POWER_UP: startColor = new Color(1f, 1f, 0f, Visibility); break; // Желтая
             case YELLOW_MADDNESS: random = new Random(); break; // Мигающая
         }
 
@@ -140,7 +149,7 @@ public class Note implements IEntity {
         GComponent = startColor.g;
         BComponent = startColor.b;
 
-        Color = new Color(RComponent, GComponent, BComponent, 1);
+        Color = new Color(RComponent, GComponent, BComponent, Visibility);
 
         if (type == NoteType.ERROR)
         {

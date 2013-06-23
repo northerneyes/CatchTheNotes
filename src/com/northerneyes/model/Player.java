@@ -6,6 +6,22 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Player implements IEntity {
 
+    public enum PulseType {
+        NORMAL,
+        BAD,
+        GOOD,
+        SUCTION,
+        NONE;
+
+        // Converts from an ordinal value to the ResponseCode
+        public static PulseType valueOf(int index) {
+            PulseType[] values = PulseType.values();
+            if (index < 0 || index >= values.length) {
+                return NONE;
+            }
+            return values[index];
+        }
+    }
 
     public Vector2 	Position = new Vector2();
 
@@ -19,13 +35,14 @@ public class Player implements IEntity {
     private int purplePowerCount = 0;
     private int yellowMadnessCount = 0;
     private int shapeCount = 0;
+    public PulseType Type = PulseType.NONE;
 
+    private float pulseCoef = 1;
+    private boolean reverse = false;
     public Player(Vector2 position) {
 		this.Position = position;
         Size = DefaultSize;
 	}
-
-
 
     public void Clear()
     {
@@ -39,10 +56,31 @@ public class Player implements IEntity {
         shapeCount = 0;
     }
 
-	
+
+    public float getPulseCoef() {
+        return pulseCoef;
+    }
 
 	public void update(float delta) {
 
+        if(Type != PulseType.NONE)
+        {
+            if(pulseCoef >= 1.5f )
+                reverse = true;
+
+            if(reverse)
+                pulseCoef -=  0.08;
+            else
+                pulseCoef += 0.08;
+
+            if(pulseCoef < 1f)
+            {
+                Type = PulseType.NONE;
+                reverse = false;
+                pulseCoef = 1f;
+            }
+
+        }
 	}
 
     public int getPower() {
