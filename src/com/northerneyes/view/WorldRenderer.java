@@ -28,7 +28,7 @@ public class WorldRenderer {
 
 	private World world;
 	public OrthographicCamera cam;
-	ShapeRenderer renderer = new ShapeRenderer();
+
 
 	public float ppuX;
 	public float ppuY;
@@ -68,43 +68,32 @@ public class WorldRenderer {
 
     }
 
-    private void loadRenderer(TextureRegion[][] regions) {
-        playerRenderer = new PlayerRenderer(regions[4][2], ppuX, ppuY, CAMERA_WIDTH);
+    private void loadTextures() {
+        textRenderer = new TextRenderer(ppuX, ppuY, CAMERA_WIDTH);
+
+        atlasTexture  = new Texture(Gdx.files.internal("images/atlas.png"));
+        TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);
+
+        playerRenderer = new PlayerRenderer(regions[4][2], textRenderer , ppuX, ppuY, CAMERA_WIDTH);
 
         ArrayList<TextureRegion> notes = new ArrayList<TextureRegion>();
         notes.addAll(Arrays.asList(regions[0]).subList(0, NotesHolder.NOTE_TYPE_COUNT));
 
         notesHolderRenderer = new NotesHolderRenderer(notes, ppuX, ppuY, CAMERA_WIDTH, WorldController.SOURCE_COUNT);
+
+        if(WorldController.DEBUG)
+        {
+            Texture colors = new Texture(Gdx.files.internal("images/colors-borders.png"));
+            mediaRenderer = new MediaPlayerRenderer(new TextureRegion(colors), ppuX, ppuY);
+        }
     }
 
-    private void loadTextures() {
-        atlasTexture  = new Texture(Gdx.files.internal("images/atlas.png"));
-
-        TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);
-
-        loadRenderer(regions);
-
-        Texture colors = new Texture(Gdx.files.internal("images/colors-borders.png"));
-
-        textRenderer = new TextRenderer(ppuX, ppuY, CAMERA_WIDTH);
-        mediaRenderer = new MediaPlayerRenderer(new TextureRegion(colors), ppuX, ppuY);
-        //textureRegions.put("player", regions[4][2]);
-      //  textureRegions.put("note-1", regions[])
-    }
-
-    private boolean music = false;
     public void render() {
-//        if(!music)
-//        {
-//        music = true;
-//        }
-
         drawNotes();
-      //  renderer.setProjectionMatrix(cam.combined);
-        textRenderer.setText("Hello World", new Color(0.5f, 1f, 1f, 1f), new Vector2(7, 12), 1);
-        textRenderer.render(spriteBatch);
-        textRenderer.setText("Cool!", new Color(0.5f, 1f, 1f, 1f), new Vector2(7, 7), 0.4f);
-        textRenderer.render(spriteBatch);
+//        textRenderer.setText("Hello World", new Color(0.5f, 1f, 1f, 1f), new Vector2(7, 12), 1);
+  //      textRenderer.render(spriteBatch);
+    //    textRenderer.setText("Cool!", new Color(0.5f, 1f, 1f, 1f), new Vector2(7, 7), 0.4f);
+      //  textRenderer.render(spriteBatch);
         drawPlayer();
 
       //  mediaRenderer.render(spriteBatch);

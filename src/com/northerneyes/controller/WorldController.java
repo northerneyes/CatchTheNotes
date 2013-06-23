@@ -42,10 +42,14 @@ public class WorldController {
         this.notesHolder = world.getNotesHolder();
 
         coefX = bandWidth*halfWidth/FREQ_LENGTH;
-        MediaPlayer.play("audio/Leaves_in_the_Wind.mp3");
-        //MediaPlayer.stop();
-        MediaPlayer.setVisualizationEnabled();
-        data = new VisualizationData(FREQ_LENGTH);
+
+        if(!DEBUG)
+        {
+            MediaPlayer.play("audio/Leaves_in_the_Wind.mp3");
+            //MediaPlayer.stop();
+            MediaPlayer.setVisualizationEnabled();
+        }
+            data = new VisualizationData(FREQ_LENGTH);
 	}
 
 	public void update(float delta) {

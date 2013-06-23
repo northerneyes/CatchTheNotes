@@ -54,7 +54,7 @@ public class TextRenderer implements IRenderer {
         font.setColor(textColor);
         font.setScale(size);
         BitmapFont.TextBounds bounds = this.font.getBounds(text);
-        this.font.draw(spriteBatch, text, position.x * coef - bounds.width / 2, position.y * ppuY - bounds.height / 2);
+        this.font.draw(spriteBatch, text, position.x * coef - bounds.width / 2, position.y * ppuY + bounds.height / 2);
         spriteBatch.end();
     }
 }

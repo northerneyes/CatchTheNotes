@@ -10,9 +10,9 @@ public class Player implements IEntity {
     public Vector2 	Position = new Vector2();
 
     public float Size;
-    private final float DefaultSize = 1f;
+    private final float DefaultSize = 1.8f;
     private int power = 0;
-    private int combo = 0;
+    private int combo = 1;
     private int maxCombo = 0;
     private int powerUpCount = 0;
     private int powerDownCount = 0;
@@ -21,9 +21,8 @@ public class Player implements IEntity {
     private int shapeCount = 0;
 
     public Player(Vector2 position) {
-		
 		this.Position = position;
-        Size = 1f;
+        Size = DefaultSize;
 	}
 
 
@@ -31,7 +30,7 @@ public class Player implements IEntity {
     public void Clear()
     {
         power = 0;
-        combo = 0;
+        combo = 1;
         maxCombo = 0;
         powerUpCount = 0;
         powerDownCount = 0;
@@ -74,6 +73,11 @@ public class Player implements IEntity {
             maxCombo = combo;
         }
     }
+
+    public int getCombo()
+    {
+        return combo;
+    }
     public void resetCombo() {
         combo = (int) Math.ceil(combo / 2f);
     }
@@ -94,6 +98,7 @@ public class Player implements IEntity {
     public void addShapeCount() {
         shapeCount++;
     }
+
 
 
 }
