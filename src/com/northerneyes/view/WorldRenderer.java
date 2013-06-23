@@ -3,11 +3,13 @@ package com.northerneyes.view;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.controller.WorldController;
 import com.northerneyes.model.NotesHolder;
 import com.northerneyes.model.World;
@@ -37,7 +39,7 @@ public class WorldRenderer {
     private PlayerRenderer playerRenderer;
     private Texture atlasTexture;
     private NotesHolderRenderer notesHolderRenderer;
-
+    private TextRenderer textRenderer;
     private Music theme;
     private MediaPlayerRenderer mediaRenderer;
 
@@ -59,7 +61,6 @@ public class WorldRenderer {
         textureRegions = new HashMap<String, TextureRegion>();
         loadTextures();
         loadSounds();
-     //   loadRenderer(regions);
 	}
 
     private void loadSounds() {
@@ -81,11 +82,11 @@ public class WorldRenderer {
 
         TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);
 
-
         loadRenderer(regions);
 
         Texture colors = new Texture(Gdx.files.internal("images/colors-borders.png"));
 
+        textRenderer = new TextRenderer(ppuX, ppuY, CAMERA_WIDTH);
         mediaRenderer = new MediaPlayerRenderer(new TextureRegion(colors), ppuX, ppuY);
         //textureRegions.put("player", regions[4][2]);
       //  textureRegions.put("note-1", regions[])
@@ -99,20 +100,25 @@ public class WorldRenderer {
 //        }
 
         drawNotes();
+      //  renderer.setProjectionMatrix(cam.combined);
+        textRenderer.setText("Hello World", new Color(0.5f, 1f, 1f, 1f), new Vector2(7, 12), 1);
+        textRenderer.render(spriteBatch);
+        textRenderer.setText("Cool!", new Color(0.5f, 1f, 1f, 1f), new Vector2(7, 7), 0.4f);
+        textRenderer.render(spriteBatch);
         drawPlayer();
 
       //  mediaRenderer.render(spriteBatch);
 	}
 
     private void drawNotes() {
-        renderer.setProjectionMatrix(cam.combined);
+      //  renderer.setProjectionMatrix(cam.combined);
 
         notesHolderRenderer.update(world.getNotesHolder());
         notesHolderRenderer.render(spriteBatch);
     }
 
     private void drawPlayer() {
-		renderer.setProjectionMatrix(cam.combined);
+		//renderer.setProjectionMatrix(cam.combined);
 
         playerRenderer.update(world.getPlayer());
         playerRenderer.render(spriteBatch);
