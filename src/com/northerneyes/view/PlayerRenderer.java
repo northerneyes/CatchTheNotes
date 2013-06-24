@@ -10,6 +10,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
+import com.northerneyes.CatchTheNotes.MyGame;
+import com.northerneyes.CatchTheNotes.R;
 import com.northerneyes.controller.WorldController;
 import com.northerneyes.model.IEntity;
 import com.northerneyes.model.Player;
@@ -32,6 +34,7 @@ public class PlayerRenderer implements IRenderer {
     private float ppuX;
     private float ppuY;
     private float CAMERA_WIDTH;
+    private float height;
     private Color backgroundColor = new Color(1f, 1f, 0.66f, 0.5f);
     private Color comboColor = new Color(1f, 1f, 0.66f, 1f);
 
@@ -40,7 +43,8 @@ public class PlayerRenderer implements IRenderer {
     private Color normalPulseColor = comboColor;
     private Color suctionPulseColor = new Color(1f, 0f, 1f, 0.5f);
 
-    private Color scoreColor = new Color(203f/255f, 1f, 203/255f, 1f);
+    private Color pointsColor = new Color(203f/255f, 1f, 203/255f, 1f);
+    private Color scoreColor = new Color(1f, 1f, 1f, 1f);
 
     private Vector2 textPosition = new Vector2();
     public void update(IEntity player)
@@ -48,22 +52,32 @@ public class PlayerRenderer implements IRenderer {
         this.player = (Player) player;
     }
 
-    public PlayerRenderer(TextureRegion texture, TextRenderer textRenderer, float ppuX, float ppuY, float CAMERA_WIDTH) {
+    public PlayerRenderer(TextureRegion texture, TextRenderer textRenderer, float ppuX, float ppuY, float CAMERA_WIDTH, float height) {
         this.texture = texture;
         this.textRenderer = textRenderer;
         this.ppuX = ppuX;
         this.ppuY = ppuY;
         this.CAMERA_WIDTH = CAMERA_WIDTH;
+        this.height = height;
         this.coef = ppuX*(CAMERA_WIDTH / WorldController.SOURCE_COUNT);
     }
 
     @Override
     public void render(SpriteBatch spriteBatch) {
 
+        String combo = String.format("%dx", player.getCombo());
+
         if(player.ShowGameInfo)
         {
-            String score = String.format("%d", player.getScore());
-            textRenderer.setText(score, scoreColor, textPosition.set(WorldController.SOURCE_COUNT/2, 1f), 0.5f, TextAlign.CENTER);
+            String scorePoints = String.format("%d", player.getScore());
+            String score = MyGame.getAppContext().getString(R.string.score);
+            //TODO: Create Padding!!
+            textRenderer.setText(score, scoreColor, textPosition.set(WorldController.SOURCE_COUNT/2f, 1f), 0.5f, TextAlign.RIGHT);
+            textRenderer.render(spriteBatch);
+            textRenderer.setText(scorePoints,  pointsColor, textPosition.set(WorldController.SOURCE_COUNT/2f + 0.5f, 1f), 0.5f, TextAlign.LEFT);
+            textRenderer.render(spriteBatch);
+
+            textRenderer.setText(combo, comboColor, textPosition.set(WorldController.SOURCE_COUNT, height), 0.5f, TextAlign.RIGHT);
             textRenderer.render(spriteBatch);
         }
 
@@ -90,7 +104,6 @@ public class PlayerRenderer implements IRenderer {
         spriteBatch.end();
 
         //draw combo
-        String combo = String.format("x%d", player.getCombo());
         textRenderer.setText(combo, comboColor, textPosition.set(player.Position.x, player.Position.y), player.Size * 0.15f, TextAlign.CENTER);
         textRenderer.render(spriteBatch);
 

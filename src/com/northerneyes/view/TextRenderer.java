@@ -14,6 +14,18 @@ import java.util.Vector;
  * Created by George on 23.06.13.
  */
 public class TextRenderer implements IRenderer {
+
+    public BitmapFont.TextBounds getBounds(String text, float size) {
+        font.setScale(size);
+        return  this.font.getBounds(text);
+    }
+
+    public BitmapFont.TextBounds getBounds( ) {
+        return bounds;
+    }
+
+    private BitmapFont.TextBounds bounds;
+
     public enum TextAlign {
         CENTER,
         LEFT,
@@ -53,7 +65,7 @@ public class TextRenderer implements IRenderer {
 
         font.setColor(textColor);
         font.setScale(size);
-        BitmapFont.TextBounds bounds = this.font.getBounds(text);
+        bounds = this.font.getBounds(text);
 
         switch (textAlign)
         {

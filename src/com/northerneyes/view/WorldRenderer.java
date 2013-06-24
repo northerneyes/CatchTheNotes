@@ -77,7 +77,7 @@ public class WorldRenderer {
         atlasTexture  = new Texture(Gdx.files.internal("images/atlas2.png"));
         TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);
 
-        playerRenderer = new PlayerRenderer(regions[4][2], textRenderer , ppuX, ppuY, CAMERA_WIDTH);
+        playerRenderer = new PlayerRenderer(regions[4][2], textRenderer , ppuX, ppuY, CAMERA_WIDTH, CAMERA_HEIGHT);
 
         gameMenuRenderer = new GameMenuRenderer(world.getGameMenu(), textRenderer);
 
