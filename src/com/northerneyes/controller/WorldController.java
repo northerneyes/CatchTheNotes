@@ -38,11 +38,18 @@ public class WorldController {
 
     private int powerDownTime = 0;
 
+
+    private GameMenuController gameMenuController;
+    private IMenuController currentMenuController;
+
     public WorldController(World world) {
 		this.player = world.getPlayer();
         this.notesHolder = world.getNotesHolder();
 
         coefX = bandWidth*halfWidth/FREQ_LENGTH;
+
+        gameMenuController = new GameMenuController(world);
+        currentMenuController = gameMenuController;
 
         if(!DEBUG)
         {
@@ -261,4 +268,7 @@ public class WorldController {
         }
     }
 
+    public IMenuController getCurrentMenu() {
+        return currentMenuController;
+    }
 }

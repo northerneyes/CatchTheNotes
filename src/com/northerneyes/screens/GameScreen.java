@@ -6,6 +6,7 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
 import com.northerneyes.audio.MediaPlayer;
+import com.northerneyes.controller.IMenuController;
 import com.northerneyes.controller.WorldController;
 import com.northerneyes.model.World;
 import com.northerneyes.view.WorldRenderer;
@@ -14,8 +15,9 @@ public class GameScreen implements Screen, InputProcessor {
 	private World world;
 	private WorldRenderer render;
 	private WorldController controller;
+    private IMenuController menuController;
 
-	private int width, height;
+    private int width, height;
    // public static  float height = 800f;
   //  public static float width = height *Gdx.graphics.getWidth()/Gdx.graphics.getHeight();
 	@Override
@@ -23,6 +25,7 @@ public class GameScreen implements Screen, InputProcessor {
 		world = new World();
 		render = new WorldRenderer(world);
 		controller = new WorldController(world);
+        menuController = controller.getCurrentMenu();
 		Gdx.input.setInputProcessor(this);
 	}
 
@@ -97,14 +100,23 @@ public class GameScreen implements Screen, InputProcessor {
 	}
 	
 	private void ChangeNavigation(int x, int y){
-        controller.player.Position.set(WorldController.SOURCE_COUNT*x/(render.ppuX * WorldRenderer.CAMERA_WIDTH), (height-y)/render.ppuY);
+        controller.player.Position.set(getGameXPos(x), getGameYPos(y));
 	}
-	
-	@Override
+
+    private float getGameYPos(int y) {
+        return (height-y)/render.ppuY;
+    }
+
+    private float getGameXPos(int x) {
+        return WorldController.SOURCE_COUNT*x/(render.ppuX * WorldRenderer.CAMERA_WIDTH);
+    }
+
+    @Override
 	public boolean touchDown(int x, int y, int pointer, int button) {
 
 		if (!Gdx.app.getType().equals(ApplicationType.Android))
 			return false;
+        menuController.setPosition(getGameXPos(x), getGameYPos(y));
 		ChangeNavigation(x,y);
 		return true;
 	} 

@@ -35,8 +35,9 @@ public class Player implements IEntity {
     private int purplePowerCount = 0;
     private int yellowMadnessCount = 0;
     private int shapeCount = 0;
-    public PulseType Type = PulseType.NONE;
 
+    public PulseType Type = PulseType.NONE;
+    public boolean ShowGameInfo = true;
     private float pulseCoef = 1;
     private boolean reverse = false;
     public Player(Vector2 position) {
@@ -56,6 +57,10 @@ public class Player implements IEntity {
         shapeCount = 0;
     }
 
+
+    public int getScore() {
+        return 0;
+    }
 
     public float getPulseCoef() {
         return pulseCoef;

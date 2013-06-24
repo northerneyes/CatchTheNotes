@@ -43,6 +43,9 @@ public class WorldRenderer {
     private Music theme;
     private MediaPlayerRenderer mediaRenderer;
 
+    //Menu
+    private GameMenuRenderer gameMenuRenderer;
+
     public void SetCamera(float x, float y){
 		this.cam.position.set(x, y,0);	
 		this.cam.update();
@@ -55,7 +58,7 @@ public class WorldRenderer {
         ppuY = (float)Gdx.graphics.getHeight() / CAMERA_HEIGHT;
 		this.cam = new OrthographicCamera(CAMERA_WIDTH, CAMERA_HEIGHT);
 		SetCamera(CAMERA_WIDTH / 2f, CAMERA_HEIGHT / 2f);
-        world.setSize(CAMERA_WIDTH, CAMERA_HEIGHT);
+        world.setSize(CAMERA_WIDTH, CAMERA_HEIGHT, WorldController.SOURCE_COUNT);
         world.createWorld();
         spriteBatch = new SpriteBatch();
         textureRegions = new HashMap<String, TextureRegion>();
@@ -76,6 +79,8 @@ public class WorldRenderer {
 
         playerRenderer = new PlayerRenderer(regions[4][2], textRenderer , ppuX, ppuY, CAMERA_WIDTH);
 
+        gameMenuRenderer = new GameMenuRenderer(world.getGameMenu(), textRenderer);
+
         ArrayList<TextureRegion> notes = new ArrayList<TextureRegion>();
         notes.addAll(Arrays.asList(regions[0]).subList(0, NotesHolder.NOTE_TYPE_COUNT));
 
@@ -90,10 +95,21 @@ public class WorldRenderer {
 
     public void render() {
         drawNotes();
+        drawMenuController();
         drawPlayer();
 
       //  mediaRenderer.render(spriteBatch);
 	}
+
+    private void drawMenuController() {
+        switch (world.getCurrentMenuType())
+        {
+            case GAME:
+                //gameMenuRenderer.update(world.getGameMenu());
+                gameMenuRenderer.render(spriteBatch);
+                break;
+        }
+    }
 
     private void drawNotes() {
       //  renderer.setProjectionMatrix(cam.combined);

@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">CatchTheNotes</string>
     <string name="title_activity_main">Catch The Notes</string>
+    <string name="pause_menu">Pause</string>
 </resources>

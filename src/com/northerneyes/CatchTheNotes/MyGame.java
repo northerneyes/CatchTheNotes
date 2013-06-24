@@ -1,10 +1,22 @@
 package com.northerneyes.CatchTheNotes;
 
+import android.content.Context;
+
 import com.badlogic.gdx.Game;
 import com.northerneyes.screens.GameScreen;
 
 public class MyGame extends   Game  {
     public GameScreen game;
+
+    private static Context context;
+
+    public  MyGame(Context context){
+        this.context = context;
+    }
+
+    public static Context getAppContext() {
+        return context;
+    }
 
     @Override
     public void create() {

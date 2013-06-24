@@ -20,7 +20,7 @@ public class MainActivity extends AndroidApplication {
 		config.useWakelock = true;
 		config.useGL20 = true;
 	
-		initialize(new MyGame(), config);
+		initialize(new MyGame(this.getApplicationContext()), config);
         Log.v("Game", "Activity On create");
     }
     

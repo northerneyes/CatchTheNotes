@@ -13,7 +13,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.controller.WorldController;
 import com.northerneyes.model.IEntity;
 import com.northerneyes.model.Player;
-
+import com.northerneyes.view.TextRenderer.TextAlign;
 /**
  * Created with IntelliJ IDEA.
  * User: George
@@ -31,6 +31,7 @@ public class PlayerRenderer implements IRenderer {
 
     private float ppuX;
     private float ppuY;
+    private float CAMERA_WIDTH;
     private Color backgroundColor = new Color(1f, 1f, 0.66f, 0.5f);
     private Color comboColor = new Color(1f, 1f, 0.66f, 1f);
 
@@ -38,6 +39,10 @@ public class PlayerRenderer implements IRenderer {
     private Color goodPulseColor = new Color(1f, 1f, 0.66f, 0.3f);
     private Color normalPulseColor = comboColor;
     private Color suctionPulseColor = new Color(1f, 0f, 1f, 0.5f);
+
+    private Color scoreColor = new Color(203f/255f, 1f, 203/255f, 1f);
+
+    private Vector2 textPosition = new Vector2();
     public void update(IEntity player)
     {
         this.player = (Player) player;
@@ -48,11 +53,20 @@ public class PlayerRenderer implements IRenderer {
         this.textRenderer = textRenderer;
         this.ppuX = ppuX;
         this.ppuY = ppuY;
+        this.CAMERA_WIDTH = CAMERA_WIDTH;
         this.coef = ppuX*(CAMERA_WIDTH / WorldController.SOURCE_COUNT);
     }
 
     @Override
     public void render(SpriteBatch spriteBatch) {
+
+        if(player.ShowGameInfo)
+        {
+            String score = String.format("%d", player.getScore());
+            textRenderer.setText(score, scoreColor, textPosition.set(WorldController.SOURCE_COUNT/2, 1f), 0.5f, TextAlign.CENTER);
+            textRenderer.render(spriteBatch);
+        }
+
         float x = player.Position.x*coef;
         float y = player.Position.y*ppuY;
         float width = player.Size*ppuX;
@@ -77,7 +91,7 @@ public class PlayerRenderer implements IRenderer {
 
         //draw combo
         String combo = String.format("x%d", player.getCombo());
-        textRenderer.setText(combo, comboColor, new Vector2(player.Position.x, player.Position.y), player.Size * 0.15f);
+        textRenderer.setText(combo, comboColor, textPosition.set(player.Position.x, player.Position.y), player.Size * 0.15f, TextAlign.CENTER);
         textRenderer.render(spriteBatch);
 
         //and draw outline
