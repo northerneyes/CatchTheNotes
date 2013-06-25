@@ -1,10 +1,8 @@
 package com.northerneyes.controller;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.audio.MediaPlayer;
 import com.northerneyes.audio.VisualizationData;
-import com.northerneyes.model.Constants;
 import com.northerneyes.model.Note;
 import com.northerneyes.model.Note.NoteType;
 import com.northerneyes.model.NotesHolder;
@@ -12,8 +10,6 @@ import com.northerneyes.model.Player;
 import com.northerneyes.model.Player.PulseType;
 import com.northerneyes.model.World;
 
-import java.util.ArrayList;
-import java.util.Deque;
 import java.util.HashMap;
 
 
@@ -36,7 +32,7 @@ public class WorldController {
 
     public static boolean DEBUG = true;
 
-    private int powerDownTime = 0;
+    private int powerDownTime = -1;
 
 
     private GameMenuController gameMenuController;
@@ -101,11 +97,30 @@ public class WorldController {
         {
             if (circlesColliding(player.Position, note.Position, note.Type, note.Size, player.Size))
             {
+                int origCombo = player.getCombo();
+                float origCursorSize = player.Size;
                 collectRainDrop(note);
                 switch (note.Type)
                 {
                     case POWER_DOWN:
-                        //explorer
+                        int count = (int) Math.floor(0.9 * (origCombo - player.getCombo()));
+                        int k = 0;
+                        while (k < count)
+                        {
+                            float xPos;
+                            if (Math.random() > 0.5)
+                            {
+                                xPos = (float) (player.Position.x - origCursorSize - Math.random() * 3f + 1);
+                            }
+                            else
+                            {
+                                xPos = (float) (player.Position.x + origCursorSize + Math.random() * 3 + 2);
+                            }
+
+                            float yPos = (float) (player.Position.y + origCursorSize + Math.random() * 3 + 2);
+                            notesHolder.addRecycledParticle(new Note(new Vector2(xPos, yPos), NoteType.POWER_UP, 0.7f, 2, true));
+                            ++k;
+                        }
                         break;
                     case YELLOW_MADDNESS:
                         for(Note not:notesHolder.particles)
@@ -118,25 +133,23 @@ public class WorldController {
             }
             else if(note.Type != NoteType.COLLECTED)
             {
-                if (powerDownTime > 0 /*&& note.recycled*/)
+                if(powerDownTime == 0 && note.Recycled)
                 {
-//                    if (powerDownTime != 1)
-//                    {
-//                        int pushAmount = 30;
-//                        if (powerDownTime < 30)
-//                        {
-//                            rd.alpha = powerDownTime / 30;
-//                            pushAmount = 3000 / powerDownTime;
-//                        }
-//                        rd.x = rd.x - (rd.originalCursorX - rd.x) / pushAmount;
-//                        rd.y = rd.y - (rd.originalCursorY - rd.y) / pushAmount;
-//                        rd.yVelocity = 0;
-//                    }
-//                    else
-//                    {
-//                        note.TTL = 0;
-//                    }
+                    note.Visibility = 0f;
+                    powerDownTime = -1;
+                }
+                if (powerDownTime > 0 && note.Recycled)
+                {
+                        int pushAmount = 30;
+                        if (powerDownTime < 30)
+                        {
+                            note.Visibility = powerDownTime / 30;
+                                pushAmount = 3000 / powerDownTime;
+                        }
+                        note.Position.x = note.Position.x - (player.Position.x - note.Position.x) /  pushAmount;
+                        note.Position.y = note.Position.y - (player.Position.y - note.Position.y) /  pushAmount;
 
+                        note.Velocity.y = 0;
                 }
                 if (player.getPower() > 0 && note.Type != NoteType.POWER_DOWN)
                 {

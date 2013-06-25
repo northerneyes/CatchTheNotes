@@ -28,6 +28,7 @@ public class NotesHolder implements IEntity {
     /// Массив float-значений
     /// </summary>
     public ArrayList<Float> Accumulator;
+    private ArrayList<Note> recycledParticles = new ArrayList<Note>();
 
 
     public NotesHolder() {
@@ -90,29 +91,6 @@ public class NotesHolder implements IEntity {
         return initialTTL;
     }
 
-//    public void GenerateYellowExplossion(int x, int y, int radius)
-//    {
-//        int viewType = random.nextInt(NOTE_TYPE_COUNT);
-//
-//        Vector2 direction = Vector2.Zero;
-//        float angle = (float)Math.PI * 2.0f * random.nextFloat(); //rad
-//      //  float length = radius;
-//
-//        direction.x = MathUtils.cos(angle);
-//        direction.y = -MathUtils.sin(angle);
-//
-//        Vector2 position = (new Vector2(x, y)).add(direction.mul(radius));
-//
-//        Vector2 velocity = direction.mul(0.1f);
-//
-//        float angularVelocity =  (float) (0.05f * (random.nextFloat() * 2 - 1)*180/Math.PI);
-//
-//        float size = random.nextFloat() * .8f + .2f;
-//        int ttl = 400;
-//
-//        int type = 3;
-//        particles.add(new Note(position, velocity, 0, angularVelocity, type, size, ttl, viewType, 0.5f));
-//    }
 
 
     public void beat(float wave, float posY, float amp)
@@ -122,6 +100,11 @@ public class NotesHolder implements IEntity {
 
     @Override
     public void update(float delta) {
+        if(recycledParticles.size() > 0)
+        {
+            particles.addAll(recycledParticles);
+            recycledParticles.clear();
+        }
 
         for (int particleIndex = 0; particleIndex < particles.size(); particleIndex++)
         {
@@ -144,5 +127,9 @@ public class NotesHolder implements IEntity {
 
     public void removeNote(Note note) {
         particles.remove(note);
+    }
+
+    public void addRecycledParticle(Note note) {
+        recycledParticles.add(note);
     }
 }

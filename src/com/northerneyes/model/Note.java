@@ -17,6 +17,8 @@ import java.util.Random;
  * To change this template use File | Settings | File Templates.
  */
 public class Note implements IEntity {
+
+
     public enum NoteType {
         NORMAL,
         POWER_DOWN,
@@ -24,6 +26,7 @@ public class Note implements IEntity {
         SUCTION,
         YELLOW_MADDNESS,
         COLLECTED,
+        RECYCLE,
         ERROR;
 
         // Converts from an ordinal value to the ResponseCode
@@ -36,7 +39,7 @@ public class Note implements IEntity {
         }
     }
 
-    private final int InitialTTL;
+    private int InitialTTL;
     private final Vector2 initialVelocity;
     public Vector2 Position;
     public Vector2 Velocity;
@@ -57,7 +60,7 @@ public class Note implements IEntity {
     public int ViewType; //image
     private float amp;
     private Random random;
-
+    public boolean Recycled = false;
     public Note(Vector2 position, Vector2 velocity, float angle, float angularVelocity, NoteType type, float size, int ttl, int viewType, float amp)
     {
         Position = position;
@@ -77,6 +80,22 @@ public class Note implements IEntity {
         SetType(type);  //Установка цвета под определённый тип
     }
 
+    public Note(Vector2 position, NoteType type, float size, int viewType, boolean recycled)
+    {
+        Position = position;
+        Velocity = Vector2.Zero;
+        initialVelocity = Vector2.Zero;
+        Angle = 0;
+        AngularVelocity = 0;
+        Type = type;
+        TTL = 200;
+        Size = size;
+        InitialSize = size;
+        ViewType = viewType;
+        Recycled = recycled;
+        SetType(type);  //Установка цвета под определённый тип
+    }
+
     /// <summary>
     /// Добавление импульса (используется бонусом)
     /// </summary>
@@ -92,6 +111,8 @@ public class Note implements IEntity {
     @Override
     public void update(float delta)
     {
+        if(Recycled)
+            return;
         if(Type == NoteType.COLLECTED)
         {
             Color =  new Color(RComponent, GComponent, BComponent, Visibility);
