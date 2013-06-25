@@ -73,7 +73,7 @@ public class WorldController {
                     notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 5, 1));
                     notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 1, 1));
                     notesHolder.particles.add(new Note(new Vector2(12, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, 1f, 200, 2, 1));
-                    notesHolder.particles.add(new Note(new Vector2(15, 7), new Vector2(0, 0), 0, 0, NoteType.SUCTION, 1f, 200, 2, 1));
+                   // notesHolder.particles.add(new Note(new Vector2(15, 7), new Vector2(0, 0), 0, 0, NoteType.SUCTION, 1f, 200, 2, 1));
                 }
         }
         else
@@ -110,14 +110,14 @@ public class WorldController {
                             float xPos;
                             if (Math.random() > 0.5)
                             {
-                                xPos = (float) (player.Position.x - origCursorSize - Math.random() * 3f + 1);
+                                xPos = (float) (player.Position.x - origCursorSize/3f  - Math.random() * 0.5f + 0.5f);
                             }
                             else
                             {
-                                xPos = (float) (player.Position.x + origCursorSize + Math.random() * 3 + 2);
+                                xPos = (float) (player.Position.x + origCursorSize/3f  + Math.random() * 0.5f + 0.5f);
                             }
 
-                            float yPos = (float) (player.Position.y + origCursorSize + Math.random() * 3 + 2);
+                            float yPos = (float) (player.Position.y + origCursorSize + Math.random() * 0.5f + 0.5f);
                             notesHolder.addRecycledParticle(new Note(new Vector2(xPos, yPos), NoteType.POWER_UP, 0.7f, 2, true));
                             ++k;
                         }
@@ -140,10 +140,10 @@ public class WorldController {
                 }
                 if (powerDownTime > 0 && note.Recycled)
                 {
-                        int pushAmount = 30;
-                        if (powerDownTime < 30)
+                        int pushAmount = 60;
+                        if (powerDownTime < 60)
                         {
-                            note.Visibility = powerDownTime / 30;
+                            note.Visibility = powerDownTime / 60;
                                 pushAmount = 3000 / powerDownTime;
                         }
                         note.Position.x = note.Position.x - (player.Position.x - note.Position.x) /  pushAmount;
@@ -211,7 +211,7 @@ public class WorldController {
 //                    yPos = 100 + Math.random() * 200;
 //                    showText(textList[Math.floor(Math.random() * textList.length)], 500, 13369344, stage.stageWidth - 200, yPos, yPos + 50, 30);
 //                }
-                powerDownTime = 60;
+                powerDownTime = 120;
                 break;
             case SUCTION:
                 player.addPurplePowerCount();
