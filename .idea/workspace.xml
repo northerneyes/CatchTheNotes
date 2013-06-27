@@ -15,6 +15,7 @@
     <file path="/GameMenu.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372356587734" ignored="false" />
     <file path="/GameMenuController.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372357081830" ignored="false" />
     <file path="/World.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372357058563" ignored="false" />
+    <file path="/GameScreen.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372358045521" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,10 +100,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameScreen.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GameScreen.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/screens/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="30" selection-start="2653" selection-end="2653" vertical-scroll-proportion="-4.42">
+            <state line="90" column="32" selection-start="1985" selection-end="1985" vertical-scroll-proportion="0.48742747">
               <folding />
             </state>
           </provider>
@@ -117,10 +118,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WorldController.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="WorldController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="22" selection-start="2040" selection-end="2040" vertical-scroll-proportion="0.65841585">
+            <state line="38" column="49" selection-start="1201" selection-end="1222" vertical-scroll-proportion="-3.86">
               <folding />
             </state>
           </provider>
@@ -194,9 +195,9 @@
         <option value="$PROJECT_DIR$/src/com/northerneyes/model/World.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/controller/GameMenuController.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/view/WorldRenderer.java" />
-        <option value="$PROJECT_DIR$/src/com/northerneyes/screens/GameScreen.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/view/TextRenderer.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java" />
+        <option value="$PROJECT_DIR$/src/com/northerneyes/screens/GameScreen.java" />
       </list>
     </option>
   </component>
@@ -640,7 +641,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1554" height="916" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -662,8 +663,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19906166" sideWeight="0.91040844" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08959157" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19906166" sideWeight="0.8089592" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19104084" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -795,13 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/WorldRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="28" selection-start="3331" selection-end="3331" vertical-scroll-proportion="-11.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/GameMenuRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="16" selection-start="835" selection-end="835" vertical-scroll-proportion="-18.24">
@@ -812,13 +806,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/IMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="16" selection-start="130" selection-end="130" vertical-scroll-proportion="-5.04">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/screens/GameScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="30" selection-start="2653" selection-end="2653" vertical-scroll-proportion="-4.42">
           <folding />
         </state>
       </provider>
@@ -846,7 +833,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="22" selection-start="2040" selection-end="2040" vertical-scroll-proportion="0.65841585">
+        <state line="38" column="49" selection-start="1201" selection-end="1222" vertical-scroll-proportion="-3.86">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/WorldRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="28" selection-start="3331" selection-end="3331" vertical-scroll-proportion="-11.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/screens/GameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="32" selection-start="1985" selection-end="1985" vertical-scroll-proportion="0.48742747">
           <folding />
         </state>
       </provider>

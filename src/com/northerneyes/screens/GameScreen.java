@@ -90,7 +90,7 @@ public class GameScreen implements Screen, InputProcessor {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
-
+        menuController = controller.getCurrentMenu();
 		controller.update(delta);
 		render.render();
 	}
@@ -116,7 +116,8 @@ public class GameScreen implements Screen, InputProcessor {
 
 		if (!Gdx.app.getType().equals(ApplicationType.Android))
 			return false;
-        menuController.setPosition(x, height - y);
+        if(menuController != null)
+            menuController.setPosition(x, height - y);
 		ChangeNavigation(x,y);
 		return true;
 	} 
