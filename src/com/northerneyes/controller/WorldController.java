@@ -37,9 +37,11 @@ public class WorldController {
 
     private GameMenuController gameMenuController;
     private IMenuController currentMenuController;
+    private World world;
 
     public WorldController(World world) {
-		this.player = world.getPlayer();
+        this.world = world;
+        this.player = world.getPlayer();
         this.notesHolder = world.getNotesHolder();
 
         coefX = bandWidth*halfWidth/FREQ_LENGTH;
@@ -58,6 +60,17 @@ public class WorldController {
 
 	public void update(float delta) {
 		player.update(delta);
+
+        switch (world.getCurrentMenuType())
+        {
+            case GAME:
+                currentMenuController = gameMenuController;
+                break;
+            case PAUSE:
+                currentMenuController = null;
+                return;  //Останавливаем игру
+        }
+
         notesHolder.update(delta);
         frameCount++;
         if(DEBUG)

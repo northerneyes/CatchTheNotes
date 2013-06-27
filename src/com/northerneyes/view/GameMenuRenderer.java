@@ -16,6 +16,8 @@ public class GameMenuRenderer implements IRenderer {
     public GameMenuRenderer(GameMenu menu, TextRenderer textRenderer) {
         this.menu = menu;
         this.textRenderer = textRenderer;
+        textRenderer.setText(menu.getPauseText(), color, menu.getPausePosition(), 0.5f, TextRenderer.TextAlign.LEFT);
+        menu.setPauseBounds(textRenderer.getBounds());
     }
 
     @Override

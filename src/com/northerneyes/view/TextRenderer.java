@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.controller.WorldController;
 import com.northerneyes.model.IEntity;
@@ -15,13 +16,10 @@ import java.util.Vector;
  */
 public class TextRenderer implements IRenderer {
 
-    public BitmapFont.TextBounds getBounds(String text, float size) {
+    public Rectangle getBounds() {
         font.setScale(size);
-        return  this.font.getBounds(text);
-    }
-
-    public BitmapFont.TextBounds getBounds( ) {
-        return bounds;
+        BitmapFont.TextBounds textBounds = font.getBounds(text);
+        return  new Rectangle( position.x * coef + shiftX, position.y * ppuY + shiftY - textBounds.height, textBounds.width, textBounds.height);
     }
 
     private BitmapFont.TextBounds bounds;
@@ -45,6 +43,7 @@ public class TextRenderer implements IRenderer {
     private final float coef;
     private String text;
     private Vector2 position;
+    private float size;
 
     private float ppuY;
     private float shiftX = 0f;
@@ -62,6 +61,7 @@ public class TextRenderer implements IRenderer {
     {
         this.text = text;
         this.position = position;
+        this.size = size;
 
         font.setColor(textColor);
         font.setScale(size);

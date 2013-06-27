@@ -116,7 +116,7 @@ public class GameScreen implements Screen, InputProcessor {
 
 		if (!Gdx.app.getType().equals(ApplicationType.Android))
 			return false;
-        menuController.setPosition(getGameXPos(x), getGameYPos(y));
+        menuController.setPosition(x, height - y);
 		ChangeNavigation(x,y);
 		return true;
 	} 
