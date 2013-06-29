@@ -6,6 +6,9 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Player implements IEntity {
 
+
+
+
     public enum PulseType {
         NORMAL,
         BAD,
@@ -35,6 +38,7 @@ public class Player implements IEntity {
     private int purplePowerCount = 0;
     private int yellowMadnessCount = 0;
     private int shapeCount = 0;
+    private int score;
 
     public PulseType Type = PulseType.NONE;
     public boolean ShowGameInfo = true;
@@ -59,7 +63,7 @@ public class Player implements IEntity {
 
 
     public int getScore() {
-        return 0;
+        return score;
     }
 
     public float getPulseCoef() {
@@ -142,6 +146,9 @@ public class Player implements IEntity {
         shapeCount++;
     }
 
+    public void addToScore(float amount) {
+        score = Math.round(score + amount*combo);
+    }
 
 
 }

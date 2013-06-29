@@ -43,7 +43,7 @@ public class WorldController {
         this.world = world;
         this.player = world.getPlayer();
         this.notesHolder = world.getNotesHolder();
-
+        this.messageHolder = world.getMessageHolder();
         coefX = bandWidth*halfWidth/FREQ_LENGTH;
 
         gameMenuController = new GameMenuController(world);
@@ -193,7 +193,7 @@ public class WorldController {
 
     private void collectRainDrop(Note note) {
 
-//       amount = Math.max(1, maxRadius - rd.size); //score
+        float amount = Math.max(1, 3.5f*(Note.MAX_SIZE - note.Size)); //score
         switch (note.Type)
         {
             case NORMAL:
@@ -206,6 +206,7 @@ public class WorldController {
                 player.addCombo();
                 player.setSize();
                 player.Type = PulseType.GOOD;
+
 //                if (!rd.recycled)
 //                {
 //                    textList = ["Yeah!", "Great!", "Good job!", "Super!", "Woohoo!", "Fabulous!", "Excellent!", "Wow!", "Amazing!", "Superb!", "Terrific!", "Fantastic!", "Splendid!", "Wonderful!", "Yes!", "Unbelievable!", "Outstanding!", "Remarkable!", "Woot!"];
@@ -240,7 +241,7 @@ public class WorldController {
                 break;
         }
         player.addShapeCount();
-//        addToScore(amount * combo);
+        player.addToScore(amount);
         if(note.Type != NoteType.COLLECTED)
             note.TTL = 0;
     }

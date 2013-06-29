@@ -8,6 +8,8 @@ import com.northerneyes.model.Menu.GameMenu;
 
 public class World {
 
+
+
     public enum MenuType {
         GAME,
         PAUSE;
@@ -42,7 +44,9 @@ public class World {
         return notesHolder;
     }
 
+    public MessageHolder getMessageHolder() {
 
+    }
 
 	public World() {
 
