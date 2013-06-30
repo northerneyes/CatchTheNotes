@@ -22,6 +22,7 @@ public class WorldController {
     private final float coefX;
     private final PauseMenuController pauseMenuController;
     private final float height;
+    private final MainMenuController mainMenuController;
     public Player player;
     public NotesHolder notesHolder;
     private float[] oldVolume = new float[FREQ_LENGTH];
@@ -52,6 +53,7 @@ public class WorldController {
 
         gameMenuController = new GameMenuController(world);
         pauseMenuController = new PauseMenuController(world);
+        mainMenuController = new MainMenuController(world);
         currentMenuController = gameMenuController;
 
         if(!DEBUG)
@@ -81,6 +83,7 @@ public class WorldController {
                     notesHolder.beat((float)(Math.random() * SOURCE_COUNT), height, -(float)Math.random(), NoteType.NORMAL);
                 }
                 updateRainDrops();
+                currentMenuController = mainMenuController;
                 return;
             case START_GAME:  //Restart
                 //stop music

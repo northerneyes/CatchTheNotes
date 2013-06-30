@@ -9,7 +9,7 @@
     <file path="/PlayerRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372574641306" ignored="false" />
     <file path="/TextRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372573260856" ignored="false" />
     <file path="/WorldRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372570954973" ignored="false" />
-    <file path="/WorldController.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372574898857" ignored="false" />
+    <file path="/WorldController.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372576207481" ignored="false" />
     <file path="/Note.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372186468811" ignored="false" />
     <file path="/NotesHolder.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372575916295" ignored="false" />
     <file path="/GameMenu.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372356587734" ignored="false" />
@@ -113,7 +113,7 @@
       <file leaf-file-name="WorldController.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="17" selection-start="2700" selection-end="2700" vertical-scroll-proportion="0.45578232">
+            <state line="85" column="59" selection-start="2912" selection-end="2912" vertical-scroll-proportion="0.30476192">
               <folding />
             </state>
           </provider>
@@ -938,7 +938,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="17" selection-start="2700" selection-end="2700" vertical-scroll-proportion="0.45578232">
+        <state line="85" column="59" selection-start="2912" selection-end="2912" vertical-scroll-proportion="0.30476192">
           <folding />
         </state>
       </provider>
