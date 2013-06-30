@@ -2,11 +2,13 @@ package com.northerneyes.CatchTheNotes;
 
 
 import android.util.Log;
+import aurelienribon.tweenengine.Tween;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 
 import android.os.Bundle;
-
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.northerneyes.CatchTheNotes.accessors.*;
 
 public class MainActivity extends AndroidApplication {
 	 
@@ -14,6 +16,11 @@ public class MainActivity extends AndroidApplication {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Tween.setWaypointsLimit(10);
+        Tween.setCombinedAttributesLimit(3);
+        Tween.registerAccessor(Sprite.class, new SpriteAccessor());
+
         AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
         config.useAccelerometer = false;
 		config.useCompass = false;

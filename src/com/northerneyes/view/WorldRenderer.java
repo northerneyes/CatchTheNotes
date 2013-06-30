@@ -1,5 +1,7 @@
 package com.northerneyes.view;
 
+import aurelienribon.tweenengine.Tween;
+import aurelienribon.tweenengine.TweenManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -43,8 +45,11 @@ public class WorldRenderer {
     private Music theme;
     private MediaPlayerRenderer mediaRenderer;
 
+    private TweenManager tweenManager = new TweenManager();
     //Menu
     private GameMenuRenderer gameMenuRenderer;
+    private PauseMenuRenderer pauseMenuRenderer;
+    private MainMenuRenderer mainMenuRenderer;
 
     public void SetCamera(float x, float y){
 		this.cam.position.set(x, y,0);	
@@ -74,13 +79,14 @@ public class WorldRenderer {
     private void loadTextures() {
         textRenderer = new TextRenderer(ppuX, ppuY, CAMERA_WIDTH);
 
-        atlasTexture  = new Texture(Gdx.files.internal("images/atlas2.png"));
+        atlasTexture  = new Texture(Gdx.files.internal("images/atlas_glow.png"));
         TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);
 
         playerRenderer = new PlayerRenderer(regions[4][2], textRenderer , ppuX, ppuY, CAMERA_WIDTH, CAMERA_HEIGHT);
 
         gameMenuRenderer = new GameMenuRenderer(world.getGameMenu(), textRenderer);
-
+        pauseMenuRenderer = new PauseMenuRenderer(world.getPauseMenu(), textRenderer);
+        mainMenuRenderer = new MainMenuRenderer(world.getMainMenu(), textRenderer, ppuX);
         ArrayList<TextureRegion> notes = new ArrayList<TextureRegion>();
         notes.addAll(Arrays.asList(regions[0]).subList(0, NotesHolder.NOTE_TYPE_COUNT));
 
@@ -105,8 +111,13 @@ public class WorldRenderer {
         switch (world.getCurrentMenuType())
         {
             case GAME:
-                //gameMenuRenderer.update(world.getGameMenu());
                 gameMenuRenderer.render(spriteBatch);
+                break;
+            case PAUSE:
+                pauseMenuRenderer.render(spriteBatch);
+                break;
+            case MAIN_MENU:
+                mainMenuRenderer.render(spriteBatch);
                 break;
         }
     }

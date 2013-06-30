@@ -19,6 +19,7 @@ public class WorldController {
     public static final int SOURCE_COUNT = 16;
     private final VisualizationData data;
     private final float coefX;
+    private final PauseMenuController pauseMenuController;
     public Player player;
     public NotesHolder notesHolder;
     private float[] oldVolume = new float[FREQ_LENGTH];
@@ -43,10 +44,11 @@ public class WorldController {
         this.world = world;
         this.player = world.getPlayer();
         this.notesHolder = world.getNotesHolder();
-        this.messageHolder = world.getMessageHolder();
+       // this.messageHolder = world.getMessageHolder();
         coefX = bandWidth*halfWidth/FREQ_LENGTH;
 
         gameMenuController = new GameMenuController(world);
+        pauseMenuController = new PauseMenuController(world);
         currentMenuController = gameMenuController;
 
         if(!DEBUG)
@@ -63,11 +65,21 @@ public class WorldController {
 
         switch (world.getCurrentMenuType())
         {
+            case MAIN_MENU:
+                //Stop music
+                //clear all stuff
+                //draw random stuff
+                //set main menu controller
+            case START_GAME:  //Restart
+                //stop music
+                //play new music
+                //clear all stuff
+                //set world menu game
             case GAME:
                 currentMenuController = gameMenuController;
                 break;
             case PAUSE:
-                currentMenuController = null;
+                currentMenuController = pauseMenuController;
                 return;  //Останавливаем игру
         }
 

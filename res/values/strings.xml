@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CatchTheNotes</string>
+    <string name="app_name">Catch The Notes</string>
     <string name="title_activity_main">Catch The Notes</string>
     <string name="pause_menu">Pause</string>
     <string name="score">Score:</string>
+    <string name="end_game_menu">End Game</string>
+    <string name="restart_menu">Restart</string>
+    <string name="resume_menu">Resume</string>
+    <string name="play_menu">Play</string>
+    <string name="song_menu">Song:</string>
 </resources>
