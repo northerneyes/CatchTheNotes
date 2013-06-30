@@ -48,6 +48,11 @@ public class MainMenu{
         this.bounds =  bounds;
     }
 
+    public Rectangle[] getBounds()
+    {
+        return this.bounds;
+    }
+
     public int getMenuState(float x, float y)
     {
         for(int i = 0; i < bounds.length; i++)

@@ -1,8 +1,14 @@
 package com.northerneyes.view;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.northerneyes.CatchTheNotes.MyGame;
 import com.northerneyes.CatchTheNotes.R;
 import com.northerneyes.controller.WorldController;
@@ -21,6 +27,8 @@ public class MainMenuRenderer implements IRenderer{
     private final float mediumSize;
     private final float largeSize;
     private final float coef;
+    private final NinePatch btnPatch;
+    private final Color btnColor;
     private TextRenderer[] songRenderers;
     private MainMenu menu;
     private TextRenderer textRenderer;
@@ -32,6 +40,8 @@ public class MainMenuRenderer implements IRenderer{
         this.ppuX = ppuX;
         this.coef = ppuX*(CAMERA_WIDTH / WorldController.SOURCE_COUNT);
 
+        btnPatch = new NinePatch( new Texture(Gdx.files.internal("images/btn.9.png")), 16, 16, 16, 16);
+         btnColor = new Color(1f, 1f, 1f, 0.6f);
         Rectangle[] bounds = new Rectangle[4];
         smallSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.small_size));
         mediumSize =  Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.medium_size));
@@ -77,8 +87,26 @@ public class MainMenuRenderer implements IRenderer{
         textRenderer.setText(menu.SongText, menu.SongTextColor, menu.SongTextPosition, smallSize, TextRenderer.TextAlign.RIGHT);
         textRenderer.render(spriteBatch);
 
-        for (TextRenderer songRenderer : songRenderers) {
-            songRenderer.render(spriteBatch);
+//        spriteBatch.draw(btnPatch.getTexture(), menu.getBounds()[1].x, menu.getBounds()[1].y, menu.getBounds()[1].width, menu.getBounds()[1].height );
+
+
+        for (int i= 0; i < songRenderers.length; i++) {
+            spriteBatch.begin();
+            btnPatch.setColor(btnColor);
+            spriteBatch.setColor(btnColor);
+            btnPatch.draw(spriteBatch, menu.getBounds()[i+1].x - 0.4f*ppuX,
+                    menu.getBounds()[i+1].y -  0.45f*menu.getBounds()[i+1].height, menu.getBounds()[i+1].width*1.1f, menu.getBounds()[i+1].height*2f);
+            spriteBatch.end();
+
+            songRenderers[i].render(spriteBatch);
         }
+
+    }
+
+    private static NinePatch processNinePatchFile(String fname) {
+        final Texture t = new Texture(Gdx.files.internal(fname));
+        final int width = t.getWidth() - 2;
+        final int height = t.getHeight() - 2;
+        return new NinePatch(new TextureRegion(t, 1, 1, width, height), 3, 3, 3, 3);
     }
 }

@@ -84,6 +84,8 @@ public class WorldRenderer {
         textRenderer = new TextRenderer(font, ppuX, ppuY, CAMERA_WIDTH);
 
         atlasTexture  = new Texture(Gdx.files.internal("images/atlas_glow.png"));
+
+
         TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);
 
         playerRenderer = new PlayerRenderer(regions[4][2], textRenderer , ppuX, ppuY, CAMERA_WIDTH, CAMERA_HEIGHT);
