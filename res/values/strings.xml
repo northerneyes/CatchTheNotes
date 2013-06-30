@@ -9,6 +9,9 @@
     <string name="resume_menu">Resume</string>
     <string name="play_menu">Play</string>
     <string name="song_menu">Song:</string>
+    <string name="leave_in_the_wind">Leave In The Wind</string>
+    <string name="centle">Centle</string>
+    <string name="letting_go">Letting Go</string>
 
     <item name="small_size" format="float" type="string">0.25</item>
     <item name="medium_size" format="float" type="string">0.4</item>

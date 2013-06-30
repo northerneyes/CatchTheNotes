@@ -75,7 +75,7 @@ public class GameScreen implements Screen, InputProcessor {
 	@Override
 	public void dispose() {		
 		Gdx.input.setInputProcessor(null);
-        MediaPlayer.Dispose();
+        MediaPlayer.dispose();
 	}
 
 

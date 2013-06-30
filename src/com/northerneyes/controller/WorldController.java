@@ -67,66 +67,65 @@ public class WorldController {
 
 	public void update(float delta) {
 		player.update(delta);
-        notesHolder.update(delta);
-        frameCount++;
 
         switch (world.getCurrentMenuType())
         {
             case MAIN_MENU:
                 //Stop music
                 //clear all stuff
-                //draw random stuff
-                //set main menu controller
+               // MediaPlayer.dispose();
                 DEBUG = false;
+                notesHolder.update(delta);
+                frameCount++;
                 if (frameCount % 20 == 0)
                 {
                     notesHolder.beat((float)(Math.random() * SOURCE_COUNT), height, -(float)Math.random(), NoteType.NORMAL);
                 }
                 updateRainDrops();
+                player.ShowGameInfo = false;
                 currentMenuController = mainMenuController;
                 return;
             case START_GAME:  //Restart
                 //stop music
                 //play new music
                 //clear all stuff
-                //set world menu game
-                DEBUG = true;
+                player.ShowGameInfo = true;
                 world.setCurrentMenuType(World.MenuType.GAME);
                 return;
             case GAME:
+                DEBUG = true;
                 currentMenuController = gameMenuController;
+                notesHolder.update(delta);
+                frameCount++;
+                if(DEBUG)
+                {
+                    if(notesHolder.particles.size() == 1 || notesHolder.particles.size() == 0)
+                    {
+                        notesHolder.particles.clear();
+                        notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
+                        // notesHolder.particles.add(new Note(new Vector2(16, 0), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(8, 10), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 2f, 200, 3, 1));
+                        notesHolder.particles.add(new Note(new Vector2(1, 3), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1.5f, 200, 4, 1));
+                        notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 5, 1));
+                        notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 1, 1));
+                        notesHolder.particles.add(new Note(new Vector2(12, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, 1f, 200, 2, 1));
+                        // notesHolder.particles.add(new Note(new Vector2(15, 7), new Vector2(0, 0), 0, 0, NoteType.SUCTION, 1f, 200, 2, 1));
+                    }
+                }
+                else
+                {
+                    processMusic();
+                    if(frameCount % 6 == 0)
+                    {
+                        addRainDrops();
+                    }
+                }
+                updateRainDrops();
                 break;
             case PAUSE:
                 currentMenuController = pauseMenuController;
-                return;  //Останавливаем игру
         }
-
-        if(DEBUG)
-        {
-                if(notesHolder.particles.size() == 1 || notesHolder.particles.size() == 0)
-                {
-                    notesHolder.particles.clear();
-                    notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1f, 200, 2, 1));
-                    notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
-                   // notesHolder.particles.add(new Note(new Vector2(16, 0), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
-                    notesHolder.particles.add(new Note(new Vector2(8, 10), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 2f, 200, 3, 1));
-                    notesHolder.particles.add(new Note(new Vector2(1, 3), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1.5f, 200, 4, 1));
-                    notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 5, 1));
-                    notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 1, 1));
-                    notesHolder.particles.add(new Note(new Vector2(12, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, 1f, 200, 2, 1));
-                   // notesHolder.particles.add(new Note(new Vector2(15, 7), new Vector2(0, 0), 0, 0, NoteType.SUCTION, 1f, 200, 2, 1));
-                }
-        }
-        else
-        {
-            processMusic();
-            if(frameCount % 6 == 0)
-            {
-                addRainDrops();
-            }
-        }
-            updateRainDrops();
-
     }
 
     private void updateRainDrops() {
@@ -151,14 +150,14 @@ public class WorldController {
                             float xPos;
                             if (Math.random() > 0.5)
                             {
-                                xPos = (float) (player.Position.x - origCursorSize/3f  - Math.random() * 0.5f + 0.5f);
+                                xPos = (float) (player.Position.x - origCursorSize/3f  - Math.random() * 0.5f - 0.2f);
                             }
                             else
                             {
-                                xPos = (float) (player.Position.x + origCursorSize/3f  + Math.random() * 0.5f + 0.5f);
+                                xPos = (float) (player.Position.x + origCursorSize/3f  + Math.random() * 0.5f + 0.2f);
                             }
 
-                            float yPos = (float) (player.Position.y + origCursorSize + Math.random() * 0.5f + 0.5f);
+                            float yPos = (float) (player.Position.y + origCursorSize + Math.random() * 0.5f + 0.2f);
                             notesHolder.addRecycledParticle(new Note(new Vector2(xPos, yPos), NoteType.POWER_UP, 0.7f, 2, true));
                             ++k;
                         }
@@ -294,8 +293,8 @@ public class WorldController {
             float volume = volumePoints.get(key);
             if (cheatLotsOfShapes || notesHolder.particles.size() < maxShapesOnBoard  || volume > 0.9)
             {
-                notesHolder.beat((1f + key / (float) FREQ_LENGTH) * halfWidth + (float) (Math.random() * coefX), 0, volume);
-                notesHolder.beat((1f - key / (float)FREQ_LENGTH) * halfWidth + (float)(Math.random() * coefX), 0, volume);
+                notesHolder.beat((1f + key / (float) FREQ_LENGTH) * halfWidth + (float) (Math.random() * coefX), height, -volume);
+                notesHolder.beat((1f - key / (float)FREQ_LENGTH) * halfWidth + (float)(Math.random() * coefX), height, -volume);
             }
         }
         volumePoints.clear();

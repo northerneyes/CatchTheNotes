@@ -5,10 +5,6 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public class Player implements IEntity {
-
-
-
-
     public enum PulseType {
         NORMAL,
         BAD,
@@ -44,6 +40,7 @@ public class Player implements IEntity {
     public boolean ShowGameInfo = true;
     private float pulseCoef = 1;
     private boolean reverse = false;
+
     public Player(Vector2 position) {
 		this.Position = position;
         Size = DefaultSize;

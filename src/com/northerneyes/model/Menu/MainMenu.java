@@ -30,12 +30,17 @@ public class MainMenu{
     public Color PlayTextColor = new Color(1f, 1f, 1f, 1f);
     public Color SongTextColor = new Color(1f, 1f, 1f, 1f);
 
+    public String SongsName[] =   {
+            MyGame.getAppContext().getString(R.string.leave_in_the_wind),
+            MyGame.getAppContext().getString(R.string.centle),
+            MyGame.getAppContext().getString(R.string.letting_go)
+    };
+
     public MainMenu(float width, float height) {
         AppNamePosition = new Vector2(width/2, height - 2);
         PlayPosition = new Vector2(AppNamePosition.x, AppNamePosition.y - 3);
-        SongTextPosition = new Vector2(4, PlayPosition.y - 2);
-
-        SongNamePositions = new Vector2[2];
+        SongTextPosition = new Vector2(2, PlayPosition.y - 2);
+        SongNamePositions = new Vector2[3];
     }
 
     public void setBounds(Rectangle[] bounds)

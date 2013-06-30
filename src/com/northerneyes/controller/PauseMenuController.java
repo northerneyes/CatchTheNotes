@@ -1,5 +1,6 @@
 package com.northerneyes.controller;
 
+import com.northerneyes.audio.MediaPlayer;
 import com.northerneyes.model.Menu.GameMenu;
 import com.northerneyes.model.Menu.PauseMenu;
 import com.northerneyes.model.World;
@@ -32,6 +33,7 @@ public class PauseMenuController implements IMenuController {
                 world.setCurrentMenuType(World.MenuType.START_GAME);
                 break;
             case 2:
+                MediaPlayer.dispose();
                 world.setCurrentMenuType(World.MenuType.MAIN_MENU);
                 break;
         }

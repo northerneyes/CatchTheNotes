@@ -86,7 +86,7 @@ public class WorldRenderer {
 
         gameMenuRenderer = new GameMenuRenderer(world.getGameMenu(), textRenderer);
         pauseMenuRenderer = new PauseMenuRenderer(world.getPauseMenu(), textRenderer);
-        mainMenuRenderer = new MainMenuRenderer(world.getMainMenu(), textRenderer, ppuX);
+        mainMenuRenderer = new MainMenuRenderer(world.getMainMenu(), textRenderer, ppuX, ppuY, CAMERA_WIDTH);
         ArrayList<TextureRegion> notes = new ArrayList<TextureRegion>();
         notes.addAll(Arrays.asList(regions[0]).subList(0, NotesHolder.NOTE_TYPE_COUNT));
 

@@ -93,7 +93,6 @@ public class TextRenderer implements IRenderer {
     @Override
     public void render(SpriteBatch spriteBatch) {
         spriteBatch.begin();
-
         this.font.draw(spriteBatch, text, position.x * coef + shiftX, position.y * ppuY + shiftY);
         spriteBatch.end();
     }

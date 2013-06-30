@@ -110,7 +110,7 @@ public class MediaPlayer {
         }
     }
 
-    public static void Dispose() {
+    public static void dispose() {
       stop();
       Gdx.files.external("tmp/test.mp3").delete();
     }
