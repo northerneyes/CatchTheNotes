@@ -8,6 +8,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -50,6 +51,7 @@ public class WorldRenderer {
     private GameMenuRenderer gameMenuRenderer;
     private PauseMenuRenderer pauseMenuRenderer;
     private MainMenuRenderer mainMenuRenderer;
+    private BitmapFont font;
 
     public void SetCamera(float x, float y){
 		this.cam.position.set(x, y,0);	
@@ -77,7 +79,9 @@ public class WorldRenderer {
     }
 
     private void loadTextures() {
-        textRenderer = new TextRenderer(ppuX, ppuY, CAMERA_WIDTH);
+
+        font = new BitmapFont(Gdx.files.internal("data/PareBold256_spacing.fnt"), false);
+        textRenderer = new TextRenderer(font, ppuX, ppuY, CAMERA_WIDTH);
 
         atlasTexture  = new Texture(Gdx.files.internal("images/atlas_glow.png"));
         TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);

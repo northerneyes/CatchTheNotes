@@ -25,6 +25,10 @@ public class TextRenderer implements IRenderer {
 
     private BitmapFont.TextBounds bounds;
 
+    public BitmapFont getFont() {
+        return font;
+    }
+
     public enum TextAlign {
         CENTER,
         LEFT,
@@ -50,12 +54,12 @@ public class TextRenderer implements IRenderer {
     private float shiftX = 0f;
     private float shiftY = 0f;
 
-    public TextRenderer(float ppuX, float ppuY, float CAMERA_WIDTH) {
-
+    public TextRenderer(BitmapFont font, float ppuX, float ppuY, float CAMERA_WIDTH) {
+        this.font = font;
         this.ppuY = ppuY;
         this.coef = ppuX*(CAMERA_WIDTH / WorldController.SOURCE_COUNT);
 
-        font = new BitmapFont(Gdx.files.internal("data/PareBold256.fnt"), false);
+
     }
 
     public void  setText(String text, Color textColor, Vector2 position, float size, TextAlign textAlign)

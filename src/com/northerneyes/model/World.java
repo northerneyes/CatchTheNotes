@@ -50,7 +50,7 @@ public class World {
 	public float width;
 	public float height;
     private int sourceCount;
-    private MenuType currentMenu = MenuType.GAME;
+    private MenuType currentMenu = MenuType.MAIN_MENU;
     private GameMenu gameMenu;
 
     public GameMenu getGameMenu() {
@@ -87,6 +87,7 @@ public class World {
         mainMenu = new MainMenu(sourceCount, height);
         //TODO:create message holder
         pauseMenu = new PauseMenu(sourceCount, height);
+        currentMenu = MenuType.MAIN_MENU;
 	}
 
     public PauseMenu getPauseMenu() {

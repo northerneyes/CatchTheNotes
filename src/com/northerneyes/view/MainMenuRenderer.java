@@ -21,7 +21,7 @@ public class MainMenuRenderer implements IRenderer{
     private final float mediumSize;
     private final float largeSize;
     private final float coef;
-    private final TextRenderer[] songRenderers;
+    private TextRenderer[] songRenderers;
     private MainMenu menu;
     private TextRenderer textRenderer;
     private float ppuX;
@@ -44,7 +44,7 @@ public class MainMenuRenderer implements IRenderer{
         Vector2 position = new Vector2(getShift(textRenderer.getBounds()) + 0.5f, menu.SongTextPosition.y);
         for (int i = 0; i < songRenderers.length; i++)
         {
-            songRenderers[i] = new TextRenderer(ppuX, ppuY, CAMERA_WIDTH);
+            songRenderers[i] = new TextRenderer(textRenderer.getFont(), ppuX, ppuY, CAMERA_WIDTH);
 
             songRenderers[i].setText(menu.SongsName[i], menu.SongTextColor, position, smallSize, TextRenderer.TextAlign.LEFT);
             menu.SongNamePositions[i] = position;

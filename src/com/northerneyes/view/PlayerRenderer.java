@@ -63,6 +63,9 @@ public class PlayerRenderer implements IRenderer {
         this.CAMERA_WIDTH = CAMERA_WIDTH;
         this.height = height;
         this.coef = ppuX*(CAMERA_WIDTH / WorldController.SOURCE_COUNT);
+
+        smallSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.small_size));
+        playerCoeffSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.player_coef_size));
     }
 
     @Override
@@ -75,8 +78,6 @@ public class PlayerRenderer implements IRenderer {
             String scorePoints = String.format("%d", player.getScore());
             String score = MyGame.getAppContext().getString(R.string.score);
             //TODO: Create Padding!!
-            smallSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.small_size));
-            playerCoeffSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.player_coef_size));
 
             textRenderer.setText(score, scoreColor, textPosition.set(WorldController.SOURCE_COUNT/2f, 1f), smallSize, TextAlign.RIGHT);
             textRenderer.render(spriteBatch);

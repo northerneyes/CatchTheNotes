@@ -37,7 +37,7 @@ public class Player implements IEntity {
     private int score;
 
     public PulseType Type = PulseType.NONE;
-    public boolean ShowGameInfo = true;
+    public boolean ShowGameInfo = false;
     private float pulseCoef = 1;
     private boolean reverse = false;
 

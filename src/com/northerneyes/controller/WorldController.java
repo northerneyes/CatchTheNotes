@@ -54,7 +54,7 @@ public class WorldController {
         gameMenuController = new GameMenuController(world);
         pauseMenuController = new PauseMenuController(world);
         mainMenuController = new MainMenuController(world);
-        currentMenuController = gameMenuController;
+       // currentMenuController = gameMenuController;
 
         if(!DEBUG)
         {
@@ -74,6 +74,7 @@ public class WorldController {
                 //Stop music
                 //clear all stuff
                // MediaPlayer.dispose();
+                currentMenuController = mainMenuController;
                 DEBUG = false;
                 notesHolder.update(delta);
                 frameCount++;
@@ -83,7 +84,6 @@ public class WorldController {
                 }
                 updateRainDrops();
                 player.ShowGameInfo = false;
-                currentMenuController = mainMenuController;
                 return;
             case START_GAME:  //Restart
                 //stop music
