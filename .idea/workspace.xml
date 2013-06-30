@@ -25,7 +25,7 @@
     <file path="/MainMenu.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372591717917" ignored="false" />
     <file path="/MainMenuController.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372569925940" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/android/lib/android.jar!/org/jetbrains/android/android.xsd" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372570052353" ignored="false" />
-    <file path="/MainMenuRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372596107710" ignored="false" />
+    <file path="/MainMenuRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372596586330" ignored="false" />
     <file path="/dimens.xml" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372573883681" ignored="false" />
     <file path="/strings.xml" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372574497712" ignored="false" />
     <file path="/MediaPlayer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372578929285" ignored="false" />
@@ -98,7 +98,7 @@
       <file leaf-file-name="MainMenuRenderer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/MainMenuRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="112" selection-start="4426" selection-end="4426" vertical-scroll-proportion="0.5620915">
+            <state line="97" column="115" selection-start="4429" selection-end="4429" vertical-scroll-proportion="0.5620915">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -922,7 +922,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/MainMenuRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="112" selection-start="4426" selection-end="4426" vertical-scroll-proportion="0.5620915">
+        <state line="97" column="115" selection-start="4429" selection-end="4429" vertical-scroll-proportion="0.5620915">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

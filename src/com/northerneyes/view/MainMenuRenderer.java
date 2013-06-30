@@ -95,7 +95,7 @@ public class MainMenuRenderer implements IRenderer{
             btnPatch.setColor(btnColor);
             spriteBatch.setColor(btnColor);
             btnPatch.draw(spriteBatch, menu.getBounds()[i+1].x - 0.4f*ppuX,
-                    menu.getBounds()[i+1].y -  0.45f*menu.getBounds()[i+1].height, menu.getBounds()[i+1].width*1.1f, menu.getBounds()[i+1].height*2f);
+                    menu.getBounds()[i+1].y -  0.5f*menu.getBounds()[i+1].height, menu.getBounds()[i+1].width + 0.8f*ppuX, menu.getBounds()[i+1].height*2f);
             spriteBatch.end();
 
             songRenderers[i].render(spriteBatch);
