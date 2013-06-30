@@ -2,6 +2,8 @@ package com.northerneyes.view;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.northerneyes.CatchTheNotes.MyGame;
+import com.northerneyes.CatchTheNotes.R;
 import com.northerneyes.model.IEntity;
 import com.northerneyes.model.Menu.GameMenu;
 import com.northerneyes.model.Menu.PauseMenu;
@@ -15,6 +17,7 @@ import com.northerneyes.model.Menu.PauseMenu;
  */
 public class PauseMenuRenderer implements IRenderer {
 
+    private final float mediumSize;
     private PauseMenu menu;
     private TextRenderer textRenderer;
 
@@ -22,11 +25,13 @@ public class PauseMenuRenderer implements IRenderer {
         this.menu = menu;
         this.menu = menu;
         this.textRenderer = textRenderer;
-        textRenderer.setText(menu.getResumeText(), menu.ResumeTextColor, menu.ResumePosition, 0.8f, TextRenderer.TextAlign.CENTER);
+        mediumSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.medium_size));
+
+        textRenderer.setText(menu.getResumeText(), menu.ResumeTextColor, menu.ResumePosition, mediumSize, TextRenderer.TextAlign.CENTER);
         menu.setResumeBounds(textRenderer.getBounds());
-        textRenderer.setText(menu.getRestartText(), menu.RestartTextColor, menu.RestartPosition, 0.8f, TextRenderer.TextAlign.CENTER);
+        textRenderer.setText(menu.getRestartText(), menu.RestartTextColor, menu.RestartPosition, mediumSize, TextRenderer.TextAlign.CENTER);
         menu.setRestartBounds(textRenderer.getBounds());
-        textRenderer.setText(menu.getEndGameText(), menu.EndGameTextColor, menu.EndGamePosition, 0.8f, TextRenderer.TextAlign.CENTER);
+        textRenderer.setText(menu.getEndGameText(), menu.EndGameTextColor, menu.EndGamePosition, mediumSize, TextRenderer.TextAlign.CENTER);
         menu.setEndGameBounds(textRenderer.getBounds());
     }
 
@@ -37,11 +42,11 @@ public class PauseMenuRenderer implements IRenderer {
 
     @Override
     public void render(SpriteBatch spriteBatch) {
-        textRenderer.setText(menu.getResumeText(), menu.ResumeTextColor, menu.ResumePosition, 0.8f, TextRenderer.TextAlign.CENTER);
+        textRenderer.setText(menu.getResumeText(), menu.ResumeTextColor, menu.ResumePosition, mediumSize, TextRenderer.TextAlign.CENTER);
         textRenderer.render(spriteBatch);
-        textRenderer.setText(menu.getRestartText(), menu.RestartTextColor, menu.RestartPosition, 0.8f, TextRenderer.TextAlign.CENTER);
+        textRenderer.setText(menu.getRestartText(), menu.RestartTextColor, menu.RestartPosition, mediumSize, TextRenderer.TextAlign.CENTER);
         textRenderer.render(spriteBatch);
-        textRenderer.setText(menu.getEndGameText(), menu.EndGameTextColor, menu.EndGamePosition, 0.8f, TextRenderer.TextAlign.CENTER);
+        textRenderer.setText(menu.getEndGameText(), menu.EndGameTextColor, menu.EndGamePosition, mediumSize, TextRenderer.TextAlign.CENTER);
         textRenderer.render(spriteBatch);
     }
 }

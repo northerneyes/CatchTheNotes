@@ -2,7 +2,6 @@ package com.northerneyes.model;
 
 import android.util.Log;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.ArrayList;
@@ -44,18 +43,15 @@ public class NotesHolder implements IEntity {
         }
     }
 
-    private Note GenerateNewParticle(float wave, float posY,  float amp)
+    private Note GenerateNewParticle(float wave, float posY, float amp, Note.NoteType type)
     {
-       // amp = 1f;
-        if(amp > 1)
-            Log.v("Note", "MAx");
         int ttl = 240; // Время жизни в 400 (400 актов рисования живет частица, т.е. 400 / 60 — 6 с лишним секунд.
-        Note.NoteType type = Note.NoteType.NORMAL; //— изначальный тип 0
+
         int viewType = random.nextInt(NOTE_TYPE_COUNT);
 
         Vector2 position = new Vector2(wave, posY); // Задаем позицию
 
-        float size = 1+ (amp - 0.3f)*(Note.MAX_SIZE-1)/0.7f; // (0.5f + random.nextFloat()*2f); // размер
+        float size = 1+ (Math.abs(amp) - 0.3f)*(Note.MAX_SIZE-1)/0.7f; // (0.5f + random.nextFloat()*2f); // размер
 
         ttl = findRealTTL(size, ttl);
 
@@ -65,17 +61,6 @@ public class NotesHolder implements IEntity {
         float angle = 0; // Угол поворота = 0
 
         float angularVelocity = (float) (0.05f * (random.nextFloat() * 2 - 1)*180/Math.PI); // Случайная скорость вращения
-
-        // Вероятность появления
-        int selector = (int) (Math.random() * 1200);
-        if (selector < 20) // враг
-            type = Note.NoteType.POWER_DOWN;
-        else if (selector < 40) // желтый
-            type = Note.NoteType.POWER_UP;
-        else if (selector < 42) // пурпурный
-            type = Note.NoteType.SUCTION;
-        else if (selector == 42) // мигающий
-            type = Note.NoteType.YELLOW_MADDNESS;
 
         return new Note(position, velocity, angle, angularVelocity, type, size, ttl, viewType, amp); // Создаем частичку и возвращаем её
     }
@@ -95,7 +80,23 @@ public class NotesHolder implements IEntity {
 
     public void beat(float wave, float posY, float amp)
     {
-        particles.add(GenerateNewParticle(wave, posY, amp));
+        Note.NoteType type = Note.NoteType.NORMAL; //— изначальный тип 0
+        // Вероятность появления
+        int selector = (int) (Math.random() * 1200);
+        if (selector < 20) // враг
+            type = Note.NoteType.POWER_DOWN;
+        else if (selector < 40) // желтый
+            type = Note.NoteType.POWER_UP;
+        else if (selector < 42) // пурпурный
+            type = Note.NoteType.SUCTION;
+        else if (selector == 42) // мигающий
+            type = Note.NoteType.YELLOW_MADDNESS;
+        particles.add(GenerateNewParticle(wave, posY, amp, type));
+    }
+
+    public void beat(float wave, float posY, float amp,  Note.NoteType noteType)
+    {
+        particles.add(GenerateNewParticle(wave, posY, amp, noteType));
     }
 
     @Override

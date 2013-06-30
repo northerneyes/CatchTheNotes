@@ -116,7 +116,7 @@ public class Note implements IEntity {
         if(Type == NoteType.COLLECTED)
         {
             Color =  new Color(RComponent, GComponent, BComponent, Visibility);
-            Visibility = Visibility - 0.03f;
+            Visibility = Visibility - 0.04f;
             return;
         }
 

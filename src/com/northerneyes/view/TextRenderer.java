@@ -55,7 +55,7 @@ public class TextRenderer implements IRenderer {
         this.ppuY = ppuY;
         this.coef = ppuX*(CAMERA_WIDTH / WorldController.SOURCE_COUNT);
 
-        font = new BitmapFont(Gdx.files.internal("data/PareBold.fnt"), false);
+        font = new BitmapFont(Gdx.files.internal("data/PareBold256.fnt"), false);
     }
 
     public void  setText(String text, Color textColor, Vector2 position, float size, TextAlign textAlign)

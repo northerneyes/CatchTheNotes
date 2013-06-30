@@ -1,5 +1,6 @@
 package com.northerneyes.model.Menu;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.CatchTheNotes.MyGame;
@@ -16,7 +17,7 @@ public class MainMenu{
 
     public final Vector2 AppNamePosition;
     public final Vector2 PlayPosition;
-    public final Vector2 SongPosition;
+    public final Vector2 SongTextPosition;
 
     public final Vector2[] SongNamePositions;
 
@@ -25,15 +26,19 @@ public class MainMenu{
     public String SongText = MyGame.getAppContext().getString(R.string.song_menu);
 
     private Rectangle[] bounds;
+    public Color AppNameTextColor = new Color(1f, 1f, 203f/255f, 1f);
+    public Color PlayTextColor = new Color(1f, 1f, 1f, 1f);
+    public Color SongTextColor = new Color(1f, 1f, 1f, 1f);
+
     public MainMenu(float width, float height) {
         AppNamePosition = new Vector2(width/2, height - 2);
-        PlayPosition = new Vector2(AppNamePosition.x, AppNamePosition.y - 2);
-        SongPosition = new Vector2(6, PlayPosition.y - 2);
+        PlayPosition = new Vector2(AppNamePosition.x, AppNamePosition.y - 3);
+        SongTextPosition = new Vector2(4, PlayPosition.y - 2);
 
         SongNamePositions = new Vector2[2];
     }
 
-    public void SetBounds(Rectangle[] bounds)
+    public void setBounds(Rectangle[] bounds)
     {
         this.bounds =  bounds;
     }

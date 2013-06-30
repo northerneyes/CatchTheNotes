@@ -9,4 +9,9 @@
     <string name="resume_menu">Resume</string>
     <string name="play_menu">Play</string>
     <string name="song_menu">Song:</string>
+
+    <item name="small_size" format="float" type="string">0.25</item>
+    <item name="medium_size" format="float" type="string">0.4</item>
+    <item name="large_size" format="float" type="string">0.6</item>
+    <item name="player_coef_size" format="float" type="string">0.075</item>
 </resources>

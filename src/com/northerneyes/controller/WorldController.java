@@ -9,6 +9,7 @@ import com.northerneyes.model.NotesHolder;
 import com.northerneyes.model.Player;
 import com.northerneyes.model.Player.PulseType;
 import com.northerneyes.model.World;
+import com.northerneyes.view.WorldRenderer;
 
 import java.util.HashMap;
 
@@ -20,6 +21,7 @@ public class WorldController {
     private final VisualizationData data;
     private final float coefX;
     private final PauseMenuController pauseMenuController;
+    private final float height;
     public Player player;
     public NotesHolder notesHolder;
     private float[] oldVolume = new float[FREQ_LENGTH];
@@ -41,6 +43,7 @@ public class WorldController {
     private World world;
 
     public WorldController(World world) {
+        this.height =  WorldRenderer.CAMERA_HEIGHT;
         this.world = world;
         this.player = world.getPlayer();
         this.notesHolder = world.getNotesHolder();
@@ -62,6 +65,8 @@ public class WorldController {
 
 	public void update(float delta) {
 		player.update(delta);
+        notesHolder.update(delta);
+        frameCount++;
 
         switch (world.getCurrentMenuType())
         {
@@ -70,11 +75,21 @@ public class WorldController {
                 //clear all stuff
                 //draw random stuff
                 //set main menu controller
+                DEBUG = false;
+                if (frameCount % 20 == 0)
+                {
+                    notesHolder.beat((float)(Math.random() * SOURCE_COUNT), height, -(float)Math.random(), NoteType.NORMAL);
+                }
+                updateRainDrops();
+                return;
             case START_GAME:  //Restart
                 //stop music
                 //play new music
                 //clear all stuff
                 //set world menu game
+                DEBUG = true;
+                world.setCurrentMenuType(World.MenuType.GAME);
+                return;
             case GAME:
                 currentMenuController = gameMenuController;
                 break;
@@ -83,8 +98,6 @@ public class WorldController {
                 return;  //Останавливаем игру
         }
 
-        notesHolder.update(delta);
-        frameCount++;
         if(DEBUG)
         {
                 if(notesHolder.particles.size() == 1 || notesHolder.particles.size() == 0)
@@ -190,8 +203,8 @@ public class WorldController {
             }
             else if(note.Visibility > 0) //Collected
             {
-                note.Position.x = note.Position.x + (player.Position.x - note.Position.x) / 8;
-                note.Position.y = note.Position.y + (player.Position.y - note.Position.y) / 8;
+                note.Position.x = note.Position.x + (player.Position.x - note.Position.x) / 6;
+                note.Position.y = note.Position.y + (player.Position.y - note.Position.y) / 6;
             }
 
         }
@@ -260,8 +273,8 @@ public class WorldController {
 
     private boolean circlesColliding(Vector2 playerPos, Vector2 notePos, Note.NoteType type, float noteSize, float playerSize) {
         if(type == NoteType.POWER_DOWN)
-            return Math.abs(playerPos.x - notePos.x) - 0.8f*playerSize <= 0 &&
-                    Math.abs(playerPos.y - notePos.y) - 0.8 * playerSize <= 0;
+            return Math.abs(playerPos.x - notePos.x) - 0.4f*playerSize <= 0 &&
+                    Math.abs(playerPos.y - notePos.y) - 0.4f * playerSize <= 0;
         else if(type != NoteType.COLLECTED)
             return Math.abs(playerPos.x - notePos.x) - 0.4f*(playerSize + noteSize) <= 0 &&
                     Math.abs(playerPos.y - notePos.y) - 0.4f*(playerSize + noteSize) <= 0;

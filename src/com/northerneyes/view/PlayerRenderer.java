@@ -47,6 +47,9 @@ public class PlayerRenderer implements IRenderer {
     private Color scoreColor = new Color(1f, 1f, 1f, 1f);
 
     private Vector2 textPosition = new Vector2();
+    private float smallSize;
+    private float playerCoeffSize;
+
     public void update(IEntity player)
     {
         this.player = (Player) player;
@@ -72,12 +75,15 @@ public class PlayerRenderer implements IRenderer {
             String scorePoints = String.format("%d", player.getScore());
             String score = MyGame.getAppContext().getString(R.string.score);
             //TODO: Create Padding!!
-            textRenderer.setText(score, scoreColor, textPosition.set(WorldController.SOURCE_COUNT/2f, 1f), 0.5f, TextAlign.RIGHT);
+            smallSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.small_size));
+            playerCoeffSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.player_coef_size));
+
+            textRenderer.setText(score, scoreColor, textPosition.set(WorldController.SOURCE_COUNT/2f, 1f), smallSize, TextAlign.RIGHT);
             textRenderer.render(spriteBatch);
-            textRenderer.setText(scorePoints,  pointsColor, textPosition.set(WorldController.SOURCE_COUNT/2f + 0.5f, 1f), 0.5f, TextAlign.LEFT);
+            textRenderer.setText(scorePoints,  pointsColor, textPosition.set(WorldController.SOURCE_COUNT/2f + 0.5f, 1f), smallSize, TextAlign.LEFT);
             textRenderer.render(spriteBatch);
 
-            textRenderer.setText(combo, comboColor, textPosition.set(WorldController.SOURCE_COUNT, height), 0.5f, TextAlign.RIGHT);
+            textRenderer.setText(combo, comboColor, textPosition.set(WorldController.SOURCE_COUNT, height), smallSize, TextAlign.RIGHT);
             textRenderer.render(spriteBatch);
         }
 
@@ -104,7 +110,7 @@ public class PlayerRenderer implements IRenderer {
         spriteBatch.end();
 
         //draw combo
-        textRenderer.setText(combo, comboColor, textPosition.set(player.Position.x, player.Position.y), player.Size * 0.15f, TextAlign.CENTER);
+        textRenderer.setText(combo, comboColor, textPosition.set(player.Position.x, player.Position.y), player.Size * playerCoeffSize, TextAlign.CENTER);
         textRenderer.render(spriteBatch);
 
         //and draw outline

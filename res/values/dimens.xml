@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="small_size" format="float" type="dimen">0.25</item>
+    <item name="medium_size" format="float" type="dimen">0.4</item>
+    <item name="large_size" format="float" type="dimen">0.6</item>
+    <item name="player_coef_size" format="float" type="dimen">0.075</item>
+</resources>
