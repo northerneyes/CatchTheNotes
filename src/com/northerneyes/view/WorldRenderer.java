@@ -52,6 +52,7 @@ public class WorldRenderer {
     private PauseMenuRenderer pauseMenuRenderer;
     private MainMenuRenderer mainMenuRenderer;
     private BitmapFont font;
+    private Texture playerCursor;
 
     public void SetCamera(float x, float y){
 		this.cam.position.set(x, y,0);	
@@ -85,10 +86,10 @@ public class WorldRenderer {
 
         atlasTexture  = new Texture(Gdx.files.internal("images/atlas_glow.png"));
 
-
+        playerCursor = new Texture(Gdx.files.internal("images/cursor.png"));
         TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);
 
-        playerRenderer = new PlayerRenderer(regions[4][2], textRenderer , ppuX, ppuY, CAMERA_WIDTH, CAMERA_HEIGHT);
+        playerRenderer = new PlayerRenderer(new TextureRegion(playerCursor), textRenderer , ppuX, ppuY, CAMERA_WIDTH, CAMERA_HEIGHT);
 
         gameMenuRenderer = new GameMenuRenderer(world.getGameMenu(), textRenderer);
         pauseMenuRenderer = new PauseMenuRenderer(world.getPauseMenu(), textRenderer);

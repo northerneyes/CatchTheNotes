@@ -99,11 +99,18 @@ public class PlayerRenderer implements IRenderer {
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.FilledCircle);
         shapeRenderer.setColor(backgroundColor);
-        shapeRenderer.filledCircle(x, y, height / 3, 30);
+        shapeRenderer.filledCircle(x, y, height*0.45f, 30);
         shapeRenderer.end();
         Gdx.gl.glDisable(GL10.GL_BLEND);
 
-        //draw circle
+//        Gdx.gl.glLineWidth(10);
+
+//        shapeRenderer.begin(ShapeRenderer.ShapeType.Circle);
+//        shapeRenderer.setColor(comboColor);
+//        shapeRenderer.circle(x, y, height / 3, 120);
+//        shapeRenderer.end();
+//        Gdx.gl.glLineWidth(1);
+       // draw circle
         spriteBatch.begin();
         spriteBatch.setColor(comboColor);
         spriteBatch.draw(texture, x - width/2,
@@ -119,7 +126,7 @@ public class PlayerRenderer implements IRenderer {
         {
                 shapeRenderer.begin(ShapeRenderer.ShapeType.Circle);
                 shapeRenderer.setColor(getOutlineColor(player.Type));
-                shapeRenderer.circle(x, y, player.getPulseCoef() * height / 3, 30);
+                shapeRenderer.circle(x, y, player.getPulseCoef() *  height*0.45f, 30);
                 shapeRenderer.end();
 
             if(player.Type != Player.PulseType.NORMAL)
@@ -128,7 +135,7 @@ public class PlayerRenderer implements IRenderer {
                 Gdx.gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
                 shapeRenderer.begin(ShapeRenderer.ShapeType.FilledCircle);
                 shapeRenderer.setColor(getOutlineColor(player.Type));
-                shapeRenderer.filledCircle(x, y, player.getPulseCoef() * height / 3, 30);
+                shapeRenderer.filledCircle(x, y, player.getPulseCoef() *  height*0.45f, 30);
                 shapeRenderer.end();
                 Gdx.gl.glDisable(GL10.GL_BLEND);
             }

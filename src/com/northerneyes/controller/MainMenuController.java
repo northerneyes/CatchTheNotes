@@ -26,7 +26,7 @@ public class MainMenuController  implements IMenuController  {
         switch (state)
         {
             case 0:
-                world.setCurrentMenuType(World.MenuType.GAME);
+                world.setCurrentMenuType(World.MenuType.START_GAME);
                 break;
             case 1:
             case 2:
