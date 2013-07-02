@@ -1,14 +1,13 @@
 package com.northerneyes.controller;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.audio.MediaPlayer;
 import com.northerneyes.audio.VisualizationData;
-import com.northerneyes.model.Note;
+import com.northerneyes.model.*;
+import com.northerneyes.model.Menu.Message;
 import com.northerneyes.model.Note.NoteType;
-import com.northerneyes.model.NotesHolder;
-import com.northerneyes.model.Player;
 import com.northerneyes.model.Player.PulseType;
-import com.northerneyes.model.World;
 import com.northerneyes.view.WorldRenderer;
 
 import java.util.HashMap;
@@ -23,6 +22,8 @@ public class WorldController {
     private final PauseMenuController pauseMenuController;
     private final float height;
     private final MainMenuController mainMenuController;
+    private final MessageHolder messageHolder;
+
     public Player player;
     public NotesHolder notesHolder;
     private float[] oldVolume = new float[FREQ_LENGTH];
@@ -48,6 +49,7 @@ public class WorldController {
         this.world = world;
         this.player = world.getPlayer();
         this.notesHolder = world.getNotesHolder();
+        this.messageHolder = world.getMessageHolder();
        // this.messageHolder = world.getMessageHolder();
         coefX = bandWidth*halfWidth/FREQ_LENGTH;
 
@@ -96,6 +98,7 @@ public class WorldController {
                 DEBUG = true;
                 currentMenuController = gameMenuController;
                 notesHolder.update(delta);
+                messageHolder.update(delta);
                 frameCount++;
                 if(DEBUG)
                 {
@@ -233,7 +236,8 @@ public class WorldController {
                 player.addCombo();
                 player.setSize();
                 player.Type = PulseType.GOOD;
-
+                float yPos = (float) (1 + Math.random() * 10f);
+                messageHolder.addMessage(new Message("Yeah", 0.7f, Color.YELLOW, 4, yPos));
 //                if (!rd.recycled)
 //                {
 //                    textList = ["Yeah!", "Great!", "Good job!", "Super!", "Woohoo!", "Fabulous!", "Excellent!", "Wow!", "Amazing!", "Superb!", "Terrific!", "Fantastic!", "Splendid!", "Wonderful!", "Yes!", "Unbelievable!", "Outstanding!", "Remarkable!", "Woot!"];

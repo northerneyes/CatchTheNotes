@@ -9,6 +9,7 @@ import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import android.os.Bundle;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.northerneyes.CatchTheNotes.accessors.*;
+import com.northerneyes.model.Menu.Message;
 
 public class MainActivity extends AndroidApplication {
 	 
@@ -20,6 +21,7 @@ public class MainActivity extends AndroidApplication {
         Tween.setWaypointsLimit(10);
         Tween.setCombinedAttributesLimit(3);
         Tween.registerAccessor(Sprite.class, new SpriteAccessor());
+        Tween.registerAccessor(Message.class, new MessageAccessor());
 
         AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
         config.useAccelerometer = false;

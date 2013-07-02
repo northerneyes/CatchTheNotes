@@ -42,15 +42,16 @@ public class WorldRenderer {
     private PlayerRenderer playerRenderer;
     private Texture atlasTexture;
     private NotesHolderRenderer notesHolderRenderer;
+    private MessageHolderRenderer messageHolderRenderer;
     private TextRenderer textRenderer;
     private Music theme;
     private MediaPlayerRenderer mediaRenderer;
 
-    private TweenManager tweenManager = new TweenManager();
     //Menu
     private GameMenuRenderer gameMenuRenderer;
     private PauseMenuRenderer pauseMenuRenderer;
     private MainMenuRenderer mainMenuRenderer;
+
     private BitmapFont font;
     private Texture playerCursor;
 
@@ -90,6 +91,7 @@ public class WorldRenderer {
         TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);
 
         playerRenderer = new PlayerRenderer(new TextureRegion(playerCursor), textRenderer , ppuX, ppuY, CAMERA_WIDTH, CAMERA_HEIGHT);
+        messageHolderRenderer = new MessageHolderRenderer(ppuX, ppuY, font, CAMERA_WIDTH);
 
         gameMenuRenderer = new GameMenuRenderer(world.getGameMenu(), textRenderer);
         pauseMenuRenderer = new PauseMenuRenderer(world.getPauseMenu(), textRenderer);
@@ -118,6 +120,8 @@ public class WorldRenderer {
         switch (world.getCurrentMenuType())
         {
             case GAME:
+                messageHolderRenderer.update(world.getMessageHolder());
+                messageHolderRenderer.render(spriteBatch);
                 gameMenuRenderer.render(spriteBatch);
                 break;
             case PAUSE:
@@ -130,15 +134,11 @@ public class WorldRenderer {
     }
 
     private void drawNotes() {
-      //  renderer.setProjectionMatrix(cam.combined);
-
         notesHolderRenderer.update(world.getNotesHolder());
         notesHolderRenderer.render(spriteBatch);
     }
 
     private void drawPlayer() {
-		//renderer.setProjectionMatrix(cam.combined);
-
         playerRenderer.update(world.getPlayer());
         playerRenderer.render(spriteBatch);
 	}

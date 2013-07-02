@@ -7,6 +7,7 @@ import com.badlogic.gdx.utils.Array;
 import com.northerneyes.controller.MainMenuController;
 import com.northerneyes.model.Menu.GameMenu;
 import com.northerneyes.model.Menu.MainMenu;
+import com.northerneyes.model.Menu.Message;
 import com.northerneyes.model.Menu.PauseMenu;
 
 public class World {
@@ -16,6 +17,7 @@ public class World {
     private MainMenu mainMenu;
     private String Songs[] = {"audio/Leaves_in_the_Wind.mp3", "audio/Centle.mp3", "audio/Letting_Go.mp3"};
     private String currentSong = "";
+    private MessageHolder messageHodler;
 
     public void setCurrentSong(int state) {
         currentSong = Songs[state - 1];
@@ -27,6 +29,10 @@ public class World {
             return Songs[0];
         else
             return currentSong;
+    }
+
+    public void showMessage() {
+        //To change body of created methods use File | Settings | File Templates.
     }
 
     public enum MenuType {
@@ -65,9 +71,9 @@ public class World {
         return notesHolder;
     }
 
-//    public MessageHolder getMessageHolder() {
-//
-//    }
+    public MessageHolder getMessageHolder() {
+        return messageHodler;
+    }
 
 	public World() {
 
@@ -80,9 +86,10 @@ public class World {
     }
 
 	public void createWorld() {
-
 		player = new Player(new Vector2(0, 0));
         notesHolder = new NotesHolder();
+        messageHodler = new MessageHolder();
+
         gameMenu = new GameMenu(sourceCount, height);
         mainMenu = new MainMenu(sourceCount, height);
         //TODO:create message holder
