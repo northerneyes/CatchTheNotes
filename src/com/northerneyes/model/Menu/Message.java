@@ -37,13 +37,13 @@ public class Message implements IEntity, TweenCallback {
 
     @Override
     public void update(float delta) {
-       // tweenManager.update(Gdx.graphics.getDeltaTime());
+        tweenManager.update(delta);
     }
 
-    public TweenManager getTwenManager()
-    {
-        return tweenManager;
-    }
+//    public TweenManager getTwenManager()
+//    {
+//        return tweenManager;
+//    }
     public Color getColor() {
         return texColor;
     }
@@ -61,12 +61,6 @@ public class Message implements IEntity, TweenCallback {
                 .setCallback(this)
                 .setCallbackTriggers(TweenCallback.COMPLETE)
                 .start(tweenManager);
-
-//        Tween.to(this, MessageAccessor.POS_XY, Duration)
-//                .target(Position.x, Position.y + 3)
-//                .ease(Cubic.INOUT)
-//                .start(tweenManager)
-//                .setCallback(this);
     }
 
     public int getTTL() {

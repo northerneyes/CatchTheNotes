@@ -41,7 +41,6 @@ public class MessageHolderRenderer implements IRenderer  {
         for (int index = 0; index < messageHodler.messages.size(); index++)
         {
             Message msg= messageHodler.messages.get(index);
-            msg.getTwenManager().update(Gdx.graphics.getDeltaTime());
             textRenderer.setText(msg.Text, msg.getColor(), msg.Position, mediumSize, TextRenderer.TextAlign.CENTER);
             textRenderer.render(spriteBatch);
         }

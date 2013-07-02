@@ -17,7 +17,7 @@
     <file path="/World.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372784138844" ignored="false" />
     <file path="/GameScreen.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372572389917" ignored="false" />
     <file path="/Player.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372589669485" ignored="false" />
-    <file path="/Message.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372787179216" ignored="false" />
+    <file path="/Message.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372790517725" ignored="false" />
     <file path="/MainActivity.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372782537065" ignored="false" />
     <file path="/PauseMenu.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372508062248" ignored="false" />
     <file path="/PauseMenuController.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372580400830" ignored="false" />
@@ -31,7 +31,7 @@
     <file path="/MediaPlayer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372578929285" ignored="false" />
     <file path="/MessageAccessor.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372782466285" ignored="false" />
     <file path="/MessageHolder.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372784033873" ignored="false" />
-    <file path="/MessageHolderRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372785783612" ignored="false" />
+    <file path="/MessageHolderRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372790554473" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +101,16 @@
       <file leaf-file-name="WorldController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="239" column="62" selection-start="9775" selection-end="9775" vertical-scroll-proportion="-8.12">
+            <state line="100" column="32" selection-start="3483" selection-end="3483" vertical-scroll-proportion="-14.84">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NotesHolder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/NotesHolder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="102" column="16" selection-start="3131" selection-end="3131" vertical-scroll-proportion="-10.04">
               <folding />
             </state>
           </provider>
@@ -110,7 +119,7 @@
       <file leaf-file-name="TextRenderer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/TextRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="26" selection-start="2761" selection-end="2761" vertical-scroll-proportion="-19.4">
+            <state line="100" column="26" selection-start="2761" selection-end="2761" vertical-scroll-proportion="-17.88">
               <folding />
             </state>
           </provider>
@@ -119,7 +128,7 @@
       <file leaf-file-name="MessageHolderRenderer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/MessageHolderRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="9" selection-start="1367" selection-end="1367" vertical-scroll-proportion="-16.88">
+            <state line="42" column="59" selection-start="1427" selection-end="1427" vertical-scroll-proportion="-18.56">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -130,16 +139,7 @@
       <file leaf-file-name="NoteRenderer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/NoteRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="5" selection-start="1097" selection-end="1097" vertical-scroll-proportion="-5.76">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WorldRenderer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/WorldRenderer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="22" selection-start="4256" selection-end="4256" vertical-scroll-proportion="-15.12">
+            <state line="41" column="29" selection-start="1091" selection-end="1091" vertical-scroll-proportion="-12.48">
               <folding />
             </state>
           </provider>
@@ -148,7 +148,7 @@
       <file leaf-file-name="Message.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/Menu/Message.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="41" selection-start="1771" selection-end="1771" vertical-scroll-proportion="0.52896726">
+            <state line="45" column="7" selection-start="1206" selection-end="1290" vertical-scroll-proportion="0.5317139">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -168,7 +168,7 @@
       <file leaf-file-name="MessageHolder.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/MessageHolder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="53" selection-start="957" selection-end="957" vertical-scroll-proportion="-14.16">
+            <state line="35" column="20" selection-start="893" selection-end="893" vertical-scroll-proportion="-17.04">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -219,8 +219,8 @@
         <option value="$PROJECT_DIR$/src/com/northerneyes/view/MessageRenderer.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/view/WorldRenderer.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/model/MessageHolder.java" />
-        <option value="$PROJECT_DIR$/src/com/northerneyes/view/MessageHolderRenderer.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java" />
+        <option value="$PROJECT_DIR$/src/com/northerneyes/view/MessageHolderRenderer.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/model/Menu/Message.java" />
       </list>
     </option>
@@ -714,13 +714,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5228967" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15654951" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17342582" sideWeight="0.4771033" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17342582" sideWeight="0.8434505" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31735888" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -804,13 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/NotesHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="9" selection-start="3310" selection-end="3679" vertical-scroll-proportion="-18.48">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/tween-engine-api.jar!/aurelienribon/tweenengine/paths/Linear.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="43" selection-start="273" selection-end="273" vertical-scroll-proportion="-5.04">
@@ -839,13 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/TextRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="26" selection-start="2761" selection-end="2761" vertical-scroll-proportion="-19.4">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/WorldRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="121" column="22" selection-start="4256" selection-end="4256" vertical-scroll-proportion="-15.12">
@@ -860,41 +846,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/NoteRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="5" selection-start="1097" selection-end="1097" vertical-scroll-proportion="-5.76">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/MessageHolderRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="9" selection-start="1367" selection-end="1367" vertical-scroll-proportion="-16.88">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/accessors/MessageAccessor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="0" selection-start="949" selection-end="949" vertical-scroll-proportion="-17.88">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="62" selection-start="9775" selection-end="9775" vertical-scroll-proportion="-8.12">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/MessageHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="53" selection-start="957" selection-end="957" vertical-scroll-proportion="-14.16">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -908,9 +862,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/TextRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="26" selection-start="2761" selection-end="2761" vertical-scroll-proportion="-17.88">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/NoteRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="29" selection-start="1091" selection-end="1091" vertical-scroll-proportion="-12.48">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/MessageHolderRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="59" selection-start="1427" selection-end="1427" vertical-scroll-proportion="-18.56">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/NotesHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="16" selection-start="3131" selection-end="3131" vertical-scroll-proportion="-10.04">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="32" selection-start="3483" selection-end="3483" vertical-scroll-proportion="-14.84">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/MessageHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="20" selection-start="893" selection-end="893" vertical-scroll-proportion="-17.04">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/Menu/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="41" selection-start="1771" selection-end="1771" vertical-scroll-proportion="0.52896726">
+        <state line="45" column="7" selection-start="1206" selection-end="1290" vertical-scroll-proportion="0.5317139">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
