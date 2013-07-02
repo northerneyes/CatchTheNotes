@@ -237,7 +237,7 @@ public class WorldController {
                 player.setSize();
                 player.Type = PulseType.GOOD;
                 float yPos = (float) (1 + Math.random() * 10f);
-                messageHolder.addMessage(new Message("Yeah", 0.7f, Color.YELLOW, 4, yPos));
+                messageHolder.addMessage(new Message("Yeah", 1f, Color.YELLOW, 4, yPos));
 //                if (!rd.recycled)
 //                {
 //                    textList = ["Yeah!", "Great!", "Good job!", "Super!", "Woohoo!", "Fabulous!", "Excellent!", "Wow!", "Amazing!", "Superb!", "Terrific!", "Fantastic!", "Splendid!", "Wonderful!", "Yes!", "Unbelievable!", "Outstanding!", "Remarkable!", "Woot!"];

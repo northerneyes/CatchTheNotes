@@ -1,10 +1,7 @@
 package com.northerneyes.model.Menu;
 
-import aurelienribon.tweenengine.BaseTween;
-import aurelienribon.tweenengine.Tween;
+import aurelienribon.tweenengine.*;
 
-import aurelienribon.tweenengine.TweenCallback;
-import aurelienribon.tweenengine.TweenManager;
 import aurelienribon.tweenengine.equations.Cubic;
 import aurelienribon.tweenengine.equations.Linear;
 import com.badlogic.gdx.Gdx;
@@ -26,7 +23,7 @@ public class Message implements IEntity, TweenCallback {
     public String Text;
     private float Duration;
     Color texColor;
-    public float Visibility;
+    public float Visibility = 1f;
     public Vector2 Position;
     private TweenManager tweenManager = new TweenManager();
 
@@ -56,11 +53,20 @@ public class Message implements IEntity, TweenCallback {
     }
 
     public void show() {
-        Tween.from(this, MessageAccessor.POS_XY, Duration)
-                .target(Position.x, Position.y + 3)
-                .ease(Cubic.INOUT)
-                .start(tweenManager)
-                .setCallback(this);
+        Timeline.createSequence()
+                .push(Tween.set(this, MessageAccessor.POS_XY).target(Position.x, Position.y))
+                .push(Tween.to(this, MessageAccessor.POS_XY, Duration).target(Position.x, Position.y + 3))
+                .pushPause(0.5f)
+                .push(Tween.to(this, MessageAccessor.POS_XY, Duration).target(Position.x, Position.y - 3))
+                .setCallback(this)
+                .setCallbackTriggers(TweenCallback.COMPLETE)
+                .start(tweenManager);
+
+//        Tween.to(this, MessageAccessor.POS_XY, Duration)
+//                .target(Position.x, Position.y + 3)
+//                .ease(Cubic.INOUT)
+//                .start(tweenManager)
+//                .setCallback(this);
     }
 
     public int getTTL() {
