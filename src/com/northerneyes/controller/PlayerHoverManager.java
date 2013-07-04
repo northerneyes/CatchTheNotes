@@ -26,7 +26,7 @@ public class PlayerHoverManager {
             listener.hover();
             player.State = Player.PlayerState.HOVER;
         }
-        else
+        else if(!menuState && hover)
         {
             hover = false;
             player.State = Player.PlayerState.NORMAL;

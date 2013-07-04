@@ -6,7 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/fragment.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372958601667" ignored="false" />
     <file path="/GameMenuRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372574470522" ignored="false" />
-    <file path="/PlayerRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372959010576" ignored="false" />
+    <file path="/PlayerRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372960351817" ignored="false" />
     <file path="/TextRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372587942813" ignored="false" />
     <file path="/WorldRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372944995609" ignored="false" />
     <file path="/WorldController.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372786105330" ignored="false" />
@@ -33,7 +33,7 @@
     <file path="/MessageHolder.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372784033873" ignored="false" />
     <file path="/MessageHolderRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372790554473" ignored="false" />
     <file path="/IMenuController.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372957650006" ignored="false" />
-    <file path="/PlayerStateManager.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372958655110" ignored="false" />
+    <file path="/PlayerStateManager.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372959558290" ignored="false" />
     <file path="/PlayerHoverManager.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372958656913" ignored="false" />
     <file path="/IHoverListener.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372958620615" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -102,19 +102,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WorldController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/WorldController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="21" selection-start="5033" selection-end="5033" vertical-scroll-proportion="-14.28">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GameMenuController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/GameMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="25" selection-start="1038" selection-end="1038" vertical-scroll-proportion="-29.4">
+            <state line="36" column="25" selection-start="1038" selection-end="1038" vertical-scroll-proportion="-15.2">
               <folding />
             </state>
           </provider>
@@ -123,7 +114,7 @@
       <file leaf-file-name="PlayerRenderer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/PlayerRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="8" selection-start="5201" selection-end="5201" vertical-scroll-proportion="1.2669492">
+            <state line="80" column="39" selection-start="2968" selection-end="2968" vertical-scroll-proportion="0.16779661">
               <folding />
             </state>
           </provider>
@@ -141,7 +132,16 @@
       <file leaf-file-name="MainMenuController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/MainMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="26" selection-start="1399" selection-end="1417" vertical-scroll-proportion="-20.76">
+            <state line="46" column="5" selection-start="1350" selection-end="1350" vertical-scroll-proportion="-17.4">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainMenu.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/Menu/MainMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="61" column="25" selection-start="1970" selection-end="1970" vertical-scroll-proportion="-14.52">
               <folding />
             </state>
           </provider>
@@ -150,7 +150,7 @@
       <file leaf-file-name="PauseMenuController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/PauseMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="45" selection-start="675" selection-end="774" vertical-scroll-proportion="-13.2">
+            <state line="45" column="45" selection-start="1378" selection-end="1378" vertical-scroll-proportion="-19.08">
               <folding />
             </state>
           </provider>
@@ -159,7 +159,7 @@
       <file leaf-file-name="PauseMenu.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/Menu/PauseMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="15" selection-start="1884" selection-end="1884" vertical-scroll-proportion="-13.36">
+            <state line="66" column="21" selection-start="1982" selection-end="1982" vertical-scroll-proportion="-10.36">
               <folding />
             </state>
           </provider>
@@ -168,25 +168,25 @@
       <file leaf-file-name="PlayerHoverManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/PlayerHoverManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="16" selection-start="470" selection-end="470" vertical-scroll-proportion="-9.44">
+            <state line="20" column="16" selection-start="470" selection-end="470" vertical-scroll-proportion="-7.84">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IHoverListener.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/IHoverListener.java">
+      <file leaf-file-name="GameScreen.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/screens/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="24" selection-start="250" selection-end="250" vertical-scroll-proportion="-9.24">
+            <state line="35" column="34" selection-start="1214" selection-end="1214" vertical-scroll-proportion="-14.28">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="World.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/World.java">
+      <file leaf-file-name="IMenuController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/IMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="43" selection-start="578" selection-end="578" vertical-scroll-proportion="-8.16">
+            <state line="8" column="9" selection-start="170" selection-end="170" vertical-scroll-proportion="-6.72">
               <folding />
             </state>
           </provider>
@@ -206,17 +206,17 @@
         <option value="$PROJECT_DIR$/src/com/northerneyes/view/MessageHolderRenderer.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/model/Menu/Message.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/view/WorldRenderer.java" />
-        <option value="$PROJECT_DIR$/src/com/northerneyes/screens/GameScreen.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/controller/IMenuController.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/controller/PlayerStateManager.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/model/Player.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/model/World.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/controller/IHoverListener.java" />
+        <option value="$PROJECT_DIR$/src/com/northerneyes/model/Menu/GameMenu.java" />
+        <option value="$PROJECT_DIR$/src/com/northerneyes/controller/GameMenuController.java" />
+        <option value="$PROJECT_DIR$/src/com/northerneyes/screens/GameScreen.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/controller/PlayerHoverManager.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/controller/MainMenuController.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/controller/PauseMenuController.java" />
-        <option value="$PROJECT_DIR$/src/com/northerneyes/model/Menu/GameMenu.java" />
-        <option value="$PROJECT_DIR$/src/com/northerneyes/controller/GameMenuController.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/view/PlayerRenderer.java" />
       </list>
     </option>
@@ -707,14 +707,14 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19169329" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19169329" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13767342" sideWeight="0.8083067" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31735888" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13767342" sideWeight="0.6826411" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31735888" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -804,27 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/screens/GameScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="33" selection-start="1278" selection-end="1278" vertical-scroll-proportion="-10.92">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/IMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="4" selection-start="165" selection-end="165" vertical-scroll-proportion="-6.72">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/Menu/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="15" selection-start="1796" selection-end="1796" vertical-scroll-proportion="-13.2">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="0" selection-start="154" selection-end="154" vertical-scroll-proportion="-5.04">
@@ -853,27 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/Menu/PauseMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="15" selection-start="1884" selection-end="1884" vertical-scroll-proportion="-13.36">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/MainMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="26" selection-start="1399" selection-end="1417" vertical-scroll-proportion="-20.76">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/PauseMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="45" selection-start="675" selection-end="774" vertical-scroll-proportion="-13.2">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/Menu/GameMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="0" selection-start="1010" selection-end="1010" vertical-scroll-proportion="-18.4">
@@ -881,23 +839,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/IMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="9" selection-start="170" selection-end="170" vertical-scroll-proportion="-6.72">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/screens/GameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="34" selection-start="1214" selection-end="1214" vertical-scroll-proportion="-14.28">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/Menu/PauseMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="21" selection-start="1982" selection-end="1982" vertical-scroll-proportion="-10.36">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/PlayerHoverManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="16" selection-start="470" selection-end="470" vertical-scroll-proportion="-9.44">
+        <state line="20" column="16" selection-start="470" selection-end="470" vertical-scroll-proportion="-7.84">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/GameMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="25" selection-start="1038" selection-end="1038" vertical-scroll-proportion="-29.4">
+        <state line="36" column="25" selection-start="1038" selection-end="1038" vertical-scroll-proportion="-15.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/PauseMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="45" selection-start="1378" selection-end="1378" vertical-scroll-proportion="-19.08">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/controller/MainMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="5" selection-start="1350" selection-end="1350" vertical-scroll-proportion="-17.4">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/model/Menu/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="25" selection-start="1970" selection-end="1970" vertical-scroll-proportion="-14.52">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/view/PlayerRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="8" selection-start="5201" selection-end="5201" vertical-scroll-proportion="1.2669492">
+        <state line="80" column="39" selection-start="2968" selection-end="2968" vertical-scroll-proportion="0.16779661">
           <folding />
         </state>
       </provider>

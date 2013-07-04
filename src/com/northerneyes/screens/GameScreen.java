@@ -32,13 +32,13 @@ public class GameScreen implements Screen, InputProcessor {
     @Override
 	public boolean touchDragged(int x, int y, int pointer) {
 		ChangeNavigation(x,y);
+        if(menuController != null)
+            menuController.hoverPosition(x, height - y);
 		return false;
 	}
 
 	
 	public boolean touchMoved(int x, int y) {
-        if(menuController != null)
-            menuController.hoverPosition(x, height - y);
         return true;
 	}
 

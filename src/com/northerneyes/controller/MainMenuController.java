@@ -43,7 +43,7 @@ public class MainMenuController  implements IMenuController, IHoverListener {
 
     @Override
     public void hoverPosition(int x, int y) {
-        playerHoverManager.check( menu.getMenuState(x, y) > 0);
+        playerHoverManager.check( menu.getMenuState(x, y) >= 0);
     }
 
     @Override

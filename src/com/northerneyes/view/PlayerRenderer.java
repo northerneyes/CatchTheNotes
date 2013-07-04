@@ -41,6 +41,8 @@ public class PlayerRenderer implements IRenderer {
     private float height;
     private Color backgroundColor = new Color(1f, 1f, 0.66f, 0.5f);
     private Color comboColor = new Color(1f, 1f, 0.66f, 1f);
+    private Color backgroundSquareColor = new Color(119f/255f, 190/255f, 119f/255, 0.5f);
+    private Color squareColor = new Color(119f/255f, 190/255f, 119f/255, 1f);
 
     private Color badPulseColor = new Color(102f/255f, 0f, 0f, 0.5f);
     private Color goodPulseColor = new Color(1f, 1f, 0.66f, 0.3f);
@@ -76,7 +78,7 @@ public class PlayerRenderer implements IRenderer {
     @Override
     public void render(SpriteBatch spriteBatch) {
 
-        String combo = String.format("%dx", player.getCombo());
+        String combo = String.format("x%d", player.getCombo());
 
         if(player.ShowGameInfo)
         {
@@ -98,8 +100,10 @@ public class PlayerRenderer implements IRenderer {
         float width = player.Size*ppuX;
         float height = player.Size*ppuY;
 
+        Color pointsColor = comboColor;
         if(player.State == Player.PlayerState.NORMAL)
         {
+
             //draw background
             Gdx.gl.glEnable(GL10.GL_BLEND);
             Gdx.gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
@@ -118,25 +122,26 @@ public class PlayerRenderer implements IRenderer {
         }
         else
         {
+            pointsColor = squareColor;
             //draw background
             Gdx.gl.glEnable(GL10.GL_BLEND);
             Gdx.gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
 
             shapeRenderer.begin(ShapeRenderer.ShapeType.FilledRectangle);
-            shapeRenderer.setColor(backgroundColor);
-            shapeRenderer.filledRect(x, y, height*0.45f, height*0.45f);
+            shapeRenderer.setColor(backgroundSquareColor);
+            shapeRenderer.filledRect(x - height * 0.45f, y - height * 0.45f , height * 0.9f, height * 0.9f);
             shapeRenderer.end();
             Gdx.gl.glDisable(GL10.GL_BLEND);
 
             spriteBatch.begin();
-            spriteBatch.setColor(comboColor);
+            spriteBatch.setColor(squareColor);
             spriteBatch.draw(squareTexture, x - width/2,
                     y - height/2, width, height);
             spriteBatch.end();
         }
-        
+
         //draw combo
-        textRenderer.setText(combo, comboColor, textPosition.set(player.Position.x, player.Position.y), player.Size * playerCoeffSize, TextAlign.CENTER);
+        textRenderer.setText(combo, pointsColor, textPosition.set(player.Position.x, player.Position.y), player.Size * playerCoeffSize, TextAlign.CENTER);
         textRenderer.render(spriteBatch);
 
         //and draw outline
