@@ -6,14 +6,17 @@ import com.northerneyes.model.World;
 /**
  * Created by George on 24.06.13.
  */
-public class GameMenuController implements IMenuController {
+public class GameMenuController implements IMenuController, IHoverListener {
 
     private final GameMenu gameMenu;
+    private final PlayerHoverManager playerHoverManager;
     private World world;
 
     public GameMenuController(World world) {
         this.world = world;
         gameMenu = world.getGameMenu();
+        playerHoverManager = world.getPlayerHoverManager();
+        playerHoverManager.setListener(this);
     }
 
     @Override
@@ -23,5 +26,15 @@ public class GameMenuController implements IMenuController {
             world.setCurrentMenuType(World.MenuType.PAUSE);
         else
             world.setCurrentMenuType(World.MenuType.GAME);
+    }
+
+    @Override
+    public void hoverPosition(int x, int y) {
+        playerHoverManager.check(gameMenu.getMenuState(x, y));
+    }
+
+    @Override
+    public void hover() {
+        //TODO: Play Music
     }
 }

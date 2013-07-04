@@ -37,7 +37,9 @@ public class GameScreen implements Screen, InputProcessor {
 
 	
 	public boolean touchMoved(int x, int y) {
-		return false;
+        if(menuController != null)
+            menuController.hoverPosition(x, height - y);
+        return true;
 	}
 
 	@Override

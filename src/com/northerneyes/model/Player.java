@@ -5,6 +5,21 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public class Player implements IEntity {
+
+    public enum PlayerState {
+        NORMAL,
+        HOVER;
+
+        // Converts from an ordinal value to the ResponseCode
+        public static PlayerState valueOf(int index) {
+            PlayerState[] values = PlayerState.values();
+            if (index < 0 || index >= values.length) {
+                return NORMAL;
+            }
+            return values[index];
+        }
+    }
+
     public enum PulseType {
         NORMAL,
         BAD,
@@ -37,6 +52,8 @@ public class Player implements IEntity {
     private int score;
 
     public PulseType Type = PulseType.NONE;
+    public PlayerState State = PlayerState.NORMAL;
+
     public boolean ShowGameInfo = false;
     private float pulseCoef = 1;
     private boolean reverse = false;

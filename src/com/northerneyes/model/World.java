@@ -1,13 +1,9 @@
 package com.northerneyes.model;
 
-import android.view.Menu;
-
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
-import com.northerneyes.controller.MainMenuController;
+import com.northerneyes.controller.PlayerHoverManager;
 import com.northerneyes.model.Menu.GameMenu;
 import com.northerneyes.model.Menu.MainMenu;
-import com.northerneyes.model.Menu.Message;
 import com.northerneyes.model.Menu.PauseMenu;
 
 public class World {
@@ -18,6 +14,7 @@ public class World {
     private String Songs[] = {"audio/Leaves_in_the_Wind.mp3", "audio/Centle.mp3", "audio/Letting_Go.mp3"};
     private String currentSong = "";
     private MessageHolder messageHodler;
+    private PlayerHoverManager playerHoverManager;
 
     public void setCurrentSong(int state) {
         currentSong = Songs[state - 1];
@@ -33,6 +30,10 @@ public class World {
 
     public void showMessage() {
         //To change body of created methods use File | Settings | File Templates.
+    }
+
+    public PlayerHoverManager getPlayerHoverManager() {
+        return playerHoverManager;
     }
 
     public enum MenuType {
@@ -87,6 +88,8 @@ public class World {
 
 	public void createWorld() {
 		player = new Player(new Vector2(0, 0));
+        playerHoverManager = new PlayerHoverManager(player);
+
         notesHolder = new NotesHolder();
         messageHodler = new MessageHolder();
 

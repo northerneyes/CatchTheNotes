@@ -39,4 +39,9 @@ public class GameMenu{
     {
         PauseState = pauseBounds != null && pauseBounds.contains(x, y);
     }
+
+    public boolean getMenuState(float x, float y)
+    {
+        return  pauseBounds.contains(x, y);
+    }
 }

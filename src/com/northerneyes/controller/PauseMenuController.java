@@ -12,13 +12,16 @@ import com.northerneyes.model.World;
  * Time: 17:56
  * To change this template use File | Settings | File Templates.
  */
-public class PauseMenuController implements IMenuController {
+public class PauseMenuController implements IMenuController, IHoverListener {
     private final PauseMenu menu;
+    private final PlayerHoverManager playerHoverManager;
     private World world;
 
     public PauseMenuController(World world) {
         this.world = world;
         menu = world.getPauseMenu();
+        playerHoverManager = world.getPlayerHoverManager();
+        playerHoverManager.setListener(this);
     }
     @Override
     public void setPosition(float posX, float posY) {
@@ -37,5 +40,15 @@ public class PauseMenuController implements IMenuController {
                 world.setCurrentMenuType(World.MenuType.MAIN_MENU);
                 break;
         }
+    }
+
+    @Override
+    public void hoverPosition(int x, int y) {
+        playerHoverManager.check( menu.getMenuState(x, y) > 0);
+    }
+
+    @Override
+    public void hover() {
+        //TODO: play music
     }
 }
