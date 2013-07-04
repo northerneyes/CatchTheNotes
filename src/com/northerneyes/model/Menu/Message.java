@@ -40,10 +40,6 @@ public class Message implements IEntity, TweenCallback {
         tweenManager.update(delta);
     }
 
-//    public TweenManager getTwenManager()
-//    {
-//        return tweenManager;
-//    }
     public Color getColor() {
         return texColor;
     }

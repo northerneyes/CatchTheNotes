@@ -87,10 +87,12 @@ public class WorldRenderer {
 
         atlasTexture  = new Texture(Gdx.files.internal("images/atlas_glow.png"));
 
-        playerCursor = new Texture(Gdx.files.internal("images/cursor.png"));
-        TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);
+        playerCursor = new Texture(Gdx.files.internal("images/cursor_atlas.png"));
 
-        playerRenderer = new PlayerRenderer(new TextureRegion(playerCursor), textRenderer , ppuX, ppuY, CAMERA_WIDTH, CAMERA_HEIGHT);
+        TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);
+        TextureRegion cursorRegions[][] = TextureRegion.split(playerCursor, playerCursor.getWidth()/2, playerCursor.getHeight());
+
+        playerRenderer = new PlayerRenderer(Arrays.asList(cursorRegions[0]).subList(0, 2), textRenderer , ppuX, ppuY, CAMERA_WIDTH, CAMERA_HEIGHT);
         messageHolderRenderer = new MessageHolderRenderer(ppuX, ppuY, font, CAMERA_WIDTH);
 
         gameMenuRenderer = new GameMenuRenderer(world.getGameMenu(), textRenderer);

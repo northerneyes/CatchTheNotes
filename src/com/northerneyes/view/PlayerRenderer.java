@@ -16,6 +16,9 @@ import com.northerneyes.controller.WorldController;
 import com.northerneyes.model.IEntity;
 import com.northerneyes.model.Player;
 import com.northerneyes.view.TextRenderer.TextAlign;
+
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: George
@@ -26,8 +29,9 @@ import com.northerneyes.view.TextRenderer.TextAlign;
 public class PlayerRenderer implements IRenderer {
 
     private final float coef;
+    private final TextureRegion circleTexture;
+    private final TextureRegion squareTexture;
     Player player;
-    TextureRegion texture;
     private TextRenderer textRenderer;
     ShapeRenderer shapeRenderer = new ShapeRenderer();
 
@@ -55,8 +59,9 @@ public class PlayerRenderer implements IRenderer {
         this.player = (Player) player;
     }
 
-    public PlayerRenderer(TextureRegion texture, TextRenderer textRenderer, float ppuX, float ppuY, float CAMERA_WIDTH, float height) {
-        this.texture = texture;
+    public PlayerRenderer(List<TextureRegion> texture, TextRenderer textRenderer, float ppuX, float ppuY, float CAMERA_WIDTH, float height) {
+        this.circleTexture = texture.get(1);
+        this.squareTexture = texture.get(0);
         this.textRenderer = textRenderer;
         this.ppuX = ppuX;
         this.ppuY = ppuY;
@@ -103,17 +108,9 @@ public class PlayerRenderer implements IRenderer {
         shapeRenderer.end();
         Gdx.gl.glDisable(GL10.GL_BLEND);
 
-//        Gdx.gl.glLineWidth(10);
-
-//        shapeRenderer.begin(ShapeRenderer.ShapeType.Circle);
-//        shapeRenderer.setColor(comboColor);
-//        shapeRenderer.circle(x, y, height / 3, 120);
-//        shapeRenderer.end();
-//        Gdx.gl.glLineWidth(1);
-       // draw circle
         spriteBatch.begin();
         spriteBatch.setColor(comboColor);
-        spriteBatch.draw(texture, x - width/2,
+        spriteBatch.draw(circleTexture, x - width/2,
                   y - height/2, width, height);
         spriteBatch.end();
 
