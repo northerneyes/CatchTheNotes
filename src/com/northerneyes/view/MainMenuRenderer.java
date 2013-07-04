@@ -43,9 +43,9 @@ public class MainMenuRenderer implements IRenderer{
         this.coef = ppuX*(CAMERA_WIDTH / WorldController.SOURCE_COUNT);
 
         btnPatch = new NinePatch( new Texture(Gdx.files.internal("images/btn.9.png")), 16, 16, 16, 16);
-        btnColor = new Color(1f, 1f, 1f, 0.4f);
-        btnHoverColor = new Color(1f, 1f, 1f, 0.6f);
-        btnPressedColor = new Color(1f, 1f, 1f, 0.8f);
+        btnColor = new Color(1f, 1f, 1f, 0.3f);
+        btnHoverColor = new Color(1f, 1f, 1f, 0.5f);
+        btnPressedColor = new Color(1f, 1f, 1f, 0.6f);
         Rectangle[] bounds = new Rectangle[4];
         smallSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.small_size));
         mediumSize =  Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.medium_size));
