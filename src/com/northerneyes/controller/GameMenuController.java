@@ -30,11 +30,17 @@ public class GameMenuController implements IMenuController, IHoverListener {
 
     @Override
     public void hoverPosition(int x, int y) {
-        playerHoverManager.check(gameMenu.getMenuState(x, y));
+        playerHoverManager.check(gameMenu.getMenuState(x, y), x, y);
+    }
+
+
+    @Override
+    public void hover(float x, float y) {
+        //TODO: Play Music
     }
 
     @Override
-    public void hover() {
-        //TODO: Play Music
+    public void unHover() {
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 }

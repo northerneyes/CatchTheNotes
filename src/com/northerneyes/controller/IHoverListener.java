@@ -9,5 +9,7 @@ package com.northerneyes.controller;
  */
 public interface IHoverListener {
 
-    public void hover();
+    public void hover(float x, float y);
+
+    void unHover();
 }

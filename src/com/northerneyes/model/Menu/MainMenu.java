@@ -36,6 +36,9 @@ public class MainMenu{
             MyGame.getAppContext().getString(R.string.letting_go)
     };
 
+    public int CurrentSongIndex = 0;
+    public int HoverSongIndex = -1;
+
     public MainMenu(float width, float height) {
         AppNamePosition = new Vector2(width/2, height - 2);
         PlayPosition = new Vector2(AppNamePosition.x, AppNamePosition.y - 3);

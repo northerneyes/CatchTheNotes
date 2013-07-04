@@ -44,11 +44,17 @@ public class PauseMenuController implements IMenuController, IHoverListener {
 
     @Override
     public void hoverPosition(int x, int y) {
-        playerHoverManager.check(menu.getMenuState(x, y) >= 0);
+        playerHoverManager.check(menu.getMenuState(x, y) >= 0, x, y);
+    }
+
+
+    @Override
+    public void hover(float x, float y) {
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
-    public void hover() {
-        //TODO: play music
+    public void unHover() {
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 }

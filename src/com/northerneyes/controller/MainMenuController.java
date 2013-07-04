@@ -36,6 +36,7 @@ public class MainMenuController  implements IMenuController, IHoverListener {
             case 1:
             case 2:
             case 3:
+                menu.CurrentSongIndex = state - 1;
                 world.setCurrentSong(state);
                 break;
         }
@@ -43,11 +44,19 @@ public class MainMenuController  implements IMenuController, IHoverListener {
 
     @Override
     public void hoverPosition(int x, int y) {
-        playerHoverManager.check( menu.getMenuState(x, y) >= 0);
+        playerHoverManager.check(menu.getMenuState(x, y) >= 0, x, y);
+        playerHoverManager.setPosition(x, y);
     }
 
     @Override
-    public void hover() {
+    public void hover(float x, float y) {
+        int index = menu.getMenuState(x, y);
+        menu.HoverSongIndex = index - 1;
         //TODO: play music
+    }
+
+    @Override
+    public void unHover() {
+        menu.HoverSongIndex = - 1;
     }
 }

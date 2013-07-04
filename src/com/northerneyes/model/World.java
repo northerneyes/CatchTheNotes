@@ -18,6 +18,7 @@ public class World {
 
     public void setCurrentSong(int state) {
         currentSong = Songs[state - 1];
+
     }
 
     public String getCurrentSong()
