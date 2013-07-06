@@ -14,7 +14,7 @@
             android:theme="@style/AppTheme" >
         <activity
                 android:screenOrientation="landscape"
-                android:name=".MainActivity"
+                android:name=".activities.MainActivity"
                 android:label="@string/title_activity_main"
                 android:configChanges="keyboard|keyboardHidden|orientation">
             <intent-filter>

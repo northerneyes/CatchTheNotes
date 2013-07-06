@@ -3,8 +3,8 @@ package com.northerneyes.CatchTheNotes;
 import android.content.Context;
 
 import com.badlogic.gdx.Game;
-import com.northerneyes.Services.AudioAssetManager;
-import com.northerneyes.screens.GameScreen;
+import com.northerneyes.CatchTheNotes.Services.AudioAssetManager;
+import com.northerneyes.CatchTheNotes.screens.GameScreen;
 
 public class MyGame extends   Game  {
     public GameScreen game;
