@@ -75,10 +75,11 @@ public class WorldController {
         switch (world.getCurrentMenuType())
         {
             case MAIN_MENU:
-                //Stop music
-                //clear all stuff
-               // MediaPlayer.dispose();
+                MediaPlayer.dispose();
+                player.clear();
+                scoreManager.clear();
                 currentMenuController = mainMenuController;
+
                 DEBUG = false;
                 notesHolder.update(delta);
                 frameCount++;
@@ -90,9 +91,11 @@ public class WorldController {
                 world.ShowGameInfo = false;
                 return;
             case START_GAME:  //Restart
-                //stop music
-                //play new music
-                //clear all stuff
+                MediaPlayer.stop();
+//                MediaPlayer.play(world.getCurrentSong());
+                player.clear();
+                scoreManager.clear();
+
                 world.ShowGameInfo = true;
                 world.setCurrentMenuType(World.MenuType.GAME);
                 return;

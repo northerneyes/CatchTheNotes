@@ -57,7 +57,7 @@ public class Player implements IEntity {
         Size = DefaultSize;
 	}
 
-    public void Clear()
+    public void clear()
     {
         power = 0;
         combo = 1;
