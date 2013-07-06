@@ -10,6 +10,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.northerneyes.CatchTheNotes.controller.WorldController;
 import com.northerneyes.CatchTheNotes.model.NotesHolder;
 import com.northerneyes.CatchTheNotes.model.World;
+import com.northerneyes.CatchTheNotes.view.MenuRenderers.GameMenuRenderer;
+import com.northerneyes.CatchTheNotes.view.MenuRenderers.MainMenuRenderer;
+import com.northerneyes.CatchTheNotes.view.MenuRenderers.PauseMenuRenderer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,6 +51,7 @@ public class WorldRenderer {
 
     private BitmapFont font;
     private Texture playerCursor;
+    private GameInfoRenderer gameInfoRenderer;
 
     public void SetCamera(float x, float y){
 		this.cam.position.set(x, y,0);	
@@ -88,6 +92,7 @@ public class WorldRenderer {
 
         playerRenderer = new PlayerRenderer(Arrays.asList(cursorRegions[0]).subList(0, 2), textRenderer , ppuX, ppuY, CAMERA_WIDTH, CAMERA_HEIGHT);
         messageHolderRenderer = new MessageHolderRenderer(ppuX, ppuY, font, CAMERA_WIDTH);
+        gameInfoRenderer = new GameInfoRenderer(textRenderer,  ppuX, ppuY, CAMERA_WIDTH, CAMERA_HEIGHT);
 
         gameMenuRenderer = new GameMenuRenderer(world.getGameMenu(), textRenderer);
         pauseMenuRenderer = new PauseMenuRenderer(world.getPauseMenu(), textRenderer);
@@ -135,6 +140,11 @@ public class WorldRenderer {
     }
 
     private void drawPlayer() {
+        if(world.ShowGameInfo)
+        {
+            gameInfoRenderer.update(world.getScoreManager());
+            gameInfoRenderer.render(spriteBatch);
+        }
         playerRenderer.update(world.getPlayer());
         playerRenderer.render(spriteBatch);
 	}

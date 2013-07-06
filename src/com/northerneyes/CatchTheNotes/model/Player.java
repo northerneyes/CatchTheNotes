@@ -43,17 +43,12 @@ public class Player implements IEntity {
     private int power = 0;
     private int combo = 1;
     private int maxCombo = 0;
-    private int powerUpCount = 0;
-    private int powerDownCount = 0;
-    private int purplePowerCount = 0;
-    private int yellowMadnessCount = 0;
-    private int shapeCount = 0;
-    private int score;
+
 
     public PulseType Type = PulseType.NONE;
     public PlayerState State = PlayerState.NORMAL;
 
-    public boolean ShowGameInfo = false;
+   // public boolean ShowGameInfo = false;
     private float pulseCoef = 1;
     private boolean reverse = false;
 
@@ -67,17 +62,9 @@ public class Player implements IEntity {
         power = 0;
         combo = 1;
         maxCombo = 0;
-        powerUpCount = 0;
-        powerDownCount = 0;
-        purplePowerCount = 0;
-        yellowMadnessCount = 0;
-        shapeCount = 0;
+
     }
 
-
-    public int getScore() {
-        return score;
-    }
 
     public float getPulseCoef() {
         return pulseCoef;
@@ -122,10 +109,6 @@ public class Player implements IEntity {
         }
     }
 
-    public void addPowerUpCount() {
-        powerUpCount++;
-    }
-
     public void addCombo() {
         combo++;
         if (combo > maxCombo)
@@ -138,29 +121,9 @@ public class Player implements IEntity {
     {
         return combo;
     }
+
     public void resetCombo() {
         combo = (int) Math.ceil(combo / 2f);
-    }
-
-    public void addPowerDownCount() {
-        powerDownCount++;
-    }
-
-
-    public void addPurplePowerCount() {
-        purplePowerCount++;
-    }
-
-    public void addYellowMadnessCount() {
-        yellowMadnessCount++;
-    }
-
-    public void addShapeCount() {
-        shapeCount++;
-    }
-
-    public void addToScore(float amount) {
-        score = Math.round(score + amount*combo);
     }
 
 

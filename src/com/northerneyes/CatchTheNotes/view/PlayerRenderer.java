@@ -46,8 +46,7 @@ public class PlayerRenderer implements IRenderer {
     private Color normalPulseColor = comboColor;
     private Color suctionPulseColor = new Color(1f, 0f, 1f, 0.5f);
 
-    private Color pointsColor = new Color(203f/255f, 1f, 203/255f, 1f);
-    private Color scoreColor = new Color(1f, 1f, 1f, 1f);
+
 
     private Vector2 textPosition = new Vector2();
     private float smallSize;
@@ -77,20 +76,20 @@ public class PlayerRenderer implements IRenderer {
 
         String combo = String.format("x%d", player.getCombo());
 
-        if(player.ShowGameInfo)
-        {
-            String scorePoints = String.format("%d", player.getScore());
-            String score = MyGame.getAppContext().getString(R.string.score);
-            //TODO: Create Padding!!
-
-            textRenderer.setText(score, scoreColor, textPosition.set(WorldController.SOURCE_COUNT/2f, 1f), smallSize, TextAlign.RIGHT);
-            textRenderer.render(spriteBatch);
-            textRenderer.setText(scorePoints,  pointsColor, textPosition.set(WorldController.SOURCE_COUNT/2f + 0.5f, 1f), smallSize, TextAlign.LEFT);
-            textRenderer.render(spriteBatch);
-
-            textRenderer.setText(combo, comboColor, textPosition.set(WorldController.SOURCE_COUNT, height), smallSize, TextAlign.RIGHT);
-            textRenderer.render(spriteBatch);
-        }
+//        if(player.ShowGameInfo)
+//        {
+//            String scorePoints = String.format("%d", player.getScore());
+//            String score = MyGame.getAppContext().getString(R.string.score);
+//            //TODO: Create Padding!!
+//
+//            textRenderer.setText(score, scoreColor, textPosition.set(WorldController.SOURCE_COUNT/2f, 1f), smallSize, TextAlign.RIGHT);
+//            textRenderer.render(spriteBatch);
+//            textRenderer.setText(scorePoints,  pointsColor, textPosition.set(WorldController.SOURCE_COUNT/2f + 0.5f, 1f), smallSize, TextAlign.LEFT);
+//            textRenderer.render(spriteBatch);
+//
+//            textRenderer.setText(combo, comboColor, textPosition.set(WorldController.SOURCE_COUNT, height), smallSize, TextAlign.RIGHT);
+//            textRenderer.render(spriteBatch);
+//        }
 
         float x = player.Position.x*coef;
         float y = player.Position.y*ppuY;

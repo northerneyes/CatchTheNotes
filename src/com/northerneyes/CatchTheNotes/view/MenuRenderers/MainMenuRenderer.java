@@ -1,4 +1,4 @@
-package com.northerneyes.CatchTheNotes.view;
+package com.northerneyes.CatchTheNotes.view.MenuRenderers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -13,6 +13,8 @@ import com.northerneyes.CatchTheNotes.R;
 import com.northerneyes.CatchTheNotes.controller.WorldController;
 import com.northerneyes.CatchTheNotes.model.IEntity;
 import com.northerneyes.CatchTheNotes.model.Menu.MainMenu;
+import com.northerneyes.CatchTheNotes.view.IRenderer;
+import com.northerneyes.CatchTheNotes.view.TextRenderer;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,7 +23,7 @@ import com.northerneyes.CatchTheNotes.model.Menu.MainMenu;
  * Time: 11:41
  * To change this template use File | Settings | File Templates.
  */
-public class MainMenuRenderer implements IRenderer{
+public class MainMenuRenderer implements IRenderer {
     private final float smallSize;
     private final float mediumSize;
     private final float largeSize;

@@ -1,10 +1,12 @@
-package com.northerneyes.CatchTheNotes.view;
+package com.northerneyes.CatchTheNotes.view.MenuRenderers;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.northerneyes.CatchTheNotes.MyGame;
 import com.northerneyes.CatchTheNotes.R;
 import com.northerneyes.CatchTheNotes.model.IEntity;
 import com.northerneyes.CatchTheNotes.model.Menu.PauseMenu;
+import com.northerneyes.CatchTheNotes.view.IRenderer;
+import com.northerneyes.CatchTheNotes.view.TextRenderer;
 
 /**
  * Created with IntelliJ IDEA.

@@ -1,6 +1,7 @@
 package com.northerneyes.CatchTheNotes.controller;
 
 import com.badlogic.gdx.math.Vector2;
+import com.northerneyes.CatchTheNotes.Services.ScoreManager;
 import com.northerneyes.CatchTheNotes.audio.MediaPlayer;
 import com.northerneyes.CatchTheNotes.audio.VisualizationData;
 import com.northerneyes.CatchTheNotes.model.*;
@@ -13,18 +14,16 @@ import java.util.HashMap;
 
 
 public class WorldController {
+    public Player player;
+    public static final int SOURCE_COUNT = 16;
+    public NotesHolder notesHolder;
 
     private static final int FREQ_LENGTH = 256;
-    public static final int SOURCE_COUNT = 16;
     private final VisualizationData data;
     private final float coefX;
-    private final PauseMenuController pauseMenuController;
     private final float height;
-    private final MainMenuController mainMenuController;
     private final MessageHolder messageHolder;
 
-    public Player player;
-    public NotesHolder notesHolder;
     private float[] oldVolume = new float[FREQ_LENGTH];
     private HashMap<Integer, Float> volumePoints = new HashMap<Integer, Float>();
     private int bandWidth = 16;
@@ -38,10 +37,13 @@ public class WorldController {
 
     private int powerDownTime = -1;
 
-
     private GameMenuController gameMenuController;
     private IMenuController currentMenuController;
+    private final PauseMenuController pauseMenuController;
+    private final MainMenuController mainMenuController;
+
     private World world;
+    private ScoreManager scoreManager;
 
     public WorldController(World world) {
         this.height =  WorldRenderer.CAMERA_HEIGHT;
@@ -49,6 +51,7 @@ public class WorldController {
         this.player = world.getPlayer();
         this.notesHolder = world.getNotesHolder();
         this.messageHolder = world.getMessageHolder();
+        scoreManager = world.getScoreManager();
        // this.messageHolder = world.getMessageHolder();
         coefX = bandWidth*halfWidth/FREQ_LENGTH;
 
@@ -84,13 +87,13 @@ public class WorldController {
                     notesHolder.beat((float)(Math.random() * SOURCE_COUNT), height, -(float)Math.random(), NoteType.NORMAL);
                 }
                 updateRainDrops();
-                player.ShowGameInfo = false;
+                world.ShowGameInfo = false;
                 return;
             case START_GAME:  //Restart
                 //stop music
                 //play new music
                 //clear all stuff
-                player.ShowGameInfo = true;
+                world.ShowGameInfo = true;
                 world.setCurrentMenuType(World.MenuType.GAME);
                 return;
             case GAME:
@@ -103,6 +106,7 @@ public class WorldController {
                 {
                     if(notesHolder.particles.size() == 1 || notesHolder.particles.size() == 0)
                     {
+                        scoreManager.addTotalShape(7);
                         notesHolder.particles.clear();
                         notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1f, 200, 2, 1));
                         notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
@@ -230,7 +234,7 @@ public class WorldController {
                 player.Type = PulseType.NORMAL;
                 break;
             case POWER_UP:
-                player.addPowerUpCount();
+                scoreManager.addPowerUpCount();
                 player.addCombo();
                 player.setSize();
                 player.Type = PulseType.GOOD;
@@ -241,8 +245,8 @@ public class WorldController {
                 }
                 break;
             case POWER_DOWN:
-                player.addPowerDownCount();
-                player.resetCombo();
+                scoreManager.addPowerDownCount();
+                scoreManager.resetCombo();
                 player.setSize();
                 player.Type = PulseType.BAD;
                 if (!note.Recycled)
@@ -253,19 +257,19 @@ public class WorldController {
                 powerDownTime = 120;
                 break;
             case SUCTION:
-                player.addPurplePowerCount();
+                scoreManager.addPurplePowerCount();
                 player.Type = PulseType.SUCTION;
                 messageHolder.addMessage(new Message(0.5f, SOURCE_COUNT/2, 7), NoteType.SUCTION);
                 player.setPower(200);
                 break;
             case YELLOW_MADDNESS:
-                player.addYellowMadnessCount();
+                scoreManager.addYellowMadnessCount();
                 player.Type = PulseType.SUCTION;
                 messageHolder.addMessage(new Message(0.5f, SOURCE_COUNT/2, 7), NoteType.YELLOW_MADDNESS);
                 break;
         }
-        player.addShapeCount();
-        player.addToScore(amount);
+        scoreManager.addShapeCount();
+        scoreManager.addToScore(amount);
         if(note.Type != NoteType.COLLECTED)
             note.TTL = 0;
     }
@@ -290,6 +294,7 @@ public class WorldController {
             float volume = volumePoints.get(key);
             if (cheatLotsOfShapes || notesHolder.particles.size() < maxShapesOnBoard  || volume > 0.9)
             {
+                scoreManager.addTotalShape(2);
                 notesHolder.beat((1f + key / (float) FREQ_LENGTH) * halfWidth + (float) (Math.random() * coefX), height, -volume);
                 notesHolder.beat((1f - key / (float)FREQ_LENGTH) * halfWidth + (float)(Math.random() * coefX), height, -volume);
             }

@@ -1,6 +1,7 @@
 package com.northerneyes.CatchTheNotes.model;
 
 import com.badlogic.gdx.math.Vector2;
+import com.northerneyes.CatchTheNotes.Services.ScoreManager;
 import com.northerneyes.CatchTheNotes.controller.PlayerHoverManager;
 import com.northerneyes.CatchTheNotes.model.Menu.GameMenu;
 import com.northerneyes.CatchTheNotes.model.Menu.MainMenu;
@@ -15,6 +16,8 @@ public class World {
     private String currentSong = "";
     private MessageHolder messageHodler;
     private PlayerHoverManager playerHoverManager;
+    private ScoreManager scoreManager;
+    public boolean ShowGameInfo;
 
     public void setCurrentSong(int state) {
         currentSong = Songs[state - 1];
@@ -83,7 +86,11 @@ public class World {
         this.sourceCount = sourceCount;
     }
 
-	public void createWorld() {
+    public ScoreManager getScoreManager() {
+        return scoreManager;
+    }
+
+    public void createWorld() {
 		player = new Player(new Vector2(0, 0));
         playerHoverManager = new PlayerHoverManager(player);
 
@@ -95,6 +102,7 @@ public class World {
         //TODO:create message holder
         pauseMenu = new PauseMenu(sourceCount, height);
         currentMenu = MenuType.MAIN_MENU;
+        scoreManager = new ScoreManager(player);
 	}
 
     public PauseMenu getPauseMenu() {
