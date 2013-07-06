@@ -2,6 +2,7 @@ package com.northerneyes.view;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -96,8 +97,11 @@ public class TextRenderer implements IRenderer {
 
     @Override
     public void render(SpriteBatch spriteBatch) {
+        Gdx.gl.glEnable(GL10.GL_BLEND);
+        Gdx.gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
         spriteBatch.begin();
         this.font.draw(spriteBatch, text, position.x * coef + shiftX, position.y * ppuY + shiftY);
         spriteBatch.end();
+        Gdx.gl.glDisable(GL10.GL_BLEND);
     }
 }

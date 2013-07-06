@@ -1,5 +1,6 @@
 package com.northerneyes.controller;
 
+import com.northerneyes.Services.AudioAssetManager;
 import com.northerneyes.audio.MediaPlayer;
 import com.northerneyes.model.Menu.GameMenu;
 import com.northerneyes.model.Menu.PauseMenu;
@@ -27,6 +28,9 @@ public class PauseMenuController implements IMenuController, IHoverListener {
     public void setPosition(float posX, float posY) {
 
         int state = menu.getMenuState(posX, posY);
+        if(state != -1)
+            AudioAssetManager.playTouchMusic();
+
         switch (state)
         {
             case 0:
@@ -50,7 +54,7 @@ public class PauseMenuController implements IMenuController, IHoverListener {
 
     @Override
     public void hover(float x, float y) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        AudioAssetManager.playHoverMusic();
     }
 
     @Override

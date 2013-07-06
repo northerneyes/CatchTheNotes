@@ -29,10 +29,6 @@ public class World {
             return currentSong;
     }
 
-    public void showMessage() {
-        //To change body of created methods use File | Settings | File Templates.
-    }
-
     public PlayerHoverManager getPlayerHoverManager() {
         return playerHoverManager;
     }

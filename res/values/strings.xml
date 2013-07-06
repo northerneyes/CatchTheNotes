@@ -17,4 +17,43 @@
     <item name="medium_size" format="float" type="string">0.4</item>
     <item name="large_size" format="float" type="string">0.6</item>
     <item name="player_coef_size" format="float" type="string">0.075</item>
+
+    <string name="yellow_madness">Yellow Madness!</string>
+    <string name="puple_power">Purple Power!</string>
+    <string-array name="powerdown_messages">
+        <item>Oops!</item>
+        <item>Uh oh!</item>
+        <item>Ouch!</item>
+        <item>Oh no!</item>
+        <item>Zowee!</item>
+        <item>Yikes!</item>
+        <item>Bummer!</item>
+        <item>Shucks!</item>
+        <item>Too bad!</item>
+        <item>Zing!</item>
+        <item>Kapow!</item>
+    </string-array>
+
+    <string-array name="powerup_messages">
+        <item>Yeah!</item>
+        <item>Great!</item>
+        <item>Good job!</item>
+        <item>Super!</item>
+        <item>Woohoo!</item>
+        <item>Fabulous!</item>
+        <item>Excellent!</item>
+        <item>Wow!</item>
+        <item>Amazing!</item>
+        <item>Superb!</item>
+        <item>Terrific!</item>
+        <item>Fantastic!</item>
+        <item>Splendid!</item>
+        <item>Wonderful!</item>
+        <item>Yes!</item>
+        <item>Unbelievable!</item>
+        <item>Outstanding!</item>
+        <item>Remarkable!</item>
+        <item>Woot!</item>
+    </string-array>
+
 </resources>

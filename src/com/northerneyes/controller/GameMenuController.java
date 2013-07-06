@@ -1,5 +1,6 @@
 package com.northerneyes.controller;
 
+import com.northerneyes.Services.AudioAssetManager;
 import com.northerneyes.model.Menu.GameMenu;
 import com.northerneyes.model.World;
 
@@ -36,7 +37,6 @@ public class GameMenuController implements IMenuController, IHoverListener {
 
     @Override
     public void hover(float x, float y) {
-        //TODO: Play Music
     }
 
     @Override

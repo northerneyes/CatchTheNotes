@@ -43,7 +43,7 @@ public class MainMenuRenderer implements IRenderer{
         this.coef = ppuX*(CAMERA_WIDTH / WorldController.SOURCE_COUNT);
 
         btnPatch = new NinePatch( new Texture(Gdx.files.internal("images/btn.9.png")), 16, 16, 16, 16);
-        btnColor = new Color(1f, 1f, 1f, 0.3f);
+        btnColor = new Color(1f, 1f, 1f, 0.4f);
         btnHoverColor = new Color(1f, 1f, 1f, 0.5f);
         btnPressedColor = new Color(1f, 1f, 1f, 0.6f);
         Rectangle[] bounds = new Rectangle[4];
@@ -67,7 +67,6 @@ public class MainMenuRenderer implements IRenderer{
         }
 
         mainMenu.setBounds(bounds);
-        //TODO: setPosition and bounds for songs
     }
 
     private float getShift(Rectangle bound) {

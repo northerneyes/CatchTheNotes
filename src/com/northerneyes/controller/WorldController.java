@@ -227,7 +227,6 @@ public class WorldController {
         switch (note.Type)
         {
             case NORMAL:
-               // fadeOutShape(note);
                 note.Type = NoteType.COLLECTED;
                 player.Type = PulseType.NORMAL;
                 break;
@@ -236,39 +235,34 @@ public class WorldController {
                 player.addCombo();
                 player.setSize();
                 player.Type = PulseType.GOOD;
-                float yPos = (float) (1 + Math.random() * 10f);
-                messageHolder.addMessage(new Message("Yeah", 1f, Color.YELLOW, 4, yPos));
-//                if (!rd.recycled)
-//                {
-//                    textList = ["Yeah!", "Great!", "Good job!", "Super!", "Woohoo!", "Fabulous!", "Excellent!", "Wow!", "Amazing!", "Superb!", "Terrific!", "Fantastic!", "Splendid!", "Wonderful!", "Yes!", "Unbelievable!", "Outstanding!", "Remarkable!", "Woot!"];
-//                    yPos = 100 + Math.random() * 200;
-//                    showText(textList[Math.floor(Math.random() * textList.length)], 500, 13421568, 50, yPos, yPos + 50, 30);
-//                }
+                if (!note.Recycled)
+                {
+                    float yPos = (float) (1 + Math.random() * 8f);
+                    messageHolder.addMessage(new Message(0.25f, 4, yPos), NoteType.POWER_UP);
+                }
                 break;
             case POWER_DOWN:
                 player.addPowerDownCount();
                 player.resetCombo();
                 player.setSize();
                 player.Type = PulseType.BAD;
-//                if (!rd.recycled)
-//                {
-//                    textList = ["Oops!", "Uh oh!", "Ouch!", "Oh no!", "Zowee!", "Yikes!", "Bummer!", "Shucks!", "Too bad!", "Zing!", "Kapow!"];
-//                    yPos = 100 + Math.random() * 200;
-//                    showText(textList[Math.floor(Math.random() * textList.length)], 500, 13369344, stage.stageWidth - 200, yPos, yPos + 50, 30);
-//                }
+                if (!note.Recycled)
+                {
+                    float yPos = (float) (1 + Math.random() * 8f);
+                    messageHolder.addMessage(new Message(0.25f, SOURCE_COUNT - 4, yPos), NoteType.POWER_DOWN);
+                }
                 powerDownTime = 120;
                 break;
             case SUCTION:
                 player.addPurplePowerCount();
                 player.Type = PulseType.SUCTION;
-//                showText("Purple Power!", 2000, 16711935, NaN, 50, NaN, 30);
+                messageHolder.addMessage(new Message(0.5f, SOURCE_COUNT/2, 7), NoteType.SUCTION);
                 player.setPower(200);
                 break;
             case YELLOW_MADDNESS:
-                //all yellow
                 player.addYellowMadnessCount();
                 player.Type = PulseType.SUCTION;
-//                showText("Yellow Madness!", 2000, 16776960, NaN, 90, NaN, 30);
+                messageHolder.addMessage(new Message(0.5f, SOURCE_COUNT/2, 7), NoteType.YELLOW_MADDNESS);
                 break;
         }
         player.addShapeCount();

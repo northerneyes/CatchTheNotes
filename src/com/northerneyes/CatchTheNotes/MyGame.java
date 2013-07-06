@@ -3,6 +3,7 @@ package com.northerneyes.CatchTheNotes;
 import android.content.Context;
 
 import com.badlogic.gdx.Game;
+import com.northerneyes.Services.AudioAssetManager;
 import com.northerneyes.screens.GameScreen;
 
 public class MyGame extends   Game  {
@@ -22,6 +23,7 @@ public class MyGame extends   Game  {
     public void create() {
         // TODO Auto-generated method stub
 
+        AudioAssetManager.init();
         game = new GameScreen();
         setScreen(game);
     }
@@ -44,12 +46,12 @@ public class MyGame extends   Game  {
 	@Override
 	public void resume() {
 		// TODO Auto-generated method stub
-	}
+	}*/
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
-	}*/
+        AudioAssetManager.dispose();
+	}
 
 
 }

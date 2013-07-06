@@ -3,7 +3,9 @@ package com.northerneyes.model.Menu;
 import aurelienribon.tweenengine.*;
 
 import aurelienribon.tweenengine.equations.Cubic;
+import aurelienribon.tweenengine.equations.Elastic;
 import aurelienribon.tweenengine.equations.Linear;
+import aurelienribon.tweenengine.equations.Quad;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
@@ -35,6 +37,12 @@ public class Message implements IEntity, TweenCallback {
         Position = new Vector2(xPos, yPos);
     }
 
+    public Message(float duration, float xPos, float yPos) {
+        Duration = duration;
+        Position = new Vector2(xPos, yPos);
+        texColor = Color.YELLOW;
+    }
+
     @Override
     public void update(float delta) {
         tweenManager.update(delta);
@@ -45,15 +53,22 @@ public class Message implements IEntity, TweenCallback {
     }
 
     public void setColor(Color c) {
-        texColor.set(c);
+            texColor = new Color(c);
     }
 
     public void show() {
         Timeline.createSequence()
                 .push(Tween.set(this, MessageAccessor.POS_XY).target(Position.x, Position.y))
-                .push(Tween.to(this, MessageAccessor.POS_XY, Duration).target(Position.x, Position.y + 3))
-                .pushPause(0.5f)
-                .push(Tween.to(this, MessageAccessor.POS_XY, Duration).target(Position.x, Position.y - 3))
+                .push(Tween.set(this, MessageAccessor.OPACITY).target(0.8f))
+                .beginParallel()
+                    .push(Tween.to(this, MessageAccessor.POS_XY, Duration).target(Position.x, Position.y + 2).ease(Cubic.OUT))
+                    .push(Tween.to(this, MessageAccessor.OPACITY, Duration).target(1f).ease(Cubic.OUT))
+                .end()
+//                .pushPause(0.2f)
+                .beginParallel()
+                    .push(Tween.to(this, MessageAccessor.POS_XY, Duration).target(Position.x, 0).ease(Cubic.IN))
+                    .push(Tween.to(this, MessageAccessor.OPACITY, Duration).target(0).ease(Cubic.IN))
+                .end()
                 .setCallback(this)
                 .setCallbackTriggers(TweenCallback.COMPLETE)
                 .start(tweenManager);

@@ -38,7 +38,7 @@ public class MessageAccessor  implements TweenAccessor<Message> {
             case OPACITY:
                 Color c = target.getColor();
                 c.set(c.r, c.g, c.b, newValues[0]);
-                target.setColor(c);
+                //target.setColor(c);
                 break;
 
             default: assert false;

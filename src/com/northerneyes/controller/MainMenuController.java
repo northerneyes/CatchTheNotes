@@ -1,5 +1,6 @@
 package com.northerneyes.controller;
 
+import com.northerneyes.Services.AudioAssetManager;
 import com.northerneyes.model.Menu.MainMenu;
 import com.northerneyes.model.Menu.PauseMenu;
 import com.northerneyes.model.Player;
@@ -30,12 +31,13 @@ public class MainMenuController  implements IMenuController, IHoverListener {
         switch (state)
         {
             case 0:
-                world.showMessage();
+                AudioAssetManager.playTouchMusic();
                 world.setCurrentMenuType(World.MenuType.START_GAME);
                 break;
             case 1:
             case 2:
             case 3:
+                AudioAssetManager.playTouchMusic();
                 menu.CurrentSongIndex = state - 1;
                 world.setCurrentSong(state);
                 break;
@@ -52,7 +54,7 @@ public class MainMenuController  implements IMenuController, IHoverListener {
     public void hover(float x, float y) {
         int index = menu.getMenuState(x, y);
         menu.HoverSongIndex = index - 1;
-        //TODO: play music
+        AudioAssetManager.playHoverMusic();
     }
 
     @Override
