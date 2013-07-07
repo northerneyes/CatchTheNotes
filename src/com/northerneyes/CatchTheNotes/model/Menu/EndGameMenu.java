@@ -36,7 +36,7 @@ public class EndGameMenu implements IEntity {
 
     public EndGameMenu(float width, float height, ScoreManager scoreManager) {
         this.scoreManager = scoreManager;
-        TextPosition =  new Vector2(width/2, height - 5);
+        TextPosition =  new Vector2(width/2, height - 3);
         centerPosition  = new Vector2(width/2, height/2);
 
         SkipText = new Message(MyGame.getAppContext().getString(R.string.skip_text), 2f, Color.GRAY, TextPosition.x, TextPosition.y + 2);

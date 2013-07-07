@@ -34,7 +34,7 @@ public class Message implements IEntity, TweenCallback {
         this.texColor = color;
         yStartPos = yPos;
 
-        Position = new Vector2(xPos, yStartPos + 2);
+        Position = new Vector2(xPos, yStartPos);
     }
 
     public Message(String text, float duration, Color color, float xPos, float yPos, float yStartPos)
@@ -48,7 +48,8 @@ public class Message implements IEntity, TweenCallback {
 
     public Message(float duration, float xPos, float yPos) {
         Duration = duration;
-        Position = new Vector2(xPos, yPos);
+        yStartPos = yPos;
+        Position = new Vector2(xPos, yPos + 2);
         texColor = Color.YELLOW;
     }
 
