@@ -25,6 +25,9 @@
     <string name="max_combo" formatted="false">Max Combo: %d</string>
     <string name="combo_bonus" formatted="false">Combo Bonus: %d</string>
     <string name="size_bonus" formatted="false">Size Bonus: %d</string>
+    <string name="skip_text">[ Skip ]</string>
+    <string name="play_again">Play Again</string>
+    <string name="change_options">Change Options</string>
 
     <string-array name="powerdown_messages">
         <item>Oops!</item>

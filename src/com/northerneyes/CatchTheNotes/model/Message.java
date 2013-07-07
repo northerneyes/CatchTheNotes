@@ -4,6 +4,7 @@ import aurelienribon.tweenengine.*;
 
 import aurelienribon.tweenengine.equations.Cubic;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.CatchTheNotes.accessors.MessageAccessor;
 import com.northerneyes.CatchTheNotes.model.IEntity;
@@ -20,15 +21,28 @@ public class Message implements IEntity, TweenCallback {
     public String Text;
     private float Duration;
     Color texColor;
+    private float yStartPos;
     public float Visibility = 1f;
     public Vector2 Position;
     private TweenManager tweenManager = new TweenManager();
+    private Rectangle bounds = new Rectangle();
 
     public Message(String text, float duration, Color color, float xPos, float yPos)
     {
         this.Text = text;
         this.Duration = duration;
         this.texColor = color;
+        yStartPos = yPos;
+
+        Position = new Vector2(xPos, yStartPos + 2);
+    }
+
+    public Message(String text, float duration, Color color, float xPos, float yPos, float yStartPos)
+    {
+        this.Text = text;
+        this.Duration = duration;
+        this.texColor = color;
+        this.yStartPos = yStartPos;
         Position = new Vector2(xPos, yPos);
     }
 
@@ -62,10 +76,10 @@ public class Message implements IEntity, TweenCallback {
     public Timeline buildSequence()
     {
         return  Timeline.createSequence()
-                .push(Tween.set(this, MessageAccessor.POS_XY).target(Position.x, Position.y))
+                .push(Tween.set(this, MessageAccessor.POS_XY).target(Position.x, yStartPos))
                 .push(Tween.set(this, MessageAccessor.OPACITY).target(0.8f))
                 .beginParallel()
-                .push(Tween.to(this, MessageAccessor.POS_XY, Duration).target(Position.x, Position.y + 2).ease(Cubic.OUT))
+                .push(Tween.to(this, MessageAccessor.POS_XY, Duration).target(Position.x, Position.y).ease(Cubic.OUT))
                 .push(Tween.to(this, MessageAccessor.OPACITY, Duration).target(1f).ease(Cubic.OUT))
                 .end()
 //                .pushPause(0.2f)
@@ -83,4 +97,19 @@ public class Message implements IEntity, TweenCallback {
         TTL = 0;
     }
 
+    public void setBounds(Rectangle bounds) {
+        this.bounds = bounds;
+    }
+
+    public Rectangle getBounds() {
+        return bounds;
+    }
+
+    public boolean contains(float x, float y) {
+        return bounds.contains(x, y);
+    }
+
+    public void setTTL(int TTL) {
+        this.TTL = TTL;
+    }
 }

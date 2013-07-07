@@ -18,7 +18,7 @@ public class MessageGroup  implements IEntity, TweenCallback {
 
     private ArrayList<Message> messages;
     private TweenManager tweenManager = new TweenManager();
-    private  int TTL = 1;
+    public   int TTL = 1;
     public MessageGroup() {
         messages = new ArrayList<Message>();
     }
@@ -62,5 +62,9 @@ public class MessageGroup  implements IEntity, TweenCallback {
 
     public Message get(int index) {
         return messages.get(index);
+    }
+
+    public void clear() {
+        tweenManager.killAll();
     }
 }

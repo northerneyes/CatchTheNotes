@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.CatchTheNotes.controller.WorldController;
 import com.northerneyes.CatchTheNotes.model.IEntity;
+import com.northerneyes.CatchTheNotes.model.Message;
 
 /**
  * Created by George on 23.06.13.
@@ -26,6 +27,8 @@ public class TextRenderer implements IRenderer {
     public BitmapFont getFont() {
         return font;
     }
+
+
 
     public enum TextAlign {
         CENTER,
@@ -58,6 +61,16 @@ public class TextRenderer implements IRenderer {
         this.coef = ppuX*(CAMERA_WIDTH / WorldController.SOURCE_COUNT);
 
 
+    }
+
+    public void setBounds(Message msg, float size, TextAlign textAlign)
+    {
+        setText(msg, size, textAlign);
+        msg.setBounds(getBounds());
+    }
+
+    public void setText(Message msg, float size, TextAlign textAlign) {
+        setText(msg.Text, msg.getColor(), msg.Position, size, textAlign);
     }
 
     public void  setText(String text, Color textColor, Vector2 position, float size, TextAlign textAlign)

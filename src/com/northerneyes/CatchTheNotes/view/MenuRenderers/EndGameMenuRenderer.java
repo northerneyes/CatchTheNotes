@@ -23,11 +23,17 @@ public class EndGameMenuRenderer  implements IRenderer {
     private final float mediumSize;
     private final TextRenderer textRenderer;
     private final EndGameMenu menu;
+    private final float smallSize;
 
     public EndGameMenuRenderer(EndGameMenu menu, float ppuX, float ppuY, BitmapFont font, float  CAMERA_WIDTH) {
         this.menu = menu;
         mediumSize =  Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.medium_size));
+        smallSize =  Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.small_size));
         textRenderer = new TextRenderer(font, ppuX, ppuY, CAMERA_WIDTH);
+
+        textRenderer.setBounds(menu.SkipText, smallSize, TextRenderer.TextAlign.CENTER);
+        textRenderer.setBounds(menu.PlayAgainText, mediumSize, TextRenderer.TextAlign.CENTER);
+        textRenderer.setBounds(menu.ChangeOptionsText, mediumSize, TextRenderer.TextAlign.CENTER);
     }
 
     @Override
@@ -37,15 +43,29 @@ public class EndGameMenuRenderer  implements IRenderer {
 
     @Override
     public void render(SpriteBatch spriteBatch) {
+
+        if(menu.Finished)
+        {
+            textRenderer.setText(menu.PlayAgainText, mediumSize, TextRenderer.TextAlign.CENTER);
+            textRenderer.render(spriteBatch);
+            textRenderer.setText(menu.ChangeOptionsText, mediumSize, TextRenderer.TextAlign.CENTER);
+            textRenderer.render(spriteBatch);
+            return;
+        }
+
+        textRenderer.setText(menu.SkipText, smallSize, TextRenderer.TextAlign.CENTER);
+        textRenderer.render(spriteBatch);
+
         MessageGroup group =  menu.currentMessageGroup;
         if(group != null)
         {
             for (int index = 0; index < group.size(); index++)
             {
                 Message msg = group.get(index);
-                textRenderer.setText(msg.Text, msg.getColor(), msg.Position, mediumSize, TextRenderer.TextAlign.CENTER);
+                textRenderer.setText(msg, mediumSize, TextRenderer.TextAlign.CENTER);
                 textRenderer.render(spriteBatch);
             }
         }
+
     }
 }
