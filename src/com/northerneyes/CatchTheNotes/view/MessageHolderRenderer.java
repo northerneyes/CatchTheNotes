@@ -21,7 +21,8 @@ public class MessageHolderRenderer implements IRenderer  {
     private TextRenderer textRenderer;
     private MessageHolder messageHodler;
 
-    public MessageHolderRenderer( float ppuX, float ppuY,BitmapFont font, float  CAMERA_WIDTH) {
+    public MessageHolderRenderer(MessageHolder messageHodler, float ppuX, float ppuY,BitmapFont font, float  CAMERA_WIDTH) {
+        this.messageHodler = messageHodler;
         mediumSize =  Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.medium_size));
         textRenderer = new TextRenderer(font,ppuX, ppuY, CAMERA_WIDTH);
     }

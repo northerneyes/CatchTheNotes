@@ -93,7 +93,7 @@ public class WorldRenderer {
         TextureRegion cursorRegions[][] = TextureRegion.split(playerCursor, playerCursor.getWidth()/2, playerCursor.getHeight());
 
         playerRenderer = new PlayerRenderer(Arrays.asList(cursorRegions[0]).subList(0, 2), textRenderer , ppuX, ppuY, CAMERA_WIDTH, CAMERA_HEIGHT);
-        messageHolderRenderer = new MessageHolderRenderer(ppuX, ppuY, font, CAMERA_WIDTH);
+        messageHolderRenderer = new MessageHolderRenderer(world.getMessageHolder(), ppuX, ppuY, font, CAMERA_WIDTH);
         gameInfoRenderer = new GameInfoRenderer(textRenderer,  ppuX, ppuY, CAMERA_WIDTH, CAMERA_HEIGHT);
 
         gameMenuRenderer = new GameMenuRenderer(world.getGameMenu(), textRenderer);
