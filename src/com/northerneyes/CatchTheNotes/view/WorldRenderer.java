@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.northerneyes.CatchTheNotes.controller.WorldController;
 import com.northerneyes.CatchTheNotes.model.NotesHolder;
 import com.northerneyes.CatchTheNotes.model.World;
+import com.northerneyes.CatchTheNotes.view.MenuRenderers.EndGameMenuRenderer;
 import com.northerneyes.CatchTheNotes.view.MenuRenderers.GameMenuRenderer;
 import com.northerneyes.CatchTheNotes.view.MenuRenderers.MainMenuRenderer;
 import com.northerneyes.CatchTheNotes.view.MenuRenderers.PauseMenuRenderer;
@@ -48,6 +49,7 @@ public class WorldRenderer {
     private GameMenuRenderer gameMenuRenderer;
     private PauseMenuRenderer pauseMenuRenderer;
     private MainMenuRenderer mainMenuRenderer;
+    private EndGameMenuRenderer endGameMenuRenderer;
 
     private BitmapFont font;
     private Texture playerCursor;
@@ -97,6 +99,8 @@ public class WorldRenderer {
         gameMenuRenderer = new GameMenuRenderer(world.getGameMenu(), textRenderer);
         pauseMenuRenderer = new PauseMenuRenderer(world.getPauseMenu(), textRenderer);
         mainMenuRenderer = new MainMenuRenderer(world.getMainMenu(), textRenderer, ppuX, ppuY, CAMERA_WIDTH);
+        endGameMenuRenderer = new EndGameMenuRenderer(world.getEndMenu(), ppuX, ppuY, font, CAMERA_WIDTH);
+
         ArrayList<TextureRegion> notes = new ArrayList<TextureRegion>();
         notes.addAll(Arrays.asList(regions[0]).subList(0, NotesHolder.NOTE_TYPE_COUNT));
 
@@ -124,12 +128,21 @@ public class WorldRenderer {
                 messageHolderRenderer.update(world.getMessageHolder());
                 messageHolderRenderer.render(spriteBatch);
                 gameMenuRenderer.render(spriteBatch);
+
+                gameInfoRenderer.update(world.getScoreManager());
+                gameInfoRenderer.render(spriteBatch);
                 break;
             case PAUSE:
                 pauseMenuRenderer.render(spriteBatch);
+
+                gameInfoRenderer.update(world.getScoreManager());
+                gameInfoRenderer.render(spriteBatch);
                 break;
             case MAIN_MENU:
                 mainMenuRenderer.render(spriteBatch);
+                break;
+            case END_GAME:
+                endGameMenuRenderer.render(spriteBatch);
                 break;
         }
     }
@@ -140,11 +153,6 @@ public class WorldRenderer {
     }
 
     private void drawPlayer() {
-        if(world.ShowGameInfo)
-        {
-            gameInfoRenderer.update(world.getScoreManager());
-            gameInfoRenderer.render(spriteBatch);
-        }
         playerRenderer.update(world.getPlayer());
         playerRenderer.render(spriteBatch);
 	}

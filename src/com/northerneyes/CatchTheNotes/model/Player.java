@@ -5,6 +5,8 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Player implements IEntity {
 
+
+
     public enum PlayerState {
         NORMAL,
         HOVER;
@@ -115,6 +117,10 @@ public class Player implements IEntity {
         {
             maxCombo = combo;
         }
+    }
+
+    public int getMaxCombo() {
+        return maxCombo;
     }
 
     public int getCombo()

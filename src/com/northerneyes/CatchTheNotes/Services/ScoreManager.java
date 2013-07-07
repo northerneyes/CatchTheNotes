@@ -85,4 +85,12 @@ public class ScoreManager implements IEntity {
     public void update(float delta) {
 
     }
+
+    public int getMaxCombo() {
+        return player.getMaxCombo();
+    }
+
+    public float getPlayerSize() {
+        return player.Size;
+    }
 }

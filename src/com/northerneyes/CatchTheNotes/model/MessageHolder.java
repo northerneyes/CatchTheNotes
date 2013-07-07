@@ -5,7 +5,6 @@ import aurelienribon.tweenengine.TweenManager;
 import com.badlogic.gdx.graphics.Color;
 import com.northerneyes.CatchTheNotes.MyGame;
 import com.northerneyes.CatchTheNotes.R;
-import com.northerneyes.CatchTheNotes.model.Menu.Message;
 
 import java.util.ArrayList;
 import java.util.List;

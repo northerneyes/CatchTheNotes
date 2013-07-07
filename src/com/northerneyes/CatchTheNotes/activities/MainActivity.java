@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.northerneyes.CatchTheNotes.MyGame;
 import com.northerneyes.CatchTheNotes.accessors.*;
-import com.northerneyes.CatchTheNotes.model.Menu.Message;
+import com.northerneyes.CatchTheNotes.model.Message;
 
 public class MainActivity extends AndroidApplication {
 	 

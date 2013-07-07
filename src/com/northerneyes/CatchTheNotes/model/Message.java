@@ -1,4 +1,4 @@
-package com.northerneyes.CatchTheNotes.model.Menu;
+package com.northerneyes.CatchTheNotes.model;
 
 import aurelienribon.tweenengine.*;
 
@@ -53,22 +53,27 @@ public class Message implements IEntity, TweenCallback {
 
     public void show() {
         Timeline.createSequence()
-                .push(Tween.set(this, MessageAccessor.POS_XY).target(Position.x, Position.y))
-                .push(Tween.set(this, MessageAccessor.OPACITY).target(0.8f))
-                .beginParallel()
-                    .push(Tween.to(this, MessageAccessor.POS_XY, Duration).target(Position.x, Position.y + 2).ease(Cubic.OUT))
-                    .push(Tween.to(this, MessageAccessor.OPACITY, Duration).target(1f).ease(Cubic.OUT))
-                .end()
-//                .pushPause(0.2f)
-                .beginParallel()
-                    .push(Tween.to(this, MessageAccessor.POS_XY, Duration).target(Position.x, 0).ease(Cubic.IN))
-                    .push(Tween.to(this, MessageAccessor.OPACITY, Duration).target(0).ease(Cubic.IN))
-                .end()
+                .push(buildSequence())
                 .setCallback(this)
                 .setCallbackTriggers(TweenCallback.COMPLETE)
                 .start(tweenManager);
     }
 
+    public Timeline buildSequence()
+    {
+        return  Timeline.createSequence()
+                .push(Tween.set(this, MessageAccessor.POS_XY).target(Position.x, Position.y))
+                .push(Tween.set(this, MessageAccessor.OPACITY).target(0.8f))
+                .beginParallel()
+                .push(Tween.to(this, MessageAccessor.POS_XY, Duration).target(Position.x, Position.y + 2).ease(Cubic.OUT))
+                .push(Tween.to(this, MessageAccessor.OPACITY, Duration).target(1f).ease(Cubic.OUT))
+                .end()
+//                .pushPause(0.2f)
+                .beginParallel()
+                .push(Tween.to(this, MessageAccessor.POS_XY, Duration).target(Position.x, 0).ease(Cubic.IN))
+                .push(Tween.to(this, MessageAccessor.OPACITY, Duration).target(0).ease(Cubic.IN))
+                .end();
+    }
     public int getTTL() {
         return TTL;
     }

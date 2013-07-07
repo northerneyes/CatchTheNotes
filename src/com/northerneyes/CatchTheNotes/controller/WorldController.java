@@ -5,7 +5,8 @@ import com.northerneyes.CatchTheNotes.Services.ScoreManager;
 import com.northerneyes.CatchTheNotes.audio.MediaPlayer;
 import com.northerneyes.CatchTheNotes.audio.VisualizationData;
 import com.northerneyes.CatchTheNotes.model.*;
-import com.northerneyes.CatchTheNotes.model.Menu.Message;
+import com.northerneyes.CatchTheNotes.model.Menu.EndGameMenu;
+import com.northerneyes.CatchTheNotes.model.Message;
 import com.northerneyes.CatchTheNotes.model.Note.NoteType;
 import com.northerneyes.CatchTheNotes.model.Player.PulseType;
 import com.northerneyes.CatchTheNotes.view.WorldRenderer;
@@ -14,6 +15,7 @@ import java.util.HashMap;
 
 
 public class WorldController {
+    private final EndMenuController endMenuController;
     public Player player;
     public static final int SOURCE_COUNT = 16;
     public NotesHolder notesHolder;
@@ -34,6 +36,7 @@ public class WorldController {
     private float halfWidth = SOURCE_COUNT/2f;
 
     public static boolean DEBUG = true;
+    public static boolean DEBUG_END_MENU = true;
 
     private int powerDownTime = -1;
 
@@ -58,11 +61,16 @@ public class WorldController {
         gameMenuController = new GameMenuController(world);
         pauseMenuController = new PauseMenuController(world);
         mainMenuController = new MainMenuController(world);
+        endMenuController = new EndMenuController(world);
+
        // currentMenuController = gameMenuController;
+
+        if(DEBUG_END_MENU)
+            endMenuController.Init();
 
         if(!DEBUG)
         {
-            MediaPlayer.play("audio/Leaves_in_the_Wind.mp3");
+//            MediaPlayer.play("audio/Leaves_in_the_Wind.mp3");
             //MediaPlayer.stop();
             MediaPlayer.setVisualizationEnabled();
         }
@@ -88,7 +96,6 @@ public class WorldController {
                     notesHolder.beat((float)(Math.random() * SOURCE_COUNT), height, -(float)Math.random(), NoteType.NORMAL);
                 }
                 updateRainDrops();
-                world.ShowGameInfo = false;
                 return;
             case START_GAME:  //Restart
                 MediaPlayer.stop();
@@ -96,8 +103,13 @@ public class WorldController {
                 player.clear();
                 scoreManager.clear();
 
-                world.ShowGameInfo = true;
                 world.setCurrentMenuType(World.MenuType.GAME);
+                return;
+            case END_GAME:
+                MediaPlayer.stop();
+                endMenuController.update(delta);
+                currentMenuController = endMenuController;
+                world.setCurrentMenuType(World.MenuType.END_GAME);
                 return;
             case GAME:
                 DEBUG = true;

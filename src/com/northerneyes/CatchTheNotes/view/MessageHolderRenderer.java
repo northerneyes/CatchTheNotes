@@ -5,7 +5,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.northerneyes.CatchTheNotes.MyGame;
 import com.northerneyes.CatchTheNotes.R;
 import com.northerneyes.CatchTheNotes.model.IEntity;
-import com.northerneyes.CatchTheNotes.model.Menu.Message;
+import com.northerneyes.CatchTheNotes.model.Menu.EndGameMenu;
+import com.northerneyes.CatchTheNotes.model.Message;
 import com.northerneyes.CatchTheNotes.model.MessageHolder;
 
 /**
@@ -20,15 +21,14 @@ public class MessageHolderRenderer implements IRenderer  {
     private TextRenderer textRenderer;
     private MessageHolder messageHodler;
 
-    public MessageHolderRenderer(float ppuX, float ppuY,BitmapFont font, float  CAMERA_WIDTH) {
-
+    public MessageHolderRenderer( float ppuX, float ppuY,BitmapFont font, float  CAMERA_WIDTH) {
         mediumSize =  Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.medium_size));
         textRenderer = new TextRenderer(font,ppuX, ppuY, CAMERA_WIDTH);
     }
 
     @Override
     public void update(IEntity entity) {
-        messageHodler = (MessageHolder)entity;
+
     }
 
     @Override

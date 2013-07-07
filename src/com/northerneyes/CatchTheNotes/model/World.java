@@ -3,6 +3,7 @@ package com.northerneyes.CatchTheNotes.model;
 import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.CatchTheNotes.Services.ScoreManager;
 import com.northerneyes.CatchTheNotes.controller.PlayerHoverManager;
+import com.northerneyes.CatchTheNotes.model.Menu.EndGameMenu;
 import com.northerneyes.CatchTheNotes.model.Menu.GameMenu;
 import com.northerneyes.CatchTheNotes.model.Menu.MainMenu;
 import com.northerneyes.CatchTheNotes.model.Menu.PauseMenu;
@@ -17,7 +18,8 @@ public class World {
     private MessageHolder messageHodler;
     private PlayerHoverManager playerHoverManager;
     private ScoreManager scoreManager;
-    public boolean ShowGameInfo;
+//    public boolean ShowGameInfo;
+    private EndGameMenu endMenu;
 
     public void setCurrentSong(int state) {
         currentSong = Songs[state - 1];
@@ -36,10 +38,15 @@ public class World {
         return playerHoverManager;
     }
 
+    public EndGameMenu getEndMenu() {
+        return endMenu;
+    }
+
     public enum MenuType {
         GAME,
         PAUSE,
         START_GAME,
+        END_GAME,
         MAIN_MENU;
 
         // Converts from an ordinal value to the ResponseCode
@@ -57,7 +64,7 @@ public class World {
 	public float width;
 	public float height;
     private int sourceCount;
-    private MenuType currentMenu = MenuType.MAIN_MENU;
+    private MenuType currentMenu;
     private GameMenu gameMenu;
 
     public GameMenu getGameMenu() {
@@ -99,10 +106,12 @@ public class World {
 
         gameMenu = new GameMenu(sourceCount, height);
         mainMenu = new MainMenu(sourceCount, height);
-        //TODO:create message holder
         pauseMenu = new PauseMenu(sourceCount, height);
-        currentMenu = MenuType.MAIN_MENU;
+
+        currentMenu = MenuType.END_GAME;
         scoreManager = new ScoreManager(player);
+
+        endMenu = new EndGameMenu(sourceCount, height, scoreManager);
 	}
 
     public PauseMenu getPauseMenu() {

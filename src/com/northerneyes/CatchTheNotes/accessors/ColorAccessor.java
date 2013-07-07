@@ -2,7 +2,6 @@ package com.northerneyes.CatchTheNotes.accessors;
 
 import aurelienribon.tweenengine.TweenAccessor;
 import com.badlogic.gdx.graphics.Color;
-import com.northerneyes.CatchTheNotes.model.Menu.Message;
 
 /**
  * Created with IntelliJ IDEA.
