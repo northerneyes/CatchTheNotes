@@ -46,9 +46,9 @@ public class MainMenuRenderer implements IRenderer {
         btnPatch = new NinePatch( new Texture(Gdx.files.internal("images/btn.9.png")), 16, 16, 16, 16);
 
         Rectangle[] bounds = new Rectangle[4];
-        smallSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.small_size));
-        mediumSize =  Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.medium_size));
-        largeSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.large_size));
+        smallSize =  MyGame.getAppContext().getResources().getDimension(R.dimen.small_size);
+        mediumSize =  MyGame.getAppContext().getResources().getDimension(R.dimen.medium_size);
+        largeSize =   MyGame.getAppContext().getResources().getDimension(R.dimen.large_size);
         textRenderer.setText(menu.PlayText, menu.PlayTextColor, menu.PlayPosition, mediumSize, TextRenderer.TextAlign.CENTER);
         bounds[0] = textRenderer.getBounds();
 

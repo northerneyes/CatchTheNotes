@@ -64,7 +64,7 @@ public class Player implements IEntity {
         power = 0;
         combo = 1;
         maxCombo = 0;
-
+        Size = DefaultSize;
     }
 
 

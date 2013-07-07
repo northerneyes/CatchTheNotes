@@ -27,8 +27,8 @@ public class EndGameMenuRenderer  implements IRenderer {
 
     public EndGameMenuRenderer(EndGameMenu menu, float ppuX, float ppuY, BitmapFont font, float  CAMERA_WIDTH) {
         this.menu = menu;
-        mediumSize =  Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.medium_size));
-        smallSize =  Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.small_size));
+        mediumSize =  MyGame.getAppContext().getResources().getDimension(R.dimen.medium_size);
+        smallSize =  MyGame.getAppContext().getResources().getDimension(R.dimen.small_size);
         textRenderer = new TextRenderer(font, ppuX, ppuY, CAMERA_WIDTH);
 
         textRenderer.setBounds(menu.SkipText, smallSize, TextRenderer.TextAlign.CENTER);

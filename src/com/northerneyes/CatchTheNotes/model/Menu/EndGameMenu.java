@@ -39,7 +39,7 @@ public class EndGameMenu implements IEntity {
         TextPosition =  new Vector2(width/2, height - 5);
         centerPosition  = new Vector2(width/2, height/2);
 
-        SkipText = new Message(MyGame.getAppContext().getString(R.string.skip_text), 2f, Color.GRAY, TextPosition.x, TextPosition.y + 2);
+        SkipText = new Message(MyGame.getAppContext().getString(R.string.skip_text), 2f, Color.GRAY, TextPosition.x, TextPosition.y + 4);
 
         PlayAgainText = new Message(MyGame.getAppContext().getString(R.string.play_again), 2f, Color.WHITE, centerPosition.x, centerPosition.y + 1);
         ChangeOptionsText = new Message(MyGame.getAppContext().getString(R.string.change_options), 2f, Color.WHITE, centerPosition.x, centerPosition.y - 1);

@@ -21,7 +21,7 @@ public class GameMenuRenderer implements IRenderer {
     public GameMenuRenderer(GameMenu menu, TextRenderer textRenderer) {
         this.menu = menu;
         this.textRenderer = textRenderer;
-        size =  Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.small_size));
+        size =  MyGame.getAppContext().getResources().getDimension(R.dimen.small_size);
         textRenderer.setText(menu.getPauseText(), color, menu.getPausePosition(), size, TextRenderer.TextAlign.LEFT);
         menu.setPauseBounds(textRenderer.getBounds());
     }

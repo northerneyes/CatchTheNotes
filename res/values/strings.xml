@@ -13,10 +13,10 @@
     <string name="centle">Centle</string>
     <string name="letting_go">Letting Go</string>
 
-    <item name="small_size" format="float" type="string">0.25</item>
-    <item name="medium_size" format="float" type="string">0.4</item>
-    <item name="large_size" format="float" type="string">0.6</item>
-    <item name="player_coef_size" format="float" type="string">0.075</item>
+    <!--<item name="small_size" format="float" type="string">0.25</item>-->
+    <!--<item name="medium_size" format="float" type="string">0.4</item>-->
+    <!--<item name="large_size" format="float" type="string">0.6</item>-->
+    <!--<item name="player_coef_size" format="float" type="string">0.075</item>-->
 
     <string name="yellow_madness">Yellow Madness!</string>
     <string name="puple_power">Purple Power!</string>

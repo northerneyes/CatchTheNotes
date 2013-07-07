@@ -67,8 +67,8 @@ public class PlayerRenderer implements IRenderer {
         this.height = height;
         this.coef = ppuX*(CAMERA_WIDTH / WorldController.SOURCE_COUNT);
 
-        smallSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.small_size));
-        playerCoeffSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.player_coef_size));
+        smallSize =   MyGame.getAppContext().getResources().getDimension(R.dimen.small_size);
+        playerCoeffSize =  MyGame.getAppContext().getResources().getDimension(R.dimen.player_coef_size);
     }
 
     @Override

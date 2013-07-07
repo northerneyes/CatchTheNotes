@@ -18,12 +18,13 @@ import com.northerneyes.CatchTheNotes.model.MessageHolder;
  */
 public class MessageHolderRenderer implements IRenderer  {
     private final float mediumSize;
+
     private TextRenderer textRenderer;
     private MessageHolder messageHodler;
 
     public MessageHolderRenderer(MessageHolder messageHodler, float ppuX, float ppuY,BitmapFont font, float  CAMERA_WIDTH) {
         this.messageHodler = messageHodler;
-        mediumSize =  Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.medium_size));
+        mediumSize =  MyGame.getAppContext().getResources().getDimension(R.dimen.medium_size);
         textRenderer = new TextRenderer(font,ppuX, ppuY, CAMERA_WIDTH);
     }
 

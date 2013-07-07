@@ -30,7 +30,7 @@ public class GameInfoRenderer  implements IRenderer {
     public GameInfoRenderer(TextRenderer textRenderer, float ppuX, float ppuY, float CAMERA_WIDTH, float height) {
         this.textRenderer = textRenderer;
         this.height = height;
-        smallSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.small_size));
+        smallSize = MyGame.getAppContext().getResources().getDimension(R.dimen.small_size);
     }
 
     @Override

@@ -25,8 +25,7 @@ public class PauseMenuRenderer implements IRenderer {
         this.menu = menu;
         this.menu = menu;
         this.textRenderer = textRenderer;
-        mediumSize =   Float.parseFloat(MyGame.getAppContext().getResources().getString(R.string.medium_size));
-
+       mediumSize =   MyGame.getAppContext().getResources().getDimension(R.dimen.medium_size);
         textRenderer.setText(menu.getResumeText(), menu.ResumeTextColor, menu.ResumePosition, mediumSize, TextRenderer.TextAlign.CENTER);
         menu.setResumeBounds(textRenderer.getBounds());
         textRenderer.setText(menu.getRestartText(), menu.RestartTextColor, menu.RestartPosition, mediumSize, TextRenderer.TextAlign.CENTER);
