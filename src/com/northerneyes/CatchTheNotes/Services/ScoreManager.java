@@ -15,11 +15,11 @@ public class ScoreManager implements IEntity {
     private int powerDownCount = 0;
     private int purplePowerCount = 0;
     private int yellowMadnessCount = 0;
-    private int shapeCount = 0;
+    private int shapeCount = 70;
     private int score;
 
     private Player player;
-    private int totalShape;
+    private int totalShape = 100;
 
     public ScoreManager(Player player) {
         this.player = player;
@@ -92,5 +92,45 @@ public class ScoreManager implements IEntity {
 
     public float getPlayerSize() {
         return player.Size;
+    }
+
+    public int getPowerDownCount() {
+        return powerDownCount;
+    }
+
+    public int getPercentShapes() {
+        return Math.round(100 * shapeCount / totalShape);
+    }
+
+    public void save() {
+        //TODO: Save all this stuff
+//        powerUpCount = 0;
+//        powerDownCount = 0;
+//        purplePowerCount = 0;
+//        yellowMadnessCount = 0;
+//        shapeCount = 0;
+    }
+
+    public void saveMedal(int medal) {
+        //TODO:save medals
+
+    }
+
+    public int getUnlockLevel() {
+        //TODO: getUnlockLevel
+        return 0;
+    }
+
+    public void saveUnlockLevel(int unlockLevel) {
+        //TODO:save unlock
+    }
+
+    public String getNewSong(int unlockLevel) {
+        //TODO: load song
+        return "New Song";
+    }
+
+    public void resetPlayerSize() {
+        player.clear();
     }
 }

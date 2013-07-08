@@ -37,9 +37,10 @@ public class MessageGroup  implements IEntity, TweenCallback {
                 .start(tweenManager);
     }
 
-    public void add(Message msg)
+    public MessageGroup add(Message msg)
     {
         messages.add(msg);
+        return this;
     }
 
     public int getTTL() {

@@ -25,9 +25,22 @@
     <string name="max_combo" formatted="false">Max Combo: %d</string>
     <string name="combo_bonus" formatted="false">Combo Bonus: %d</string>
     <string name="size_bonus" formatted="false">Size Bonus: %d</string>
+    <string name="total_points" formatted="false">Total Points: %d</string>
     <string name="skip_text">[ Skip ]</string>
     <string name="play_again">Play Again</string>
     <string name="change_options">Change Options</string>
+    <string name="super_duper">Super!</string>
+    <string name="avoided">You avoided all red shapes!</string>
+    <string name="platinum_medal">Platinum</string>
+    <string name="gold_medal">Gold</string>
+    <string name="silver_medal">Silver</string>
+    <string name="bronze_medal">Bronze</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="you_collected" formatted="false">You collected %d%% of the notes</string>
+    <string name="unlocked_more_options" >You unlocked more options!</string>
+    <string name="new_song" formatted="false">New Song: %s</string>
+    <string name="unlocked_all_options">All options are now unlocked!</string>
+
 
     <string-array name="powerdown_messages">
         <item>Oops!</item>
