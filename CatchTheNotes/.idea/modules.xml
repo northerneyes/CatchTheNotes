@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CatchTheNotes.iml" filepath="$PROJECT_DIR$/CatchTheNotes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../CatchTheNotes-android/CatchTheNotes-android.iml" filepath="$PROJECT_DIR$/../CatchTheNotes-android/CatchTheNotes-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../CatchTheNotes-desktop/CatchTheNotes-desktop.iml" filepath="$PROJECT_DIR$/../CatchTheNotes-desktop/CatchTheNotes-desktop.iml" />
+    </modules>
+  </component>
+</project>
+
