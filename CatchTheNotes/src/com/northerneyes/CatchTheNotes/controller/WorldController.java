@@ -99,7 +99,10 @@ public class WorldController {
                 return;
             case START_GAME:  //Restart
                 MediaPlayer.stop();
-//                MediaPlayer.play(world.getCurrentSong());
+                if(!DEBUG)
+                {
+                    MediaPlayer.play(world.getCurrentSong());
+                }
                 player.clear();
                 scoreManager.clear();
 
@@ -121,7 +124,7 @@ public class WorldController {
                 {
                     if(notesHolder.particles.size() == 1 || notesHolder.particles.size() == 0)
                     {
-                        scoreManager.addTotalShape(7);
+                        scoreManager.addTotalShape(8);
                         notesHolder.particles.clear();
                         notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1f, 200, 2, 1));
                         notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
@@ -131,6 +134,7 @@ public class WorldController {
                         notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 5, 1));
                         notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 1, 1));
                         notesHolder.particles.add(new Note(new Vector2(12, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, 1f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(15, 11), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 2f, 200, 2, 1));
                         // notesHolder.particles.add(new Note(new Vector2(15, 7), new Vector2(0, 0), 0, 0, NoteType.SUCTION, 1f, 200, 2, 1));
                     }
                 }

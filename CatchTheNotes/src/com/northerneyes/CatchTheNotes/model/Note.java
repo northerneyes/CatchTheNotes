@@ -111,6 +111,7 @@ public class Note implements IEntity {
     {
         if(Recycled)
             return;
+
         if(Type == NoteType.COLLECTED)
         {
             Color =  new Color(RComponent, GComponent, BComponent, Visibility);
@@ -157,7 +158,7 @@ public class Note implements IEntity {
 
         switch(type)
         {
-            case NORMAL: startColor = new Color(0f, 0.85f, 0.3f + 0.4f*amp, Visibility); break; // Обычная
+            case NORMAL: startColor = new Color(0f, 0.85f, 0.3f + 0.4f*(-amp), Visibility); break; // Обычная
             case POWER_DOWN: startColor = new Color(1f, 0f, 0f, Visibility); break; // Красная
             case SUCTION: startColor = new Color(1f, 0f, 1f, Visibility); break; // Пурпурная
             case POWER_UP: startColor = new Color(1f, 1f, 0f, Visibility); break; // Желтая
