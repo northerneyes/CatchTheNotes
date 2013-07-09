@@ -4,7 +4,6 @@ package com.northerneyes.CatchTheNotes.model;
 import aurelienribon.tweenengine.TweenManager;
 import com.badlogic.gdx.graphics.Color;
 import com.northerneyes.CatchTheNotes.CatchTheNotes;
-import com.northerneyes.CatchTheNotes.R;
 
 import java.util.ArrayList;
 import java.util.List;

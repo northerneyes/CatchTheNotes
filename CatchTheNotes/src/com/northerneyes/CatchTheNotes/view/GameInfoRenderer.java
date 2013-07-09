@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.CatchTheNotes.CatchTheNotes;
-import com.northerneyes.CatchTheNotes.R;
 import com.northerneyes.CatchTheNotes.Services.ScoreManager;
 import com.northerneyes.CatchTheNotes.controller.WorldController;
 import com.northerneyes.CatchTheNotes.model.IEntity;

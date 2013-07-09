@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.CatchTheNotes.CatchTheNotes;
-import com.northerneyes.CatchTheNotes.R;
 import com.northerneyes.CatchTheNotes.controller.WorldController;
 import com.northerneyes.CatchTheNotes.model.IEntity;
 import com.northerneyes.CatchTheNotes.model.Menu.MainMenu;

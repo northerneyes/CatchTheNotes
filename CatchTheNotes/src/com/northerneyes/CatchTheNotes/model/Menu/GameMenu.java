@@ -3,7 +3,6 @@ package com.northerneyes.CatchTheNotes.model.Menu;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.CatchTheNotes.CatchTheNotes;
-import com.northerneyes.CatchTheNotes.R;
 
 /**
  * Created by George on 24.06.13.

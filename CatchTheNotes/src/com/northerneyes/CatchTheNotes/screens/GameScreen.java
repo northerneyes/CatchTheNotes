@@ -31,21 +31,25 @@ public class GameScreen implements Screen, InputProcessor {
 
     @Override
 	public boolean touchDragged(int x, int y, int pointer) {
+        if (!Gdx.app.getType().equals(ApplicationType.Android))
+            return false;
 		ChangeNavigation(x,y);
         if(menuController != null)
             menuController.hoverPosition(x, height - y);
 		return false;
 	}
 
-	
-	public boolean touchMoved(int x, int y) {
+    @Override
+    public boolean mouseMoved(int x, int y) {
+        if (Gdx.app.getType().equals(ApplicationType.Android))
+            return false;
+        ChangeNavigation(x,y);
+        if(menuController != null)
+            menuController.hoverPosition(x, height - y);
         return true;
-	}
+    }
 
-	@Override
-	public boolean mouseMoved(int x, int y) {
-		return false;
-	}
+
 	
 	@Override
 	public boolean keyTyped(char character) {
@@ -116,8 +120,8 @@ public class GameScreen implements Screen, InputProcessor {
     @Override
 	public boolean touchDown(int x, int y, int pointer, int button) {
 
-		if (!Gdx.app.getType().equals(ApplicationType.Android))
-			return false;
+//		if (!Gdx.app.getType().equals(ApplicationType.Android))
+//			return false;
         if(menuController != null)
             menuController.setPosition(x, height - y);
 		ChangeNavigation(x,y);

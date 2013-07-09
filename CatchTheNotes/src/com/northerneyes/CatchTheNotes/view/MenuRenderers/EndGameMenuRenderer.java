@@ -3,7 +3,6 @@ package com.northerneyes.CatchTheNotes.view.MenuRenderers;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.northerneyes.CatchTheNotes.CatchTheNotes;
-import com.northerneyes.CatchTheNotes.R;
 import com.northerneyes.CatchTheNotes.model.IEntity;
 import com.northerneyes.CatchTheNotes.model.Menu.EndGameMenu;
 import com.northerneyes.CatchTheNotes.model.Message;

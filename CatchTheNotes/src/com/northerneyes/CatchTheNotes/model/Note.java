@@ -81,8 +81,8 @@ public class Note implements IEntity {
     public Note(Vector2 position, NoteType type, float size, int viewType, boolean recycled)
     {
         Position = position;
-        Velocity = Vector2.Zero;
-        initialVelocity = Vector2.Zero;
+        Velocity = new Vector2(0,0);
+        initialVelocity = new Vector2(0,0);
         Angle = 0;
         AngularVelocity = 0;
         Type = type;
