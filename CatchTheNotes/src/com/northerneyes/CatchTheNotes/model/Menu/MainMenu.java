@@ -51,7 +51,7 @@ public class MainMenu implements IEntity{
     public int CurrentSongIndex = 0;
     public int HoverSongIndex = -1;
     private TweenManager tweenManager = new TweenManager();
-    public float MedalSize = 2.5f;
+    public float MedalSize = 2.2f;
 
     public MainMenu(float width, float height) {
             settingService =  CatchTheNotes.getSettingService();
@@ -66,7 +66,7 @@ public class MainMenu implements IEntity{
 
     public Message getMedalText(int type, float xPos)
     {
-       return new Message(String.format("x%d", settingService.getMedalCount(type)+ 1), 2000,
+       return new Message(String.format("x%d", settingService.getMedalCount(type)), 2000,
                settingService.getMedalColor(type), xPos, MedalsPosition.y);
     }
 

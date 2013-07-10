@@ -102,7 +102,7 @@ public class EndGameMenuRenderer  implements IRenderer {
 
     public void renderMedal(SpriteBatch spriteBatch, float x, float y)
     {
-        TextureRegion region = medalsTextures.get(menu.getMedal() - 1);
+        TextureRegion region = medalsTextures.get(menu.getMedal());
         float width = menu.MedalSize*ppuX;
         float height = menu.MedalSize*ppuY;
         spriteBatch.begin();

@@ -172,6 +172,7 @@ public class EndGameMenu implements IEntity {
     private String format(String string, String value) {
         return String.format(string, value);
     }
+
     @Override
     public void update(float delta) {
         if(Finished)

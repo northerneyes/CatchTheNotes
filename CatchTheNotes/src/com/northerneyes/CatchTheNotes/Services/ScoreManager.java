@@ -70,6 +70,7 @@ public class ScoreManager implements IEntity {
 
     public void clear()
     {
+        score = 0;
         powerUpCount = 0;
         powerDownCount = 0;
         purplePowerCount = 0;
