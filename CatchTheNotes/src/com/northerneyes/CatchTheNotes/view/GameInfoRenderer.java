@@ -26,7 +26,7 @@ public class GameInfoRenderer  implements IRenderer {
     private Vector2 textPosition = new Vector2();
     private Color comboColor = new Color(1f, 1f, 0.66f, 1f);
 
-    public GameInfoRenderer(TextRenderer textRenderer, float ppuX, float ppuY, float CAMERA_WIDTH, float height) {
+    public GameInfoRenderer(TextRenderer textRenderer, float ppuX, float ppuY, float coeff, float height) {
         this.textRenderer = textRenderer;
         this.height = height;
         smallSize =  CatchTheNotes.getContentManager().getDimension("small_size");

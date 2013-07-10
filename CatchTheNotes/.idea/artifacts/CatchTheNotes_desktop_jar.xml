@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CatchTheNotes-desktop:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CatchTheNotes_desktop_jar</output-path>
+    <root id="archive" name="CatchTheNotes-desktop.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../CatchTheNotes-android/assets/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="CatchTheNotes-desktop" />
+      <element id="module-output" name="CatchTheNotes" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../CatchTheNotes-desktop/libs/gdx-natives.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../CatchTheNotes-desktop/libs/gdx-backend-lwjgl.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../CatchTheNotes-desktop/libs/gdx-backend-lwjgl-natives.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/gdx.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/gdx-audio.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/tween-engine-api.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/gdx-audio-natives.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/android-support-v4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

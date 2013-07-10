@@ -119,8 +119,6 @@ public class Note implements IEntity {
             return;
         }
 
-        if(WorldController.DEBUG)
-            return;
 
         TTL--;
         Position.add(Velocity);

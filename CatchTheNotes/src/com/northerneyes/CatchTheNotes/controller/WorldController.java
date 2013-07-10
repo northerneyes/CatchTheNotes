@@ -35,8 +35,8 @@ public class WorldController {
 
     private float halfWidth = SOURCE_COUNT/2f;
 
-    public static boolean DEBUG = true;
-    public static boolean DEBUG_END_MENU = true;
+  //  public static boolean DEBUG = true;
+  //  public static boolean DEBUG_END_MENU = true;
 
     private int powerDownTime = -1;
 
@@ -65,10 +65,10 @@ public class WorldController {
 
        // currentMenuController = gameMenuController;
 
-        if(DEBUG_END_MENU)
+        if(Constants.DEBUG_END_MENU)
             endMenuController.Init();
 
-        if(!DEBUG)
+        if(!Constants.DEBUG)
         {
 //            MediaPlayer.play("audio/Leaves_in_the_Wind.mp3");
             //MediaPlayer.stop();
@@ -88,7 +88,6 @@ public class WorldController {
                 scoreManager.clear();
                 currentMenuController = mainMenuController;
 
-                DEBUG = false;
                 notesHolder.update(delta);
                 frameCount++;
                 if (frameCount % 20 == 0)
@@ -99,9 +98,9 @@ public class WorldController {
                 return;
             case START_GAME:  //Restart
                 MediaPlayer.stop();
-                if(!DEBUG)
+                if(!Constants.DEBUG)
                 {
-                    MediaPlayer.play(world.getCurrentSong());
+                    //MediaPlayer.play(world.getCurrentSong());
                 }
                 player.clear();
                 scoreManager.clear();
@@ -115,12 +114,11 @@ public class WorldController {
                 world.setCurrentMenuType(World.MenuType.END_GAME);
                 return;
             case GAME:
-                DEBUG = true;
                 currentMenuController = gameMenuController;
                 notesHolder.update(delta);
                 messageHolder.update(delta);
                 frameCount++;
-                if(DEBUG)
+                if(Constants.DEBUG)
                 {
                     if(notesHolder.particles.size() == 1 || notesHolder.particles.size() == 0)
                     {

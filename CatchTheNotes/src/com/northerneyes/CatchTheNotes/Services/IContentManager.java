@@ -15,4 +15,5 @@ public interface IContentManager {
 
     public float getDimension(String key);
 
+    public void setDimensionCoeff(float coeff);
 }

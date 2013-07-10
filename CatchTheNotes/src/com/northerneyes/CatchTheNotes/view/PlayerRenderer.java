@@ -56,7 +56,7 @@ public class PlayerRenderer implements IRenderer {
         this.player = (Player) player;
     }
 
-    public PlayerRenderer(List<TextureRegion> texture, TextRenderer textRenderer, float ppuX, float ppuY, float CAMERA_WIDTH, float height) {
+    public PlayerRenderer(List<TextureRegion> texture, TextRenderer textRenderer, float ppuX, float ppuY, float coeff, float height) {
         this.circleTexture = texture.get(1);
         this.squareTexture = texture.get(0);
         this.textRenderer = textRenderer;
@@ -64,7 +64,7 @@ public class PlayerRenderer implements IRenderer {
         this.ppuY = ppuY;
         this.CAMERA_WIDTH = CAMERA_WIDTH;
         this.height = height;
-        this.coef = ppuX*(CAMERA_WIDTH / WorldController.SOURCE_COUNT);
+        this.coef = coeff;
 
         smallSize =  CatchTheNotes.getContentManager().getDimension("small_size");
         playerCoeffSize =   CatchTheNotes.getContentManager().getDimension("player_coef_size");

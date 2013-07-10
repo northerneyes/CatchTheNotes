@@ -6,3 +6,4 @@ out/production/*
 out/*
 proguard_logs/*
 gen/*
+temp/*

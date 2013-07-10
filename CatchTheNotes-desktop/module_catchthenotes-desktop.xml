@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_catchthenotes-desktop" default="compile.module.catchthenotes-desktop">
+  <dirname property="module.catchthenotes-desktop.basedir" file="${ant.file.module_catchthenotes-desktop}"/>
+  
+  <property name="module.jdk.home.catchthenotes-desktop" value="${jdk.home.1.6}"/>
+  <property name="module.jdk.bin.catchthenotes-desktop" value="${jdk.bin.1.6}"/>
+  <property name="module.jdk.classpath.catchthenotes-desktop" value="jdk.classpath.1.6"/>
+  
+  <property name="compiler.args.catchthenotes-desktop" value="${compiler.args}"/>
+  
+  <property name="catchthenotes-desktop.output.dir" value="${module.catchthenotes-desktop.basedir}/../CatchTheNotes/out/production/CatchTheNotes-desktop"/>
+  <property name="catchthenotes-desktop.testoutput.dir" value="${module.catchthenotes-desktop.basedir}/../CatchTheNotes/out/test/CatchTheNotes-desktop"/>
+  
+  <path id="catchthenotes-desktop.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="catchthenotes-desktop.module.production.classpath">
+    <path refid="${module.jdk.classpath.catchthenotes-desktop}"/>
+    <pathelement location="${catchthenotes.output.dir}"/>
+    <path refid="library.libs.classpath"/>
+    <path refid="library.gdx-backend-lwjgl.classpath"/>
+    <path refid="library.gdx-backend-lwjgl-natives.classpath"/>
+    <path refid="library.gdx-natives.classpath"/>
+  </path>
+  
+  <path id="catchthenotes-desktop.runtime.production.module.classpath">
+    <pathelement location="${catchthenotes-desktop.output.dir}"/>
+    <path refid="catchthenotes.runtime.production.module.classpath"/>
+    <path refid="library.gdx-backend-lwjgl.classpath"/>
+    <path refid="library.gdx-backend-lwjgl-natives.classpath"/>
+    <path refid="library.gdx-natives.classpath"/>
+  </path>
+  
+  <path id="catchthenotes-desktop.module.classpath">
+    <path refid="${module.jdk.classpath.catchthenotes-desktop}"/>
+    <pathelement location="${catchthenotes-desktop.output.dir}"/>
+    <pathelement location="${catchthenotes.testoutput.dir}"/>
+    <pathelement location="${catchthenotes.output.dir}"/>
+    <path refid="library.libs.classpath"/>
+    <path refid="library.gdx-backend-lwjgl.classpath"/>
+    <path refid="library.gdx-backend-lwjgl-natives.classpath"/>
+    <path refid="library.gdx-natives.classpath"/>
+  </path>
+  
+  <path id="catchthenotes-desktop.runtime.module.classpath">
+    <pathelement location="${catchthenotes-desktop.testoutput.dir}"/>
+    <pathelement location="${catchthenotes-desktop.output.dir}"/>
+    <path refid="catchthenotes.runtime.module.classpath"/>
+    <path refid="library.gdx-backend-lwjgl.classpath"/>
+    <path refid="library.gdx-backend-lwjgl-natives.classpath"/>
+    <path refid="library.gdx-natives.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.catchthenotes-desktop">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.catchthenotes-desktop">
+    <patternset refid="excluded.from.module.catchthenotes-desktop"/>
+  </patternset>
+  
+  <path id="catchthenotes-desktop.module.sourcepath">
+    <dirset dir="${module.catchthenotes-desktop.basedir}/../CatchTheNotes-android">
+      <include name="assets"/>
+    </dirset>
+    <dirset dir="${module.catchthenotes-desktop.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.catchthenotes-desktop" depends="compile.module.catchthenotes-desktop.production,compile.module.catchthenotes-desktop.tests" description="Compile module CatchTheNotes-desktop"/>
+  
+  <target name="compile.module.catchthenotes-desktop.production" depends="register.custom.compilers,compile.module.catchthenotes" description="Compile module CatchTheNotes-desktop; production classes">
+    <mkdir dir="${catchthenotes-desktop.output.dir}"/>
+    <javac2 destdir="${catchthenotes-desktop.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.catchthenotes-desktop}/javac">
+      <compilerarg line="${compiler.args.catchthenotes-desktop}"/>
+      <bootclasspath refid="catchthenotes-desktop.module.bootclasspath"/>
+      <classpath refid="catchthenotes-desktop.module.production.classpath"/>
+      <src refid="catchthenotes-desktop.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.catchthenotes-desktop"/>
+    </javac2>
+    
+    <copy todir="${catchthenotes-desktop.output.dir}">
+      <fileset dir="${module.catchthenotes-desktop.basedir}/../CatchTheNotes-android/assets">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.catchthenotes-desktop.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.catchthenotes-desktop.tests" depends="register.custom.compilers,compile.module.catchthenotes-desktop.production" description="compile module CatchTheNotes-desktop; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.catchthenotes-desktop" description="cleanup module">
+    <delete dir="${catchthenotes-desktop.output.dir}"/>
+    <delete dir="${catchthenotes-desktop.testoutput.dir}"/>
+  </target>
+</project>

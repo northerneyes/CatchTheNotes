@@ -13,12 +13,14 @@ import java.util.HashMap;
  * To change this template use File | Settings | File Templates.
  */
 public class ContentManager implements IContentManager {
+    private final Context context;
     private HashMap<String, String> textHashMap = new HashMap<String, String>();
     private HashMap<String, String[]> textArrayHashMap = new HashMap<String, String[]>();
     private HashMap<String, Float> dimenHashMap = new HashMap<String, Float>();
+    private float dimenCoeff;
 
     public ContentManager(Context context) {
-
+        this.context = context;
         textHashMap.put("skip_text", context.getString(R.string.skip_text));
         textHashMap.put("app_name", context.getString(R.string.app_name));
         textHashMap.put("title_activity_main", context.getString(R.string.title_activity_main));
@@ -59,10 +61,7 @@ public class ContentManager implements IContentManager {
         textArrayHashMap.put("powerdown_messages", context.getResources().getStringArray(R.array.powerdown_messages));
         textArrayHashMap.put("powerup_messages", context.getResources().getStringArray(R.array.powerup_messages));
 
-        dimenHashMap.put("small_size", context.getResources().getDimension(R.dimen.small_size));
-        dimenHashMap.put("medium_size", context.getResources().getDimension(R.dimen.medium_size));
-        dimenHashMap.put("large_size", context.getResources().getDimension(R.dimen.large_size));
-        dimenHashMap.put("player_coef_size", context.getResources().getDimension(R.dimen.player_coef_size));
+
     }
 
     @Override
@@ -78,5 +77,15 @@ public class ContentManager implements IContentManager {
     @Override
     public float getDimension(String key) {
         return dimenHashMap.get(key);
+    }
+
+    @Override
+    public void setDimensionCoeff(float coeff) {
+        this.dimenCoeff = coeff;
+
+        dimenHashMap.put("small_size", 0.25f*coeff);
+        dimenHashMap.put("medium_size", 0.4f*coeff);
+        dimenHashMap.put("large_size", 0.6f*coeff);
+        dimenHashMap.put("player_coef_size", 0.075f*coeff);
     }
 }

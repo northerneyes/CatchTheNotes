@@ -9,6 +9,7 @@ import com.northerneyes.CatchTheNotes.model.IEntity;
 import com.northerneyes.CatchTheNotes.model.Message;
 import com.northerneyes.CatchTheNotes.model.MessageGroup;
 
+import java.awt.*;
 import java.util.ArrayDeque;
 
 /**
@@ -37,6 +38,9 @@ public class EndGameMenu implements IEntity {
     public Message SkipText;
     public Message PlayAgainText;
     public Message ChangeOptionsText;
+    private int medalNumber;
+    public float MedalSize = 3f;
+    public Vector2 MedalPosition;
 
     public EndGameMenu(float width, float height, ScoreManager scoreManager) {
         this.scoreManager = scoreManager;
@@ -48,6 +52,7 @@ public class EndGameMenu implements IEntity {
 
         PlayAgainText = new Message(contentManager.getString("play_again"), 2f, Color.WHITE, centerPosition.x, centerPosition.y + 1);
         ChangeOptionsText = new Message(contentManager.getString("change_options"), 2f, Color.WHITE, centerPosition.x, centerPosition.y - 1);
+
 
         PlayAgainText.setTTL(0);
         ChangeOptionsText.setTTL(0);
@@ -80,8 +85,8 @@ public class EndGameMenu implements IEntity {
         {
             //TODO:noRedsSprite?
             messageQueue.add(new MessageGroup()
-                    .add(new Message(contentManager.getString("super_duper"), 2f, noRedsNotesColor, TextPosition.x, TextPosition.y + 1, 0))
-                    .add(new Message(contentManager.getString("avoided"), 2f, noRedsNotesColor, TextPosition.x, TextPosition.y - 1, 0)));
+                    .add(new Message(contentManager.getString("super_duper"), 3f, noRedsNotesColor, TextPosition.x, TextPosition.y + 1, 0))
+                    .add(new Message(contentManager.getString("avoided"), 3f, noRedsNotesColor, TextPosition.x, TextPosition.y - 1, 0)));
         }
 
         int medal = loadMedal();
@@ -114,7 +119,7 @@ public class EndGameMenu implements IEntity {
     }
 
     private int loadMedal() {
-        int medalNumber = 0;
+        medalNumber = 0;
         int percent = scoreManager.getPercentShapes();
         if(percent > 30)
         {
@@ -142,11 +147,15 @@ public class EndGameMenu implements IEntity {
             }
 
             messageQueue.add(new MessageGroup()
-                    .add(new Message(contentManager.getString("congratulations"), 2f, percentColor, TextPosition.x, TextPosition.y + 1, 0))
-                    .add(new Message(format(contentManager.getString("you_collected"), percent), 2f, percentColor, TextPosition.x, TextPosition.y - 1, 0)));
-
+                    .add(new Message(contentManager.getString("congratulations"), 3f, percentColor, TextPosition.x, TextPosition.y + 1, 0))
+                    .add(new Message(format(contentManager.getString("you_collected"), percent), 3f, percentColor, TextPosition.x, TextPosition.y - 1, 0)));
+            MedalPosition = new Vector2(TextPosition.x, TextPosition.y - 5);
             //TODO: getMedal
         }
+        return medalNumber;
+    }
+
+    public int getMedal() {
         return medalNumber;
     }
 
@@ -201,4 +210,6 @@ public class EndGameMenu implements IEntity {
             return 2;
         return -1;
     }
+
+
 }

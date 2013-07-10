@@ -15,6 +15,8 @@ import com.northerneyes.CatchTheNotes.model.Menu.MainMenu;
 import com.northerneyes.CatchTheNotes.view.IRenderer;
 import com.northerneyes.CatchTheNotes.view.TextRenderer;
 
+import java.util.HashMap;
+
 /**
  * Created with IntelliJ IDEA.
  * User: George
@@ -36,11 +38,11 @@ public class MainMenuRenderer implements IRenderer {
     private TextRenderer textRenderer;
     private float ppuX;
 
-    public MainMenuRenderer(MainMenu mainMenu, TextRenderer textRenderer, float ppuX, float ppuY, float CAMERA_WIDTH) {
+    public MainMenuRenderer(HashMap<Integer, TextureRegion> medalsTextures, MainMenu mainMenu, TextRenderer textRenderer, float ppuX, float ppuY, float coeff) {
         this.menu = mainMenu;
         this.textRenderer = textRenderer;
         this.ppuX = ppuX;
-        this.coef = ppuX*(CAMERA_WIDTH / WorldController.SOURCE_COUNT);
+        this.coef = coeff;
 
         btnPatch = new NinePatch( new Texture(Gdx.files.internal("images/btn.9.png")), 16, 16, 16, 16);
 
@@ -56,7 +58,7 @@ public class MainMenuRenderer implements IRenderer {
         Vector2 position = new Vector2(getShift(textRenderer.getBounds()) + 0.5f, menu.SongTextPosition.y);
         for (int i = 0; i < songRenderers.length; i++)
         {
-            songRenderers[i] = new TextRenderer(textRenderer.getFont(), ppuX, ppuY, CAMERA_WIDTH);
+            songRenderers[i] = new TextRenderer(textRenderer.getFont(), ppuX, ppuY, coeff);
 
             songRenderers[i].setText(menu.SongsName[i], menu.SongTextColor, position, smallSize, TextRenderer.TextAlign.LEFT);
             menu.SongNamePositions[i] = position;

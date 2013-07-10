@@ -6,6 +6,7 @@ import android.util.Log;
 
 
 import android.os.Bundle;
+import com.badlogic.gdx.LifecycleListener;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 
@@ -25,6 +26,15 @@ public class MainActivity extends AndroidApplication {
 		initialize(new CatchTheNotes(new ContentManager(this)), config);
         Log.v("Game", "Activity On create");
     }
-    
-	 
+
+
+    @Override
+    public void addLifecycleListener(LifecycleListener lifecycleListener) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void removeLifecycleListener(LifecycleListener lifecycleListener) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
 }

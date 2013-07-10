@@ -55,12 +55,10 @@ public class TextRenderer implements IRenderer {
     private float shiftX = 0f;
     private float shiftY = 0f;
 
-    public TextRenderer(BitmapFont font, float ppuX, float ppuY, float CAMERA_WIDTH) {
+    public TextRenderer(BitmapFont font, float ppuX, float ppuY, float coeff) {
         this.font = font;
         this.ppuY = ppuY;
-        this.coef = ppuX*(CAMERA_WIDTH / WorldController.SOURCE_COUNT);
-
-
+        this.coef = coeff;
     }
 
     public void setBounds(Message msg, float size, TextAlign textAlign)

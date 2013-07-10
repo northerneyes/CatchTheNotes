@@ -58,10 +58,7 @@ public class ContentManager implements IContentManager {
         textArrayHashMap.put("powerdown_messages", new String[]{"Oops!", "Ouch!"});
         textArrayHashMap.put("powerup_messages", new String[]{"Yeah!", "Great!"});
 
-        dimenHashMap.put("small_size", 0.125f);
-        dimenHashMap.put("medium_size", 0.2f);
-        dimenHashMap.put("large_size", 0.3f);
-        dimenHashMap.put("player_coef_size", 0.0375f);
+
 
     }
 
@@ -78,5 +75,14 @@ public class ContentManager implements IContentManager {
     @Override
     public float getDimension(String key) {
         return dimenHashMap.get(key);
+    }
+
+    @Override
+    public void setDimensionCoeff(float coeff) {
+
+        dimenHashMap.put("small_size", 0.25f*coeff);
+        dimenHashMap.put("medium_size", 0.4f*coeff);
+        dimenHashMap.put("large_size", 0.6f*coeff);
+        dimenHashMap.put("player_coef_size", 0.075f*coeff);
     }
 }

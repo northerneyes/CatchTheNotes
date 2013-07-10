@@ -1,5 +1,6 @@
 package com.northerneyes.CatchTheNotes.Services;
 
+import com.northerneyes.CatchTheNotes.model.Constants;
 import com.northerneyes.CatchTheNotes.model.IEntity;
 import com.northerneyes.CatchTheNotes.model.Player;
 
@@ -33,10 +34,6 @@ public class ScoreManager implements IEntity {
     public void addPowerUpCount() {
         powerUpCount++;
     }
-
-//    public void addCombo() {
-//        player.addCombo();
-//    }
 
     public void addPowerDownCount() {
         powerDownCount++;
@@ -95,10 +92,18 @@ public class ScoreManager implements IEntity {
     }
 
     public int getPowerDownCount() {
+        if(Constants.DEBUG_END_MENU)
+        {
+            return 0;
+        }
         return powerDownCount;
     }
 
     public int getPercentShapes() {
+        if(Constants.DEBUG_END_MENU)
+        {
+            return 70;
+        }
         return Math.round(100 * shapeCount / totalShape);
     }
 

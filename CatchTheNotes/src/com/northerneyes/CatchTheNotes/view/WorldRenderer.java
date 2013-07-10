@@ -6,8 +6,11 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.northerneyes.CatchTheNotes.CatchTheNotes;
 import com.northerneyes.CatchTheNotes.controller.WorldController;
+import com.northerneyes.CatchTheNotes.model.Constants;
 import com.northerneyes.CatchTheNotes.model.NotesHolder;
 import com.northerneyes.CatchTheNotes.model.World;
 import com.northerneyes.CatchTheNotes.view.MenuRenderers.EndGameMenuRenderer;
@@ -65,6 +68,8 @@ public class WorldRenderer {
         CAMERA_WIDTH =  CAMERA_HEIGHT* Gdx.graphics.getWidth()/Gdx.graphics.getHeight();
         ppuX =  (float)Gdx.graphics.getWidth()  / CAMERA_WIDTH;
         ppuY = (float)Gdx.graphics.getHeight() / CAMERA_HEIGHT;
+
+        CatchTheNotes.getContentManager().setDimensionCoeff((float)Gdx.graphics.getHeight()/768f);
 		this.cam = new OrthographicCamera(CAMERA_WIDTH, CAMERA_HEIGHT);
 		SetCamera(CAMERA_WIDTH / 2f, CAMERA_HEIGHT / 2f);
         world.setSize(CAMERA_WIDTH, CAMERA_HEIGHT, WorldController.SOURCE_COUNT);
@@ -83,30 +88,36 @@ public class WorldRenderer {
     private void loadTextures() {
 
         font = new BitmapFont(Gdx.files.internal("data/PareBold256_spacing.fnt"), false);
-        textRenderer = new TextRenderer(font, ppuX, ppuY, CAMERA_WIDTH);
+        textRenderer = new TextRenderer(font, ppuX, ppuY,  ppuX*(CAMERA_WIDTH/WorldController.SOURCE_COUNT));
 
         atlasTexture  = new Texture(Gdx.files.internal("images/atlas_glow.png"));
-
         playerCursor = new Texture(Gdx.files.internal("images/cursor_atlas.png"));
+        TextureAtlas endGameAtlas = new TextureAtlas(Gdx.files.internal("images/medalsTexture.atlas"));
+        HashMap<Integer, TextureRegion> medalsTextures = new HashMap<Integer, TextureRegion>();
+        medalsTextures.put(0, endGameAtlas.findRegion("bronze"));
+        medalsTextures.put(1, endGameAtlas.findRegion("silver"));
+        medalsTextures.put(2, endGameAtlas.findRegion("gold"));
+        medalsTextures.put(3, endGameAtlas.findRegion("platinum"));
+        medalsTextures.put(4, endGameAtlas.findRegion("red_star"));
 
         TextureRegion regions[][] = TextureRegion.split(atlasTexture, atlasTexture.getWidth()/8, atlasTexture.getHeight() / 8);
         TextureRegion cursorRegions[][] = TextureRegion.split(playerCursor, playerCursor.getWidth()/2, playerCursor.getHeight());
-
-        playerRenderer = new PlayerRenderer(Arrays.asList(cursorRegions[0]).subList(0, 2), textRenderer , ppuX, ppuY, CAMERA_WIDTH, CAMERA_HEIGHT);
-        messageHolderRenderer = new MessageHolderRenderer(world.getMessageHolder(), ppuX, ppuY, font, CAMERA_WIDTH);
-        gameInfoRenderer = new GameInfoRenderer(textRenderer,  ppuX, ppuY, CAMERA_WIDTH, CAMERA_HEIGHT);
+        float coeff = ppuX*(CAMERA_WIDTH/WorldController.SOURCE_COUNT);
+        playerRenderer = new PlayerRenderer(Arrays.asList(cursorRegions[0]).subList(0, 2), textRenderer , ppuX, ppuY, coeff, CAMERA_HEIGHT);
+        messageHolderRenderer = new MessageHolderRenderer(world.getMessageHolder(), ppuX, ppuY, font, coeff);
+        gameInfoRenderer = new GameInfoRenderer(textRenderer,  ppuX, ppuY, coeff, CAMERA_HEIGHT);
 
         gameMenuRenderer = new GameMenuRenderer(world.getGameMenu(), textRenderer);
         pauseMenuRenderer = new PauseMenuRenderer(world.getPauseMenu(), textRenderer);
-        mainMenuRenderer = new MainMenuRenderer(world.getMainMenu(), textRenderer, ppuX, ppuY, CAMERA_WIDTH);
-        endGameMenuRenderer = new EndGameMenuRenderer(world.getEndMenu(), ppuX, ppuY, font, CAMERA_WIDTH);
+        mainMenuRenderer = new MainMenuRenderer(medalsTextures, world.getMainMenu(), textRenderer, ppuX, ppuY, coeff);
+        endGameMenuRenderer = new EndGameMenuRenderer(medalsTextures, world.getEndMenu(), ppuX, ppuY, font, coeff);
 
         ArrayList<TextureRegion> notes = new ArrayList<TextureRegion>();
         notes.addAll(Arrays.asList(regions[0]).subList(0, NotesHolder.NOTE_TYPE_COUNT));
 
         notesHolderRenderer = new NotesHolderRenderer(notes, ppuX, ppuY, CAMERA_WIDTH, WorldController.SOURCE_COUNT);
 
-        if(WorldController.DEBUG)
+        if(Constants.DEBUG)
         {
             Texture colors = new Texture(Gdx.files.internal("images/colors-borders.png"));
             mediaRenderer = new MediaPlayerRenderer(new TextureRegion(colors), ppuX, ppuY);

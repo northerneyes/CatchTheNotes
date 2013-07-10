@@ -20,10 +20,10 @@ public class MessageHolderRenderer implements IRenderer  {
     private TextRenderer textRenderer;
     private MessageHolder messageHodler;
 
-    public MessageHolderRenderer(MessageHolder messageHodler, float ppuX, float ppuY,BitmapFont font, float  CAMERA_WIDTH) {
+    public MessageHolderRenderer(MessageHolder messageHodler, float ppuX, float ppuY, BitmapFont font, float  coeff) {
         this.messageHodler = messageHodler;
         mediumSize =  CatchTheNotes.getContentManager().getDimension("medium_size");
-        textRenderer = new TextRenderer(font,ppuX, ppuY, CAMERA_WIDTH);
+        textRenderer = new TextRenderer(font,ppuX, ppuY, coeff);
     }
 
     @Override
