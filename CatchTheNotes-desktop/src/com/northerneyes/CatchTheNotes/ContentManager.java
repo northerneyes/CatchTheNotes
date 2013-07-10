@@ -84,5 +84,6 @@ public class ContentManager implements IContentManager {
         dimenHashMap.put("medium_size", 0.4f*coeff);
         dimenHashMap.put("large_size", 0.6f*coeff);
         dimenHashMap.put("player_coef_size", 0.075f*coeff);
+        dimenHashMap.put("medal_text_size", 2f*0.075f*coeff);
     }
 }

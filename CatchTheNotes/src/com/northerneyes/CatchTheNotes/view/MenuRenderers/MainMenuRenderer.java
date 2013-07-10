@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.CatchTheNotes.CatchTheNotes;
+import com.northerneyes.CatchTheNotes.Services.SettingsService;
 import com.northerneyes.CatchTheNotes.controller.WorldController;
 import com.northerneyes.CatchTheNotes.model.IEntity;
 import com.northerneyes.CatchTheNotes.model.Menu.MainMenu;
@@ -28,20 +29,27 @@ public class MainMenuRenderer implements IRenderer {
     private final float smallSize;
     private final float mediumSize;
     private final float largeSize;
+    private final SettingsService settingService;
+    private final float medalSize;
+    private float ppuY;
     private final float coef;
     private final NinePatch btnPatch;
 //    private final Color btnColor;
 //    private final Color btnHoverColor;
 //    private final Color btnPressedColor;
     private TextRenderer[] songRenderers;
+    private HashMap<Integer, TextureRegion> medalsTextures;
     private MainMenu menu;
     private TextRenderer textRenderer;
     private float ppuX;
 
     public MainMenuRenderer(HashMap<Integer, TextureRegion> medalsTextures, MainMenu mainMenu, TextRenderer textRenderer, float ppuX, float ppuY, float coeff) {
+        settingService =  CatchTheNotes.getSettingService();
+        this.medalsTextures = medalsTextures;
         this.menu = mainMenu;
         this.textRenderer = textRenderer;
         this.ppuX = ppuX;
+        this.ppuY = ppuY;
         this.coef = coeff;
 
         btnPatch = new NinePatch( new Texture(Gdx.files.internal("images/btn.9.png")), 16, 16, 16, 16);
@@ -50,6 +58,8 @@ public class MainMenuRenderer implements IRenderer {
         mediumSize =  CatchTheNotes.getContentManager().getDimension("medium_size");
         smallSize =  CatchTheNotes.getContentManager().getDimension("small_size");
         largeSize =   CatchTheNotes.getContentManager().getDimension("large_size");
+        medalSize = CatchTheNotes.getContentManager().getDimension("medal_text_size");
+
         textRenderer.setText(menu.PlayText, menu.PlayTextColor, menu.PlayPosition, mediumSize, TextRenderer.TextAlign.CENTER);
         bounds[0] = textRenderer.getBounds();
 
@@ -83,6 +93,11 @@ public class MainMenuRenderer implements IRenderer {
     public void render(SpriteBatch spriteBatch) {
        menu.update(Gdx.graphics.getDeltaTime());
 
+       if(menu.hasMedals())
+       {
+           renderMedals(spriteBatch);
+       }
+
        textRenderer.setText(menu.AppNameText, menu.AppNameTextColor, menu.AppNamePosition, largeSize, TextRenderer.TextAlign.CENTER);
        textRenderer.render(spriteBatch);
 
@@ -107,6 +122,34 @@ public class MainMenuRenderer implements IRenderer {
         }
 
     }
+    public void renderMedals(SpriteBatch spriteBatch)
+    {
+        float shift = 0;
+        for (int i = 0; i < settingService.MaxMedals; i++)
+        {
+            if(menu.hasMedal(i))
+            {
+                renderMedal(spriteBatch, i, menu.MedalsPosition.x - shift, menu.MedalsPosition.y);
+                shift += menu.MedalSize / 2;
+            }
+        }
+    }
+
+    public void renderMedal(SpriteBatch spriteBatch, int type, float x, float y)
+    {
+        TextureRegion region = medalsTextures.get(type);
+        float width = menu.MedalSize*ppuX;
+        float height = menu.MedalSize*ppuY;
+        spriteBatch.begin();
+        spriteBatch.setColor(1f,1f,1f,1f);
+        spriteBatch.draw(region, x*coef - width/2,
+                y*ppuY - height/2, menu.MedalSize*ppuX,  menu.MedalSize*ppuY);
+        spriteBatch.setColor(1);
+        spriteBatch.end();
+        textRenderer.setText(menu.getMedalText(type, x), medalSize, TextRenderer.TextAlign.CENTER);
+        textRenderer.render(spriteBatch);
+    }
+
 
     private Color getBtnColor(int pressedIndex, int hoverIndex, int index) {
 

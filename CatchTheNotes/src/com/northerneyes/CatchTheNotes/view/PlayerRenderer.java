@@ -75,21 +75,6 @@ public class PlayerRenderer implements IRenderer {
 
         String combo = String.format("x%d", player.getCombo());
 
-//        if(player.ShowGameInfo)
-//        {
-//            String scorePoints = String.format("%d", player.getScore());
-//            String score = CatchTheNotes.getAppContext().getString(R.string.score);
-//            //TODO: Create Padding!!
-//
-//            textRenderer.setText(score, scoreColor, textPosition.set(WorldController.SOURCE_COUNT/2f, 1f), smallSize, TextAlign.RIGHT);
-//            textRenderer.render(spriteBatch);
-//            textRenderer.setText(scorePoints,  pointsColor, textPosition.set(WorldController.SOURCE_COUNT/2f + 0.5f, 1f), smallSize, TextAlign.LEFT);
-//            textRenderer.render(spriteBatch);
-//
-//            textRenderer.setText(combo, comboColor, textPosition.set(WorldController.SOURCE_COUNT, height), smallSize, TextAlign.RIGHT);
-//            textRenderer.render(spriteBatch);
-//        }
-
         float x = player.Position.x*coef;
         float y = player.Position.y*ppuY;
         float width = player.Size*ppuX;

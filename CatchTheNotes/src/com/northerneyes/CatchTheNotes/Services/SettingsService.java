@@ -17,14 +17,18 @@ public class SettingsService {
     private static final String PREFS_NAME = "CatchTheNotes";
 
     private Preferences preferences;
-    private HashMap<Integer, Integer> medals = new HashMap<Integer, Integer>();
-    private HashMap<Integer, Color> medalColor = new HashMap<Integer, Color>();
+    private HashMap<Integer, Integer> medals;
+    private HashMap<Integer, Color> medalColor;
     private int bronzeMedal;
     private int silverMedal;
     private int goldMedal;
     private int platinumMedal;
+    public int MaxMedals = 4;
 
     public SettingsService() {
+        medals = new HashMap<Integer, Integer>();
+        medalColor = new HashMap<Integer, Color>();
+
         medals.put(0, 0);
         medals.put(1, 0);
         medals.put(2, 0);

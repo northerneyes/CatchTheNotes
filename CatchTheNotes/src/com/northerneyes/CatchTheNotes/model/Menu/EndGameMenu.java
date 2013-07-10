@@ -52,9 +52,9 @@ public class EndGameMenu implements IEntity {
 
         SkipText = new Message(contentManager.getString("skip_text"), 2f, Color.GRAY, TextPosition.x, TextPosition.y + 4);
 
-        PlayAgainText = new Message(contentManager.getString("play_again"), 2f, Color.WHITE, centerPosition.x, centerPosition.y + 1);
-        ChangeOptionsText = new Message(contentManager.getString("change_options"), 2f, Color.WHITE, centerPosition.x, centerPosition.y - 1);
-
+        PlayAgainText = new Message(contentManager.getString("play_again"), 2f, Color.WHITE, centerPosition.x, centerPosition.y + 1 + 2);
+        ChangeOptionsText = new Message(contentManager.getString("change_options"), 2f, Color.WHITE, centerPosition.x, centerPosition.y - 1 + 2);
+        settings = CatchTheNotes.getSettingService();
 
         PlayAgainText.setTTL(0);
         ChangeOptionsText.setTTL(0);
@@ -93,8 +93,8 @@ public class EndGameMenu implements IEntity {
 
         int medal = loadMedal();
         unlockLevels();
-
-        scoreManager.saveMedal(medal);
+        if(medal > 0)
+            scoreManager.saveMedal(medal);
         scoreManager.save();
         scoreManager.clear();
 
@@ -122,7 +122,7 @@ public class EndGameMenu implements IEntity {
     }
 
     private int loadMedal() {
-        medalNumber = 0;
+        medalNumber = -1;
         int percent = scoreManager.getPercentShapes();
         if(percent > 30)
         {
@@ -130,22 +130,22 @@ public class EndGameMenu implements IEntity {
 
             if(percent > 75)
             {
-                medalNumber = 4;
+                medalNumber = 3;
                 medalName = contentManager.getString("platinum_medal");
             }
             else if (percent > 60)
             {
-                medalNumber = 3;
+                medalNumber = 2;
                 medalName = contentManager.getString("gold_medal");
             }
             else if(percent > 40)
             {
-                medalNumber = 2;
+                medalNumber = 1;
                 medalName =contentManager.getString("silver_medal");
             }
             else
             {
-                medalNumber = 1;
+                medalNumber = 0;
                 medalName = contentManager.getString("bronze_medal");
             }
 
@@ -153,8 +153,8 @@ public class EndGameMenu implements IEntity {
                     .add(new Message(contentManager.getString("congratulations"), 3f, percentColor, TextPosition.x, TextPosition.y + 1, 0))
                     .add(new Message(format(contentManager.getString("you_collected"), percent), 3f, percentColor, TextPosition.x, TextPosition.y - 1, 0)));
             MedalPosition = new Vector2(TextPosition.x, TextPosition.y - 5);
-            settings = CatchTheNotes.getSettingService();
-            MedalText = new Message(String.format("x%d", getMedalCount() + 1), 2000, settings.getMedalColor(medalNumber - 1), MedalPosition.x, MedalPosition.y);
+
+            MedalText = new Message(String.format("x%d", getMedalCount() + 1), 2000, settings.getMedalColor(medalNumber), MedalPosition.x, MedalPosition.y);
         }
         return medalNumber;
     }
