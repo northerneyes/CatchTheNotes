@@ -9,7 +9,7 @@
     <list default="true" id="caa34b44-4f79-4550-ace3-ed9d10e0863e" name="Default" comment="" />
     <ignored path="CatchTheNotes.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373463555304" ignored="false" />
+    <file path="/fragment.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373466864115" ignored="false" />
     <file path="/GameMenuRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373376991873" ignored="false" />
     <file path="/PlayerRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373463708840" ignored="false" />
     <file path="/TextRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373463605041" ignored="false" />
@@ -48,13 +48,13 @@
     <file path="/ColorAccessor.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373097521134" ignored="false" />
     <file path="/NoteRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373099860975" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373120712793" ignored="false" />
-    <file path="/ScoreManager.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373463916001" ignored="false" />
+    <file path="/ScoreManager.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373467011907" ignored="false" />
     <file path="/GameInfoRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373463770121" ignored="false" />
     <file path="/EndGame.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373186548145" ignored="false" />
     <file path="/MessageGroup.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373292276386" ignored="false" />
-    <file path="/EndGameMenu.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373463252821" ignored="false" />
+    <file path="/EndGameMenu.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373466364551" ignored="false" />
     <file path="/EndMenuController.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373185029373" ignored="false" />
-    <file path="/EndGameMenuRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373464556138" ignored="false" />
+    <file path="/EndGameMenuRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373466545646" ignored="false" />
     <file path="/Colors.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373215847072" ignored="false" />
     <file path="$PROJECT_DIR$/../star-assault-master/star-assault-desktop/.idea/misc.xml" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373217683719" ignored="false" />
     <file path="$PROJECT_DIR$/../star-assault-master/star-assault-desktop/.idea/workspace.xml" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373224617583" ignored="false" />
@@ -66,11 +66,12 @@
     <file path="$PROJECT_DIR$/../star-assault-master/untitled/.idea/workspace.xml" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373221215862" ignored="false" />
     <file path="$PROJECT_DIR$/../star-assault-master/untitled/.idea/misc.xml" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373221162992" ignored="false" />
     <file path="/IContentManager.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373461392026" ignored="false" />
-    <file path="/CatchTheNotes.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373375658427" ignored="false" />
+    <file path="/CatchTheNotes.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373465407941" ignored="false" />
     <file path="/ContentManager.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373461403514" ignored="false" />
     <file path="$PROJECT_DIR$/../CatchTheNotes-android/res/layout/main.xml" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373375157616" ignored="false" />
     <file path="/CatchTheNotesDesktop.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373377392326" ignored="false" />
     <file path="/Constants.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373463410325" ignored="false" />
+    <file path="/SettingsService.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373467245384" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +146,7 @@
       <file leaf-file-name="EndGameMenuRenderer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/MenuRenderers/EndGameMenuRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="55" selection-start="3318" selection-end="3318" vertical-scroll-proportion="0.0">
+            <state line="97" column="83" selection-start="4195" selection-end="4195" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -169,10 +170,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EndGameMenu.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="EndGameMenu.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Menu/EndGameMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="153" column="9" selection-start="6546" selection-end="6546" vertical-scroll-proportion="-0.01810585">
+            <state line="125" column="42" selection-start="5477" selection-end="5477" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageGroup.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/MessageGroup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="0" selection-start="676" selection-end="676" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContentManager.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../CatchTheNotes-desktop/src/com/northerneyes/CatchTheNotes/ContentManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="66" column="0" selection-start="2684" selection-end="2684" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -181,26 +200,30 @@
       <file leaf-file-name="ScoreManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/ScoreManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="35" selection-start="2105" selection-end="2105" vertical-scroll-proportion="0.0">
+            <state line="15" column="30" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CatchTheNotesDesktop.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../CatchTheNotes-desktop/src/com/northerneyes/CatchTheNotes/CatchTheNotesDesktop.java">
+      <file leaf-file-name="CatchTheNotes.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/CatchTheNotes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="97" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0">
+            <state line="40" column="9" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainMenuRenderer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/MenuRenderers/MainMenuRenderer.java">
+      <file leaf-file-name="SettingsService.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/SettingsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="89" selection-start="2703" selection-end="2703" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="35" column="38" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.72572404">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#526#544#0" expanded="true" />
+                <element signature="e#608#624#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -208,28 +231,10 @@
       <file leaf-file-name="WorldRenderer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/WorldRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="19" selection-start="5290" selection-end="5290" vertical-scroll-proportion="0.0">
+            <state line="155" column="39" selection-start="6461" selection-end="6461" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#3503#3527#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameInfoRenderer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/GameInfoRenderer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="41" selection-start="1146" selection-end="1146" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerRenderer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/PlayerRenderer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="25" selection-start="2391" selection-end="2391" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -244,8 +249,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/IContentManager.java" />
-        <option value="$PROJECT_DIR$/../CatchTheNotes-desktop/src/com/northerneyes/CatchTheNotes/ContentManager.java" />
         <option value="$PROJECT_DIR$/../CatchTheNotes-android/src/com/northerneyes/CatchTheNotes/ContentManager.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Constants.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/controller/WorldController.java" />
@@ -257,9 +260,11 @@
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/GameInfoRenderer.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/WorldRenderer.java" />
         <option value="$PROJECT_DIR$/../CatchTheNotes-desktop/src/com/northerneyes/CatchTheNotes/CatchTheNotesDesktop.java" />
+        <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/CatchTheNotes.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/MenuRenderers/EndGameMenuRenderer.java" />
-        <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/ScoreManager.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Menu/EndGameMenu.java" />
+        <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/ScoreManager.java" />
+        <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/SettingsService.java" />
       </list>
     </option>
   </component>
@@ -766,9 +771,9 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2140575" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.93807644" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34717786" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34717786" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18530351" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34717786" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -780,8 +785,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17502668" sideWeight="0.8146965" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18530351" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17502668" sideWeight="0.65282214" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24813631" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -856,34 +861,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/controller/WorldController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="35" selection-start="3323" selection-end="3323" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.6.0_37/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="213" column="12" selection-start="9474" selection-end="9474" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/NotesHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="20" selection-start="1852" selection-end="1852" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Note.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="0" selection-start="3180" selection-end="3180" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/TextRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="11" selection-start="1620" selection-end="1620" vertical-scroll-proportion="0.0">
@@ -919,15 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/WorldRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="19" selection-start="5290" selection-end="5290" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#3503#3527#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../CatchTheNotes-desktop/src/com/northerneyes/CatchTheNotes/CatchTheNotesDesktop.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="97" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0">
@@ -949,24 +917,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/MenuRenderers/EndGameMenuRenderer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/CatchTheNotes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="55" selection-start="3318" selection-end="3318" vertical-scroll-proportion="0.0">
+        <state line="40" column="9" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/ScoreManager.java">
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/WorldRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="35" selection-start="2105" selection-end="2105" vertical-scroll-proportion="0.0">
+        <state line="155" column="39" selection-start="6461" selection-end="6461" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#3503#3527#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/MenuRenderers/EndGameMenuRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="83" selection-start="4195" selection-end="4195" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../CatchTheNotes-desktop/src/com/northerneyes/CatchTheNotes/ContentManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="0" selection-start="2684" selection-end="2684" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/MessageGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="676" selection-end="676" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Menu/EndGameMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="9" selection-start="6546" selection-end="6546" vertical-scroll-proportion="-0.01810585">
+        <state line="125" column="42" selection-start="5477" selection-end="5477" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/ScoreManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="30" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/SettingsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="38" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.72572404">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#526#544#0" expanded="true" />
+            <element signature="e#608#624#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

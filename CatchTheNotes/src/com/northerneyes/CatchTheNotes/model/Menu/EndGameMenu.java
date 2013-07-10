@@ -5,11 +5,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.CatchTheNotes.CatchTheNotes;
 import com.northerneyes.CatchTheNotes.Services.IContentManager;
 import com.northerneyes.CatchTheNotes.Services.ScoreManager;
+import com.northerneyes.CatchTheNotes.Services.SettingsService;
 import com.northerneyes.CatchTheNotes.model.IEntity;
 import com.northerneyes.CatchTheNotes.model.Message;
 import com.northerneyes.CatchTheNotes.model.MessageGroup;
 
-import java.awt.*;
 import java.util.ArrayDeque;
 
 /**
@@ -32,15 +32,17 @@ public class EndGameMenu implements IEntity {
     private ScoreManager scoreManager;
     private Color color1 = new Color(102f/255f, 102f/255f, 204/255f, 1f);
     private Color color2 = new Color(153f/255f, 153f/255f, 204/255f, 1f);
-    private Color totolPointsColor = new Color(221f/255f, 221f/255f, 1f, 1f);
+    private Color totalPointsColor = new Color(221f/255f, 221f/255f, 1f, 1f);
     private  Color noRedsNotesColor = new Color(1f, 153f/255f, 153f/255f, 1f);
     private Color percentColor = new Color(1f, 1f, 204/255f, 1f);
     public Message SkipText;
     public Message PlayAgainText;
     public Message ChangeOptionsText;
     private int medalNumber;
-    public float MedalSize = 3f;
+    public float MedalSize = 4f;
     public Vector2 MedalPosition;
+    public Message MedalText;
+    private SettingsService settings;
 
     public EndGameMenu(float width, float height, ScoreManager scoreManager) {
         this.scoreManager = scoreManager;
@@ -79,7 +81,7 @@ public class EndGameMenu implements IEntity {
                 .add(new Message(maxCombo, 3f, color1, TextPosition.x, TextPosition.y + 1, 0))
                 .add(new Message(comboBonus, 3f, color1, TextPosition.x, TextPosition.y - 1, 0))
                 .add(new Message(sizeBonus, 3f, color2, TextPosition.x, TextPosition.y - 3, 0))
-                .add(new Message(totalPoints, 3f, totolPointsColor, TextPosition.x, TextPosition.y - 5, 0)));
+                .add(new Message(totalPoints, 3f, totalPointsColor, TextPosition.x, TextPosition.y - 5, 0)));
 
         if(scoreManager.getPowerDownCount() == 0)
         {
@@ -95,6 +97,7 @@ public class EndGameMenu implements IEntity {
         scoreManager.saveMedal(medal);
         scoreManager.save();
         scoreManager.clear();
+
     }
 
     private void unlockLevels() {
@@ -150,13 +153,17 @@ public class EndGameMenu implements IEntity {
                     .add(new Message(contentManager.getString("congratulations"), 3f, percentColor, TextPosition.x, TextPosition.y + 1, 0))
                     .add(new Message(format(contentManager.getString("you_collected"), percent), 3f, percentColor, TextPosition.x, TextPosition.y - 1, 0)));
             MedalPosition = new Vector2(TextPosition.x, TextPosition.y - 5);
-            //TODO: getMedal
+            settings = CatchTheNotes.getSettingService();
+            MedalText = new Message(String.format("x%d", getMedalCount() + 1), 2000, settings.getMedalColor(medalNumber - 1), MedalPosition.x, MedalPosition.y);
         }
         return medalNumber;
     }
 
     public int getMedal() {
         return medalNumber;
+    }
+    public int getMedalCount() {
+        return settings.getMedalCount(medalNumber);
     }
 
     private String format(String string, int value) {
@@ -210,6 +217,7 @@ public class EndGameMenu implements IEntity {
             return 2;
         return -1;
     }
+
 
 
 }

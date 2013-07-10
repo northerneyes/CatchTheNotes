@@ -3,7 +3,6 @@ package com.northerneyes.CatchTheNotes.view.MenuRenderers;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.CatchTheNotes.CatchTheNotes;
 import com.northerneyes.CatchTheNotes.Services.IContentManager;
 import com.northerneyes.CatchTheNotes.model.IEntity;
@@ -96,7 +95,11 @@ public class EndGameMenuRenderer  implements IRenderer {
                             (msg.Position.y - 5)*ppuY - height/2, menu.MedalSize*ppuX,  menu.MedalSize*ppuY);
                     spriteBatch.end();
 
+                    menu.MedalText.Position.set(msg.Position.x, msg.Position.y- 5);
+                    textRenderer.setText(menu.MedalText, smallSize, TextRenderer.TextAlign.CENTER);
+                    textRenderer.render(spriteBatch);
                 }
+
                 textRenderer.setText(msg, mediumSize, TextRenderer.TextAlign.CENTER);
                 textRenderer.render(spriteBatch);
             }

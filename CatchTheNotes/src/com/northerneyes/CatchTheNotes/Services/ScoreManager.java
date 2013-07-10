@@ -1,5 +1,6 @@
 package com.northerneyes.CatchTheNotes.Services;
 
+import com.northerneyes.CatchTheNotes.CatchTheNotes;
 import com.northerneyes.CatchTheNotes.model.Constants;
 import com.northerneyes.CatchTheNotes.model.IEntity;
 import com.northerneyes.CatchTheNotes.model.Player;
@@ -12,6 +13,7 @@ import com.northerneyes.CatchTheNotes.model.Player;
  * To change this template use File | Settings | File Templates.
  */
 public class ScoreManager implements IEntity {
+    private final SettingsService settingService;
     private int powerUpCount = 0;
     private int powerDownCount = 0;
     private int purplePowerCount = 0;
@@ -24,6 +26,7 @@ public class ScoreManager implements IEntity {
 
     public ScoreManager(Player player) {
         this.player = player;
+        settingService = CatchTheNotes.getSettingService();
     }
 
 
@@ -94,7 +97,7 @@ public class ScoreManager implements IEntity {
     public int getPowerDownCount() {
         if(Constants.DEBUG_END_MENU)
         {
-            return 0;
+            return 2;
         }
         return powerDownCount;
     }
@@ -102,7 +105,7 @@ public class ScoreManager implements IEntity {
     public int getPercentShapes() {
         if(Constants.DEBUG_END_MENU)
         {
-            return 70;
+            return (int) (Math.random()*120 + 10);
         }
         return Math.round(100 * shapeCount / totalShape);
     }
@@ -114,11 +117,13 @@ public class ScoreManager implements IEntity {
 //        purplePowerCount = 0;
 //        yellowMadnessCount = 0;
 //        shapeCount = 0;
+
+
     }
 
     public void saveMedal(int medal) {
         //TODO:save medals
-
+        settingService.saveMedal(medal);
     }
 
     public int getUnlockLevel() {

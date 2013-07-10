@@ -2,10 +2,12 @@ package com.northerneyes.CatchTheNotes;
 
 import aurelienribon.tweenengine.Tween;
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.northerneyes.CatchTheNotes.Services.AudioAssetManager;
 import com.northerneyes.CatchTheNotes.Services.IContentManager;
+import com.northerneyes.CatchTheNotes.Services.SettingsService;
 import com.northerneyes.CatchTheNotes.accessors.ColorAccessor;
 import com.northerneyes.CatchTheNotes.accessors.MessageAccessor;
 import com.northerneyes.CatchTheNotes.accessors.SpriteAccessor;
@@ -13,6 +15,7 @@ import com.northerneyes.CatchTheNotes.model.Message;
 import com.northerneyes.CatchTheNotes.screens.GameScreen;
 
 public class CatchTheNotes extends   Game  {
+    private static SettingsService preferences;
     public GameScreen game;
 
     private static IContentManager contentManager;
@@ -29,6 +32,14 @@ public class CatchTheNotes extends   Game  {
 
     public static IContentManager getContentManager() {
         return contentManager;
+    }
+
+
+    public static SettingsService getSettingService() {
+       if(preferences ==null){
+            preferences = new SettingsService();
+        }
+        return preferences;
     }
 
     @Override
