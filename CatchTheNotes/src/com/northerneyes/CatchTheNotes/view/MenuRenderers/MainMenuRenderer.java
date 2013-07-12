@@ -90,7 +90,7 @@ public class MainMenuRenderer implements IRenderer {
         for (int i = start; i < songRenderers.length; i++)
         {
             songRenderers[i].setText("?");
-            songRenderers[i].shiftRight(bounds[i+1].width/2);
+            songRenderers[i].shiftRight(bounds[i+1].width/2 - 5);
         }
     }
 

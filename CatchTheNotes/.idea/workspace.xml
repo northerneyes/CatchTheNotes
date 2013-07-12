@@ -30,7 +30,7 @@
     <file path="/MainMenu.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373482892318" ignored="false" />
     <file path="/MainMenuController.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373644621675" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/android/lib/android.jar!/org/jetbrains/android/android.xsd" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372570052353" ignored="false" />
-    <file path="/MainMenuRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373645924616" ignored="false" />
+    <file path="/MainMenuRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373646192150" ignored="false" />
     <file path="/dimens.xml" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373461176616" ignored="false" />
     <file path="/strings.xml" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373294146776" ignored="false" />
     <file path="/MediaPlayer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1372578929285" ignored="false" />
@@ -133,23 +133,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/MenuRenderers/MainMenuRenderer.java" line="92" class="com.northerneyes.CatchTheNotes.view.MenuRenderers.MainMenuRenderer" package="com.northerneyes.CatchTheNotes.view.MenuRenderers">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -162,7 +146,7 @@
       <file leaf-file-name="MainMenuRenderer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/MenuRenderers/MainMenuRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="0" selection-start="3941" selection-end="4003" vertical-scroll-proportion="0.38473767">
+            <state line="84" column="33" selection-start="3673" selection-end="3673" vertical-scroll-proportion="0.31796503">
               <folding />
             </state>
           </provider>
@@ -189,7 +173,7 @@
       <file leaf-file-name="TextRenderer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/TextRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="5" selection-start="2692" selection-end="2692" vertical-scroll-proportion="0.0">
+            <state line="83" column="33" selection-start="2355" selection-end="2355" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -971,14 +955,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/TextRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="5" selection-start="2692" selection-end="2692" vertical-scroll-proportion="0.0">
+        <state line="83" column="33" selection-start="2355" selection-end="2355" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/MenuRenderers/MainMenuRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="0" selection-start="3941" selection-end="4003" vertical-scroll-proportion="0.38473767">
+        <state line="84" column="33" selection-start="3673" selection-end="3673" vertical-scroll-proportion="0.31796503">
           <folding />
         </state>
       </provider>
