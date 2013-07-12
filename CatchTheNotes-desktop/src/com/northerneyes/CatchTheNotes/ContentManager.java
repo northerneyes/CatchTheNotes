@@ -28,6 +28,7 @@ public class ContentManager implements IContentManager {
         textHashMap.put("resume_menu", "Resume");
         textHashMap.put("play_menu", "Play");
         textHashMap.put("song_menu", "Song:");
+
         textHashMap.put("leave_in_the_wind", "Leave In The Wind");
         textHashMap.put("centle", "Centle");
         textHashMap.put("letting_go", "Letting Go");

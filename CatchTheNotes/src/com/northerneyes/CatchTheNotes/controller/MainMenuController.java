@@ -2,7 +2,9 @@ package com.northerneyes.CatchTheNotes.controller;
 
 import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.TweenCallback;
+import com.northerneyes.CatchTheNotes.CatchTheNotes;
 import com.northerneyes.CatchTheNotes.Services.AudioAssetManager;
+import com.northerneyes.CatchTheNotes.Services.SettingsService;
 import com.northerneyes.CatchTheNotes.model.Menu.MainMenu;
 import com.northerneyes.CatchTheNotes.model.World;
 
@@ -16,6 +18,7 @@ import com.northerneyes.CatchTheNotes.model.World;
 public class MainMenuController  implements IMenuController, IHoverListener, TweenCallback {
     private final MainMenu menu;
     private final PlayerHoverManager playerHoverManager;
+    private final SettingsService settingService;
     private World world;
 
     public MainMenuController(World world) {
@@ -23,6 +26,7 @@ public class MainMenuController  implements IMenuController, IHoverListener, Twe
         menu = world.getMainMenu();
         playerHoverManager = world.getPlayerHoverManager();
         playerHoverManager.setListener(this);
+        settingService =  CatchTheNotes.getSettingService();
     }
     @Override
     public void setPosition(float posX, float posY) {
@@ -37,24 +41,43 @@ public class MainMenuController  implements IMenuController, IHoverListener, Twe
             case 1:
             case 2:
             case 3:
-                AudioAssetManager.playTouchMusic();
-                menu.CurrentSongIndex = state - 1;
-                world.setCurrentSong(state);
+                 if(checkState(state))
+                 {
+                    AudioAssetManager.playTouchMusic();
+                    menu.CurrentSongIndex = state - 1;
+                    world.setCurrentSong(state);
+                 }
                 break;
         }
     }
-
+    private boolean checkState(int state)
+    {
+        if(settingService.getUnlockLevel() < 2 && (state == 2|| state == 3))
+            return false;
+        else if (settingService.getUnlockLevel() >= 2 && settingService.getUnlockLevel() < 5 && state == 3)
+            return false;
+        return true;
+    }
     @Override
     public void hoverPosition(int x, int y) {
-        playerHoverManager.check(menu.getMenuState(x, y) >= 0, x, y);
-        playerHoverManager.setPosition(x, y);
+        int index = menu.getMenuState(x, y);
+        if(checkState(index))
+        {
+            playerHoverManager.check(index >= 0, x, y);
+            playerHoverManager.setPosition(x, y);
+        }
+
     }
 
     @Override
     public void hover(float x, float y) {
         int index = menu.getMenuState(x, y);
-        menu.HoverSongIndex = index - 1;
-        AudioAssetManager.playHoverMusic();
+        if(checkState(index))
+        {
+            menu.HoverSongIndex = index - 1;
+            AudioAssetManager.playHoverMusic();
+        }
+
     }
 
     @Override

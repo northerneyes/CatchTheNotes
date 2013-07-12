@@ -31,6 +31,7 @@ public class MainMenuRenderer implements IRenderer {
     private final float largeSize;
     private final SettingsService settingService;
     private final float medalSize;
+    private final Rectangle[] bounds;
     private float ppuY;
     private final float coef;
     private final NinePatch btnPatch;
@@ -54,7 +55,7 @@ public class MainMenuRenderer implements IRenderer {
 
         btnPatch = new NinePatch( new Texture(Gdx.files.internal("images/btn.9.png")), 16, 16, 16, 16);
 
-        Rectangle[] bounds = new Rectangle[4];
+        bounds = new Rectangle[4];
         mediumSize =  CatchTheNotes.getContentManager().getDimension("medium_size");
         smallSize =  CatchTheNotes.getContentManager().getDimension("small_size");
         largeSize =   CatchTheNotes.getContentManager().getDimension("large_size");
@@ -74,9 +75,23 @@ public class MainMenuRenderer implements IRenderer {
             menu.SongNamePositions[i] = position;
             bounds[i+1] = songRenderers[i].getBounds();
             position =  new Vector2(getShift(bounds[i+1]) + 0.5f,  menu.SongTextPosition.y);
-        }
 
+        }
         mainMenu.setBounds(bounds);
+    }
+
+    private void closeInfo() {
+        int start = songRenderers.length;
+        if(settingService.getUnlockLevel() < 2)
+            start = 1;
+        else if (settingService.getUnlockLevel() >= 2 && settingService.getUnlockLevel() < 5)
+            start = 2;
+
+        for (int i = start; i < songRenderers.length; i++)
+        {
+            songRenderers[i].setText("?");
+            songRenderers[i].shiftRight(bounds[i+1].width/2);
+        }
     }
 
     private float getShift(Rectangle bound) {
@@ -92,7 +107,7 @@ public class MainMenuRenderer implements IRenderer {
     @Override
     public void render(SpriteBatch spriteBatch) {
        menu.update(Gdx.graphics.getDeltaTime());
-
+        closeInfo();
        if(menu.hasMedals())
        {
            renderMedals(spriteBatch);

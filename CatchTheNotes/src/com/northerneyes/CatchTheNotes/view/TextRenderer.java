@@ -22,7 +22,7 @@ public class TextRenderer implements IRenderer {
         return  new Rectangle( position.x * coef + shiftX, position.y * ppuY + shiftY - textBounds.height, textBounds.width, textBounds.height);
     }
 
-    private BitmapFont.TextBounds bounds;
+
 
     public BitmapFont getFont() {
         return font;
@@ -44,7 +44,7 @@ public class TextRenderer implements IRenderer {
             return values[index];
         }
     }
-
+    private BitmapFont.TextBounds bounds;
     private final BitmapFont font;
     private final float coef;
     private String text;
@@ -66,21 +66,17 @@ public class TextRenderer implements IRenderer {
         setText(msg, size, textAlign);
         msg.setBounds(getBounds());
     }
+    public void setText(String text)
+    {
+        this.text = text;
+    }
 
     public void setText(Message msg, float size, TextAlign textAlign) {
         setText(msg.Text, msg.getColor(), msg.Position, size, textAlign);
     }
 
-    public void  setText(String text, Color textColor, Vector2 position, float size, TextAlign textAlign)
+    public void setAlign(TextAlign textAlign)
     {
-        this.text = text;
-        this.position = position;
-        this.size = size;
-
-        font.setColor(textColor);
-        font.setScale(size);
-        bounds = this.font.getBounds(text);
-
         switch (textAlign)
         {
             case CENTER:
@@ -96,6 +92,23 @@ public class TextRenderer implements IRenderer {
                 shiftY = 0;
                 break;
         }
+    }
+
+    public void shiftRight(float x)
+    {
+        shiftX =  x;
+    }
+
+    public void  setText(String text, Color textColor, Vector2 position, float size, TextAlign textAlign)
+    {
+        this.text = text;
+        this.position = position;
+        this.size = size;
+
+        font.setColor(textColor);
+        font.setScale(size);
+        bounds = this.font.getBounds(text);
+        setAlign(textAlign);
     }
 
     @Override

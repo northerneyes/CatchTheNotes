@@ -19,11 +19,9 @@ public class SettingsService {
     private Preferences preferences;
     private HashMap<Integer, Integer> medals;
     private HashMap<Integer, Color> medalColor;
-    private int bronzeMedal;
-    private int silverMedal;
-    private int goldMedal;
-    private int platinumMedal;
     public int MaxMedals = 4;
+    private int maxScore;
+    private int unlockLevel;
 
     public SettingsService() {
         medals = new HashMap<Integer, Integer>();
@@ -61,5 +59,19 @@ public class SettingsService {
 
     public Color getMedalColor(int medalNumber) {
         return medalColor.get(medalNumber);
+    }
+
+    public void saveMaxScore(int score) {
+        int maxScore = this.maxScore;
+        if(score > maxScore)
+            maxScore = score;
+    }
+
+    public int getUnlockLevel() {
+        return unlockLevel;  //To change body of created methods use File | Settings | File Templates.
+    }
+
+    public void saveUnlockLevel(int unlockLevel) {
+        this.unlockLevel = unlockLevel;
     }
 }

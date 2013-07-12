@@ -24,6 +24,7 @@ public class ScoreManager implements IEntity {
     private Player player;
     private int totalShape = 100;
 
+
     public ScoreManager(Player player) {
         this.player = player;
         settingService = CatchTheNotes.getSettingService();
@@ -113,31 +114,31 @@ public class ScoreManager implements IEntity {
 
     public void save() {
         //TODO: Save all this stuff
+        settingService.saveMaxScore(score);
 //        powerUpCount = 0;
 //        powerDownCount = 0;
 //        purplePowerCount = 0;
 //        yellowMadnessCount = 0;
 //        shapeCount = 0;
-
-
     }
 
     public void saveMedal(int medal) {
-        //TODO:save medals
         settingService.saveMedal(medal);
     }
 
     public int getUnlockLevel() {
-        //TODO: getUnlockLevel
-        return 0;
+        return settingService.getUnlockLevel();
     }
 
     public void saveUnlockLevel(int unlockLevel) {
-        //TODO:save unlock
+        settingService.saveUnlockLevel(unlockLevel);
     }
 
-    public String getNewSong(int unlockLevel) {
-        //TODO: load song
+    public String getNewSong(int unlockLevel, IContentManager contentManager) {
+        if(unlockLevel == 2)
+            return contentManager.getString("centle");
+        if(unlockLevel == 5)
+            return contentManager.getString("letting_go");
         return "New Song";
     }
 

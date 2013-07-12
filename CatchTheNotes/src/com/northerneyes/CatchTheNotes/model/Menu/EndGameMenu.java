@@ -108,14 +108,14 @@ public class EndGameMenu implements IEntity {
         {
         messageQueue.add(new MessageGroup()
                 .add(new Message(contentManager.getString("unlocked_more_options"), 3f, percentColor, TextPosition.x, TextPosition.y + 1, 0))
-                .add(new Message(format(contentManager.getString("new_song"), scoreManager.getNewSong(unlockLevel)),
+                .add(new Message(format(contentManager.getString("new_song"), scoreManager.getNewSong(unlockLevel, contentManager)),
                         3f, percentColor, TextPosition.x, TextPosition.y - 1, 0)));
         }
         else if (unlockLevel == 5)
         {
             messageQueue.add(new MessageGroup()
                     .add(new Message(contentManager.getString("unlocked_all_options"), 3f, percentColor, TextPosition.x, TextPosition.y + 1, 0))
-                    .add(new Message(format(contentManager.getString("new_song"), scoreManager.getNewSong(unlockLevel)),
+                    .add(new Message(format(contentManager.getString("new_song"), scoreManager.getNewSong(unlockLevel, contentManager)),
                             3f, percentColor, TextPosition.x, TextPosition.y - 1, 0)));
         }
 
