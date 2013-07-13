@@ -147,9 +147,9 @@ public class MainMenuRenderer implements IRenderer {
         {
             String scorePoints = String.format("%d", settingService.getMaxScore());
             String maxScoreString =   CatchTheNotes.getContentManager().getString("max_score");
-            textRenderer.setText(maxScoreString, menu.scoreColor, textPosition.set(WorldController.SOURCE_COUNT/2f, 4f), smallSize, TextRenderer.TextAlign.RIGHT);
+            textRenderer.setText(maxScoreString, menu.scoreColor, textPosition.set(WorldController.SOURCE_COUNT/2f, 3f), smallSize, TextRenderer.TextAlign.RIGHT);
             textRenderer.render(spriteBatch);
-            textRenderer.setText(scorePoints,  menu.pointsColor, textPosition.set(WorldController.SOURCE_COUNT/2f + 0.2f, 4f), smallSize, TextRenderer.TextAlign.LEFT);
+            textRenderer.setText(scorePoints,  menu.pointsColor, textPosition.set(WorldController.SOURCE_COUNT/2f + 0.2f, 3f), smallSize, TextRenderer.TextAlign.LEFT);
             textRenderer.render(spriteBatch);
         }
 

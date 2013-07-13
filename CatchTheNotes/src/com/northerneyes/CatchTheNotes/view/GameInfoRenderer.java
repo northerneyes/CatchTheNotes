@@ -56,7 +56,7 @@ public class GameInfoRenderer  implements IRenderer {
             textRenderer.render(spriteBatch);
 
 
-            textRenderer.setText(world.getFormattedCurrentSong(), songColor, textPosition.set(WorldController.SOURCE_COUNT-0.8f, height - 0.5f), songSize, TextRenderer.TextAlign.RIGHT);
+            textRenderer.setText(world.getFormattedCurrentSong(), songColor, textPosition.set(WorldController.SOURCE_COUNT-0.2f, 0.6f), songSize, TextRenderer.TextAlign.RIGHT);
             textRenderer.render(spriteBatch);
             textRenderer.setText(combo, comboColor, textPosition.set(WorldController.SOURCE_COUNT, height), smallSize, TextRenderer.TextAlign.RIGHT);
             textRenderer.render(spriteBatch);
