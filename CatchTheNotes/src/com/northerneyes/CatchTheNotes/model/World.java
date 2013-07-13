@@ -35,7 +35,6 @@ public class World {
 
     public void setCurrentSong(int state) {
         currentSong = Songs[state - 1];
-
     }
 
     public boolean IsExternalFile()
@@ -49,6 +48,14 @@ public class World {
             return Songs[0];
         else
             return currentSong;
+    }
+
+    public String getFormattedCurrentSong()
+    {
+        if(song.equals(""))
+           return mainMenu.SongsName[mainMenu.CurrentSongIndex];
+        else
+            return song; //TODO:format
     }
 
 //    public PlayerHoverManager getPlayerHoverManager() {

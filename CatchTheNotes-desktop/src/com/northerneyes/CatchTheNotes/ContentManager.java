@@ -40,7 +40,7 @@ public class ContentManager implements IContentManager {
         textHashMap.put("combo_bonus", "Combo Bonus: %d");
         textHashMap.put("size_bonus", "Size Bonus: %d");
         textHashMap.put("total_points", "Total Points: %d");
-
+        textHashMap.put("max_score", "Max Score: ");
 
         textHashMap.put("play_again", "Play Again");
         textHashMap.put("change_options", "Change Options");

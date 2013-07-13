@@ -42,6 +42,9 @@ public class MainMenu implements IEntity{
     public Color btnColor = new Color(1f, 1f, 1f, 0.4f);
     public Color btnHoverColor = new Color(1f, 1f, 1f, 0.5f);
     public Color btnPressedColor = new Color(1f, 1f, 1f, 0.6f);
+    public Color pointsColor = new Color(203f/255f, 1f, 203/255f, 1f);
+    public Color scoreColor = new Color(1f, 1f, 1f, 1f);
+
     public String SongsName[] =   {
             CatchTheNotes.getContentManager().getString("leave_in_the_wind"),
             CatchTheNotes.getContentManager().getString("centle"),
@@ -100,6 +103,8 @@ public class MainMenu implements IEntity{
                 .push(Tween.set(btnColor, ColorAccessor.OPACITY).target(0.4f))
                 .push(Tween.set(btnHoverColor, ColorAccessor.OPACITY).target(0.5f))
                 .push(Tween.set(btnPressedColor, ColorAccessor.OPACITY).target(0.6f))
+                .push(Tween.set(pointsColor, ColorAccessor.OPACITY).target(1f))
+                .push(Tween.set(scoreColor, ColorAccessor.OPACITY).target(1f))
                 .beginParallel()
                     .push(Tween.to(AppNameTextColor, ColorAccessor.OPACITY, 2f).target(0).ease(Cubic.OUT))
                     .push(Tween.to(PlayTextColor, ColorAccessor.OPACITY, 2f).target(0).ease(Cubic.OUT))
@@ -107,6 +112,8 @@ public class MainMenu implements IEntity{
                     .push(Tween.to(btnColor, ColorAccessor.OPACITY, 2f).target(0).ease(Cubic.OUT))
                     .push(Tween.to(btnHoverColor, ColorAccessor.OPACITY, 2f).target(0).ease(Cubic.OUT))
                     .push(Tween.to(btnPressedColor, ColorAccessor.OPACITY, 2f).target(0).ease(Cubic.OUT))
+                    .push(Tween.to(pointsColor, ColorAccessor.OPACITY, 2f).target(0).ease(Cubic.OUT))
+                    .push(Tween.to(scoreColor, ColorAccessor.OPACITY, 2f).target(0).ease(Cubic.OUT))
                 .end()
                 .setCallback(listener)
                 .setCallbackTriggers(TweenCallback.COMPLETE)

@@ -38,12 +38,14 @@ public class MainMenuRenderer implements IRenderer {
 //    private final Color btnColor;
 //    private final Color btnHoverColor;
 //    private final Color btnPressedColor;
+
+
     private TextRenderer[] songRenderers;
     private HashMap<Integer, TextureRegion> medalsTextures;
     private MainMenu menu;
     private TextRenderer textRenderer;
     private float ppuX;
-
+    Vector2 textPosition = new Vector2();
     public MainMenuRenderer(HashMap<Integer, TextureRegion> medalsTextures, MainMenu mainMenu, TextRenderer textRenderer, float ppuX, float ppuY, float coeff) {
         settingService =  CatchTheNotes.getSettingService();
         this.medalsTextures = medalsTextures;
@@ -138,6 +140,17 @@ public class MainMenuRenderer implements IRenderer {
             spriteBatch.end();
 
             songRenderers[i].render(spriteBatch);
+        }
+
+        int maxScore = settingService.getMaxScore();
+        if(maxScore > 0)
+        {
+            String scorePoints = String.format("%d", settingService.getMaxScore());
+            String maxScoreString =   CatchTheNotes.getContentManager().getString("max_score");
+            textRenderer.setText(maxScoreString, menu.scoreColor, textPosition.set(WorldController.SOURCE_COUNT/2f, 4f), smallSize, TextRenderer.TextAlign.RIGHT);
+            textRenderer.render(spriteBatch);
+            textRenderer.setText(scorePoints,  menu.pointsColor, textPosition.set(WorldController.SOURCE_COUNT/2f + 0.2f, 4f), smallSize, TextRenderer.TextAlign.LEFT);
+            textRenderer.render(spriteBatch);
         }
 
     }

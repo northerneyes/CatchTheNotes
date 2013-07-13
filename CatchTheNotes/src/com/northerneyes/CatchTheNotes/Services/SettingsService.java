@@ -20,7 +20,7 @@ public class SettingsService {
     private HashMap<Integer, Integer> medals;
     private HashMap<Integer, Color> medalColor;
     public int MaxMedals = 4;
-    private int maxScore;
+    private int maxScore = 1235;
     private int unlockLevel;
 
     public SettingsService() {
@@ -62,9 +62,10 @@ public class SettingsService {
     }
 
     public void saveMaxScore(int score) {
-        int maxScore = this.maxScore;
-        if(score > maxScore)
+//        int maxScore = this.maxScore;
+        if(score > maxScore) {
             maxScore = score;
+        }
     }
 
     public int getUnlockLevel() {
@@ -73,5 +74,9 @@ public class SettingsService {
 
     public void saveUnlockLevel(int unlockLevel) {
         this.unlockLevel = unlockLevel;
+    }
+
+    public int getMaxScore() {
+        return maxScore;
     }
 }

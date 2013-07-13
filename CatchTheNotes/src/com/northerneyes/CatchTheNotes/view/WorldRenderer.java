@@ -106,7 +106,7 @@ public class WorldRenderer {
         float coeff = ppuX*(CAMERA_WIDTH/WorldController.SOURCE_COUNT);
         playerRenderer = new PlayerRenderer(Arrays.asList(cursorRegions[0]).subList(0, 2), textRenderer , ppuX, ppuY, coeff, CAMERA_HEIGHT);
         messageHolderRenderer = new MessageHolderRenderer(world.getMessageHolder(), ppuX, ppuY, font, coeff);
-        gameInfoRenderer = new GameInfoRenderer(textRenderer,  ppuX, ppuY, coeff, CAMERA_HEIGHT);
+        gameInfoRenderer = new GameInfoRenderer(world, textRenderer,  ppuX, ppuY, coeff, CAMERA_HEIGHT);
         seekBarRenderer = new SeekBarRenderer(world, ppuX, ppuY, coeff, CAMERA_HEIGHT);
 
         gameMenuRenderer = new GameMenuRenderer(world.getGameMenu(), textRenderer);

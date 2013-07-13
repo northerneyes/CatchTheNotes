@@ -43,6 +43,7 @@ public class ContentManager implements IContentManager {
         textHashMap.put("size_bonus", context.getString(R.string.size_bonus));
         textHashMap.put("total_points", context.getString(R.string.total_points));
         textHashMap.put("skip_text", context.getString(R.string.skip_text));
+        textHashMap.put("max_score", context.getString(R.string.max_score));
 
         textHashMap.put("play_again", context.getString(R.string.play_again));
         textHashMap.put("change_options", context.getString(R.string.change_options));
