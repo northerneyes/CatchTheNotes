@@ -48,6 +48,8 @@ public class WorldController implements IMediaPlayerListener {
 
     private World world;
     private ScoreManager scoreManager;
+    private boolean stopFlag;
+    private float timeCount;
 
     public WorldController(World world) {
         this.height =  WorldRenderer.CAMERA_HEIGHT;
@@ -84,8 +86,18 @@ public class WorldController implements IMediaPlayerListener {
 
     @Override
     public void onStop() {
+
+        //notesHolder.particles.clear();
+        stopFlag = true;
+    }
+
+    public void Stop()
+    {
         endMenuController.Init();
+        world.SongPosition = 0;
+        timeCount = 0;
         world.setCurrentMenuType(World.MenuType.END_GAME);
+        stopFlag  = false;
     }
 
 	public void update(float delta) {
@@ -109,6 +121,8 @@ public class WorldController implements IMediaPlayerListener {
                 return;
             case START_GAME:  //Restart
                 MediaPlayer.stop();
+                frameCount = 0;
+                timeCount = 0;
                 if(!Constants.DEBUG)
                 {
                     MediaPlayer.play(world.getCurrentSong(), world.IsExternalFile());
@@ -120,6 +134,8 @@ public class WorldController implements IMediaPlayerListener {
                 return;
             case END_GAME:
                 MediaPlayer.stop();
+                frameCount = 0;
+                timeCount = 0;
                 endMenuController.update(delta);
                 currentMenuController = endMenuController;
                 world.setCurrentMenuType(World.MenuType.END_GAME);
@@ -151,8 +167,10 @@ public class WorldController implements IMediaPlayerListener {
                 else
                 {
                     processMusic();
+                    timeCount += delta;
                     if(frameCount % 6 == 0)
                     {
+                        world.SongPosition = MediaPlayer.getPosition(timeCount);
                         addRainDrops();
                     }
                 }
@@ -165,6 +183,12 @@ public class WorldController implements IMediaPlayerListener {
     }
 
     private void updateRainDrops() {
+        if(stopFlag && notesHolder.particles.size() == 0)
+        {
+            Stop();
+            return;
+        }
+
         if(player.getPower() > 0f)
         {
             player.setPower(player.getPower() - 1);

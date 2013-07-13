@@ -20,7 +20,7 @@ public class PauseMenuController implements IMenuController, IHoverListener {
     public PauseMenuController(World world) {
         this.world = world;
         menu = world.getPauseMenu();
-        playerHoverManager = world.getPlayerHoverManager();
+        playerHoverManager = new PlayerHoverManager(world.getPlayer());
         playerHoverManager.setListener(this);
     }
     @Override

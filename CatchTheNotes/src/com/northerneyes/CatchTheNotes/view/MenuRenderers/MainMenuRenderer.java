@@ -86,7 +86,11 @@ public class MainMenuRenderer implements IRenderer {
             start = 1;
         else if (settingService.getUnlockLevel() >= 2 && settingService.getUnlockLevel() < 5)
             start = 2;
-
+        for (int i = 0; i < songRenderers.length; i++)
+        {
+            songRenderers[i].setText(menu.SongsName[i]);
+            songRenderers[i].shiftRight(0);
+        }
         for (int i = start; i < songRenderers.length; i++)
         {
             songRenderers[i].setText("?");

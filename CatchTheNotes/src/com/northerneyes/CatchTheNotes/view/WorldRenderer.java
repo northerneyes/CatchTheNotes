@@ -57,6 +57,7 @@ public class WorldRenderer {
     private BitmapFont font;
     private Texture playerCursor;
     private GameInfoRenderer gameInfoRenderer;
+    private SeekBarRenderer seekBarRenderer;
 
     public void SetCamera(float x, float y){
 		this.cam.position.set(x, y,0);	
@@ -106,6 +107,7 @@ public class WorldRenderer {
         playerRenderer = new PlayerRenderer(Arrays.asList(cursorRegions[0]).subList(0, 2), textRenderer , ppuX, ppuY, coeff, CAMERA_HEIGHT);
         messageHolderRenderer = new MessageHolderRenderer(world.getMessageHolder(), ppuX, ppuY, font, coeff);
         gameInfoRenderer = new GameInfoRenderer(textRenderer,  ppuX, ppuY, coeff, CAMERA_HEIGHT);
+        seekBarRenderer = new SeekBarRenderer(world, ppuX, ppuY, coeff, CAMERA_HEIGHT);
 
         gameMenuRenderer = new GameMenuRenderer(world.getGameMenu(), textRenderer);
         pauseMenuRenderer = new PauseMenuRenderer(world.getPauseMenu(), textRenderer);
@@ -142,12 +144,16 @@ public class WorldRenderer {
 
                 gameInfoRenderer.update(world.getScoreManager());
                 gameInfoRenderer.render(spriteBatch);
+
+                seekBarRenderer.render(spriteBatch);
                 break;
             case PAUSE:
                 pauseMenuRenderer.render(spriteBatch);
 
                 gameInfoRenderer.update(world.getScoreManager());
                 gameInfoRenderer.render(spriteBatch);
+
+                seekBarRenderer.render(spriteBatch);
                 break;
             case MAIN_MENU:
                 mainMenuRenderer.render(spriteBatch);

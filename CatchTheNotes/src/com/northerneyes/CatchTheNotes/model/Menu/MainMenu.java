@@ -56,7 +56,7 @@ public class MainMenu implements IEntity{
     public MainMenu(float width, float height) {
             settingService =  CatchTheNotes.getSettingService();
 
-        MedalsPosition = new Vector2(width - 0.5f, height - 0.5f);
+        MedalsPosition = new Vector2(width - 0.7f, height - 0.7f);
 
         AppNamePosition = new Vector2(width/2, height - 2);
         PlayPosition = new Vector2(AppNamePosition.x, AppNamePosition.y - 3);

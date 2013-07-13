@@ -24,7 +24,7 @@ public class EndMenuController  implements IMenuController, IHoverListener {
         this.world = world;
         this.mainMenu = world.getMainMenu();
         menu  = world.getEndMenu();
-        playerHoverManager = world.getPlayerHoverManager();
+        playerHoverManager = new PlayerHoverManager(world.getPlayer());
         playerHoverManager.setListener(this);
     }
 

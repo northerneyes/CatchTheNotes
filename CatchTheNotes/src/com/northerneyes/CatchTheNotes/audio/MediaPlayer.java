@@ -21,6 +21,7 @@ public class MediaPlayer {
     private static float volume = 1f;
    private static int NB_BARS = 31;
     private static IMediaPlayerListener listener;
+ //   private static int position;
 
 
     public enum MediaPlayerState {
@@ -63,6 +64,10 @@ public class MediaPlayer {
     }
 
 
+    public static float getPosition(float position)
+    {
+         return position/decoder.getLength();
+    }
 
     private static void play()
     {
@@ -77,11 +82,10 @@ public class MediaPlayer {
                 while (state == MediaPlayerState.PLAYING
                         && (readSamples = decoder.readSamples(samples, 0,
                         samples.length)) > 0) {
-// get audio spectrum
                     if(isVisualizationEnabled)
                         fft.spectrum(samples, spectrum);
 
-// write the samples to the AudioDevice
+
                     device.writeSamples(samples, 0, readSamples);
                 }
 
@@ -89,6 +93,10 @@ public class MediaPlayer {
                 {
                     if(listener != null)
                         listener.onStop();
+                    for(int i = 0; i < spectrum.length; i++)
+                    {
+                        spectrum[i] = 0;
+                    }
                     decoder.dispose();
                     device.dispose();
                 }
@@ -191,46 +199,14 @@ public class MediaPlayer {
        float coef = getPower();
        NB_BARS = visualizationData.Frequences.length;
 
-//        //freq transform
-//       for (int i = 0; i < NB_BARS; i++) {
-//            int histoX = 0;
-//            if (i < NB_BARS / 2) {
-//                histoX = NB_BARS / 2 - i;
-//            } else {
-//                histoX = i - NB_BARS / 2;
-//            }
-//
-//            int nb = (samples.length / NB_BARS) / 2;
-//           // scale(avg(histoX, nb))
-//
-//            visualizationData.Frequences[i] = avg(histoX, nb);
-//        }
-//            for(int i = 0; i < NB_BARS; i++)
-//            {
-//                int nb = (samples.length / NB_BARS) / 2;
-//
-//                visualizationData.Frequences[i] =  avg(i, nb);
-//            }
+
 
                     for(int i = 0; i < NB_BARS; i++)
             {
-               // int nb = (samples.length / NB_BARS) / 2;
 
                 visualizationData.Frequences[i] =  normalSpectrum[i];
             }
 
-        //amplitude normal
-      //  normalizate(visualizationData.Frequences, visualizationData.Frequences);
-
-//        for(int i = 0; i < NB_BARS; i++)
-//        {
-//            visualizationData.Frequences[i] *= 2;
-//            visualizationData.Frequences[i] -= 1;
-//        }
-        //power normal
-//        for (int i = 0; i < visualizationData.Frequences.length; i++) {
-//            visualizationData.Frequences[i] *= coef;
-//        }
     }
 
     private static float getPower() {

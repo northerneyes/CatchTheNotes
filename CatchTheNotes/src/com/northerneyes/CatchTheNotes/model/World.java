@@ -21,6 +21,7 @@ public class World {
     private ScoreManager scoreManager;
 //    public boolean ShowGameInfo;
     private EndGameMenu endMenu;
+    public float SongPosition;
 
     public World(String songName) {
         this.currentSong = songName;
@@ -39,7 +40,7 @@ public class World {
 
     public boolean IsExternalFile()
     {
-        return currentSong.equals(song);
+        return getCurrentSong().equals(song);
     }
 
     public String getCurrentSong()
@@ -50,9 +51,9 @@ public class World {
             return currentSong;
     }
 
-    public PlayerHoverManager getPlayerHoverManager() {
-        return playerHoverManager;
-    }
+//    public PlayerHoverManager getPlayerHoverManager() {
+//        return playerHoverManager;
+//    }
 
     public EndGameMenu getEndMenu() {
         return endMenu;
@@ -115,7 +116,7 @@ public class World {
 
     public void createWorld() {
 		player = new Player(new Vector2(0, 0));
-        playerHoverManager = new PlayerHoverManager(player);
+       // playerHoverManager = new PlayerHoverManager(player);
 
         notesHolder = new NotesHolder();
         messageHodler = new MessageHolder();

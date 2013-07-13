@@ -15,7 +15,7 @@ public class GameMenuController implements IMenuController, IHoverListener {
     public GameMenuController(World world) {
         this.world = world;
         gameMenu = world.getGameMenu();
-        playerHoverManager = world.getPlayerHoverManager();
+        playerHoverManager = new PlayerHoverManager(world.getPlayer());
         playerHoverManager.setListener(this);
     }
 

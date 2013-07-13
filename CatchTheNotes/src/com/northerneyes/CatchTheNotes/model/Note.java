@@ -130,6 +130,10 @@ public class Note implements IEntity {
 
             Size = InitialSize - (InitialSize/InitialTTL)*(InitialTTL - TTL);
         }
+        if(Type == NoteType.POWER_UP)
+        {
+            Color =  new Color(1f, 1f, 0f, 1f);
+        }
 
         if(Type == NoteType.NORMAL)
         {

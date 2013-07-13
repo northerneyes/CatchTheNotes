@@ -24,7 +24,7 @@ public class MainMenuController  implements IMenuController, IHoverListener, Twe
     public MainMenuController(World world) {
         this.world = world;
         menu = world.getMainMenu();
-        playerHoverManager = world.getPlayerHoverManager();
+        playerHoverManager = new PlayerHoverManager(world.getPlayer());
         playerHoverManager.setListener(this);
         settingService =  CatchTheNotes.getSettingService();
     }

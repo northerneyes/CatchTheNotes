@@ -18,7 +18,7 @@ public class GameMenu{
         this.height = height;
         this.width = width;
 
-        pausePosition = new Vector2(0, height);
+        pausePosition = new Vector2(0.2f, height-0.5f);
     }
 
     public String getPauseText() {
