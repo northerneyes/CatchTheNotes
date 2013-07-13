@@ -5,6 +5,7 @@ import com.badlogic.gdx.audio.AudioDevice;
 import com.badlogic.gdx.audio.analysis.KissFFT;
 import com.badlogic.gdx.audio.io.Mpg123Decoder;
 import com.badlogic.gdx.files.FileHandle;
+import sun.rmi.runtime.Log;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,6 +20,7 @@ public class MediaPlayer {
     private static int FREQ_COUNT = 512;
     private static float volume = 1f;
    private static int NB_BARS = 31;
+    private static IMediaPlayerListener listener;
 
 
     public enum MediaPlayerState {
@@ -38,12 +40,14 @@ public class MediaPlayer {
     private static MediaPlayerState state = MediaPlayerState.STOPPED;
     private static Mpg123Decoder decoder;
 
-    public static void play(String fileName)
+    public static void play(String fileName, boolean external)
     {
         FileHandle externalFile = Gdx.files.external("tmp/test.mp3");
-
-        //TODO: Check internal or external  file is
-        Gdx.files.internal(fileName).copyTo(externalFile);
+        Gdx.app.log("Game external", String.valueOf(external));
+        if(external)
+            Gdx.files.external(fileName).copyTo(externalFile);
+        else
+            Gdx.files.internal(fileName).copyTo(externalFile);
         decoder = new Mpg123Decoder(externalFile);
 
         device = Gdx.audio.newAudioDevice(decoder.getRate(),
@@ -57,6 +61,8 @@ public class MediaPlayer {
         if(state == MediaPlayerState.PLAYING)
             state = MediaPlayerState.PAUSED;
     }
+
+
 
     private static void play()
     {
@@ -79,6 +85,13 @@ public class MediaPlayer {
                     device.writeSamples(samples, 0, readSamples);
                 }
 
+                if(state == MediaPlayerState.PLAYING)
+                {
+                    if(listener != null)
+                        listener.onStop();
+                    decoder.dispose();
+                    device.dispose();
+                }
                 if(state == MediaPlayerState.STOPPED)
                 {
                     decoder.dispose();
@@ -91,6 +104,10 @@ public class MediaPlayer {
         state = MediaPlayerState.PLAYING;
     }
 
+    public static void setListener(IMediaPlayerListener _listener)
+    {
+        listener = _listener;
+    }
     public static void resume()
     {
         if(state == MediaPlayerState.PAUSED)

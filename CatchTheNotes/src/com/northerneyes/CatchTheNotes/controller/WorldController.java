@@ -2,6 +2,7 @@ package com.northerneyes.CatchTheNotes.controller;
 
 import com.badlogic.gdx.math.Vector2;
 import com.northerneyes.CatchTheNotes.Services.ScoreManager;
+import com.northerneyes.CatchTheNotes.audio.IMediaPlayerListener;
 import com.northerneyes.CatchTheNotes.audio.MediaPlayer;
 import com.northerneyes.CatchTheNotes.audio.VisualizationData;
 import com.northerneyes.CatchTheNotes.model.*;
@@ -14,7 +15,7 @@ import com.northerneyes.CatchTheNotes.view.WorldRenderer;
 import java.util.HashMap;
 
 
-public class WorldController {
+public class WorldController implements IMediaPlayerListener {
     private final EndMenuController endMenuController;
     public Player player;
     public static final int SOURCE_COUNT = 16;
@@ -63,7 +64,11 @@ public class WorldController {
         mainMenuController = new MainMenuController(world);
         endMenuController = new EndMenuController(world);
 
-       // currentMenuController = gameMenuController;
+        MediaPlayer.setListener(this);
+        if(!world.getSong().equals(""))
+        {
+            world.setCurrentMenuType(World.MenuType.START_GAME);
+        }
 
         if(Constants.DEBUG_END_MENU)
             endMenuController.Init();
@@ -76,6 +81,12 @@ public class WorldController {
         }
             data = new VisualizationData(FREQ_LENGTH);
 	}
+
+    @Override
+    public void onStop() {
+        endMenuController.Init();
+        world.setCurrentMenuType(World.MenuType.END_GAME);
+    }
 
 	public void update(float delta) {
 		player.update(delta);
@@ -100,7 +111,7 @@ public class WorldController {
                 MediaPlayer.stop();
                 if(!Constants.DEBUG)
                 {
-                    //MediaPlayer.play(world.getCurrentSong());
+                    MediaPlayer.play(world.getCurrentSong(), world.IsExternalFile());
                 }
                 player.clear();
                 scoreManager.clear();
@@ -114,6 +125,7 @@ public class WorldController {
                 world.setCurrentMenuType(World.MenuType.END_GAME);
                 return;
             case GAME:
+                MediaPlayer.resume();
                 currentMenuController = gameMenuController;
                 notesHolder.update(delta);
                 messageHolder.update(delta);
@@ -147,6 +159,7 @@ public class WorldController {
                 updateRainDrops();
                 break;
             case PAUSE:
+                MediaPlayer.pause();
                 currentMenuController = pauseMenuController;
         }
     }
@@ -344,4 +357,6 @@ public class WorldController {
     public IMenuController getCurrentMenu() {
         return currentMenuController;
     }
+
+
 }

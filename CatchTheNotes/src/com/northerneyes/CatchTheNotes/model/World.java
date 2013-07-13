@@ -11,6 +11,7 @@ import com.northerneyes.CatchTheNotes.model.Menu.PauseMenu;
 public class World {
 
 
+    private  String song = "";
     private PauseMenu pauseMenu;
     private MainMenu mainMenu;
     private String Songs[] = {"audio/Leaves_in_the_Wind.mp3", "audio/Centle.mp3", "audio/Letting_Go.mp3"};
@@ -21,9 +22,24 @@ public class World {
 //    public boolean ShowGameInfo;
     private EndGameMenu endMenu;
 
+    public World(String songName) {
+        this.currentSong = songName;
+        this.song = songName;
+    }
+
+    public String getSong()
+    {
+        return this.song;
+    }
+
     public void setCurrentSong(int state) {
         currentSong = Songs[state - 1];
 
+    }
+
+    public boolean IsExternalFile()
+    {
+        return currentSong.equals(song);
     }
 
     public String getCurrentSong()
@@ -108,7 +124,7 @@ public class World {
         mainMenu = new MainMenu(sourceCount, height);
         pauseMenu = new PauseMenu(sourceCount, height);
 
-        currentMenu = MenuType.END_GAME;
+        currentMenu = MenuType.MAIN_MENU;
         scoreManager = new ScoreManager(player);
 
         endMenu = new EndGameMenu(sourceCount, height, scoreManager);

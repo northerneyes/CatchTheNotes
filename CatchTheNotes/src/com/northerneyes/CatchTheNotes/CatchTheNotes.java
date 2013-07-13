@@ -16,6 +16,7 @@ import com.northerneyes.CatchTheNotes.screens.GameScreen;
 
 public class CatchTheNotes extends   Game  {
     private static SettingsService preferences;
+    private  String songName = "";
     public GameScreen game;
 
     private static IContentManager contentManager;
@@ -27,7 +28,13 @@ public class CatchTheNotes extends   Game  {
         Tween.registerAccessor(Message.class, new MessageAccessor());
         Tween.registerAccessor(Color.class, new ColorAccessor());
 
+        songName = "";
         CatchTheNotes.contentManager = contentManager;
+    }
+
+    public CatchTheNotes(IContentManager contentManager, String songName)  {
+        this(contentManager);
+        this.songName = songName;
     }
 
     public static IContentManager getContentManager() {
@@ -47,7 +54,7 @@ public class CatchTheNotes extends   Game  {
         // TODO Auto-generated method stub
 
         AudioAssetManager.init();
-        game = new GameScreen();
+        game = new GameScreen(songName);
         setScreen(game);
     }
 	/*

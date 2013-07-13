@@ -12,17 +12,23 @@ import com.northerneyes.CatchTheNotes.model.World;
 import com.northerneyes.CatchTheNotes.view.WorldRenderer;
 
 public class GameScreen implements Screen, InputProcessor {
-	private World world;
+    private  String songName = "";
+    private World world;
 	private WorldRenderer render;
 	private WorldController controller;
     private IMenuController menuController;
 
     private int width, height;
-   // public static  float height = 800f;
+
+    public GameScreen(String songName) {
+        this.songName = songName;
+    }
+
+    // public static  float height = 800f;
   //  public static float width = height *Gdx.graphics.getWidth()/Gdx.graphics.getHeight();
 	@Override
 	public void show() {
-		world = new World();
+        world = new World(songName);
 		render = new WorldRenderer(world);
 		controller = new WorldController(world);
         menuController = controller.getCurrentMenu();
