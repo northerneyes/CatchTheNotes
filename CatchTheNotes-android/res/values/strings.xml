@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Catch The Notes</string>
+    <string name="app_name_free">Catch The Notes Free</string>
     <string name="title_activity_main">Catch The Notes</string>
     <string name="pause_menu">Pause</string>
     <string name="score">Score:</string>

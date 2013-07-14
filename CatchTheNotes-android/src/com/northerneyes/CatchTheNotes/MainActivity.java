@@ -1,6 +1,7 @@
 package com.northerneyes.CatchTheNotes;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -51,6 +52,12 @@ public class MainActivity extends AndroidApplication {
             initialize(new CatchTheNotes(new ContentManager(this)), config);
         Log.v("Game", "Activity On create");
     }
+
+    public Context getLibContext()
+    {
+        return this;
+    }
+
     private String getRealPathFromURI(Uri contentURI) {
         Cursor cursor = getContentResolver().query(contentURI, null, null, null, null);
         if (cursor == null) { // Source is Dropbox or other similar local file path

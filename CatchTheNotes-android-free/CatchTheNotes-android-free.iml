@@ -3,7 +3,7 @@
   <component name="FacetManager">
     <facet type="android" name="Android">
       <configuration>
-        <option name="LIBRARY_PROJECT" value="true" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/../CatchTheNotes-android/assets" />
         <option name="UPDATE_PROPERTY_FILES" value="true" />
       </configuration>
     </facet>
@@ -16,8 +16,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="CatchTheNotes" exported="" />
-    <orderEntry type="library" exported="" name="gdx-backend-android" level="project" />
+    <orderEntry type="module" module-name="CatchTheNotes-android" />
   </component>
 </module>
 
