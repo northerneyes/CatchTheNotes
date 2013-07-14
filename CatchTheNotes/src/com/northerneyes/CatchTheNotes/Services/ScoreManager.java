@@ -18,11 +18,11 @@ public class ScoreManager implements IEntity {
     private int powerDownCount = 0;
     private int purplePowerCount = 0;
     private int yellowMadnessCount = 0;
-    private int shapeCount = 70;
+    private int shapeCount = 0;
     private int score;
 
     private Player player;
-    private int totalShape = 100;
+    private int totalShape = 0;
 
 
     public ScoreManager(Player player) {
@@ -75,6 +75,7 @@ public class ScoreManager implements IEntity {
         powerUpCount = 0;
         powerDownCount = 0;
         purplePowerCount = 0;
+        totalShape = 0;
         yellowMadnessCount = 0;
         shapeCount = 0;
     }

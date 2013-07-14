@@ -49,6 +49,7 @@ public class WorldController implements IMediaPlayerListener {
     private final PauseMenuController pauseMenuController;
     private final MainMenuController mainMenuController;
     private final EndMenuController endMenuController;
+    private boolean yellowMadness = true;
 
     public WorldController(World world) {
         this.height =  WorldRenderer.CAMERA_HEIGHT;
@@ -119,6 +120,7 @@ public class WorldController implements IMediaPlayerListener {
                 MediaPlayer.stop();
                 frameCount = 0;
                 timeCount = 0;
+                yellowMadness = true;
                 if(!Constants.DEBUG)
                 {
                     MediaPlayer.play(world.getCurrentSong(), world.IsExternalFile());
@@ -148,16 +150,24 @@ public class WorldController implements IMediaPlayerListener {
                     {
                         scoreManager.addTotalShape(8);
                         notesHolder.particles.clear();
-                        notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
-                        // notesHolder.particles.add(new Note(new Vector2(16, 0), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(8, 10), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 2f, 200, 3, 1));
-                        notesHolder.particles.add(new Note(new Vector2(1, 3), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1.5f, 200, 4, 1));
-                        notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 5, 1));
-                        notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 1, 1));
-                        notesHolder.particles.add(new Note(new Vector2(12, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, 1f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(15, 11), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 2f, 200, 2, 1));
-                        // notesHolder.particles.add(new Note(new Vector2(15, 7), new Vector2(0, 0), 0, 0, NoteType.SUCTION, 1f, 200, 2, 1));
+//                        notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1f, 200, 2, 1));
+//                        notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 1.5f, 200, 2, 1));
+//                        notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 2f, 200, 3, 1));
+//                        notesHolder.particles.add(new Note(new Vector2(8, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 2.5f, 200, 4, 1));
+//                        notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 3f, 200, 1, 1));
+//                        notesHolder.particles.add(new Note(new Vector2(12, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, 3.5f, 200, 2, 1));
+//                        notesHolder.particles.add(new Note(new Vector2(15, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(1, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 4f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(2, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 3, 1));
+                        notesHolder.particles.add(new Note(new Vector2(4, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 3.5f, 200, 4, 1));
+                        notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 3.5f, 200, 1, 1));
+                        notesHolder.particles.add(new Note(new Vector2(6, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, 1f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 3f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(8, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 3f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(9, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, 1f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 2.5f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(11, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 2.5f, 200, 2, 1));
                     }
                 }
                 else
@@ -344,12 +354,35 @@ public class WorldController implements IMediaPlayerListener {
             float volume = volumePoints.get(key);
             if (notesHolder.particles.size() < maxShapesOnBoard  || volume > 0.9)
             {
-                scoreManager.addTotalShape(2);
-                notesHolder.beat((1f + key / (float) FREQ_LENGTH) * halfWidth + (float) (Math.random() * coefX), height, -volume);
-                notesHolder.beat((1f - key / (float)FREQ_LENGTH) * halfWidth + (float)(Math.random() * coefX), height, -volume);
+                addRainDrop((1f + key / (float) FREQ_LENGTH) * halfWidth + (float) (Math.random() * coefX), volume);
+                addRainDrop((1f - key / (float) FREQ_LENGTH) * halfWidth + (float) (Math.random() * coefX), volume);
             }
         }
         volumePoints.clear();
+    }
+
+    private void addRainDrop(float x, float _amp)
+    {
+        float amp = _amp + 0.2f;
+
+        Note.NoteType type = Note.NoteType.NORMAL;
+        if(amp > 0.5f)
+        {
+            int selector = (int) (Math.random() * 1200);
+            if (selector < 20) // враг
+                type = Note.NoteType.POWER_UP;
+            else if (selector < 40) // желтый
+                type = Note.NoteType.POWER_DOWN;
+            else if (selector < 42 &&  player.getPower() == 0) // пурпурный
+                type = Note.NoteType.SUCTION;
+            else if (selector == 42 &&  player.getPower() == 0 && yellowMadness)
+            {
+                type = Note.NoteType.YELLOW_MADDNESS;
+                yellowMadness = false;
+            }
+        }
+        scoreManager.addTotalShape(1);
+        notesHolder.beat(x, height, -amp, type);
     }
 
     public void processMusic()

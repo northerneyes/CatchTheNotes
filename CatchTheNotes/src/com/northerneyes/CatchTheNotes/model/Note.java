@@ -46,7 +46,7 @@ public class Note implements IEntity {
     public Color Color;
     public float Size;
     public float InitialSize;
-    public static float MAX_SIZE = 4f;
+    public static float MAX_SIZE = 2.8f;
     public int TTL;
     private float a;
     private float RComponent;
@@ -119,7 +119,8 @@ public class Note implements IEntity {
             return;
         }
 
-
+        if(Constants.STATIC_DEBUG)
+            return;
         TTL--;
         Position.add(Velocity);
         Angle += AngularVelocity;

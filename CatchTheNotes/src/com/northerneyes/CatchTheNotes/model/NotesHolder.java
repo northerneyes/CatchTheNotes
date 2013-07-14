@@ -49,7 +49,7 @@ public class NotesHolder implements IEntity {
 
         Vector2 position = new Vector2(wave, posY); // Задаем позицию
 
-        float size = 1+ (Math.abs(amp) - 0.3f)*(Note.MAX_SIZE-1)/0.7f; // (0.5f + random.nextFloat()*2f); // размер
+        float size = 1+ (Math.abs(amp) - 0.3f)*(Note.MAX_SIZE-1)/0.7f;
 
         ttl = findRealTTL(size, ttl);
 
@@ -76,21 +76,10 @@ public class NotesHolder implements IEntity {
 
 
 
-    public void beat(float wave, float posY, float amp)
-    {
-        Note.NoteType type = Note.NoteType.NORMAL; //— изначальный тип 0
-        // Вероятность появления
-        int selector = (int) (Math.random() * 1200);
-        if (selector < 20) // враг
-            type = Note.NoteType.POWER_DOWN;
-        else if (selector < 40) // желтый
-            type = Note.NoteType.POWER_UP;
-        else if (selector < 42) // пурпурный
-            type = Note.NoteType.SUCTION;
-        else if (selector == 42) // мигающий
-            type = Note.NoteType.YELLOW_MADDNESS;
-        particles.add(GenerateNewParticle(wave, posY, amp, type));
-    }
+//    public void beat(float wave, float posY, float amp, NoteRType type)
+//    {
+//        particles.add(GenerateNewParticle(wave, posY, -amp, type)); //TODO: _amp or amp
+//    }
 
     public void beat(float wave, float posY, float amp,  Note.NoteType noteType)
     {
