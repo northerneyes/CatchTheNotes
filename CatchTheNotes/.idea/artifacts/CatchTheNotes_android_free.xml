@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="apk" name="CatchTheNotes-android-free">
+    <output-path>$PROJECT_DIR$/out/artifacts/CatchTheNotes_android_free</output-path>
+    <properties id="android-properties">
+      <options>
+        <option name="includeSystemProGuardCfgFile" value="true" />
+        <option name="keyAlias" value="key_production" />
+        <option name="keyPassword" value="c3QxM3BxOXl6eGM=" />
+        <option name="keyStorePassword" value="c3QxM3BxOXl6eGM=" />
+        <option name="keyStoreUrl" value="file://D:/Dropbox/key_production" />
+        <option name="proGuardCfgFileUrl" value="file://$PROJECT_DIR$/../CatchTheNotes-android-free/proguard.cfg" />
+        <option name="runProGuard" value="true" />
+        <option name="signingMode" value="RELEASE_SIGNED" />
+      </options>
+    </properties>
+    <root id="archive" name="CatchTheNotes-android-free.apk">
+      <element id="android-final-package" facet="CatchTheNotes-android-free/android/Android" />
+      <element id="library" level="project" name="libs" />
+      <element id="library" level="project" name="GoogleAdMobAdsSdk-6.4.1" />
+      <element id="library" level="project" name="gdx-backend-android" />
+    </root>
+  </artifact>
+</component>
