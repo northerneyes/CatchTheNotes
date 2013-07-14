@@ -26,14 +26,13 @@ public class PlayerHoverManager {
         {
             hover = true;
             listener.hover(x, y);
-            player.State = Player.PlayerState.HOVER;
         }
         else if(!menuState && hover)
         {
             hover = false;
             listener.unHover();
-            player.State = Player.PlayerState.NORMAL;
         }
+        player.State = hover ? Player.PlayerState.HOVER : Player.PlayerState.NORMAL;
     }
 
     public void setListener(IHoverListener listener) {

@@ -15,9 +15,10 @@ import android.os.Bundle;
 import com.badlogic.gdx.LifecycleListener;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import com.northerneyes.CatchTheNotes.Services.IAppService;
 
 
-public class MainActivity extends AndroidApplication {
+public class MainActivity extends AndroidApplication implements IAppService {
     private Uri mUri;
     /** Called when the activity is first created. */ 
     @Override
@@ -44,12 +45,12 @@ public class MainActivity extends AndroidApplication {
                     Log.v("Game", songName);
 
                     //TODO:Load song
-                    initialize(new CatchTheNotes(new ContentManager(this), songName), config);
+                    initialize(new CatchTheNotes(new ContentManager(this), this, songName), config);
                     return;
                 }
             }
         }
-            initialize(new CatchTheNotes(new ContentManager(this)), config);
+            initialize(new CatchTheNotes(new ContentManager(this), this), config);
         Log.v("Game", "Activity On create");
     }
 
@@ -76,6 +77,11 @@ public class MainActivity extends AndroidApplication {
 
     @Override
     public void removeLifecycleListener(LifecycleListener lifecycleListener) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void showAdMob(boolean show) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 }

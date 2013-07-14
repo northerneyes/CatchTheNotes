@@ -18,6 +18,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="CatchTheNotes-android" />
+    <orderEntry type="library" name="GoogleAdMobAdsSdk-6.4.1" level="project" />
   </component>
 </module>
 
