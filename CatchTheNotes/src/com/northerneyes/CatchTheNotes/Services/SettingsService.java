@@ -15,27 +15,33 @@ import java.util.HashMap;
  */
 public class SettingsService {
     private static final String PREFS_NAME = "CatchTheNotes";
+    private final HashMap<Integer, String> medalSettingsName;
+
+    private static final String MAX_SCORE = "MaxScore";
+    private static final String UNLOCK_LEVEL = "UnlockLevel";
 
     private Preferences preferences;
-    private HashMap<Integer, Integer> medals;
     private HashMap<Integer, Color> medalColor;
     public int MaxMedals = 4;
-    private int maxScore = 1235;
-    private int unlockLevel;
+
 
     public SettingsService() {
-        medals = new HashMap<Integer, Integer>();
-        medalColor = new HashMap<Integer, Color>();
+        preferences = getPrefs();
 
-        medals.put(0, 0);
-        medals.put(1, 0);
-        medals.put(2, 0);
-        medals.put(3, 0);
+        medalColor = new HashMap<Integer, Color>();
+        medalSettingsName = new HashMap<Integer, String>();
+
 
         medalColor.put(0, Color.WHITE);
         medalColor.put(1, Color.BLACK);
         medalColor.put(2, Color.WHITE);
         medalColor.put(3, Color.BLACK);
+
+        medalSettingsName.put(0, "Bronze");
+        medalSettingsName.put(1, "Silver");
+        medalSettingsName.put(2, "Gold");
+        medalSettingsName.put(3, "Platinum");
+
     }
 
     protected Preferences getPrefs() {
@@ -47,14 +53,14 @@ public class SettingsService {
 
 
     public void saveMedal(int type) {
-        int count = medals.get(type);
-        medals.put(type, ++count);
-
+        int count = preferences.getInteger(medalSettingsName.get(type));
+        preferences.putInteger(medalSettingsName.get(type), ++count);
+        preferences.flush();
     }
 
     public int getMedalCount(int type)
     {
-        return medals.get(type);
+        return  preferences.getInteger(medalSettingsName.get(type));
     }
 
     public Color getMedalColor(int medalNumber) {
@@ -62,21 +68,25 @@ public class SettingsService {
     }
 
     public void saveMaxScore(int score) {
-//        int maxScore = this.maxScore;
+        int  maxScore = preferences.getInteger(MAX_SCORE, 0);
         if(score > maxScore) {
             maxScore = score;
+            preferences.putInteger(MAX_SCORE, maxScore);
+            preferences.flush();
         }
     }
 
+    public int getMaxScore() {
+        return preferences.getInteger(MAX_SCORE, 0);
+    }
+
     public int getUnlockLevel() {
-        return unlockLevel;  //To change body of created methods use File | Settings | File Templates.
+        return preferences.getInteger(UNLOCK_LEVEL, 0);
     }
 
     public void saveUnlockLevel(int unlockLevel) {
-        this.unlockLevel = unlockLevel;
+        preferences.putInteger(UNLOCK_LEVEL, unlockLevel);
+        preferences.flush();
     }
 
-    public int getMaxScore() {
-        return maxScore;
-    }
 }
