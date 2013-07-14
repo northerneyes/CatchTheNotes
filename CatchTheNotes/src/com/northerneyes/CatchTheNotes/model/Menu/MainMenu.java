@@ -127,6 +127,8 @@ public class MainMenu implements IEntity{
         btnColor.a = 0.4f;
         btnHoverColor.a = 0.5f;
         btnPressedColor.a = 0.6f;
+        pointsColor.a = 1;
+        scoreColor.a = 1;
     }
 
     @Override

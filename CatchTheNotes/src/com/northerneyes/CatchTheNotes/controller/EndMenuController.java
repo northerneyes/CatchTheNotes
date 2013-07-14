@@ -1,7 +1,10 @@
 package com.northerneyes.CatchTheNotes.controller;
 
+import com.northerneyes.CatchTheNotes.CatchTheNotes;
 import com.northerneyes.CatchTheNotes.Services.AudioAssetManager;
+import com.northerneyes.CatchTheNotes.Services.IAppService;
 import com.northerneyes.CatchTheNotes.audio.MediaPlayer;
+import com.northerneyes.CatchTheNotes.model.Constants;
 import com.northerneyes.CatchTheNotes.model.Menu.EndGameMenu;
 import com.northerneyes.CatchTheNotes.model.Menu.MainMenu;
 import com.northerneyes.CatchTheNotes.model.World;
@@ -19,6 +22,7 @@ public class EndMenuController  implements IMenuController, IHoverListener {
     private final PlayerHoverManager playerHoverManager;
     private final MainMenu mainMenu;
     private final World world;
+    private IAppService appService = CatchTheNotes.AppService();
 
     public EndMenuController(World world) {
         this.world = world;
@@ -39,12 +43,20 @@ public class EndMenuController  implements IMenuController, IHoverListener {
                 break;
             case 1:
                 AudioAssetManager.playTouchMusic();
-                //TODO: restart
-               menu.Init();
+                if(Constants.DEBUG_END_MENU)
+                {
+                    menu.Init();
+                }
+                else
+                {
+                    world.setCurrentMenuType(World.MenuType.START_GAME);
+                    appService.showAdMob(false);
+                }
                 break;
             case 2:
                 mainMenu.init();
                 world.setCurrentMenuType(World.MenuType.MAIN_MENU);
+                appService.showAdMob(true);
                 break;
         }
     }

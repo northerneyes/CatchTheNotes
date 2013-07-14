@@ -4,6 +4,7 @@ import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.TweenCallback;
 import com.northerneyes.CatchTheNotes.CatchTheNotes;
 import com.northerneyes.CatchTheNotes.Services.AudioAssetManager;
+import com.northerneyes.CatchTheNotes.Services.IAppService;
 import com.northerneyes.CatchTheNotes.Services.SettingsService;
 import com.northerneyes.CatchTheNotes.model.Menu.MainMenu;
 import com.northerneyes.CatchTheNotes.model.World;
@@ -20,10 +21,12 @@ public class MainMenuController  implements IMenuController, IHoverListener, Twe
     private final PlayerHoverManager playerHoverManager;
     private final SettingsService settingService;
     private World world;
+    private IAppService appService;
 
     public MainMenuController(World world) {
         this.world = world;
         menu = world.getMainMenu();
+        appService = CatchTheNotes.AppService();
         playerHoverManager = new PlayerHoverManager(world.getPlayer());
         playerHoverManager.setListener(this);
         settingService =  CatchTheNotes.getSettingService();
@@ -88,6 +91,7 @@ public class MainMenuController  implements IMenuController, IHoverListener, Twe
     @Override
     public void onEvent(int i, BaseTween<?> baseTween) {
         world.setCurrentMenuType(World.MenuType.START_GAME);
+        appService.showAdMob(false);
 //        menu.init();
     }
 }

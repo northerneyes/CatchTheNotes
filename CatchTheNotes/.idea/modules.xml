@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/CatchTheNotes.iml" filepath="$PROJECT_DIR$/CatchTheNotes.iml" />
       <module fileurl="file://$PROJECT_DIR$/../CatchTheNotes-android/CatchTheNotes-android.iml" filepath="$PROJECT_DIR$/../CatchTheNotes-android/CatchTheNotes-android.iml" />
       <module fileurl="file://$PROJECT_DIR$/../CatchTheNotes-android-free/CatchTheNotes-android-free.iml" filepath="$PROJECT_DIR$/../CatchTheNotes-android-free/CatchTheNotes-android-free.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../CatchTheNotes-android-full/CatchTheNotes-android-full.iml" filepath="$PROJECT_DIR$/../CatchTheNotes-android-full/CatchTheNotes-android-full.iml" />
       <module fileurl="file://$PROJECT_DIR$/../CatchTheNotes-desktop/CatchTheNotes-desktop.iml" filepath="$PROJECT_DIR$/../CatchTheNotes-desktop/CatchTheNotes-desktop.iml" />
     </modules>
   </component>

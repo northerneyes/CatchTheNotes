@@ -1,6 +1,8 @@
 package com.northerneyes.CatchTheNotes.controller;
 
 import com.badlogic.gdx.math.Vector2;
+import com.northerneyes.CatchTheNotes.CatchTheNotes;
+import com.northerneyes.CatchTheNotes.Services.IAppService;
 import com.northerneyes.CatchTheNotes.Services.ScoreManager;
 import com.northerneyes.CatchTheNotes.audio.IMediaPlayerListener;
 import com.northerneyes.CatchTheNotes.audio.MediaPlayer;
@@ -16,40 +18,37 @@ import java.util.HashMap;
 
 
 public class WorldController implements IMediaPlayerListener {
-    private final EndMenuController endMenuController;
-    public Player player;
-    public static final int SOURCE_COUNT = 16;
-    public NotesHolder notesHolder;
 
-    private static final int FREQ_LENGTH = 256;
+    public Player player;
+    public NotesHolder notesHolder;
+    private final MessageHolder messageHolder;
+    private World world;
+    private ScoreManager scoreManager;
     private final VisualizationData data;
+    private IAppService appService;
+
+    public static final int SOURCE_COUNT = 16;
+    private static final int FREQ_LENGTH = 256;
+    private int bandWidth = 16;
+    private int frameCount = 0;
+    private float timeCount = 0;
+    private int maxShapesOnBoard = 50;
+    private float halfWidth = SOURCE_COUNT/2f;
+    private int powerDownTime = -1;
+    private boolean stopFlag;
+
     private final float coefX;
     private final float height;
-    private final MessageHolder messageHolder;
 
     private float[] oldVolume = new float[FREQ_LENGTH];
     private HashMap<Integer, Float> volumePoints = new HashMap<Integer, Float>();
-    private int bandWidth = 16;
-    private int frameCount = 0;
-    private boolean cheatLotsOfShapes = false;
-    private int maxShapesOnBoard = 50;
 
-    private float halfWidth = SOURCE_COUNT/2f;
-
-  //  public static boolean DEBUG = true;
-  //  public static boolean DEBUG_END_MENU = true;
-
-    private int powerDownTime = -1;
 
     private GameMenuController gameMenuController;
     private IMenuController currentMenuController;
     private final PauseMenuController pauseMenuController;
     private final MainMenuController mainMenuController;
-
-    private World world;
-    private ScoreManager scoreManager;
-    private boolean stopFlag;
-    private float timeCount;
+    private final EndMenuController endMenuController;
 
     public WorldController(World world) {
         this.height =  WorldRenderer.CAMERA_HEIGHT;
@@ -58,7 +57,8 @@ public class WorldController implements IMediaPlayerListener {
         this.notesHolder = world.getNotesHolder();
         this.messageHolder = world.getMessageHolder();
         scoreManager = world.getScoreManager();
-       // this.messageHolder = world.getMessageHolder();
+        appService = CatchTheNotes.AppService();
+
         coefX = bandWidth*halfWidth/FREQ_LENGTH;
 
         gameMenuController = new GameMenuController(world);
@@ -74,14 +74,9 @@ public class WorldController implements IMediaPlayerListener {
 
         if(Constants.DEBUG_END_MENU)
             endMenuController.Init();
-
-        if(!Constants.DEBUG)
-        {
-//            MediaPlayer.play("audio/Leaves_in_the_Wind.mp3");
-            //MediaPlayer.stop();
-            MediaPlayer.setVisualizationEnabled();
-        }
-            data = new VisualizationData(FREQ_LENGTH);
+        MediaPlayer.setVisualizationEnabled();
+        appService.showAdMob(true);
+        data = new VisualizationData(FREQ_LENGTH);
 	}
 
     @Override
@@ -94,6 +89,7 @@ public class WorldController implements IMediaPlayerListener {
     public void Stop()
     {
         endMenuController.Init();
+        appService.showAdMob(true);
         world.SongPosition = 0;
         timeCount = 0;
         world.setCurrentMenuType(World.MenuType.END_GAME);
@@ -346,7 +342,7 @@ public class WorldController implements IMediaPlayerListener {
         for (Integer key : volumePoints.keySet() )
         {
             float volume = volumePoints.get(key);
-            if (cheatLotsOfShapes || notesHolder.particles.size() < maxShapesOnBoard  || volume > 0.9)
+            if (notesHolder.particles.size() < maxShapesOnBoard  || volume > 0.9)
             {
                 scoreManager.addTotalShape(2);
                 notesHolder.beat((1f + key / (float) FREQ_LENGTH) * halfWidth + (float) (Math.random() * coefX), height, -volume);

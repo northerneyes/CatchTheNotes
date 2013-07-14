@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.northerneyes.CatchTheNotes.Services.AudioAssetManager;
+import com.northerneyes.CatchTheNotes.Services.IAppService;
 import com.northerneyes.CatchTheNotes.Services.IContentManager;
 import com.northerneyes.CatchTheNotes.Services.SettingsService;
 import com.northerneyes.CatchTheNotes.accessors.ColorAccessor;
@@ -20,8 +21,10 @@ public class CatchTheNotes extends   Game  {
     public GameScreen game;
 
     private static IContentManager contentManager;
+    private static IAppService appService;
 
-    public CatchTheNotes(IContentManager contentManager){
+    public CatchTheNotes(IContentManager contentManager, IAppService appService){
+        this.appService = appService;
         Tween.setWaypointsLimit(10);
         Tween.setCombinedAttributesLimit(3);
         Tween.registerAccessor(Sprite.class, new SpriteAccessor());
@@ -32,8 +35,8 @@ public class CatchTheNotes extends   Game  {
         CatchTheNotes.contentManager = contentManager;
     }
 
-    public CatchTheNotes(IContentManager contentManager, String songName)  {
-        this(contentManager);
+    public CatchTheNotes(IContentManager contentManager, IAppService appService, String songName)  {
+        this(contentManager, appService);
         this.songName = songName;
     }
 
@@ -41,6 +44,10 @@ public class CatchTheNotes extends   Game  {
         return contentManager;
     }
 
+    public static IAppService AppService()
+    {
+        return appService;
+    }
 
     public static SettingsService getSettingService() {
        if(preferences ==null){
