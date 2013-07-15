@@ -55,9 +55,9 @@ public class MainMenuController  implements IMenuController, IHoverListener, Twe
     }
     private boolean checkState(int state)
     {
-        if(settingService.getUnlockLevel() < 2 && (state == 2|| state == 3))
+        if(settingService.getUnlockLevel() < 1 && (state == 2|| state == 3))
             return false;
-        else if (settingService.getUnlockLevel() >= 2 && settingService.getUnlockLevel() < 5 && state == 3)
+        else if (settingService.getUnlockLevel() >= 1 && settingService.getUnlockLevel() < 5 && state == 3)
             return false;
         return true;
     }

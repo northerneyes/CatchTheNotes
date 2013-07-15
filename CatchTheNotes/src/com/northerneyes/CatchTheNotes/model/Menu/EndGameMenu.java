@@ -85,15 +85,16 @@ public class EndGameMenu implements IEntity {
 
         if(scoreManager.getPowerDownCount() == 0)
         {
-            //TODO:noRedsSprite?
+
             messageQueue.add(new MessageGroup()
                     .add(new Message(contentManager.getString("super_duper"), 3f, noRedsNotesColor, TextPosition.x, TextPosition.y + 1, 0))
                     .add(new Message(contentManager.getString("avoided"), 3f, noRedsNotesColor, TextPosition.x, TextPosition.y - 1, 0)));
+            scoreManager.saveRedStars();
         }
 
         int medal = loadMedal();
         unlockLevels();
-        if(medal > 0)
+        if(medal >= 0)
             scoreManager.saveMedal(medal);
         scoreManager.save();
         scoreManager.clear();

@@ -74,7 +74,10 @@ public class WorldController implements IMediaPlayerListener {
         }
 
         if(Constants.DEBUG_END_MENU)
+        {
             endMenuController.Init();
+            world.setCurrentMenuType(World.MenuType.END_GAME);
+        }
         MediaPlayer.setVisualizationEnabled();
         appService.showAdMob(true);
         data = new VisualizationData(FREQ_LENGTH);

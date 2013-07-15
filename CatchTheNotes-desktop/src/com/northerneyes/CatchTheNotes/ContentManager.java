@@ -45,7 +45,7 @@ public class ContentManager implements IContentManager {
         textHashMap.put("play_again", "Play Again");
         textHashMap.put("change_options", "Change Options");
         textHashMap.put("super_duper","Super!");
-        textHashMap.put("avoided","You avoided all red shapes!" );
+        textHashMap.put("avoided","You avoided all red notes!" );
         textHashMap.put("platinum_medal", "Platinum");
         textHashMap.put("gold_medal", "Gold");
         textHashMap.put("silver_medal", "Silver" );

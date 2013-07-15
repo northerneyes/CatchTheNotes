@@ -15,6 +15,7 @@ import java.util.HashMap;
  */
 public class SettingsService {
     private static final String PREFS_NAME = "CatchTheNotes";
+    private static final String RED_STARS = "RedNotes";
     private final HashMap<Integer, String> medalSettingsName;
 
     private static final String MAX_SCORE = "MaxScore";
@@ -89,4 +90,13 @@ public class SettingsService {
         preferences.flush();
     }
 
+    public void saveRedStars() {
+        int count = preferences.getInteger(RED_STARS);
+        preferences.putInteger(RED_STARS, ++count);
+        preferences.flush();
+    }
+
+    public int getRedStars(){
+        return preferences.getInteger(RED_STARS, 0);
+    }
 }

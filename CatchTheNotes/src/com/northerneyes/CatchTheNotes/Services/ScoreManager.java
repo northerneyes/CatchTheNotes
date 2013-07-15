@@ -108,7 +108,7 @@ public class ScoreManager implements IEntity {
     public int getPercentShapes() {
         if(Constants.DEBUG_END_MENU)
         {
-            return (int) (Math.random()*120 + 10);
+            return 37;
         }
         return Math.round(100 * shapeCount / totalShape);
     }
@@ -145,5 +145,9 @@ public class ScoreManager implements IEntity {
 
     public void resetPlayerSize() {
         player.clear();
+    }
+
+    public void saveRedStars() {
+        settingService.saveRedStars();
     }
 }

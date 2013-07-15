@@ -8,9 +8,9 @@ package com.northerneyes.CatchTheNotes.model;
  * To change this template use File | Settings | File Templates.
  */
 public class Constants {
-    public static final boolean DEBUG = false;
-    public static final boolean DEBUG_END_MENU = false;
-    public static final boolean STATIC_DEBUG = false;
+    public static final boolean DEBUG = true;
+    public static final boolean DEBUG_END_MENU = true;
+    public static final boolean STATIC_DEBUG = true;
 
     public static final float BEAT_COST = .4f; // "Стоимость" частички, отнимается у аккумулятора при генерации новой частички
     public static final float ACCUMULATE_SPEED = .01f; // Скорость аккумуляции

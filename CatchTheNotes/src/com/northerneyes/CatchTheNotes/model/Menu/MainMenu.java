@@ -69,7 +69,11 @@ public class MainMenu implements IEntity{
 
     public Message getMedalText(int type, float xPos)
     {
-       return new Message(String.format("x%d", settingService.getMedalCount(type)), 2000,
+        if(type == 4)
+            return new Message(String.format("x%d", settingService.getRedStars()), 2000,
+                    settingService.getMedalColor(0), xPos, MedalsPosition.y);
+        else
+            return new Message(String.format("x%d", settingService.getMedalCount(type)), 2000,
                settingService.getMedalColor(type), xPos, MedalsPosition.y);
     }
 

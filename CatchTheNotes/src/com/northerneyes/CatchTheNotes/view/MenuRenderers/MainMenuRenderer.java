@@ -84,9 +84,9 @@ public class MainMenuRenderer implements IRenderer {
 
     private void closeInfo() {
         int start = songRenderers.length;
-        if(settingService.getUnlockLevel() < 2)
+        if(settingService.getUnlockLevel() < 1)
             start = 1;
-        else if (settingService.getUnlockLevel() >= 2 && settingService.getUnlockLevel() < 5)
+        else if (settingService.getUnlockLevel() >= 1 && settingService.getUnlockLevel() < 5)
             start = 2;
         for (int i = 0; i < songRenderers.length; i++)
         {
@@ -165,7 +165,13 @@ public class MainMenuRenderer implements IRenderer {
                 shift += menu.MedalSize / 2;
             }
         }
+       
+        if(settingService.getRedStars() != 0)
+        {
+            renderMedal(spriteBatch, 4, menu.MedalsPosition.x - shift, menu.MedalsPosition.y);
+        }
     }
+
 
     public void renderMedal(SpriteBatch spriteBatch, int type, float x, float y)
     {
