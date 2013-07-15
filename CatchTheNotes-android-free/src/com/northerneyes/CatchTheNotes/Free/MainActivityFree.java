@@ -18,11 +18,10 @@ import com.northerneyes.CatchTheNotes.CatchTheNotes;
 import com.northerneyes.CatchTheNotes.ContentManager;
 import com.northerneyes.CatchTheNotes.LibApp;
 import com.northerneyes.CatchTheNotes.Services.IAppService;
+import com.northerneyes.CatchTheNotes.model.Constants;
 
 public class MainActivityFree extends LibApp implements IAppService {
     private AdView adView;
-
-    public final static boolean ADMOB_DEBUG = true;
 
     /**
      * Called when the activity is first created.
@@ -50,7 +49,7 @@ public class MainActivityFree extends LibApp implements IAppService {
         //представление и настройка AdMob
         adView = new AdView(this, AdSize.BANNER, "a151e26a251fd71");
         AdRequest adRequest = new AdRequest();
-        if(ADMOB_DEBUG)
+        if(Constants.ADMOB_DEBUG)
         {
             adRequest.addTestDevice("593D76AF060B3E366D43BCE9E5517190");
         }
@@ -85,7 +84,7 @@ public class MainActivityFree extends LibApp implements IAppService {
             if(msg.what==1){
                 adView.setVisibility(View.VISIBLE);
                 AdRequest adRequest = new AdRequest();
-                if(ADMOB_DEBUG)
+                if(Constants.ADMOB_DEBUG)
                 {
                     adRequest.addTestDevice("593D76AF060B3E366D43BCE9E5517190");
                 }

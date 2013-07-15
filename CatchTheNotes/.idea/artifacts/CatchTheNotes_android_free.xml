@@ -8,7 +8,7 @@
         <option name="keyPassword" value="c3QxM3BxOXl6eGM=" />
         <option name="keyStorePassword" value="c3QxM3BxOXl6eGM=" />
         <option name="keyStoreUrl" value="file://D:/Dropbox/key_production" />
-        <option name="proGuardCfgFileUrl" value="file://$PROJECT_DIR$/../CatchTheNotes-android-free/proguard.cfg" />
+        <option name="proGuardCfgFileUrl" value="file://$PROJECT_DIR$/../CatchTheNotes-android/proguard.cfg" />
         <option name="runProGuard" value="true" />
         <option name="signingMode" value="RELEASE_SIGNED" />
       </options>
