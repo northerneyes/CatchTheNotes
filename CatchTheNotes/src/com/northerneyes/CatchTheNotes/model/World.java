@@ -8,6 +8,8 @@ import com.northerneyes.CatchTheNotes.model.Menu.GameMenu;
 import com.northerneyes.CatchTheNotes.model.Menu.MainMenu;
 import com.northerneyes.CatchTheNotes.model.Menu.PauseMenu;
 
+import java.io.File;
+
 public class World {
 
 
@@ -55,7 +57,7 @@ public class World {
         if(song.equals(""))
            return mainMenu.SongsName[mainMenu.CurrentSongIndex];
         else
-            return song; //TODO:format
+            return new File(song).getName(); 
     }
 
 //    public PlayerHoverManager getPlayerHoverManager() {

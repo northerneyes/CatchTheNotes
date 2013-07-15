@@ -46,7 +46,7 @@ public class MediaPlayer {
         FileHandle externalFile = Gdx.files.external("tmp/test.mp3");
         Gdx.app.log("Game external", String.valueOf(external));
         if(external)
-            Gdx.files.external(fileName).copyTo(externalFile);
+            Gdx.files.absolute(fileName).copyTo(externalFile);
         else
             Gdx.files.internal(fileName).copyTo(externalFile);
         decoder = new Mpg123Decoder(externalFile);

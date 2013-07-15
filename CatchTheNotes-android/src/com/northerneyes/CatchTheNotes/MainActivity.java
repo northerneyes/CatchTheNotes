@@ -39,9 +39,9 @@ public class MainActivity extends AndroidApplication implements IAppService {
                 String scheme = mUri.getScheme();
                 if (scheme.equals("file"))
                 {
-                    String rootPath = Environment.getExternalStorageDirectory().toString();
-                    String path = mUri.getPath();
-                    String songName = path.replace(rootPath, "");
+                   // String rootPath = Environment.getExternalStorageDirectory().toString();
+                    String songName = mUri.getPath();
+                  //  String songName = path.replace(rootPath, "");
                     Log.v("Game", songName);
 
                     //TODO:Load song
