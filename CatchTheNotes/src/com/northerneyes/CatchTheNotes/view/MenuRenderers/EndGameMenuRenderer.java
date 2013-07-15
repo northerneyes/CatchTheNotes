@@ -88,7 +88,7 @@ public class EndGameMenuRenderer  implements IRenderer {
                             (msg.Position.y - 5)*ppuY - height/2, menu.MedalSize*ppuX,  menu.MedalSize*ppuY);
                     spriteBatch.end();
                 }
-                if(msg.Text.equals(contentManager.getString("congratulations")) &&  menu.getMedal() > 0)
+                if(msg.Text.equals(contentManager.getString("congratulations")) &&  menu.getMedal() >= 0)
                 {
                     renderMedal(spriteBatch, msg.Position.x, msg.Position.y);
                 }

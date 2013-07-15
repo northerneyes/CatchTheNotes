@@ -85,7 +85,6 @@ public class EndGameMenu implements IEntity {
 
         if(scoreManager.getPowerDownCount() == 0)
         {
-
             messageQueue.add(new MessageGroup()
                     .add(new Message(contentManager.getString("super_duper"), 3f, noRedsNotesColor, TextPosition.x, TextPosition.y + 1, 0))
                     .add(new Message(contentManager.getString("avoided"), 3f, noRedsNotesColor, TextPosition.x, TextPosition.y - 1, 0)));

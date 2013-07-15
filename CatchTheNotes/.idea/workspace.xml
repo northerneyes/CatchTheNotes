@@ -198,19 +198,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EndGameMenu.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="EndGameMenu.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Menu/EndGameMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="22" selection-start="4319" selection-end="4319" vertical-scroll-proportion="0.3868421">
+            <state line="163" column="5" selection-start="6979" selection-end="7014" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android/res/values/strings.xml">
+      <file leaf-file-name="EndGameMenuRenderer.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/MenuRenderers/EndGameMenuRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="52" selection-start="1749" selection-end="1749" vertical-scroll-proportion="-13.44">
+            <state line="90" column="96" selection-start="3787" selection-end="3787" vertical-scroll-proportion="0.46973684">
               <folding />
             </state>
           </provider>
@@ -228,7 +228,7 @@
       <file leaf-file-name="ScoreManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/ScoreManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="0" selection-start="2237" selection-end="2237" vertical-scroll-proportion="0.0">
+            <state line="126" column="28" selection-start="2748" selection-end="2748" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -264,7 +264,7 @@
       <file leaf-file-name="SettingsService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/SettingsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="17" selection-start="1843" selection-end="1843" vertical-scroll-proportion="0.0">
+            <state line="55" column="16" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -280,7 +280,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../CatchTheNotes-android/src/com/northerneyes/CatchTheNotes/MainActivity.java" />
         <option value="$PROJECT_DIR$/../CatchTheNotes-android-free/src/com/northerneyes/CatchTheNotes/Free/MainActivityFree.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/controller/PlayerHoverManager.java" />
         <option value="$PROJECT_DIR$/../CatchTheNotes-desktop/src/com/northerneyes/CatchTheNotes/CatchTheNotesDesktop.java" />
@@ -296,6 +295,7 @@
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/ScoreManager.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/controller/WorldController.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Menu/EndGameMenu.java" />
+        <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/MenuRenderers/EndGameMenuRenderer.java" />
       </list>
     </option>
   </component>
@@ -545,7 +545,7 @@
       <recent name="com.northerneyes.CatchTheNotes" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CatchTheNotesDesktop">
+  <component name="RunManager" selected="Android Application.CatchTheNotes-android-full">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -855,13 +855,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android-free/src/com/northerneyes/CatchTheNotes/Free/MainActivityFree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="10" selection-start="918" selection-end="918" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/NotesHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="83" column="16" selection-start="2434" selection-end="2434" vertical-scroll-proportion="0.0">
@@ -900,13 +893,6 @@
     <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="52" selection-start="1749" selection-end="1749" vertical-scroll-proportion="-13.44">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/SettingsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="17" selection-start="1843" selection-end="1843" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -953,16 +939,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/SettingsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="16" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/ScoreManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="0" selection-start="2237" selection-end="2237" vertical-scroll-proportion="0.0">
+        <state line="126" column="28" selection-start="2748" selection-end="2748" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Menu/EndGameMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="22" selection-start="4319" selection-end="4319" vertical-scroll-proportion="0.3868421">
+        <state line="163" column="5" selection-start="6979" selection-end="7014" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/MenuRenderers/EndGameMenuRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="96" selection-start="3787" selection-end="3787" vertical-scroll-proportion="0.46973684">
           <folding />
         </state>
       </provider>
