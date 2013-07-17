@@ -104,7 +104,7 @@ public class EndGameMenu implements IEntity {
         int unlockLevel = scoreManager.getUnlockLevel();
         scoreManager.saveUnlockLevel(++unlockLevel);
 
-        if(unlockLevel == 2)
+        if(unlockLevel == 1)
         {
         messageQueue.add(new MessageGroup()
                 .add(new Message(contentManager.getString("unlocked_more_options"), 3f, percentColor, TextPosition.x, TextPosition.y + 1, 0))
