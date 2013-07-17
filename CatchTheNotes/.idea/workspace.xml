@@ -13,14 +13,14 @@
   </component>
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="CatchTheNotes-android-full" />
+      <artifact name="CatchTheNotes-android-free" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="caa34b44-4f79-4550-ace3-ed9d10e0863e" name="Default" comment="" />
     <ignored path="CatchTheNotes.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373906498481" ignored="false" />
+    <file path="/fragment.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1374075835568" ignored="false" />
     <file path="/GameMenuRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373704488600" ignored="false" />
     <file path="/PlayerRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373463708840" ignored="false" />
     <file path="/TextRenderer.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373645991751" ignored="false" />
@@ -88,7 +88,7 @@
     <file path="$PROJECT_DIR$/../CatchTheNotes-android-free/gen/com/example/CatchTheNotesFree/R.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373777040740" ignored="false" />
     <file path="$PROJECT_DIR$/../CatchTheNotes-android-free/gen/com/example/CatchTheNotesFree/Manifest.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373777040740" ignored="false" />
     <file path="$PROJECT_DIR$/../CatchTheNotes-android-free/gen/com/example/CatchTheNotesFree/BuildConfig.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373777089867" ignored="false" />
-    <file path="/MainActivityFree.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373905481247" ignored="false" />
+    <file path="/MainActivityFree.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1374075996483" ignored="false" />
     <file path="/LibApp.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373779895509" ignored="false" />
     <file path="/IAppService.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373784516654" ignored="false" />
     <file path="/AppService.java" changelist="caa34b44-4f79-4550-ace3-ed9d10e0863e" time="1373785318055" ignored="false" />
@@ -135,7 +135,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </line_breakpoints>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -172,6 +171,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -181,10 +181,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EndGameMenu.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="EndGameMenu.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Menu/EndGameMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="163" column="5" selection-start="6979" selection-end="7014" vertical-scroll-proportion="0.0">
+            <state line="163" column="5" selection-start="6979" selection-end="7014" vertical-scroll-proportion="1.6282052">
               <folding />
             </state>
           </provider>
@@ -208,15 +208,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="proguard.cfg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android/proguard.cfg">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="11" selection-start="1191" selection-end="1191" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ScoreManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/ScoreManager.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -230,17 +221,33 @@
         <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android/src/com/northerneyes/CatchTheNotes/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="45" column="0" selection-start="1528" selection-end="1528" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="World.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="World.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="45" selection-start="1692" selection-end="1692" vertical-scroll-proportion="0.49868074">
+            <state line="59" column="44" selection-start="1691" selection-end="1691" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android-free/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="38" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android-full/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="22" selection-start="707" selection-end="707" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -258,16 +265,7 @@
       <file leaf-file-name="MainActivityFree.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android-free/src/com/northerneyes/CatchTheNotes/Free/MainActivityFree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="13" selection-start="981" selection-end="981" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SettingsService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/SettingsService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="16" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.0">
+            <state line="55" column="33" selection-start="2234" selection-end="2234" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -283,7 +281,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../CatchTheNotes-desktop/src/com/northerneyes/CatchTheNotes/ContentManager.java" />
         <option value="$PROJECT_DIR$/../CatchTheNotes-android/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/SettingsService.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Menu/MainMenu.java" />
@@ -295,18 +292,19 @@
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/MenuRenderers/EndGameMenuRenderer.java" />
         <option value="$PROJECT_DIR$/../CatchTheNotes-android/proguard.cfg" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Constants.java" />
-        <option value="$PROJECT_DIR$/../CatchTheNotes-android-free/src/com/northerneyes/CatchTheNotes/Free/MainActivityFree.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/audio/MediaPlayer.java" />
         <option value="$PROJECT_DIR$/../CatchTheNotes-android/src/com/northerneyes/CatchTheNotes/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/World.java" />
+        <option value="$PROJECT_DIR$/../CatchTheNotes-android-full/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/../CatchTheNotes-android-free/src/com/northerneyes/CatchTheNotes/Free/MainActivityFree.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1592" />
+    <option name="x" value="55" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="width" value="1553" />
+    <option name="height" value="916" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -353,8 +351,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -372,8 +368,14 @@
               <option name="myItemId" value="CatchTheNotes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CatchTheNotes-android-full" />
+              <option name="myItemId" value="CatchTheNotes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CatchTheNotes-android-free" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -383,37 +385,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CatchTheNotes-android-full" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatchTheNotes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatchTheNotes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatchTheNotes-android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatchTheNotes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CatchTheNotes-android" />
+              <option name="myItemId" value="CatchTheNotes-android-free" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -421,7 +393,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CatchTheNotes" />
+              <option name="myItemId" value="Free" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -469,21 +441,23 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
     <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CatchTheNotes-android/proguard.cfg" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CatchTheNotes-android/proguard.cfg" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="catchthenotes" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -501,8 +475,8 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
-    <property name="dynamic.classpath" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -530,7 +504,7 @@
       <recent name="com.northerneyes.CatchTheNotes" />
     </key>
   </component>
-  <component name="RunManager" selected="Android Application.CatchTheNotes-android-full">
+  <component name="RunManager" selected="Android Application.CatchTheNotes-android-free">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -638,9 +612,7 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <RunnerSettings RunnerId="AndroidDebugRunner" />
       <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
+      <method />
     </configuration>
     <configuration default="false" name="CatchTheNotes-android-full" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="CatchTheNotes-android-full" />
@@ -740,38 +712,38 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1592" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="55" y="-8" width="1553" height="916" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24068157" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2140575" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.93807644" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24949698" sideWeight="0.7201051" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3088392" sideWeight="0.73852724" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16506922" sideWeight="0.37993598" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3043478" sideWeight="0.501006" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30566534" sideWeight="0.49899396" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3043478" sideWeight="0.49832326" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16506922" sideWeight="0.620064" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16404495" sideWeight="0.620064" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19797225" sideWeight="0.8349308" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32674572" sideWeight="0.49899396" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23071764" sideWeight="0.6956522" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40316206" sideWeight="0.49899396" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2140575" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -840,46 +812,24 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="52" selection-start="1749" selection-end="1749" vertical-scroll-proportion="-13.44">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Menu/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="61" selection-start="3129" selection-end="3129" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/controller/MainMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="72" selection-start="2134" selection-end="2134" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="59" column="72" selection-start="2134" selection-end="2134" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/MenuRenderers/MainMenuRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="35" selection-start="4082" selection-end="4082" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="95" column="35" selection-start="4082" selection-end="4082" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/controller/WorldController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="0" selection-start="2823" selection-end="2823" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="74" column="0" selection-start="2823" selection-end="2823" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/WorldRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="40" selection-start="4635" selection-end="4635" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="109" column="40" selection-start="4635" selection-end="4635" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/Services/SettingsService.java">
@@ -896,13 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Menu/EndGameMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="163" column="5" selection-start="6979" selection-end="7014" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/view/MenuRenderers/EndGameMenuRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="80" column="27" selection-start="3161" selection-end="3161" vertical-scroll-proportion="0.0">
@@ -912,9 +855,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android/proguard.cfg">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="11" selection-start="1191" selection-end="1191" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="33" column="11" selection-start="1191" selection-end="1191" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Constants.java">
@@ -931,25 +872,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android-free/src/com/northerneyes/CatchTheNotes/Free/MainActivityFree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="13" selection-start="981" selection-end="981" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android/src/com/northerneyes/CatchTheNotes/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="45" column="0" selection-start="1528" selection-end="1528" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/World.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="45" selection-start="1692" selection-end="1692" vertical-scroll-proportion="0.49868074">
+        <state line="59" column="44" selection-start="1691" selection-end="1691" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android-free/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="38" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android-full/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="22" selection-start="707" selection-end="707" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../CatchTheNotes-android-free/src/com/northerneyes/CatchTheNotes/Free/MainActivityFree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="33" selection-start="2234" selection-end="2234" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/northerneyes/CatchTheNotes/model/Menu/EndGameMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="163" column="5" selection-start="6979" selection-end="7014" vertical-scroll-proportion="1.6282052">
           <folding />
         </state>
       </provider>
@@ -1007,7 +967,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>CatchTheNotes-android-full</last-edited>
+          <last-edited>CatchTheNotes-desktop</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

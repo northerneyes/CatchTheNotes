@@ -61,7 +61,7 @@ public class MainActivityFree extends LibApp implements IAppService {
                 new RelativeLayout.LayoutParams( RelativeLayout.LayoutParams.WRAP_CONTENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
         adParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-        adParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+adParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
         //добавление представление рекламы к слою
         layout.addView(adView, adParams);
 
