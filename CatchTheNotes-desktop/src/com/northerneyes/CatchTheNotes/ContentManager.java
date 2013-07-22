@@ -19,8 +19,8 @@ public class ContentManager implements IContentManager {
 
     public ContentManager() {
         textHashMap.put("skip_text","[ Skip ]");
-        textHashMap.put("app_name", "Catch The Notes");
-        textHashMap.put("title_activity_main", "Catch The Notes");
+        textHashMap.put("app_name", "Music King");
+        textHashMap.put("title_activity_main", "Music King");
         textHashMap.put("pause_menu", "Pause");
         textHashMap.put("score", "Score:");
         textHashMap.put("end_game_menu", "End Game");
