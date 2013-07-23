@@ -117,7 +117,7 @@ public class WorldRenderer {
         shapesTextures.put(Note.ShapeType.MUSIC, Arrays.asList(regions[0]).subList(0, NotesHolder.NOTE_TYPE_COUNT));
         shapesTextures.put(Note.ShapeType.FLORAL, Arrays.asList(regions[1]).subList(0, NotesHolder.FLORAL_TYPE_COUNT));
         shapesTextures.put(Note.ShapeType.SKY, Arrays.asList(regions[2]).subList(0, NotesHolder.SKY_TYPE_COUNT));
-        shapesTextures.put(Note.ShapeType.ABSTRACT, Arrays.asList(regions[2]).subList(0, NotesHolder.ABSTRACT_TYPE_COUNT));
+        shapesTextures.put(Note.ShapeType.ABSTRACT, Arrays.asList(regions[3]).subList(0, NotesHolder.ABSTRACT_TYPE_COUNT));
 
         notesHolderRenderer = new NotesHolderRenderer(shapesTextures, ppuX, ppuY, CAMERA_WIDTH, WorldController.SOURCE_COUNT);
 

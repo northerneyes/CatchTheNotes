@@ -156,24 +156,18 @@ public class WorldController implements IMediaPlayerListener {
                     {
                         scoreManager.addTotalShape(8);
                         notesHolder.particles.clear();
-//                        notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 1f, 200, 2, 1));
-//                        notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 1.5f, 200, 2, 1));
-//                        notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 2f, 200, 3, 1));
-//                        notesHolder.particles.add(new Note(new Vector2(8, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 2.5f, 200, 4, 1));
-//                        notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 3f, 200, 1, 1));
-//                        notesHolder.particles.add(new Note(new Vector2(12, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, 3.5f, 200, 2, 1));
-//                        notesHolder.particles.add(new Note(new Vector2(15, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(1, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, Note.ShapeType.MUSIC, 4f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(2, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, Note.ShapeType.MUSIC, 4f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, Note.ShapeType.MUSIC, 1f, 200, 3, 1));
-                        notesHolder.particles.add(new Note(new Vector2(4, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, Note.ShapeType.MUSIC, 3.5f, 200, 4, 1));
-                        notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, Note.ShapeType.MUSIC, 3.5f, 200, 1, 1));
-                        notesHolder.particles.add(new Note(new Vector2(6, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, Note.ShapeType.MUSIC, 1f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, Note.ShapeType.MUSIC, 3f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(8, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, Note.ShapeType.MUSIC, 3f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(9, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, Note.ShapeType.MUSIC, 1f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, Note.ShapeType.MUSIC, 2.5f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(11, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, Note.ShapeType.MUSIC, 2.5f, 200, 2, 1));
+                        Note.ShapeType shapeType = Note.ShapeType.valueOf(mainMenu.getCurrentShapeType());
+                        notesHolder.particles.add(new Note(new Vector2(0, 0), new Vector2(0, 0), 0, 0, NoteType.NORMAL, shapeType, 4f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(2, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, shapeType, 4f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, shapeType, 1f, 200, 3, 1));
+                        notesHolder.particles.add(new Note(new Vector2(4, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, shapeType, 3.5f, 200, 4, 1));
+                        notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, shapeType, 3.5f, 200, 1, 1));
+                        notesHolder.particles.add(new Note(new Vector2(6, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, shapeType, 1f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, shapeType, 3f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(8, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, shapeType, 3f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(9, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, shapeType, 1f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, shapeType, 2.5f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(11, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, shapeType, 2.5f, 200, 2, 1));
                     }
                 }
                 else
@@ -183,6 +177,9 @@ public class WorldController implements IMediaPlayerListener {
                     if(frameCount % 6 == 0)
                     {
                         world.SongPosition = MediaPlayer.getPosition(timeCount);
+                    }
+                    if(frameCount % 2 == 0)
+                    {
                         addRainDrops();
                     }
                 }
@@ -375,9 +372,9 @@ public class WorldController implements IMediaPlayerListener {
         if(amp > 0.5f)
         {
             int selector = (int) (Math.random() * 1200);
-            if (selector < 20) // враг
+            if (selector < 20)
                 type = Note.NoteType.POWER_UP;
-            else if (selector < 40) // желтый
+            else if (selector < 40)
                 type = Note.NoteType.POWER_DOWN;
             else if (selector < 42 &&  player.getPower() == 0) // пурпурный
                 type = Note.NoteType.SUCTION;
