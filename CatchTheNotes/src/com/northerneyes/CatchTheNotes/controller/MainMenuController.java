@@ -34,7 +34,7 @@ public class MainMenuController  implements IMenuController, IHoverListener, Twe
     @Override
     public void setPosition(float posX, float posY) {
 
-        int state = menu.getMenuState(posX, posY);
+        int state = menu.getSongMenuState(posX, posY);
         switch (state)
         {
             case 0:
@@ -44,12 +44,28 @@ public class MainMenuController  implements IMenuController, IHoverListener, Twe
             case 1:
             case 2:
             case 3:
-                 if(checkState(state))
-                 {
+                if(checkState(state))
+                {
                     AudioAssetManager.playTouchMusic();
                     menu.setCurrentSongIndex(state - 1);
                     world.setCurrentSong(state);
-                 }
+                }
+                break;
+        }
+
+        state = menu.getShapeMenuState(posX, posY);
+        switch (state)
+        {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+              //  if(checkState(state))
+              //  {
+                    AudioAssetManager.playTouchMusic();
+                    menu.setCurrentShapeType(state);
+               // }
                 break;
         }
     }
@@ -61,23 +77,37 @@ public class MainMenuController  implements IMenuController, IHoverListener, Twe
             return false;
         return true;
     }
+
     @Override
     public void hoverPosition(int x, int y) {
-        int index = menu.getMenuState(x, y);
+        int index = menu.getSongMenuState(x, y);
         if(checkState(index))
         {
             playerHoverManager.check(index >= 0, x, y);
             playerHoverManager.setPosition(x, y);
         }
 
+        if(index == -1)
+        {
+            index = menu.getShapeMenuState(x, y);
+            playerHoverManager.check(index >= 0, x, y);
+            playerHoverManager.setPosition(x, y);
+        }
     }
 
     @Override
     public void hover(float x, float y) {
-        int index = menu.getMenuState(x, y);
+        int index = menu.getSongMenuState(x, y);
         if(checkState(index))
         {
-            menu.HoverSongIndex = index - 1;
+            menu.SongHoverIndex = index - 1;
+            AudioAssetManager.playHoverMusic();
+        }
+
+        if(index == -1)
+        {
+            index = menu.getShapeMenuState(x, y);
+            menu.ShapeHoverIndex = index;
             AudioAssetManager.playHoverMusic();
         }
 
@@ -85,7 +115,8 @@ public class MainMenuController  implements IMenuController, IHoverListener, Twe
 
     @Override
     public void unHover() {
-        menu.HoverSongIndex = - 1;
+        menu.SongHoverIndex = - 1;
+        menu.ShapeHoverIndex = - 1;
     }
 
     @Override

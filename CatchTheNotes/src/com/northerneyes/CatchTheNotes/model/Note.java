@@ -18,8 +18,8 @@ public class Note implements IEntity {
 
     public enum ShapeType{
         MUSIC,
-        SKY,
         FLORAL,
+        SKY,
         ABSTRACT,
         RANDOM;
 

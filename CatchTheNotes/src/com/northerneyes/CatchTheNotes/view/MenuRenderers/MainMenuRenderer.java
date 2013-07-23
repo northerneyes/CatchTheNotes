@@ -31,7 +31,9 @@ public class MainMenuRenderer implements IRenderer {
     private final float largeSize;
     private final SettingsService settingService;
     private final float medalSize;
-    private final Rectangle[] bounds;
+    private  Rectangle[] songBounds;
+    private  Rectangle[] shapeBounds;
+    private  TextRenderer[] shapeRenderers;
     private float ppuY;
     private final float coef;
     private final NinePatch btnPatch;
@@ -57,15 +59,16 @@ public class MainMenuRenderer implements IRenderer {
 
         btnPatch = new NinePatch( new Texture(Gdx.files.internal("images/btn.9.png")), 16, 16, 16, 16);
 
-        bounds = new Rectangle[4];
+        songBounds = new Rectangle[4];
         mediumSize =  CatchTheNotes.getContentManager().getDimension("medium_size");
         smallSize =  CatchTheNotes.getContentManager().getDimension("small_size");
         largeSize =   CatchTheNotes.getContentManager().getDimension("large_size");
         medalSize = CatchTheNotes.getContentManager().getDimension("medal_text_size");
 
         textRenderer.setText(menu.PlayText, menu.PlayTextColor, menu.PlayPosition, mediumSize, TextRenderer.TextAlign.CENTER);
-        bounds[0] = textRenderer.getBounds();
+        songBounds[0] = textRenderer.getBounds();
 
+        //Song
         songRenderers = new TextRenderer[3];
         textRenderer.setText(menu.SongText, menu.SongTextColor, menu.SongTextPosition, smallSize, TextRenderer.TextAlign.RIGHT);
         Vector2 position = new Vector2(getShift(textRenderer.getBounds()) + 0.5f, menu.SongTextPosition.y);
@@ -75,11 +78,31 @@ public class MainMenuRenderer implements IRenderer {
 
             songRenderers[i].setText(menu.SongsName[i], menu.SongTextColor, position, smallSize, TextRenderer.TextAlign.LEFT);
             menu.SongNamePositions[i] = position;
-            bounds[i+1] = songRenderers[i].getBounds();
-            position =  new Vector2(getShift(bounds[i+1]) + 0.5f,  menu.SongTextPosition.y);
+            songBounds[i+1] = songRenderers[i].getBounds();
+            position =  new Vector2(getShift(songBounds[i+1]) + 0.5f,  menu.SongTextPosition.y);
 
         }
-        mainMenu.setBounds(bounds);
+        mainMenu.setSongBounds(songBounds);
+
+        //Shapes
+        setupShapes(mainMenu, coeff);
+    }
+
+    private void setupShapes(MainMenu mainMenu, float coeff) {
+        shapeBounds = new Rectangle[5];
+        shapeRenderers = new TextRenderer[5];
+        textRenderer.setText(menu.ShapeText, menu.SongTextColor, menu.SongTextPosition, smallSize, TextRenderer.TextAlign.RIGHT);
+        Vector2 shapePosition = new Vector2(getShift(textRenderer.getBounds()) + 0.5f, menu.ShapeTextPosition.y);
+        for (int i = 0; i < shapeRenderers.length; i++)
+        {
+            shapeRenderers[i] = new TextRenderer(textRenderer.getFont(), ppuX, ppuY, coeff);
+
+            shapeRenderers[i].setText(menu.ShapesName[i], menu.SongTextColor, shapePosition, smallSize, TextRenderer.TextAlign.LEFT);
+            menu.ShapeTypePositions[i] = shapePosition;
+            shapeBounds[i] = shapeRenderers[i].getBounds();
+            shapePosition =  new Vector2(getShift(shapeBounds[i]) + 0.5f,  menu.ShapeTextPosition.y);
+        }
+        mainMenu.setShapeBounds(shapeBounds);
     }
 
     private void closeInfo() {
@@ -96,7 +119,7 @@ public class MainMenuRenderer implements IRenderer {
         for (int i = start; i < songRenderers.length; i++)
         {
             songRenderers[i].setText("?");
-            songRenderers[i].shiftRight(bounds[i+1].width/2 - 5);
+            songRenderers[i].shiftRight(songBounds[i+1].width/2 - 5);
         }
     }
 
@@ -128,19 +151,21 @@ public class MainMenuRenderer implements IRenderer {
         textRenderer.setText(menu.SongText, menu.SongTextColor, menu.SongTextPosition, smallSize, TextRenderer.TextAlign.RIGHT);
         textRenderer.render(spriteBatch);
 
-//        spriteBatch.draw(btnPatch.getTexture(), menu.getBounds()[1].x, menu.getBounds()[1].y, menu.getBounds()[1].width, menu.getBounds()[1].height );
-
-
         for (int i= 0; i < songRenderers.length; i++) {
             spriteBatch.begin();
-            btnPatch.setColor(getBtnColor(menu.getCurrentSongIndex(), menu.HoverSongIndex,  i));
-            spriteBatch.setColor(getBtnColor(menu.getCurrentSongIndex(), menu.HoverSongIndex, i));
-            btnPatch.draw(spriteBatch, menu.getBounds()[i+1].x - 0.4f*ppuX,
-                    menu.getBounds()[i+1].y -  0.5f*menu.getBounds()[i+1].height, menu.getBounds()[i+1].width + 0.8f*ppuX, menu.getBounds()[i+1].height*2f);
+            btnPatch.setColor(getBtnColor(menu.getCurrentSongIndex(), menu.SongHoverIndex,  i));
+            spriteBatch.setColor(getBtnColor(menu.getCurrentSongIndex(), menu.SongHoverIndex, i));
+            btnPatch.draw(spriteBatch, menu.getSongBounds()[i+1].x - 0.4f*ppuX,
+                    menu.getSongBounds()[i+1].y -  0.5f*menu.getSongBounds()[i+1].height, menu.getSongBounds()[i+1].width + 0.8f*ppuX, menu.getSongBounds()[i+1].height*2f);
             spriteBatch.end();
 
             songRenderers[i].render(spriteBatch);
         }
+
+
+        textRenderer.render(spriteBatch);
+
+        renderShapes(spriteBatch);
 
         int maxScore = settingService.getMaxScore();
         if(maxScore > 0)
@@ -154,6 +179,22 @@ public class MainMenuRenderer implements IRenderer {
         }
 
     }
+
+    private void renderShapes(SpriteBatch spriteBatch) {
+        textRenderer.setText(menu.ShapeText, menu.SongTextColor, menu.ShapeTextPosition, smallSize, TextRenderer.TextAlign.RIGHT);
+        textRenderer.render(spriteBatch);
+        for (int i= 0; i < shapeRenderers.length; i++) {
+            spriteBatch.begin();
+            btnPatch.setColor(getBtnColor(menu.getCurrentShapeType(), menu.ShapeHoverIndex,  i));
+            spriteBatch.setColor(getBtnColor(menu.getCurrentShapeType(), menu.ShapeHoverIndex, i));
+            btnPatch.draw(spriteBatch, menu.getShapeBounds()[i].x - 0.4f*ppuX,
+                    menu.getShapeBounds()[i].y -  0.5f*menu.getShapeBounds()[i].height, menu.getShapeBounds()[i].width + 0.8f*ppuX, menu.getShapeBounds()[i].height*2f);
+            spriteBatch.end();
+
+            shapeRenderers[i].render(spriteBatch);
+        }
+    }
+
     public void renderMedals(SpriteBatch spriteBatch)
     {
         float shift = 0;

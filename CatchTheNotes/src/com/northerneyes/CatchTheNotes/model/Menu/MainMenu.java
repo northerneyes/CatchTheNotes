@@ -25,15 +25,22 @@ public class MainMenu implements IEntity{
 
     public final Vector2 AppNamePosition;
     public final Vector2 PlayPosition;
-    public final Vector2 SongTextPosition;
 
+    public final Vector2 SongTextPosition;
     public final Vector2[] SongNamePositions;
+
+    public final Vector2 ShapeTextPosition;
+    public final Vector2[] ShapeTypePositions;
+
     public final Vector2 MedalsPosition;
     private final SettingsService settingService;
 
+
     public String AppNameText =  CatchTheNotes.getContentManager().getString("app_name");
     public String PlayText = CatchTheNotes.getContentManager().getString("play_menu");
+
     public String SongText =  CatchTheNotes.getContentManager().getString("song_menu");
+    public String ShapeText =  CatchTheNotes.getContentManager().getString("shape_menu");
 
     private Rectangle[] bounds;
     public Color AppNameTextColor = new Color(1f, 1f, 203f/255f, 1f);
@@ -51,10 +58,14 @@ public class MainMenu implements IEntity{
             CatchTheNotes.getContentManager().getString("letting_go")
     };
 
+    public String ShapesName[] =  CatchTheNotes.getContentManager().getStringArray("shapes_name");
+
     //public int CurrentSongIndex = 0;
-    public int HoverSongIndex = -1;
+    public int SongHoverIndex = -1;
     private TweenManager tweenManager = new TweenManager();
     public float MedalSize = 2.2f;
+    private Rectangle[] shapeBounds;
+    public int ShapeHoverIndex = -1;
 
     public MainMenu(float width, float height) {
         settingService =  CatchTheNotes.getSettingService();
@@ -65,6 +76,8 @@ public class MainMenu implements IEntity{
         PlayPosition = new Vector2(AppNamePosition.x, AppNamePosition.y - 3);
         SongTextPosition = new Vector2(2, PlayPosition.y - 2);
         SongNamePositions = new Vector2[3];
+        ShapeTextPosition = new Vector2(2, SongTextPosition.y - 2);
+        ShapeTypePositions = new Vector2[5];
     }
 
     public Message getMedalText(int type, float xPos)
@@ -77,21 +90,42 @@ public class MainMenu implements IEntity{
                settingService.getMedalColor(type), xPos, MedalsPosition.y);
     }
 
-    public void setBounds(Rectangle[] bounds)
+    public void setSongBounds(Rectangle[] bounds)
     {
         this.bounds =  bounds;
     }
 
-    public Rectangle[] getBounds()
+
+
+    public Rectangle[] getSongBounds()
     {
         return this.bounds;
     }
 
-    public int getMenuState(float x, float y)
+    public void setShapeBounds(Rectangle[] shapeBounds) {
+        this.shapeBounds =  shapeBounds;
+    }
+
+    public Rectangle[] getShapeBounds()
+    {
+        return this.shapeBounds;
+    }
+
+    public int getSongMenuState(float x, float y)
     {
         for(int i = 0; i < bounds.length; i++)
         {
             if(bounds[i].contains(x, y))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+    public int getShapeMenuState(float x, float y) {
+        for(int i = 0; i < shapeBounds.length; i++)
+        {
+            if(shapeBounds[i].contains(x, y))
             {
                 return i;
             }
@@ -168,4 +202,7 @@ public class MainMenu implements IEntity{
     public void setCurrentShapeType(int shapeType) {
         settingService.setCurrentShapeType(shapeType);
     }
+
+
+
 }
