@@ -47,7 +47,7 @@ public class MainMenuController  implements IMenuController, IHoverListener, Twe
                  if(checkState(state))
                  {
                     AudioAssetManager.playTouchMusic();
-                    menu.CurrentSongIndex = state - 1;
+                    menu.setCurrentSongIndex(state - 1);
                     world.setCurrentSong(state);
                  }
                 break;

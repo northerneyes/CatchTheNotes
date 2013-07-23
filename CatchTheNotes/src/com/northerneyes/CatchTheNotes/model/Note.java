@@ -16,6 +16,22 @@ import java.util.Random;
  */
 public class Note implements IEntity {
 
+    public enum ShapeType{
+        MUSIC,
+        SKY,
+        FLORAL,
+        ABSTRACT,
+        RANDOM;
+
+        // Converts from an ordinal value to the ResponseCode
+        public static ShapeType valueOf(int index) {
+            ShapeType[] values = ShapeType.values();
+            if (index < 0 || index >= values.length) {
+                return MUSIC;
+            }
+            return values[index];
+        }
+    }
 
     public enum NoteType {
         NORMAL,
@@ -56,10 +72,11 @@ public class Note implements IEntity {
     public float Visibility = 1f;
     public NoteType Type;
     public int ViewType; //image
+    public ShapeType ShapeViewType; //image
     private float amp;
     private Random random;
     public boolean Recycled = false;
-    public Note(Vector2 position, Vector2 velocity, float angle, float angularVelocity, NoteType type, float size, int ttl, int viewType, float amp)
+    public Note(Vector2 position, Vector2 velocity, float angle, float angularVelocity, NoteType type, ShapeType shapeType, float size, int ttl, int viewType, float amp)
     {
         Position = position;
         Velocity = velocity;
@@ -73,12 +90,12 @@ public class Note implements IEntity {
         InitialTTL = ttl;
         ViewType = viewType;
         this.amp = amp;
-
+        ShapeViewType = shapeType;
         a = 2*velocity.y/(float)(InitialTTL);
         SetType(type);  //Установка цвета под определённый тип
     }
 
-    public Note(Vector2 position, NoteType type, float size, int viewType, boolean recycled)
+    public Note(Vector2 position, NoteType type, int shapeType, float size, int viewType, boolean recycled)
     {
         Position = position;
         Velocity = new Vector2(0,0);
@@ -90,7 +107,9 @@ public class Note implements IEntity {
         Size = size;
         InitialSize = size;
         ViewType = viewType;
+        ShapeViewType = ShapeType.valueOf(shapeType);
         Recycled = recycled;
+
         SetType(type);  //Установка цвета под определённый тип
     }
 

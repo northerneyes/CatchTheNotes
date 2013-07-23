@@ -47,7 +47,7 @@ public class World {
     public String getCurrentSong()
     {
         if(currentSong.equals(""))
-            return Songs[0];
+            return Songs[mainMenu.getCurrentSongIndex()];
         else
             return currentSong;
     }
@@ -55,7 +55,7 @@ public class World {
     public String getFormattedCurrentSong()
     {
         if(song.equals(""))
-           return mainMenu.SongsName[mainMenu.CurrentSongIndex];
+           return mainMenu.SongsName[mainMenu.getCurrentSongIndex()];
         else
             return new File(song).getName();
     }

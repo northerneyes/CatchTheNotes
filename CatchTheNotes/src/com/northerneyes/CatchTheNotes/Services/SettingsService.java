@@ -16,6 +16,8 @@ import java.util.HashMap;
 public class SettingsService {
     private static final String PREFS_NAME = "CatchTheNotes";
     private static final String RED_STARS = "RedNotes";
+    private static final String CURRENT_SONG_INDEX = "CurrentSongIndex";
+    private static final String CURRENT_SHAPE_TYPE = "CurrentShapeType";
     private final HashMap<Integer, String> medalSettingsName;
 
     private static final String MAX_SCORE = "MaxScore";
@@ -24,7 +26,6 @@ public class SettingsService {
     private Preferences preferences;
     private HashMap<Integer, Color> medalColor;
     public int MaxMedals = 4;
-
 
     public SettingsService() {
         preferences = getPrefs();
@@ -98,5 +99,23 @@ public class SettingsService {
 
     public int getRedStars(){
         return preferences.getInteger(RED_STARS, 0);
+    }
+
+    public int getCurrentSongIndex() {
+        return  preferences.getInteger(CURRENT_SONG_INDEX, 0);
+    }
+
+    public void setCurrentSongIndex(int currentSongIndex) {
+        preferences.putInteger(CURRENT_SONG_INDEX, currentSongIndex);
+        preferences.flush();
+    }
+
+    public void setCurrentShapeType(int shapeType) {
+        preferences.putInteger(CURRENT_SHAPE_TYPE, shapeType);
+        preferences.flush();
+    }
+
+    public int getCurrentShapeType() {
+        return preferences.getInteger(CURRENT_SHAPE_TYPE, 0);
     }
 }

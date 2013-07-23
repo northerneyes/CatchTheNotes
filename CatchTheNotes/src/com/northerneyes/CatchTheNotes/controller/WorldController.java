@@ -9,6 +9,7 @@ import com.northerneyes.CatchTheNotes.audio.MediaPlayer;
 import com.northerneyes.CatchTheNotes.audio.VisualizationData;
 import com.northerneyes.CatchTheNotes.model.*;
 import com.northerneyes.CatchTheNotes.model.Menu.EndGameMenu;
+import com.northerneyes.CatchTheNotes.model.Menu.MainMenu;
 import com.northerneyes.CatchTheNotes.model.Message;
 import com.northerneyes.CatchTheNotes.model.Note.NoteType;
 import com.northerneyes.CatchTheNotes.model.Player.PulseType;
@@ -19,6 +20,7 @@ import java.util.HashMap;
 
 public class WorldController implements IMediaPlayerListener {
 
+    private final MainMenu mainMenu;
     public Player player;
     public NotesHolder notesHolder;
     private final MessageHolder messageHolder;
@@ -67,6 +69,7 @@ public class WorldController implements IMediaPlayerListener {
         mainMenuController = new MainMenuController(world);
         endMenuController = new EndMenuController(world);
 
+         mainMenu = world.getMainMenu();
         MediaPlayer.setListener(this);
         if(!world.getSong().equals(""))
         {
@@ -115,7 +118,7 @@ public class WorldController implements IMediaPlayerListener {
                 frameCount++;
                 if (frameCount % 20 == 0)
                 {
-                    notesHolder.beat((float)(Math.random() * SOURCE_COUNT), height, -(float)Math.random(), NoteType.NORMAL);
+                    notesHolder.beat((float)(Math.random() * SOURCE_COUNT), height, -(float)Math.random(), NoteType.NORMAL, mainMenu.getCurrentShapeType());
                 }
                 updateRainDrops();
                 return;
@@ -160,17 +163,17 @@ public class WorldController implements IMediaPlayerListener {
 //                        notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 3f, 200, 1, 1));
 //                        notesHolder.particles.add(new Note(new Vector2(12, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, 3.5f, 200, 2, 1));
 //                        notesHolder.particles.add(new Note(new Vector2(15, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(1, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 4f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(2, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 4f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 1f, 200, 3, 1));
-                        notesHolder.particles.add(new Note(new Vector2(4, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, 3.5f, 200, 4, 1));
-                        notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, 3.5f, 200, 1, 1));
-                        notesHolder.particles.add(new Note(new Vector2(6, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, 1f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 3f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(8, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 3f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(9, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, 1f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 2.5f, 200, 2, 1));
-                        notesHolder.particles.add(new Note(new Vector2(11, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, 2.5f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(1, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, Note.ShapeType.MUSIC, 4f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(2, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, Note.ShapeType.MUSIC, 4f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(3, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, Note.ShapeType.MUSIC, 1f, 200, 3, 1));
+                        notesHolder.particles.add(new Note(new Vector2(4, 7), new Vector2(0, 0), 0, 0, NoteType.NORMAL, Note.ShapeType.MUSIC, 3.5f, 200, 4, 1));
+                        notesHolder.particles.add(new Note(new Vector2(5, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_UP, Note.ShapeType.MUSIC, 3.5f, 200, 1, 1));
+                        notesHolder.particles.add(new Note(new Vector2(6, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, Note.ShapeType.MUSIC, 1f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(7, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, Note.ShapeType.MUSIC, 3f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(8, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, Note.ShapeType.MUSIC, 3f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(9, 7), new Vector2(0, 0), 0, 0, NoteType.YELLOW_MADDNESS, Note.ShapeType.MUSIC, 1f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(10, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, Note.ShapeType.MUSIC, 2.5f, 200, 2, 1));
+                        notesHolder.particles.add(new Note(new Vector2(11, 7), new Vector2(0, 0), 0, 0, NoteType.POWER_DOWN, Note.ShapeType.MUSIC, 2.5f, 200, 2, 1));
                     }
                 }
                 else
@@ -227,7 +230,7 @@ public class WorldController implements IMediaPlayerListener {
                             }
 
                             float yPos = (float) (player.Position.y + origCursorSize + Math.random() * 0.5f + 0.2f);
-                            notesHolder.addRecycledParticle(new Note(new Vector2(xPos, yPos), NoteType.POWER_UP, 0.7f, 2, true));
+                            notesHolder.addRecycledParticle(new Note(new Vector2(xPos, yPos), NoteType.POWER_UP, mainMenu.getCurrentShapeType(), 0.7f, 2, true));
                             ++k;
                         }
                         break;
@@ -385,7 +388,7 @@ public class WorldController implements IMediaPlayerListener {
             }
         }
         scoreManager.addTotalShape(1);
-        notesHolder.beat(x, height, -amp, type);
+        notesHolder.beat(x, height, -amp, type, mainMenu.getCurrentShapeType());
     }
 
     public void processMusic()

@@ -51,13 +51,13 @@ public class MainMenu implements IEntity{
             CatchTheNotes.getContentManager().getString("letting_go")
     };
 
-    public int CurrentSongIndex = 0;
+    //public int CurrentSongIndex = 0;
     public int HoverSongIndex = -1;
     private TweenManager tweenManager = new TweenManager();
     public float MedalSize = 2.2f;
 
     public MainMenu(float width, float height) {
-            settingService =  CatchTheNotes.getSettingService();
+        settingService =  CatchTheNotes.getSettingService();
 
         MedalsPosition = new Vector2(width - 0.7f, height - 0.7f);
 
@@ -151,5 +151,21 @@ public class MainMenu implements IEntity{
 
     public boolean hasMedal(int type) {
         return settingService.getMedalCount(type) > 0;
+    }
+
+    public int getCurrentSongIndex() {
+        return settingService.getCurrentSongIndex();
+    }
+
+    public void setCurrentSongIndex(int currentSongIndex) {
+        settingService.setCurrentSongIndex(currentSongIndex);
+    }
+
+    public int getCurrentShapeType() {
+        return settingService.getCurrentShapeType();
+    }
+
+    public void setCurrentShapeType(int shapeType) {
+        settingService.setCurrentShapeType(shapeType);
     }
 }

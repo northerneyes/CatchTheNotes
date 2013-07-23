@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.northerneyes.CatchTheNotes.CatchTheNotes;
 import com.northerneyes.CatchTheNotes.controller.WorldController;
 import com.northerneyes.CatchTheNotes.model.Constants;
+import com.northerneyes.CatchTheNotes.model.Note;
 import com.northerneyes.CatchTheNotes.model.NotesHolder;
 import com.northerneyes.CatchTheNotes.model.World;
 import com.northerneyes.CatchTheNotes.view.MenuRenderers.EndGameMenuRenderer;
@@ -18,10 +19,7 @@ import com.northerneyes.CatchTheNotes.view.MenuRenderers.GameMenuRenderer;
 import com.northerneyes.CatchTheNotes.view.MenuRenderers.MainMenuRenderer;
 import com.northerneyes.CatchTheNotes.view.MenuRenderers.PauseMenuRenderer;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class WorldRenderer {
 
@@ -114,10 +112,14 @@ public class WorldRenderer {
         mainMenuRenderer = new MainMenuRenderer(medalsTextures, world.getMainMenu(), textRenderer, ppuX, ppuY, coeff);
         endGameMenuRenderer = new EndGameMenuRenderer(medalsTextures, world.getEndMenu(), ppuX, ppuY, font, coeff);
 
-        ArrayList<TextureRegion> notes = new ArrayList<TextureRegion>();
-        notes.addAll(Arrays.asList(regions[0]).subList(0, NotesHolder.NOTE_TYPE_COUNT));
+//        ArrayList<TextureRegion> notes = new ArrayList<TextureRegion>();
+        HashMap<Note.ShapeType, List<TextureRegion>> shapesTextures = new HashMap<Note.ShapeType, List<TextureRegion>>();
+        shapesTextures.put(Note.ShapeType.MUSIC, Arrays.asList(regions[0]).subList(0, NotesHolder.NOTE_TYPE_COUNT));
+        shapesTextures.put(Note.ShapeType.FLORAL, Arrays.asList(regions[1]).subList(0, NotesHolder.FLORAL_TYPE_COUNT));
+        shapesTextures.put(Note.ShapeType.SKY, Arrays.asList(regions[2]).subList(0, NotesHolder.SKY_TYPE_COUNT));
+        shapesTextures.put(Note.ShapeType.ABSTRACT, Arrays.asList(regions[2]).subList(0, NotesHolder.ABSTRACT_TYPE_COUNT));
 
-        notesHolderRenderer = new NotesHolderRenderer(notes, ppuX, ppuY, CAMERA_WIDTH, WorldController.SOURCE_COUNT);
+        notesHolderRenderer = new NotesHolderRenderer(shapesTextures, ppuX, ppuY, CAMERA_WIDTH, WorldController.SOURCE_COUNT);
 
         if(Constants.DEBUG)
         {

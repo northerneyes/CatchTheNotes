@@ -4,9 +4,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.northerneyes.CatchTheNotes.model.IEntity;
 import com.northerneyes.CatchTheNotes.model.Note;
+import com.northerneyes.CatchTheNotes.model.Note.ShapeType;
 import com.northerneyes.CatchTheNotes.model.NotesHolder;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,19 +19,19 @@ import java.util.ArrayList;
  */
 public class NotesHolderRenderer implements IRenderer {
 
-    private ArrayList<TextureRegion> notesTexture;
+    private HashMap<ShapeType, List<TextureRegion>> shapesTexture;
     private NotesHolder notesHolder;
     private float ppuX;
     private float ppuY;
 
 
     private NoteRenderer noteRenderer;
-    public NotesHolderRenderer(ArrayList<TextureRegion> notes, float ppuX, float ppuY, float CAMERA_WIDTH, int sourceCount) {
-        this.notesTexture = notes;
+    public NotesHolderRenderer(HashMap<ShapeType, List<TextureRegion>> notes, float ppuX, float ppuY, float CAMERA_WIDTH, int sourceCount) {
+        this.shapesTexture = notes;
         this.ppuX = ppuX;
         this.ppuY = ppuY;
 
-        noteRenderer = new NoteRenderer(notes.get(0), ppuX, ppuY, CAMERA_WIDTH, sourceCount);
+        noteRenderer = new NoteRenderer(ppuX, ppuY, CAMERA_WIDTH, sourceCount);
     }
 
     @Override
@@ -43,7 +45,8 @@ public class NotesHolderRenderer implements IRenderer {
             for (int index = 0; index < notesHolder.particles.size(); index++)
             {
                 Note particle = notesHolder.particles.get(index);
-                noteRenderer.setTexture(notesTexture.get(particle.ViewType));
+                List<TextureRegion> texture = shapesTexture.get(particle.ShapeViewType);
+                noteRenderer.setTexture(texture.get(particle.ViewType));
                 noteRenderer.update(particle);
                 noteRenderer.render(spriteBatch);
             }

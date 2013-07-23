@@ -133,8 +133,8 @@ public class MainMenuRenderer implements IRenderer {
 
         for (int i= 0; i < songRenderers.length; i++) {
             spriteBatch.begin();
-            btnPatch.setColor(getBtnColor(menu.CurrentSongIndex, menu.HoverSongIndex,  i));
-            spriteBatch.setColor(getBtnColor(menu.CurrentSongIndex, menu.HoverSongIndex, i));
+            btnPatch.setColor(getBtnColor(menu.getCurrentSongIndex(), menu.HoverSongIndex,  i));
+            spriteBatch.setColor(getBtnColor(menu.getCurrentSongIndex(), menu.HoverSongIndex, i));
             btnPatch.draw(spriteBatch, menu.getBounds()[i+1].x - 0.4f*ppuX,
                     menu.getBounds()[i+1].y -  0.5f*menu.getBounds()[i+1].height, menu.getBounds()[i+1].width + 0.8f*ppuX, menu.getBounds()[i+1].height*2f);
             spriteBatch.end();

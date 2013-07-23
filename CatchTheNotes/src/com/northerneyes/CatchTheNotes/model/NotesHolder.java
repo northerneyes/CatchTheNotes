@@ -3,6 +3,7 @@ package com.northerneyes.CatchTheNotes.model;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -14,8 +15,12 @@ import java.util.Random;
  * To change this template use File | Settings | File Templates.
  */
 public class NotesHolder implements IEntity {
+    public static final Integer FLORAL_TYPE_COUNT = 5;
+    public static final Integer SKY_TYPE_COUNT = 5;
+    public static final Integer ABSTRACT_TYPE_COUNT = 7;
+    public static final Integer NOTE_TYPE_COUNT = 6;
 
-    public static  int  NOTE_TYPE_COUNT = 6;
+    public HashMap<Note.ShapeType, Integer> ShapesCountMap = new HashMap<Note.ShapeType, Integer>();
 
     private Random random; // Генератор случайных чисел
 
@@ -27,8 +32,22 @@ public class NotesHolder implements IEntity {
     public ArrayList<Float> Accumulator;
     private ArrayList<Note> recycledParticles = new ArrayList<Note>();
 
+   // public int ShapeCount;
+   // public int ShapeType;
+//
+//    public void setShapeType(int shapeType)
+//    {
+//        ShapeCount = ShapesCountMap.get(shapeType);
+//        ShapeType = shapeType;
+//    }
+
 
     public NotesHolder() {
+        ShapesCountMap.put(Note.ShapeType.MUSIC, NOTE_TYPE_COUNT); //notes
+        ShapesCountMap.put(Note.ShapeType.FLORAL, FLORAL_TYPE_COUNT); //floral
+        ShapesCountMap.put(Note.ShapeType.SKY, SKY_TYPE_COUNT); //sky
+        ShapesCountMap.put(Note.ShapeType.ABSTRACT, ABSTRACT_TYPE_COUNT); //abstract
+
         this.particles = new ArrayList<Note>();
 
         random = new Random();
@@ -41,11 +60,14 @@ public class NotesHolder implements IEntity {
         }
     }
 
-    private Note GenerateNewParticle(float wave, float posY, float amp, Note.NoteType type)
+    private Note GenerateNewParticle(float wave, float posY, float amp, Note.NoteType type, Note.ShapeType shapeType)
     {
         int ttl = 240; // Время жизни в 400 (400 актов рисования живет частица, т.е. 400 / 60 — 6 с лишним секунд.
 
-        int viewType = random.nextInt(NOTE_TYPE_COUNT);
+        if(shapeType == Note.ShapeType.RANDOM)
+            shapeType =  Note.ShapeType.valueOf(random.nextInt(4));
+
+        int viewType = random.nextInt(ShapesCountMap.get(shapeType));
 
         Vector2 position = new Vector2(wave, posY); // Задаем позицию
 
@@ -60,7 +82,7 @@ public class NotesHolder implements IEntity {
 
         float angularVelocity = (float) (0.05f * (random.nextFloat() * 2 - 1)*180/Math.PI); // Случайная скорость вращения
 
-        return new Note(position, velocity, angle, angularVelocity, type, size, ttl, viewType, amp); // Создаем частичку и возвращаем её
+        return new Note(position, velocity, angle, angularVelocity, type, shapeType, size, ttl, viewType, amp); // Создаем частичку и возвращаем её
     }
 
     private int findRealTTL(float InitialSize, int initialTTL)
@@ -81,9 +103,9 @@ public class NotesHolder implements IEntity {
 //        particles.add(GenerateNewParticle(wave, posY, -amp, type)); //TODO: _amp or amp
 //    }
 
-    public void beat(float wave, float posY, float amp,  Note.NoteType noteType)
+    public void beat(float wave, float posY, float amp,  Note.NoteType noteType, int shapeType)
     {
-        particles.add(GenerateNewParticle(wave, posY, amp, noteType));
+        particles.add(GenerateNewParticle(wave, posY, amp, noteType, Note.ShapeType.valueOf(shapeType)));
     }
 
     @Override
