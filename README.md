@@ -1,5 +1,5 @@
 ![alt tag](https://raw.githubusercontent.com/northerneyes/CatchTheNotes/master/Content/Feature%20Graphics.png)
-##Game
+## Game
 Catch The Notes is a libgdx game. It has beautiful music and art.
 
 You need to catch colorful raindrops with different types of shape: music notes, floral, sky and abstract in rhythm of the music.
